@@ -46,7 +46,7 @@ group :development do
   gem "web-console", ">= 3.3.0"
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem "annotate"
-  gem 'better_errors'
+  gem "better_errors"
   gem "binding_of_caller"
   gem "onkcop", require: false
   gem "spring"
