@@ -13,9 +13,9 @@ default: &default
   adapter: mysql2
   encoding: utf8
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  username: root
-  password:
-  socket: /tmp/mysql.sock
+  username: <%= ENV.fetch("DATABASE_USER") { "root" } %>
+  password: <%= ENV.fetch("DATABASE_PASSWORD") { "" } %>
+  socket: <%= ENV.fetch("DATABASE_SOCKET") { "/tmp/mysql.sock" } %>
 
 development:
   <<: *default
@@ -50,5 +50,3 @@ test:
 production:
   <<: *default
   database: cho_kure_web_production
-  username: cho_kure_web
-  password: <%= ENV['CHO_KURE_WEB_DATABASE_PASSWORD'] %>
