@@ -1,4 +1,6 @@
 linter:
   rubocop:
+    gems:
+      - onkcop
     options:
-      config: '.rubocop.yml'
+      config: .rubocop.yml
