@@ -1,0 +1,23 @@
+<p id="notice"><%= notice %></p>
+
+<dl class="dl-horizontal">
+  <dt><strong><%= Personality.human_attribute_name('name') %> :</strong></dt>
+  <dd><%= @personality.name %></dd>
+</dl>
+
+<dl class="dl-horizontal">
+  <dt><strong><%= Personality.human_attribute_name('role') %> :</strong></dt>
+  <dd><%= @personality.role.t %></dd>
+</dl>
+
+<dl class="dl-horizontal">
+  <dt><strong><%= Personality.human_attribute_name('description') %> :</strong></dt>
+  <dd><%= simple_format(@personality.description) if @personality.description %></dd>
+</dl>
+
+<dl class="dl-horizontal">
+  <dt><strong><%= Personality.human_attribute_name('email') %> :</strong></dt>
+  <dd><%= @personality.email %></dd>
+</dl>
+
+<%= link_to '編集', edit_admin_personality_path(@personality) %>

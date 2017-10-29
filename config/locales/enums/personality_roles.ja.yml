@@ -1,0 +1,7 @@
+# Additional translations at https://github.com/plataformatec/devise/wiki/I18n
+
+ja:
+  personality_roles:
+    admin: 管理者
+    editor: 編集者
+    guest: ゲスト

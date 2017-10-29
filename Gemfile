@@ -38,6 +38,8 @@ group :development, :test do
   gem "rspec-rails"
 
   gem "dotenv-rails"
+  gem "letter_opener"
+  gem "letter_opener_web"
 end
 
 group :development do
@@ -56,4 +58,9 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
+gem "bootstrap"
+gem "devise"
+gem "font-awesome-rails"
+gem "inum"
+gem "jquery-rails"
 gem "seed-fu"
