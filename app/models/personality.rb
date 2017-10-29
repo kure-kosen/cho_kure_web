@@ -39,4 +39,6 @@ class Personality < ApplicationRecord
          :trackable,
          :validatable,
          :confirmable
+
+  bind_inum :role, PersonalityRoles
 end
