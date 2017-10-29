@@ -5,10 +5,10 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th>名前</th>
-      <th>自己紹介</th>
-      <th>権限</th>
-      <th>Email</th>
+      <th><%= Personality.human_attribute_name('name') %></th>
+      <th><%= Personality.human_attribute_name('description') %></th>
+      <th><%= Personality.human_attribute_name('role') %></th>
+      <th><%= Personality.human_attribute_name('email') %></th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -18,7 +18,7 @@
       <tr>
         <td><%= personality.name %></td>
         <td><%= truncate(personality.description) if personality.description %></td>
-        <td><%= personality.role %></td>
+        <td><%= personality.role.t %></td>
         <td><%= personality.email %></td>
         <td><%= link_to '詳細', admin_personality_path(personality) %></td>
         <td><%= link_to '編集', edit_admin_personality_path(personality) %></td>
@@ -29,5 +29,3 @@
 </table>
 
 <br>
-
-<%= link_to '新規パーソナリティ作成', new_admin_personality_path, class: 'btn btn-primary' %>

@@ -12,32 +12,15 @@ class Admin::PersonalitiesController < Admin::BaseController
   def show
   end
 
-  # GET /personalities/new
-  def new
-    @personality = Personality.new
-  end
-
   # GET /personalities/1/edit
   def edit
-  end
-
-  # POST /personalities
-  # POST /personalities.json
-  def create
-    @personality = Personality.new(personality_params)
-
-    if @personality.save
-      redirect_to @personality, notice: "Personality was successfully created."
-    else
-      render :new
-    end
   end
 
   # PATCH/PUT /personalities/1
   # PATCH/PUT /personalities/1.json
   def update
     if @personality.update(personality_params)
-      redirect_to @personality, notice: "Personality was successfully updated."
+      redirect_to admin_personality_path(@personality), notice: "Personality was successfully updated."
     else
       render :edit
     end
