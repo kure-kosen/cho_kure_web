@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
-  devise_for :personalities
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  if Rails.env.development?
+    mount LetterOpenerWeb::Engine, at: '/letter_opener'
+  end
 
+  devise_for :personalities
   root to: "admin/personalities#index"
-  namespace "admin" do
+  namespace :admin do
     resources :personalities
   end
 end

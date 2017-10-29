@@ -38,6 +38,8 @@ group :development, :test do
   gem "rspec-rails"
 
   gem "dotenv-rails"
+  gem "letter_opener"
+  gem "letter_opener_web"
 end
 
 group :development do

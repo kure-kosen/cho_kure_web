@@ -14,3 +14,6 @@ git clone git@github.com:kure-kosen/cho_kure_web.git
 cd cho_kure_web
 bin/setup
 ```
+
+## その他
+* 開発中にアプリケーションが送信したメールは `/letter_opener` で確認できます。
