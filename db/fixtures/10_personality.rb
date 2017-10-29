@@ -41,7 +41,7 @@ Personality.seed do |p|
   p.id = 4
   p.name = "ほげ ほげ男"
   p.email = "hoge@example.com"
-  p.description = "ほげ"*50
+  p.description = "ほげ" * 50
   p.role = PersonalityRoles::EDITOR
   p.password = "password"
   p.password_confirmation = "password"
@@ -54,7 +54,7 @@ Personality.seed do |p|
   p.id = 5
   p.name = "ふが ふが子"
   p.email = "fuga@example.com"
-  p.description = "ふが"*50
+  p.description = "ふが" * 50
   p.role = PersonalityRoles::GUEST
   p.password = "password"
   p.password_confirmation = "password"
@@ -62,4 +62,3 @@ Personality.seed do |p|
   # comfirmをスキップする
   p.confirmed_at = Time.zone.now
 end
-

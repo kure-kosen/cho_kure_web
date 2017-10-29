@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   devise_for :personalities
   root to: "admin/personalities#index"
   namespace :admin do
-    root to: "personalities#index"
+    root to: "dashboard#index"
     resources :personalities
   end
 end
