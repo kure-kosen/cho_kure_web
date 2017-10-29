@@ -41,4 +41,7 @@ class Personality < ApplicationRecord
          :confirmable
 
   bind_inum :role, PersonalityRoles
+
+  validates :name, presence: true
+  validates :description, presence: true
 end
