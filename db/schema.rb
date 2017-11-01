@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171029070320) do
+ActiveRecord::Schema.define(version: 20171101091946) do
 
   create_table "personalities", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "email", default: "", null: false
@@ -34,6 +34,16 @@ ActiveRecord::Schema.define(version: 20171029070320) do
     t.index ["confirmation_token"], name: "index_personalities_on_confirmation_token", unique: true
     t.index ["email"], name: "index_personalities_on_email", unique: true
     t.index ["reset_password_token"], name: "index_personalities_on_reset_password_token", unique: true
+  end
+
+  create_table "radios", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "title", null: false
+    t.text "description", null: false
+    t.string "mp3", null: false
+    t.string "youtube_url"
+    t.string "podcast_url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
