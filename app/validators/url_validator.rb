@@ -3,10 +3,9 @@ class UrlValidator < ActiveModel::EachValidator
     return if value.blank?
     begin
       uri = URI.parse(value)
-      record.errors.add(attribute, 'が正しい形式ではありません') unless uri.is_a?(URI::HTTP)
+      record.errors.add(attribute, "が正しい形式ではありません") unless uri.is_a?(URI::HTTP)
     rescue URI::InvalidURIError
-      record.errors.add(attribute, 'が正しい形式ではありません')
+      record.errors.add(attribute, "が正しい形式ではありません")
     end
   end
 end
-
