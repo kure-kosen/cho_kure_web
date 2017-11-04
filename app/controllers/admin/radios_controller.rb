@@ -28,7 +28,7 @@ class Admin::RadiosController < ApplicationController
 
     respond_to do |format|
       if @radio.save
-        format.html { redirect_to @radio, notice: 'Radio was successfully created.' }
+        format.html { redirect_to @radio, notice: "Radio was successfully created." }
         format.json { render :show, status: :created, location: @radio }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class Admin::RadiosController < ApplicationController
   def update
     respond_to do |format|
       if @radio.update(radio_params)
-        format.html { redirect_to @radio, notice: 'Radio was successfully updated.' }
+        format.html { redirect_to @radio, notice: "Radio was successfully updated." }
         format.json { render :show, status: :ok, location: @radio }
       else
         format.html { render :edit }
@@ -54,14 +54,15 @@ class Admin::RadiosController < ApplicationController
   # DELETE /radios/1
   # DELETE /radios/1.json
   def destroy
-    @radio.destroy
+    @radio.destroy!
     respond_to do |format|
-      format.html { redirect_to radios_url, notice: 'Radio was successfully destroyed.' }
+      format.html { redirect_to radios_url, notice: "Radio was successfully destroyed." }
       format.json { head :no_content }
     end
   end
 
   private
+
     # Use callbacks to share common setup or constraints between actions.
     def set_radio
       @radio = Radio.find(params[:id])
