@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Radios</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @radios.each do |radio| %>
+      <tr>
+        <td><%= link_to 'Show', radio %></td>
+        <td><%= link_to 'Edit', edit_admin_radio_path(radio) %></td>
+        <td><%= link_to 'Destroy', radio, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Radio', new_admin_radio_path %>
