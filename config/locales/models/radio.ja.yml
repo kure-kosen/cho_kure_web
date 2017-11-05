@@ -1,0 +1,11 @@
+# Additional translations at https://github.com/plataformatec/devise/wiki/I18n
+
+ja:
+  activerecord:
+    attributes:
+      radio:
+        title: ラジオのタイトル
+        description: 説明
+        mp3: mp3のファイルパス
+        youtube_url: YoutubeのURL
+        podcast_url: podcastのURL
