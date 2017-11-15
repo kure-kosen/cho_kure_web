@@ -6,12 +6,12 @@ module Podcast
   class GenerateFeed
     def initialize
       feed = RSS::Maker.make("2.0") do |feed|
-
         channel = feed.channel
         channel.title = "ちょっときいて呉高専 〜呉高専の今をお伝えします〜"
-        channel.link = "http://www.kure-rad.io/feed/podcast"
+        channel.link = "http://www.kure-rad.io/"
         channel.description = "〜呉・呉高専の今をお伝えします〜"
-        channel.lastBuildDate = Time.now
+        channel.language = "ja"
+        channel.lastBuildDate = Time.now.utc
         channel.sy_updatePeriod = "hourly"
         channel.sy_updateFrequency = "1"
 
@@ -32,46 +32,45 @@ module Podcast
         channel.managingEditor = "cho.kure.radio@gmail.com (ちょっときいて呉高専 〜呉高専の今をお伝えします〜)"
         channel.itunes_subtitle = "ちょっときいて呉高専"
 
-        # category = RSS::ITunesChannelModel::ITunesCategory.new("Government & Organizations")
-        # category_child = RSS::ITunesChannelModel::ITunesCategory.new("Local")
-        # category.itunes_categories << category_child
+        channel.itunes_categories.new_category do |category|
+          category.text = "Government & Organizations"
+          category.new_category.text = "Local"
+        end
 
-        ["Government & Organizations", "Local"].each do |category|
-          channel.itunes_categories.new_category.text = category
+        radios = [
+          {
+            title: "title1",
+            path: "/radios/1",
+            published_at: "Mon, 02 Oct 2017 01:34:09 +0000",
+            description: "ほげほげほげほげげ",
+            duration: 600,
+          },
+          {
+            title: "title2",
+            path: "radios/2",
+            published_at: "Mon, 02 Oct 2017 01:34:09 +0000",
+            description: "ふがふがふがふがふがが",
+            duration: 6000,
+          },
+        ]
+        radios.each do |radio|
+          feed.items.new_item do |item|
+            item.title = radio[:title]
+            item.link = radio[:path]
+            item.description = radio[:description]
+            item.pubDate = radio[:published_at]
+            item.itunes_duration = duration_to_format(radio[:duration])
+          end
         end
       end
 
       puts feed
-
-      # builder = Nokogiri::XML::Builder.new do |xml|
-      #   xml.root {
-      #     xml.rss(rss_params) {
-      #       xml.channel {
-      #         xml.id_ "10"
-      #         xml.name "Awesome widget"
-      #       }
-      #     }
-      #   }
-      # end
-
-      # puts builder.to_xml
     end
 
     private
 
-    def rss_params
-      Hash.new(
-          version: 2.0,
-          "xmlns:content": "http://purl.org/rss/1.0/modules/content/",
-          "xmlns:wfw": "http://wellformedweb.org/CommentAPI/",
-          "xmlns:dc": "http://purl.org/dc/elements/1.1/",
-          "xmlns:atom": "http://www.w3.org/2005/Atom",
-          "xmlns:sy": "http://purl.org/rss/1.0/modules/syndication/",
-          "xmlns:slash": "http://purl.org/rss/1.0/modules/slash/",
-          "xmlns:itunes": "http://www.itunes.com/dtds/podcast-1.0.dtd",
-          "xmlns:rawvoice": "http://www.rawvoice.com/rawvoiceRssModule/",
-          "xmlns:googleplay": "http://www.google.com/schemas/play-podcasts/1.0"
-      )
-    end
+      def duration_to_format(sec)
+        Time.at(sec).utc.strftime((sec < 3600) ? "%-M:%S" : "%-H:%M:%S")
+      end
   end
 end
