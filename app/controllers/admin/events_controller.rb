@@ -27,7 +27,7 @@ class Admin::EventsController < Admin::BaseController
     @event = Event.new(event_params)
 
     if @event.save
-      redirect_to @event, notice: "Event was successfully created."
+      redirect_to admin_event_path(@event), notice: "Event was successfully created."
     else
       render :new
     end
