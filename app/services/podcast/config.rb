@@ -1,8 +1,33 @@
 module Podcast
   class Config
-    TITLE = "ちょっときいて呉高専 〜呉高専の今をお伝えします〜".freeze
-    DESCRIPTION = "〜呉・呉高専の今をお伝えします〜".freeze
-    LANGUAGE = :ja
-    UPDATE_PERIOD = :hourly
+    attr_reader :podcast_name,
+                :podcast_sub_name,
+                :podcast_summary,
+                :podcast_description,
+                :podcast_icon_url,
+                :language,
+                :category,
+                :update_period,
+                :update_frequency,
+                :application_url,
+                :owner_name,
+                :owner_email,
+                :itunes_explicit
+
+    def initialize
+      @podcast_name = "ちょっときいて呉高専 〜呉高専の今をお伝えします〜"
+      @podcast_sub_name = "ちょっときいて呉高専"
+      @podcast_summary = "〜呉・呉高専の今をお伝えします〜"
+      @podcast_description = "呉高専の高専日誌や最近の出来事を中心に呉の今をお伝えするインターネットラジオです。"
+      @podcast_icon_url = "http://www.kure-rad.io/wp-content/uploads/2017/11/ちょっくれロゴ　sumika-ブルー.jpg"
+      @language = "ja"
+      @category = ["Government & Organizations", "Local"]
+      @update_period = "hourly"
+      @update_frequency = "1"
+      @application_url = "http://www.kure-rad.io/"
+      @owner_name = "ちょっくれ制作班"
+      @owner_email = "cho.kure.radio@gmail.com"
+      @itunes_explicit = "clean"
+    end
   end
 end
