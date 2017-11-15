@@ -19,6 +19,6 @@ class Event < ApplicationRecord
   validate :start_end_check
 
   def start_end_check
-    errors.add(:end_date, "の日付を正しく記入してください。") unless start_date < end_date
+    errors.add(:ended_at, "の日付を正しく記入してください。") unless started_at < ended_at
   end
 end
