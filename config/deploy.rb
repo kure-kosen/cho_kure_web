@@ -11,6 +11,7 @@ set :branch, 'feature/setup-deployment'
 
 # Default deploy_to directory is /var/www/my_app_name
 set :deploy_to, "/var/www/cho_kure_web"
+set :default_env, { SECRET_KEY_BASE: `bundle exec rake secret` }
 
 # Default value for :format is :airbrussh.
 # set :format, :airbrussh
@@ -82,4 +83,3 @@ namespace :deploy do
     end
   end
 end
-
