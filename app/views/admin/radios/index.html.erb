@@ -1,6 +1,13 @@
 <p id="notice"><%= notice %></p>
 
-<h1>ラジオ一覧</h1>
+<div class="row">
+  <div class="col-8">
+    <h1>ラジオ一覧</h1>
+  </div>
+  <div class="col-4">
+    <%= link_to '新規ラジオ作成', new_admin_radio_path, class: 'btn btn-primary' %>
+  </div>
+</div>
 
 <table class="table table-striped">
   <thead>
@@ -23,7 +30,3 @@
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to '新規ラジオ作成', new_admin_radio_path %>
