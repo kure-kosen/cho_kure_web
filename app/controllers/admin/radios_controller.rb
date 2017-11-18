@@ -24,7 +24,7 @@ class Admin::RadiosController < ApplicationController
     @radio = Radio.new(radio_params)
 
     if @radio.save
-      redirect_to @radio, notice: "Radio was successfully created."
+      redirect_to admin_radio_path(@radio), notice: "Radio was successfully created."
     else
       render :new
     end
@@ -33,7 +33,7 @@ class Admin::RadiosController < ApplicationController
   # PATCH/PUT /radios/1
   def update
       if @radio.update(radio_params)
-        redirect_to @radio, notice: "Radio was successfully updated."
+        redirect_to admin_radio_path(@radio), notice: "Radio was successfully updated."
       else
         render :edit
       end
@@ -42,7 +42,7 @@ class Admin::RadiosController < ApplicationController
   # DELETE /radios/1
   def destroy
     @radio.destroy!
-    redirect_to radios_url, notice: "Radio was successfully destroyed."
+    redirect_to admin_radios_url, notice: "Radio was successfully destroyed."
   end
 
   private

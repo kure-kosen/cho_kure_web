@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Radios</h1>
+<h1>ラジオ一覧</h1>
 
 <table>
   <thead>
@@ -12,9 +12,9 @@
   <tbody>
     <% @radios.each do |radio| %>
       <tr>
-        <td><%= link_to 'Show', radio %></td>
-        <td><%= link_to 'Edit', edit_admin_radio_path(radio) %></td>
-        <td><%= link_to 'Destroy', radio, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to '詳細', admin_radio_path(radio) %></td>
+        <td><%= link_to '編集', edit_admin_radio_path(radio) %></td>
+        <td><%= link_to '削除', admin_radio_path(radio), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -22,4 +22,4 @@
 
 <br>
 
-<%= link_to 'New Radio', new_admin_radio_path %>
+<%= link_to '新規ラジオ作成', new_admin_radio_path %>
