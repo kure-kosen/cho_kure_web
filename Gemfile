@@ -60,6 +60,7 @@ end
 
 group :production do
   gem "unicorn"
+  gem "faker"  # 本格始動するまでは入れておく
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
