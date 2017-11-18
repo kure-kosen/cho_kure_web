@@ -7,7 +7,7 @@
 # server "example.com", user: "deploy", roles: %w{app web}, other_property: :other_value
 # server "db.example.com", user: "deploy", roles: %w{db}
 
-server "52.199.95.54", user: "euglena1215", roles: %w[app db web]
+server "52.199.95.54", user: "deploy", roles: %w[app db web]
 
 # role-based syntax
 # ==================
@@ -42,7 +42,7 @@ server "52.199.95.54", user: "euglena1215", roles: %w[app db web]
 #    forward_agent: false,
 #    auth_methods: %w(password)
 #  }
-set :ssh_options, keys: "~/.ssh/id_rsa"
+set :ssh_options, keys: "~/.ssh/cho_kure_web_rsa"
 
 #
 # The server-based syntax can be used to override options:
