@@ -8,5 +8,7 @@ Rails.application.routes.draw do
   namespace :admin do
     root to: "dashboard#index"
     resources :personalities, except: [:new, :create]
+    resources :communities
+    resources :events
   end
 end

@@ -1,0 +1,11 @@
+# Additional translations at https://github.com/plataformatec/devise/wiki/I18n
+
+ja:
+  activerecord:
+    attributes:
+      event:
+        name: イベント名
+        description: イベント紹介
+        url: URL
+        started_at: 開始日時
+        ended_at: 終了日時

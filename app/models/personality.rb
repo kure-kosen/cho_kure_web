@@ -13,18 +13,14 @@
 #  last_sign_in_at        :datetime
 #  current_sign_in_ip     :string(255)
 #  last_sign_in_ip        :string(255)
-#  confirmation_token     :string(255)
-#  confirmed_at           :datetime
-#  confirmation_sent_at   :datetime
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
-#  name                   :string(255)      not null
-#  description            :text(65535)      not null
+#  name                   :string(255)      default("名前を設定してください"), not null
+#  description            :text(65535)
 #  role                   :integer          default(0), not null
 #
 # Indexes
 #
-#  index_personalities_on_confirmation_token    (confirmation_token) UNIQUE
 #  index_personalities_on_email                 (email) UNIQUE
 #  index_personalities_on_reset_password_token  (reset_password_token) UNIQUE
 #
@@ -37,11 +33,7 @@ class Personality < ApplicationRecord
          :recoverable,
          :rememberable,
          :trackable,
-         :validatable,
-         :confirmable
+         :validatable
 
   bind_inum :role, PersonalityRoles
-
-  validates :name, presence: true
-  validates :description, presence: true
 end
