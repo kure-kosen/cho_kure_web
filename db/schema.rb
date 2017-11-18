@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171118050435) do
+ActiveRecord::Schema.define(version: 20171118125737) do
 
   create_table "communities", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name", null: false
@@ -67,6 +67,9 @@ ActiveRecord::Schema.define(version: 20171118050435) do
     t.string "podcast_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.datetime "published_at"
+    t.integer "duration", null: false
+    t.integer "size", null: false
   end
 
   add_foreign_key "host_events", "communities", column: "host_id"
