@@ -11,6 +11,9 @@
 #
 
 class Community < ApplicationRecord
+  has_many :host_events, foreign_key: "host_id", dependent: :destroy
+  has_many :events, through: :host_events
+
   validates :name, presence: true
   validates :description, presence: true
 end
