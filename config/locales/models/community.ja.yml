@@ -1,0 +1,9 @@
+# Additional translations at https://github.com/plataformatec/devise/wiki/I18n
+
+ja:
+  activerecord:
+    attributes:
+      community:
+        name: コミュニティ名
+        url: URL
+        description: 紹介文

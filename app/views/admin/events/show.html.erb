@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+
+<dl class="dl-horizontal">
+  <dt><strong><%= Event.human_attribute_name('name') %> :</strong></dt>
+  <dd><%= @event.name %></dd>
+</dl>
+
+<dl class="dl-horizontal">
+  <dt><strong><%= Event.human_attribute_name('description') %> :</strong></dt>
+  <dd><%= @event.description %></dd>
+</dl>
+
+<dl class="dl-horizontal">
+  <dt><strong><%= Event.human_attribute_name('url') %> :</strong></dt>
+  <dd><%= link_to @event.url, @event.url %></dd>
+</dl>
+
+<dl class="dl-horizontal">
+  <dt><strong><%= Event.human_attribute_name('started_at') %> :</strong></dt>
+  <dd><%= @event.started_at %></dd>
+</dl>
+
+<dl class="dl-horizontal">
+  <dt><strong><%= Event.human_attribute_name('ended_at') %> :</strong></dt>
+  <dd><%= @event.ended_at %></dd>
+</dl>
+
+<%= link_to '編集', edit_admin_event_path(@event) %>

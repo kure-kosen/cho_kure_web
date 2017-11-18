@@ -30,7 +30,7 @@ class Admin::PersonalitiesController < Admin::BaseController
   # DELETE /personalities/1.json
   def destroy
     @personality.destroy!
-    redirect_to admin_personality_url, notice: "Personality was successfully destroyed."
+    redirect_to admin_personalities_url, notice: "Personality was successfully destroyed."
   end
 
   private

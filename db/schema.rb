@@ -10,7 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171101091946) do
+ActiveRecord::Schema.define(version: 20171117142009) do
+
+  create_table "communities", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "name", null: false
+    t.string "url"
+    t.text "description", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "events", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "name", null: false
+    t.text "description", null: false
+    t.string "url"
+    t.datetime "started_at", null: false
+    t.datetime "ended_at", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "personalities", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "email", default: "", null: false
@@ -23,15 +41,11 @@ ActiveRecord::Schema.define(version: 20171101091946) do
     t.datetime "last_sign_in_at"
     t.string "current_sign_in_ip"
     t.string "last_sign_in_ip"
-    t.string "confirmation_token"
-    t.datetime "confirmed_at"
-    t.datetime "confirmation_sent_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "name", null: false
-    t.text "description", null: false
+    t.string "name", default: "名前を設定してください", null: false
+    t.text "description"
     t.integer "role", default: 0, null: false
-    t.index ["confirmation_token"], name: "index_personalities_on_confirmation_token", unique: true
     t.index ["email"], name: "index_personalities_on_email", unique: true
     t.index ["reset_password_token"], name: "index_personalities_on_reset_password_token", unique: true
   end
