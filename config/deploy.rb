@@ -83,7 +83,9 @@ namespace :deploy do
 
   task :cleanup do
     on roles(:app) do
-      execute "curl -X POST -H 'Authorization: Bearer 3EsgJyhuQgAi9dERkkOSfuqZY9afS6ymW3h3ZbEvZoE' -F 'message=デプロイを完了しました' https://notify-api.line.me/api/notify"
+      header = "Authorization: Bearer 3EsgJyhuQgAi9dERkkOSfuqZY9afS6ymW3h3ZbEvZoE"
+      message = "デプロイを完了しました"
+      execute "curl -X POST -H '#{header}' -F 'message=#{message}' https://notify-api.line.me/api/notify"
     end
   end
 end
