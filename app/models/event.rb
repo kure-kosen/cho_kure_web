@@ -13,6 +13,9 @@
 #
 
 class Event < ApplicationRecord
+  has_many :host_events, dependent: :destroy
+  has_many :hosts, through: :host_events, class_name: "Community"
+
   validates :name, presence: true
   validates :description, presence: true
   validates :started_at, presence: true

@@ -36,7 +36,6 @@ group :development, :test do
   gem "rspec-rails"
 
   gem "dotenv-rails"
-  gem "faker"
   gem "letter_opener"
   gem "letter_opener_web"
 end
@@ -68,6 +67,7 @@ gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem "bootstrap"
 gem "devise"
+gem "faker"
 gem "font-awesome-rails"
 gem "inum"
 gem "jquery-rails"

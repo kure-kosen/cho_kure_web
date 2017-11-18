@@ -15,6 +15,17 @@
     </div>
   </div>
 
+  <!--# TODO: ここの見た目はもう少し考えた方がいいかも-->
+  <div class="form-group row">
+    <%= form.label :hosts, class: 'col-md-2 control-label' %>
+    <div class="col-md-10 form-check">
+      <%= collection_check_boxes(:event, :host_ids, Community.all, :id, :name) do |b| %>
+        <%= b.check_box %>
+        <%= b.label %>
+      <% end %>
+    </div>
+  </div>
+
   <div class="form-group row">
     <%= form.label :description, class: 'col-2 col-form-label' %>
     <div class="col-10">

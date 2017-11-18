@@ -16,6 +16,15 @@
 </dl>
 
 <dl class="dl-horizontal">
+  <dt><strong><%= Event.human_attribute_name('hosts') %> :</strong></dt>
+  <dd>
+    <% @event.hosts.each do |host| %>
+      <%= link_to host.name, admin_community_path(host) %><br>
+    <% end %>
+  </dd>
+</dl>
+
+<dl class="dl-horizontal">
   <dt><strong><%= Event.human_attribute_name('started_at') %> :</strong></dt>
   <dd><%= @event.started_at %></dd>
 </dl>
