@@ -11,7 +11,6 @@ set :branch, 'feature/setup-deployment'
 
 # Default deploy_to directory is /var/www/my_app_name
 set :deploy_to, "/var/www/cho_kure_web"
-set :default_env, { SECRET_KEY_BASE: `bundle exec rake secret` }
 
 # Default value for :format is :airbrussh.
 # set :format, :airbrussh
@@ -25,7 +24,7 @@ set :default_env, { SECRET_KEY_BASE: `bundle exec rake secret` }
 
 # Default value for :linked_files is []
 # append :linked_files, "config/database.yml", "config/secrets.yml"
-set :linked_files, fetch(:linked_files, []).push('config/settings.yml')
+set :linked_files, fetch(:linked_files, []).push('config/secrets.yml')
 
 # Default value for linked_dirs is []
 # append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/system"
