@@ -51,10 +51,10 @@ group :development do
   gem "spring"
   gem "spring-watcher-listen", "~> 2.0.0"
 
-  gem 'capistrano'
-  gem 'capistrano-bundler'
-  gem 'capistrano-rails'
-  gem 'capistrano-rbenv'
+  gem "capistrano"
+  gem "capistrano-bundler"
+  gem "capistrano-rails"
+  gem "capistrano-rbenv"
 end
 
 group :production do
