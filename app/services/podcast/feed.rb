@@ -17,16 +17,20 @@ module Podcast
         radios = [
           {
             title: "title1",
-            path: "/radios/1",
+            path: "http://hoge/radios/1",
+            mp3: "http://hoge/1.mp3",
             published_at: "Mon, 02 Oct 2017 01:34:09 +0000",
             description: "ほげほげほげほげげ",
+            size: 12345667,
             duration: 600,
           },
           {
             title: "title2",
-            path: "/radios/2",
+            path: "http://hoge/radios/2",
+            mp3: "http://hoge/2.mp3",
             published_at: "Mon, 02 Oct 2017 01:34:09 +0000",
             description: "ふがふがふがふがふがが",
+            size: 98787654,
             duration: 6000,
           },
         ]
@@ -71,6 +75,9 @@ module Podcast
           item.description      = radio[:description]
           item.pubDate          = radio[:published_at]
           item.itunes_duration  = duration_to_format(radio[:duration])
+          item.enclosure.url    = radio[:mp3]
+          item.enclosure.type   = "audio/mpeg"
+          item.enclosure.length = radio[:size]
         end
       end
 
