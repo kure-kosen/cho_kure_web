@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(version: 20171118050435) do
 
   create_table "host_events", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.bigint "host_id", null: false
-    t.bigint "event_id"
+    t.bigint "event_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["event_id"], name: "index_host_events_on_event_id"
