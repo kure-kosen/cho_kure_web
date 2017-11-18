@@ -1,4 +1,4 @@
-class Admin::RadiosController < ApplicationController
+class Admin::RadiosController < Admin::BaseController
   before_action :set_radio, only: [:show, :edit, :update, :destroy]
 
   # GET /radios
@@ -32,11 +32,11 @@ class Admin::RadiosController < ApplicationController
 
   # PATCH/PUT /radios/1
   def update
-      if @radio.update(radio_params)
-        redirect_to admin_radio_path(@radio), notice: "Radio was successfully updated."
-      else
-        render :edit
-      end
+    if @radio.update(radio_params)
+      redirect_to admin_radio_path(@radio), notice: "Radio was successfully updated."
+    else
+      render :edit
+    end
   end
 
   # DELETE /radios/1
@@ -54,6 +54,6 @@ class Admin::RadiosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def radio_params
-      params.fetch(:radio, {})
+      params.require(:radio).permit(:title, :description, :mp3, :youtube_url, :podcast_url)
     end
 end

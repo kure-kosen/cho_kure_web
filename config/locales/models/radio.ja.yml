@@ -4,8 +4,8 @@ ja:
   activerecord:
     attributes:
       radio:
-        title: ラジオのタイトル
+        title: タイトル
         description: 説明
-        mp3: mp3のファイルパス
-        youtube_url: YoutubeのURL
-        podcast_url: podcastのURL
+        mp3: 音声ファイル
+        youtube_url: Youtube
+        podcast_url: podcast

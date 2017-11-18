@@ -1,7 +1,42 @@
 <%= form_with(model:[:admin, radio], local: true) do |form| %>
   <%= render 'admin/shared/errors', object: radio %>
 
+  <div class="form-group row">
+    <%= form.label :title, class: 'col-2 col-form-label' %>
+    <div class="col-10">
+      <%= form.text_field :title, class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <%= form.label :description, class: 'col-2 col-form-label' %>
+    <div class="col-10">
+      <%= form.text_area :description, class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <%= form.label :mp3, class: 'col-2 col-form-label' %>
+    <div class="col-10">
+      <%= form.text_field :mp3, class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <%= form.label :youtube_url, class: 'col-2 col-form-label' %>
+    <div class="col-10">
+      <%= form.text_field :youtube_url, class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <%= form.label :podcast_url, class: 'col-2 col-form-label' %>
+    <div class="col-10">
+      <%= form.text_field :podcast_url, class: 'form-control' %>
+    </div>
+  </div>
+
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class: 'btn btn-primary' %>
   </div>
 <% end %>
