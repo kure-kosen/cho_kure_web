@@ -13,8 +13,8 @@
 #
 
 class Event < ApplicationRecord
-  has_many :community_events
-  has_many :communities, through: :community_events
+  has_many :host_events, dependent: :destroy
+  has_many :hosts, through: :host_events, class_name: "Community"
 
   validates :name, presence: true
   validates :description, presence: true
