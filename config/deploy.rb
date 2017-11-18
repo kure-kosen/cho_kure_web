@@ -64,11 +64,11 @@ namespace :deploy do
   end
 
   desc "Run seed"
-  task :seed do
+  task :seed_fu do
     on roles(:app) do
       with rails_env: fetch(:rails_env) do
         within current_path do
-          execute :bundle, :exec, :rake, "db:seed"
+          execute :bundle, :exec, :rake, "db:seed_fu"
         end
       end
     end
@@ -78,6 +78,12 @@ namespace :deploy do
 
   after :restart, :clear_cache do
     on roles(:web), in: :groups, limit: 3, wait: 10 do
+    end
+  end
+
+  task :cleanup do
+    on roles(:app) do
+      execute "curl -X POST -H 'Authorization: Bearer 3EsgJyhuQgAi9dERkkOSfuqZY9afS6ymW3h3ZbEvZoE' -F 'message=デプロイを完了しました' https://notify-api.line.me/api/notify"
     end
   end
 end
