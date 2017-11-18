@@ -36,4 +36,7 @@ class Personality < ApplicationRecord
          :validatable
 
   bind_inum :role, PersonalityRoles
+
+  has_many :radio_personalities, dependent: :destroy
+  has_many :radios, through: :radio_personalities
 end

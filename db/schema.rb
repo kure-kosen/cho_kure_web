@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171118050435) do
+ActiveRecord::Schema.define(version: 20171118150337) do
 
   create_table "communities", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name", null: false
@@ -59,6 +59,15 @@ ActiveRecord::Schema.define(version: 20171118050435) do
     t.index ["reset_password_token"], name: "index_personalities_on_reset_password_token", unique: true
   end
 
+  create_table "radio_personalities", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.bigint "radio_id", null: false
+    t.bigint "personality_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["personality_id"], name: "index_radio_personalities_on_personality_id"
+    t.index ["radio_id"], name: "index_radio_personalities_on_radio_id"
+  end
+
   create_table "radios", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "title", null: false
     t.text "description", null: false
@@ -71,4 +80,6 @@ ActiveRecord::Schema.define(version: 20171118050435) do
 
   add_foreign_key "host_events", "communities", column: "host_id"
   add_foreign_key "host_events", "events"
+  add_foreign_key "radio_personalities", "personalities"
+  add_foreign_key "radio_personalities", "radios"
 end

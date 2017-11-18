@@ -5,6 +5,7 @@ ja:
     attributes:
       radio:
         title: タイトル
+        personalities: パーソナリティー
         description: 説明
         mp3: 音声ファイル
         youtube_url: Youtube

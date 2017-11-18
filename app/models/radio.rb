@@ -13,6 +13,9 @@
 #
 
 class Radio < ApplicationRecord
+  has_many :radio_personalities, dependent: :destroy
+  has_many :personalities, through: :radio_personalities
+
   validates :title,
             presence: true,
             uniqueness: true
