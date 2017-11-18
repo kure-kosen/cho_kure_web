@@ -10,5 +10,6 @@ Rails.application.routes.draw do
     resources :personalities, except: [:new, :create]
     resources :communities
     resources :events
+    resources :radios
   end
 end

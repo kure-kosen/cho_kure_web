@@ -59,6 +59,16 @@ ActiveRecord::Schema.define(version: 20171118050435) do
     t.index ["reset_password_token"], name: "index_personalities_on_reset_password_token", unique: true
   end
 
+  create_table "radios", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "title", null: false
+    t.text "description", null: false
+    t.string "mp3", null: false
+    t.string "youtube_url"
+    t.string "podcast_url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   add_foreign_key "host_events", "communities", column: "host_id"
   add_foreign_key "host_events", "events"
 end

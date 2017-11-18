@@ -35,6 +35,7 @@ group :development, :test do
   gem "rspec-rails"
 
   gem "dotenv-rails"
+  gem "faker"
   gem "letter_opener"
   gem "letter_opener_web"
 end
