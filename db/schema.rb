@@ -20,15 +20,6 @@ ActiveRecord::Schema.define(version: 20171118050435) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "community_events", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.bigint "community_id", null: false
-    t.bigint "event_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["community_id"], name: "index_community_events_on_community_id"
-    t.index ["event_id"], name: "index_community_events_on_event_id"
-  end
-
   create_table "events", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name", null: false
     t.text "description", null: false
@@ -68,8 +59,6 @@ ActiveRecord::Schema.define(version: 20171118050435) do
     t.index ["reset_password_token"], name: "index_personalities_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "community_events", "communities"
-  add_foreign_key "community_events", "events"
   add_foreign_key "host_events", "communities", column: "host_id"
   add_foreign_key "host_events", "events"
 end
