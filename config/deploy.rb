@@ -6,6 +6,7 @@ set :repo_url, "git@github.com:kure-kosen/cho_kure_web.git"
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
+#TODO: feature/setup-deploymentがdevにマージされた段階でfeature/devに変更
 set :branch, 'feature/setup-deployment'
 
 
