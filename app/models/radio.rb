@@ -14,14 +14,10 @@
 
 class Radio < ApplicationRecord
   validates :title,
-            :description,
-            :mp3,
-            presence: true
-
-  validates :title,
+            presence: true,
             uniqueness: true
-
-  validates :youtube_url,
-            :podcast_url,
-            url: true
+  validates :description, presence: true
+  validates :mp3, presence: true
+  validates :youtube_url, url: true
+  validates :podcast_url, url: true
 end
