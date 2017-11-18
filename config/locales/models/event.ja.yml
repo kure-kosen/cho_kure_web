@@ -6,6 +6,7 @@ ja:
       event:
         name: イベント名
         description: イベント紹介
+        hosts: 開催コミュニティ
         url: URL
         started_at: 開始日時
         ended_at: 終了日時
