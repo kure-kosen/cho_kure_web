@@ -10,6 +10,10 @@ class Admin::EventsController < Admin::BaseController
   # GET /events/1
   # GET /events/1.json
   def show
+    Rails.logger.debug(' ===== log start =======')
+    Rails.logger.debug("#{__FILE__}:#{__LINE__ }")
+    Rails.logger.debug(request)
+    Rails.logger.debug(' ===== log end =======')
   end
 
   # GET /events/new
