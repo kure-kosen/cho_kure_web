@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171118050435) do
+ActiveRecord::Schema.define(version: 20171118141009) do
 
   create_table "communities", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name", null: false
@@ -18,6 +18,15 @@ ActiveRecord::Schema.define(version: 20171118050435) do
     t.text "description", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "community_radios", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.bigint "community_id", null: false
+    t.bigint "radio_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["community_id"], name: "index_community_radios_on_community_id"
+    t.index ["radio_id"], name: "index_community_radios_on_radio_id"
   end
 
   create_table "events", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -69,6 +78,8 @@ ActiveRecord::Schema.define(version: 20171118050435) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "community_radios", "communities"
+  add_foreign_key "community_radios", "radios"
   add_foreign_key "host_events", "communities", column: "host_id"
   add_foreign_key "host_events", "events"
 end
