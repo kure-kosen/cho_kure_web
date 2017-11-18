@@ -35,7 +35,6 @@ group :development, :test do
   gem "rspec-rails"
 
   gem "dotenv-rails"
-  gem "faker"
   gem "letter_opener"
   gem "letter_opener_web"
 end
@@ -60,7 +59,6 @@ end
 
 group :production do
   gem "unicorn"
-  gem "faker"  # 本格始動するまでは入れておく
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
@@ -68,6 +66,7 @@ gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem "bootstrap"
 gem "devise"
+gem "faker"
 gem "font-awesome-rails"
 gem "inum"
 gem "jquery-rails"
