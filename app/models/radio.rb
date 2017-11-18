@@ -13,7 +13,7 @@
 #
 
 class Radio < ApplicationRecord
-  has_many :community_radios
+  has_many :community_radios, dependent: :destroy
   has_many :communities, through: :community_radios
 
   validates :title,
