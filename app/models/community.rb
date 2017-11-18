@@ -11,6 +11,9 @@
 #
 
 class Community < ApplicationRecord
+  has_many :community_events
+  has_many :events, through: :community_events
+
   validates :name, presence: true
   validates :description, presence: true
 end
