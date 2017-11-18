@@ -10,3 +10,24 @@ AllCops:
   TargetRubyVersion: 2.4
   # uncomment if use rails cops
   TargetRailsVersion: 5.1
+
+Style/GlobalVars:
+  Exclude:
+    - "config/unicorn/*.rb"
+
+Metrics/BlockLength:
+  Exclude:
+    - "Rakefile"
+    - "**/*.rake"
+    - "spec/**/*.rb"
+    - "Gemfile"
+    - "Guardfile"
+    - "config/environments/*.rb"
+    - "config/routes.rb"
+    - "config/routes/**/*.rb"
+    - "config/deploy.rb"  # ADD
+    - "*.gemspec"
+
+Lint/HandleExceptions:
+  Exclude:
+    - "config/unicorn/production.rb"  # 何やってるのかよくわからんのでとりあえずExclude

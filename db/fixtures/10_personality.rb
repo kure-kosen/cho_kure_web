@@ -6,9 +6,6 @@ Personality.seed do |p|
   p.role = PersonalityRoles::ADMIN
   p.password = "password"
   p.password_confirmation = "password"
-
-  # comfirmをスキップする
-  p.confirmed_at = Time.zone.now
 end
 
 Personality.seed do |p|
@@ -19,9 +16,6 @@ Personality.seed do |p|
   p.role = PersonalityRoles::ADMIN
   p.password = "password"
   p.password_confirmation = "password"
-
-  # comfirmをスキップする
-  p.confirmed_at = Time.zone.now
 end
 
 Personality.seed do |p|
@@ -32,9 +26,6 @@ Personality.seed do |p|
   p.role = PersonalityRoles::ADMIN
   p.password = "password"
   p.password_confirmation = "password"
-
-  # comfirmをスキップする
-  p.confirmed_at = Time.zone.now
 end
 
 Personality.seed do |p|
@@ -45,9 +36,6 @@ Personality.seed do |p|
   p.role = PersonalityRoles::EDITOR
   p.password = "password"
   p.password_confirmation = "password"
-
-  # comfirmをスキップする
-  p.confirmed_at = Time.zone.now
 end
 
 Personality.seed do |p|
@@ -58,7 +46,4 @@ Personality.seed do |p|
   p.role = PersonalityRoles::GUEST
   p.password = "password"
   p.password_confirmation = "password"
-
-  # comfirmをスキップする
-  p.confirmed_at = Time.zone.now
 end
