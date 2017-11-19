@@ -16,6 +16,8 @@ class Community < ApplicationRecord
 
   has_many :host_events, foreign_key: "host_id", dependent: :destroy
   has_many :events, through: :host_events
+  has_many :community_radios, dependent: :destroy
+  has_many :radios, through: :community_radios
 
   validates :name, presence: true
   validates :description, presence: true

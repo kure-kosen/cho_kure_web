@@ -25,6 +25,15 @@
 </dl>
 
 <dl class="dl-horizontal">
+  <dt><strong><%= Community.human_attribute_name('radios') %> :</strong></dt>
+  <dd>
+    <% @community.radios.each do |radio| %>
+      <%= link_to radio.title, admin_radio_path(radio) %><br>
+    <% end %>
+  </dd>
+</dl>
+
+<dl class="dl-horizontal">
   <dt><strong><%= Community.human_attribute_name('description') %> :</strong></dt>
   <dd><%= simple_format(@community.description) %></dd>
 </dl>

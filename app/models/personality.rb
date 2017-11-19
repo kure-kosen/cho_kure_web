@@ -39,4 +39,7 @@ class Personality < ApplicationRecord
   bind_inum :role, PersonalityRoles
 
   mount_uploader :image, PersonalityImageUploader
+
+  has_many :radio_personalities, dependent: :destroy
+  has_many :radios, through: :radio_personalities
 end

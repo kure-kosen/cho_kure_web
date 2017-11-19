@@ -11,6 +11,15 @@
 </dl>
 
 <dl class="dl-horizontal">
+  <dt><strong><%= Radio.human_attribute_name('personalities') %> :</strong></dt>
+  <dd>
+    <% @radio.personalities.each do |personality| %>
+      <%= link_to personality.name, admin_personality_path(personality) %><br>
+    <% end %>
+  </dd>
+</dl>
+
+<dl class="dl-horizontal">
   <dt><strong><%= Radio.human_attribute_name('description') %> :</strong></dt>
   <dd><%= simple_format(@radio.description) if @radio.description %></dd>
 </dl>
@@ -28,6 +37,15 @@
 <dl class="dl-horizontal">
   <dt><strong><%= Radio.human_attribute_name('size') %> :</strong></dt>
   <dd><%= @radio.size %></dd>
+</dl>
+
+<dl class="dl-horizontal">
+  <dt><strong><%= Radio.human_attribute_name('communities') %> :</strong></dt>
+  <dd>
+    <% @radio.communities.each do |community| %>
+      <%= link_to community.name, admin_community_path(community) %><br>
+    <% end %>
+  </dd>
 </dl>
 
 <dl class="dl-horizontal">
