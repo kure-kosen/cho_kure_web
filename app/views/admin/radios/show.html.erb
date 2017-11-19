@@ -6,6 +6,11 @@
 </dl>
 
 <dl class="dl-horizontal">
+  <dt><strong><%= Radio.human_attribute_name('image') %> :</strong></dt>
+  <dd><%= image_tag @radio.image_url(:thumb) %></dd>
+</dl>
+
+<dl class="dl-horizontal">
   <dt><strong><%= Radio.human_attribute_name('personalities') %> :</strong></dt>
   <dd>
     <% @radio.personalities.each do |personality| %>
@@ -21,7 +26,7 @@
 
 <dl class="dl-horizontal">
   <dt><strong><%= Radio.human_attribute_name('mp3') %> :</strong></dt>
-  <dd><%= @radio.mp3 %></dd>
+  <dd><%= audio_tag @radio.mp3_url, controls: true %></dd>
 </dl>
 
 <dl class="dl-horizontal">

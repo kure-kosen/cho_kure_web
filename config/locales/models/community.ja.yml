@@ -5,6 +5,7 @@ ja:
     attributes:
       community:
         name: コミュニティ名
+        logo: ロゴ
         url: URL
         description: 紹介文
         events: 開催イベント

@@ -9,6 +9,13 @@
   </div>
 
   <div class="form-group row">
+    <%= form.label :logo, class: 'col-2 col-form-label' %>
+    <div class="col-10">
+      <%= form.file_field :logo %>
+    </div>
+  </div>
+
+  <div class="form-group row">
     <%= form.label :url, class: 'col-2 col-form-label' %>
     <div class="col-10">
       <%= form.text_field :url, class: 'form-control' %>

@@ -56,6 +56,7 @@ class Admin::RadiosController < Admin::BaseController
     def radio_params
       params.require(:radio).permit(
         :title,
+        :image,
         :description,
         :mp3,
         :duration,

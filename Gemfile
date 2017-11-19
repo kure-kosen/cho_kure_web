@@ -56,6 +56,7 @@ group :development do
 end
 
 group :production do
+  gem "fog"
   gem "unicorn"
 end
 
@@ -63,10 +64,12 @@ end
 gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem "bootstrap"
+gem "carrierwave"
 gem "devise"
 gem "dotenv-rails"
 gem "faker"
 gem "font-awesome-rails"
 gem "inum"
 gem "jquery-rails"
+gem "mini_magick"
 gem "seed-fu"

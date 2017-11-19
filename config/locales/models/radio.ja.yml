@@ -5,8 +5,9 @@ ja:
     attributes:
       radio:
         title: タイトル
-        personalities: パーソナリティー
+        image: 画像
         description: 説明
+        personalities: パーソナリティー
         communities: 紹介したコミュニティ
         mp3: 音声ファイル
         duration: 秒数

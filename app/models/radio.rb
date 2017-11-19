@@ -10,12 +10,16 @@
 #  podcast_url  :string(255)
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
+#  image        :string(255)
 #  published_at :datetime
 #  duration     :integer          not null
 #  size         :integer          not null
 #
 
 class Radio < ApplicationRecord
+  mount_uploader :image, RadioImageUploader
+  mount_uploader :mp3, RadioMp3Uploader
+
   has_many :radio_personalities, dependent: :destroy
   has_many :personalities, through: :radio_personalities
   has_many :community_radios, dependent: :destroy
