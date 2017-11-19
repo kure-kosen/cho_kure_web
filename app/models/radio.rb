@@ -18,6 +18,8 @@
 class Radio < ApplicationRecord
   has_many :radio_personalities, dependent: :destroy
   has_many :personalities, through: :radio_personalities
+  has_many :community_radios, dependent: :destroy
+  has_many :communities, through: :community_radios
 
   validates :title,
             presence: true,

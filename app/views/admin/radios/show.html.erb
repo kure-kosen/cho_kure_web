@@ -35,6 +35,15 @@
 </dl>
 
 <dl class="dl-horizontal">
+  <dt><strong><%= Radio.human_attribute_name('communities') %> :</strong></dt>
+  <dd>
+    <% @radio.communities.each do |community| %>
+      <%= link_to community.name, admin_community_path(community) %><br>
+    <% end %>
+  </dd>
+</dl>
+
+<dl class="dl-horizontal">
   <dt><strong><%= Radio.human_attribute_name('youtube_url') %> :</strong></dt>
   <dd><%= link_to @radio.youtube_url, @radio.youtube_url %></dd>
 </dl>

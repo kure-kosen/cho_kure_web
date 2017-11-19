@@ -20,6 +20,15 @@ ActiveRecord::Schema.define(version: 20171118150337) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "community_radios", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.bigint "community_id", null: false
+    t.bigint "radio_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["community_id"], name: "index_community_radios_on_community_id"
+    t.index ["radio_id"], name: "index_community_radios_on_radio_id"
+  end
+
   create_table "events", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name", null: false
     t.text "description", null: false
@@ -81,6 +90,8 @@ ActiveRecord::Schema.define(version: 20171118150337) do
     t.integer "size", null: false
   end
 
+  add_foreign_key "community_radios", "communities"
+  add_foreign_key "community_radios", "radios"
   add_foreign_key "host_events", "communities", column: "host_id"
   add_foreign_key "host_events", "events"
   add_foreign_key "radio_personalities", "personalities"
