@@ -76,6 +76,9 @@ ActiveRecord::Schema.define(version: 20171118150337) do
     t.string "podcast_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.datetime "published_at"
+    t.integer "duration", null: false
+    t.integer "size", null: false
   end
 
   add_foreign_key "host_events", "communities", column: "host_id"

@@ -25,6 +25,16 @@
 </dl>
 
 <dl class="dl-horizontal">
+  <dt><strong><%= Radio.human_attribute_name('duration') %> :</strong></dt>
+  <dd><%= @radio.duration %></dd>
+</dl>
+
+<dl class="dl-horizontal">
+  <dt><strong><%= Radio.human_attribute_name('size') %> :</strong></dt>
+  <dd><%= @radio.size %></dd>
+</dl>
+
+<dl class="dl-horizontal">
   <dt><strong><%= Radio.human_attribute_name('youtube_url') %> :</strong></dt>
   <dd><%= link_to @radio.youtube_url, @radio.youtube_url %></dd>
 </dl>
@@ -32,6 +42,11 @@
 <dl class="dl-horizontal">
   <dt><strong><%= Radio.human_attribute_name('podcast_url') %> :</strong></dt>
   <dd><%= link_to @radio.podcast_url, @radio.podcast_url %></dd>
+</dl>
+
+<dl class="dl-horizontal">
+  <dt><strong><%= Radio.human_attribute_name('published_at') %> :</strong></dt>
+  <dd><%= @radio.published_at %></dd>
 </dl>
 
 <%= link_to '編集', edit_admin_radio_path(@radio) %>

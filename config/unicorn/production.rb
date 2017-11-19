@@ -35,6 +35,10 @@ before_fork do |server, _worker|
   end
 end
 
+before_exec do |server|
+  Dotenv.overload
+end
+
 # fork後に行うことを定義。後述
 after_fork do |_server, _worker|
   defined?(ActiveRecord::Base) and ActiveRecord::Base.establish_connection
