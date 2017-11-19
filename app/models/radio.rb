@@ -13,6 +13,8 @@
 #
 
 class Radio < ApplicationRecord
+  mount_uploader :mp3, RadioMp3Uploader
+
   validates :title,
             presence: true,
             uniqueness: true
