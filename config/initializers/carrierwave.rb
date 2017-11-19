@@ -1,9 +1,9 @@
 # require "carrierwave/storage/abstract"
 # require "carrierwave/storage/file"
-# require "carrierwave/storage/fog"
+require "carrierwave/storage/fog"
 
 if Rails.env.production?
-  # 本番・ステージング環境はS3にUP
+  # 本番環境はS3にUP
   CarrierWave.configure do |config|
     config.storage = :fog
     config.fog_credentials = {
