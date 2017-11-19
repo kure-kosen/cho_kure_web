@@ -15,6 +15,17 @@
     </div>
   </div>
 
+  <!--# TODO: ここの見た目はもう少し考えた方がいいかも-->
+  <div class="form-group row">
+    <%= form.label :personalities, class: 'col-md-2 control-label' %>
+    <div class="col-md-10 form-check">
+      <%= collection_check_boxes(:radio, :personality_ids, Personality.all, :id, :name) do |b| %>
+        <%= b.check_box %>
+        <%= b.label %>
+      <% end %>
+    </div>
+  </div>
+
   <div class="form-group row">
     <%= form.label :mp3, class: 'col-2 col-form-label' %>
     <div class="col-10">

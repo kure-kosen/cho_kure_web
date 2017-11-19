@@ -35,7 +35,7 @@ before_fork do |server, _worker|
   end
 end
 
-before_exec do |server|
+before_exec do |_server|
   Dotenv.overload
 end
 
