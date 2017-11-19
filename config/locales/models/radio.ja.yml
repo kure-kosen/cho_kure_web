@@ -6,6 +6,7 @@ ja:
       radio:
         title: タイトル
         description: 説明
+        communities: 紹介したコミュニティ
         mp3: 音声ファイル
         duration: 秒数
         size: mp3のbyte数
