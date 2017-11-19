@@ -70,6 +70,9 @@ ActiveRecord::Schema.define(version: 20171119042630) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "image"
+    t.datetime "published_at"
+    t.integer "duration", null: false
+    t.integer "size", null: false
   end
 
   add_foreign_key "host_events", "communities", column: "host_id"
