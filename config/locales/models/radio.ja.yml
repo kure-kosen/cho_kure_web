@@ -8,5 +8,8 @@ ja:
         description: 説明
         communities: 紹介したコミュニティ
         mp3: 音声ファイル
+        duration: 秒数
+        size: mp3のbyte数
         youtube_url: Youtube
         podcast_url: podcast
+        is_published: 公開日
