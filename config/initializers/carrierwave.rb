@@ -1,7 +1,3 @@
-# require "carrierwave/storage/abstract"
-# require "carrierwave/storage/file"
-# require "carrierwave/storage/fog"
-
 if Rails.env.production?
   # 本番環境はS3にUP
   CarrierWave.configure do |config|
