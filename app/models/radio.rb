@@ -10,9 +10,11 @@
 #  podcast_url :string(255)
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
+#  image       :string(255)
 #
 
 class Radio < ApplicationRecord
+  mount_uploader :image, RadioImageUploader
   mount_uploader :mp3, RadioMp3Uploader
 
   validates :title,

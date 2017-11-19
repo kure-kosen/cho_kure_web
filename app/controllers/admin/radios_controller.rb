@@ -54,6 +54,6 @@ class Admin::RadiosController < Admin::BaseController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def radio_params
-      params.require(:radio).permit(:title, :description, :mp3, :youtube_url, :podcast_url)
+      params.require(:radio).permit(:title, :image, :description, :mp3, :youtube_url, :podcast_url)
     end
 end

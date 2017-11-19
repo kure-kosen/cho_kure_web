@@ -18,7 +18,7 @@
 #  name                   :string(255)      default("名前を設定してください"), not null
 #  description            :text(65535)
 #  role                   :integer          default(0), not null
-#  image                  :string(255)      not null
+#  image                  :string(255)
 #
 # Indexes
 #

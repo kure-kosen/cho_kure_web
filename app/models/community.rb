@@ -8,7 +8,7 @@
 #  description :text(65535)      not null
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
-#  logo        :string(255)      not null
+#  logo        :string(255)
 #
 
 class Community < ApplicationRecord

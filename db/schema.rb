@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171119023843) do
+ActiveRecord::Schema.define(version: 20171119042630) do
 
   create_table "communities", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name", null: false
@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 20171119023843) do
     t.text "description", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "logo", null: false
+    t.string "logo"
   end
 
   create_table "events", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -56,18 +56,9 @@ ActiveRecord::Schema.define(version: 20171119023843) do
     t.string "name", default: "名前を設定してください", null: false
     t.text "description"
     t.integer "role", default: 0, null: false
-    t.string "image", null: false
+    t.string "image"
     t.index ["email"], name: "index_personalities_on_email", unique: true
     t.index ["reset_password_token"], name: "index_personalities_on_reset_password_token", unique: true
-  end
-
-  create_table "radio_personalities", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.bigint "radio_id", null: false
-    t.bigint "personality_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["personality_id"], name: "index_radio_personalities_on_personality_id"
-    t.index ["radio_id"], name: "index_radio_personalities_on_radio_id"
   end
 
   create_table "radios", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -78,10 +69,9 @@ ActiveRecord::Schema.define(version: 20171119023843) do
     t.string "podcast_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "image"
   end
 
   add_foreign_key "host_events", "communities", column: "host_id"
   add_foreign_key "host_events", "events"
-  add_foreign_key "radio_personalities", "personalities"
-  add_foreign_key "radio_personalities", "radios"
 end

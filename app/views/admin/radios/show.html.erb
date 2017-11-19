@@ -6,6 +6,11 @@
 </dl>
 
 <dl class="dl-horizontal">
+  <dt><strong><%= Radio.human_attribute_name('image') %> :</strong></dt>
+  <dd><%= image_tag @radio.image_url(:thumb) %></dd>
+</dl>
+
+<dl class="dl-horizontal">
   <dt><strong><%= Radio.human_attribute_name('description') %> :</strong></dt>
   <dd><%= simple_format(@radio.description) if @radio.description %></dd>
 </dl>
