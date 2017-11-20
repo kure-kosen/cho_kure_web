@@ -9,16 +9,59 @@
   </div>
 
   <div class="form-group row">
+    <%= form.label :image, class: 'col-2 col-form-label' %>
+    <div class="col-10">
+      <%= form.file_field :image %>
+    </div>
+  </div>
+
+  <div class="form-group row">
     <%= form.label :description, class: 'col-2 col-form-label' %>
     <div class="col-10">
       <%= form.text_area :description, class: 'form-control' %>
     </div>
   </div>
 
+  <!--# TODO: ここの見た目はもう少し考えた方がいいかも-->
+  <div class="form-group row">
+    <%= form.label :personalities, class: 'col-md-2 control-label' %>
+    <div class="col-md-10 form-check">
+      <%= collection_check_boxes(:radio, :personality_ids, Personality.all, :id, :name) do |b| %>
+        <%= b.check_box %>
+        <%= b.label %>
+      <% end %>
+    </div>
+  </div>
+
   <div class="form-group row">
     <%= form.label :mp3, class: 'col-2 col-form-label' %>
     <div class="col-10">
-      <%= form.text_field :mp3, class: 'form-control' %>
+      <%= form.file_field :mp3 %>
+    </div>
+  </div>
+  
+  <!--# TODO: ここの見た目はもう少し考えた方がいいかも-->
+  <div class="form-group row">
+    <%= form.label :communities, class: 'col-md-2 control-label' %>
+    <div class="col-md-10 form-check">
+      <%= collection_check_boxes(:radio, :community_ids, Community.all, :id, :name) do |b| %>
+        <%= b.check_box %>
+        <%= b.label %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <%= form.label :duration, class: 'col-2 col-form-label' %>
+    <div class="col-10">
+      <%= form.text_field :duration, class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <%= form.label :size, class: 'col-2 col-form-label' %>
+    <div class="col-10">
+      <%= form.text_field :size, class: 'form-control' %>
     </div>
   </div>
 
@@ -33,6 +76,14 @@
     <%= form.label :podcast_url, class: 'col-2 col-form-label' %>
     <div class="col-10">
       <%= form.text_field :podcast_url, class: 'form-control' %>
+    </div>
+  </div>
+
+  <!-- TODO: 公開/非公開のtoggle的な感じのUIにする -->
+  <div class="form-group row">
+    <%= form.label :published_at, class: 'col-2 col-form-label' %>
+    <div class="col-10">
+      <%= form.datetime_select :published_at, use_month_numbers: true, class: 'form-control' %>
     </div>
   </div>
 

@@ -21,3 +21,5 @@
 
 # dotenv
 .env
+
+/public/uploads/

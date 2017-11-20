@@ -6,13 +6,46 @@
 </dl>
 
 <dl class="dl-horizontal">
+  <dt><strong><%= Radio.human_attribute_name('image') %> :</strong></dt>
+  <dd><%= image_tag @radio.image_url(:thumb) %></dd>
+</dl>
+
+<dl class="dl-horizontal">
+  <dt><strong><%= Radio.human_attribute_name('personalities') %> :</strong></dt>
+  <dd>
+    <% @radio.personalities.each do |personality| %>
+      <%= link_to personality.name, admin_personality_path(personality) %><br>
+    <% end %>
+  </dd>
+</dl>
+
+<dl class="dl-horizontal">
   <dt><strong><%= Radio.human_attribute_name('description') %> :</strong></dt>
   <dd><%= simple_format(@radio.description) if @radio.description %></dd>
 </dl>
 
 <dl class="dl-horizontal">
   <dt><strong><%= Radio.human_attribute_name('mp3') %> :</strong></dt>
-  <dd><%= @radio.mp3 %></dd>
+  <dd><%= audio_tag @radio.mp3_url, controls: true %></dd>
+</dl>
+
+<dl class="dl-horizontal">
+  <dt><strong><%= Radio.human_attribute_name('duration') %> :</strong></dt>
+  <dd><%= @radio.duration %></dd>
+</dl>
+
+<dl class="dl-horizontal">
+  <dt><strong><%= Radio.human_attribute_name('size') %> :</strong></dt>
+  <dd><%= @radio.size %></dd>
+</dl>
+
+<dl class="dl-horizontal">
+  <dt><strong><%= Radio.human_attribute_name('communities') %> :</strong></dt>
+  <dd>
+    <% @radio.communities.each do |community| %>
+      <%= link_to community.name, admin_community_path(community) %><br>
+    <% end %>
+  </dd>
 </dl>
 
 <dl class="dl-horizontal">
@@ -23,6 +56,11 @@
 <dl class="dl-horizontal">
   <dt><strong><%= Radio.human_attribute_name('podcast_url') %> :</strong></dt>
   <dd><%= link_to @radio.podcast_url, @radio.podcast_url %></dd>
+</dl>
+
+<dl class="dl-horizontal">
+  <dt><strong><%= Radio.human_attribute_name('published_at') %> :</strong></dt>
+  <dd><%= @radio.published_at %></dd>
 </dl>
 
 <%= link_to '編集', edit_admin_radio_path(@radio) %>

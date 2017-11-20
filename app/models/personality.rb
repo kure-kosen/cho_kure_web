@@ -18,6 +18,7 @@
 #  name                   :string(255)      default("名前を設定してください"), not null
 #  description            :text(65535)
 #  role                   :integer          default(0), not null
+#  image                  :string(255)
 #
 # Indexes
 #
@@ -36,4 +37,9 @@ class Personality < ApplicationRecord
          :validatable
 
   bind_inum :role, PersonalityRoles
+
+  mount_uploader :image, PersonalityImageUploader
+
+  has_many :radio_personalities, dependent: :destroy
+  has_many :radios, through: :radio_personalities
 end

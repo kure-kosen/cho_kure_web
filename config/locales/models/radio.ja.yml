@@ -5,7 +5,13 @@ ja:
     attributes:
       radio:
         title: タイトル
+        image: 画像
         description: 説明
+        personalities: パーソナリティー
+        communities: 紹介したコミュニティ
         mp3: 音声ファイル
+        duration: 秒数
+        size: mp3のbyte数
         youtube_url: Youtube
         podcast_url: podcast
+        is_published: 公開日
