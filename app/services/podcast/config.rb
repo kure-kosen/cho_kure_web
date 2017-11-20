@@ -24,20 +24,34 @@ module Podcast
       @category = ["Government & Organizations", "Local"]
       @update_period = "hourly"
       @update_frequency = "1"
-      @application_url = "http://www.kure-rad.io/"
+      @application_url = application_server_domain
       @owner_name = "ちょっくれ制作班"
       @owner_email = "cho.kure.radio@gmail.com"
       @itunes_explicit = "clean"
     end
 
+    def application_server_domain
+      server_domain(
+          development: "http://localhost:3000",
+          production: ENV.fetch("EC2_PRODUCTION_PROTOCOL") { "" } + "://" + ENV.fetch("EC2_PRODUCTION_HOST") { "" }
+      )
+    end
+
     def mp3_upload_server_domain
+      server_domain(
+          development: "http://localhost:3000",
+          production: ENV.fetch("S3_PRODUCTION_PROTOCOL") { "" } + "://" + ENV.fetch("S3_PRODUCTION_HOST") { "" }
+      )
+    end
+
+    def server_domain(development:, production:)
       case Rails.env
         when :development || :test
-          "http://localhost:3000"
+          development
         when :production
-          ENV.fetch("S3_PRODUCTION_PROTOCOL") { "" } + "://" + ENV.fetch("S3_PRODUCTION_HOST") { "" }
+          production
         else
-          "http://localhost:3000"
+          development
       end
     end
   end
