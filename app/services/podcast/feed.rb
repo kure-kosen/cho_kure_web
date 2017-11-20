@@ -56,7 +56,7 @@ module Podcast
           item.description      = radio.description
           item.pubDate          = radio.published_at.to_s(:rfc822)
           item.itunes_duration  = duration_to_format(radio.duration)
-          item.enclosure.url    = audio_link(radio)
+          item.enclosure.url    = radio.mp3_url
           item.enclosure.type   = "audio/mpeg"
           item.enclosure.length = radio.size
         end
@@ -69,10 +69,6 @@ module Podcast
       def radio_link(radio)
         # TODO: front/にラジオのページが出来次第変更
         @config.mp3_upload_server_domain + admin_radio_path(radio)
-      end
-
-      def audio_link(radio)
-        @config.mp3_upload_server_domain + radio.mp3_url
       end
   end
 end
