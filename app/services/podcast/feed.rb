@@ -68,7 +68,7 @@ module Podcast
 
       def radio_link(radio)
         # TODO: front/にラジオのページが出来次第変更
-        @config.mp3_upload_server_domain + admin_radio_path(radio)
+        @config.application_server_domain + admin_radio_path(radio)
       end
   end
 end
