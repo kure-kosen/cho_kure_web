@@ -52,21 +52,21 @@ module Podcast
       def set_item(items, radio)
         items.new_item do |item|
           item.title            = radio.title
-          item.link             = radio_link(radio)
+          item.link             = join_radio_link(radio)
           item.description      = radio.description
           item.pubDate          = radio.published_at.to_s(:rfc822)
-          item.itunes_duration  = duration_to_format(radio.duration)
+          item.itunes_duration  = format_duration(radio.duration)
           item.enclosure.url    = radio.mp3_url
           item.enclosure.type   = "audio/mpeg"
           item.enclosure.length = radio.size
         end
       end
 
-      def duration_to_format(sec)
+      def format_duration(sec)
         Time.at(sec).utc.strftime((sec < 3600) ? "%-M:%S" : "%-H:%M:%S")
       end
 
-      def radio_link(radio)
+      def join_radio_link(radio)
         # TODO: front/にラジオのページが出来次第変更
         @config.application_server_domain + admin_radio_path(radio)
       end
