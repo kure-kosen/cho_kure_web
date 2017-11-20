@@ -2,7 +2,9 @@ require "rss"
 
 module Podcast
   class Feed
-    def initialize
+    include Rails.application.routes.url_helpers
+
+    def initialize(radios)
       @config = Config.new
 
       @feed = RSS::Maker.make("2.0") do |feed|
@@ -13,27 +15,6 @@ module Podcast
           category.text = @config.category[0]
           category.new_category.text = @config.category[1]
         end
-
-        radios = [
-          {
-            title: "title1",
-            path: "http://hoge/radios/1",
-            mp3: "http://hoge/1.mp3",
-            published_at: "Mon, 02 Oct 2017 01:34:09 +0000",
-            description: "ほげほげほげほげげ",
-            size: 12345667,
-            duration: 600,
-          },
-          {
-            title: "title2",
-            path: "http://hoge/radios/2",
-            mp3: "http://hoge/2.mp3",
-            published_at: "Mon, 02 Oct 2017 01:34:09 +0000",
-            description: "ふがふがふがふがふがが",
-            size: 98787654,
-            duration: 6000,
-          },
-        ]
 
         radios.each do |radio|
           set_item(feed.items, radio)
@@ -70,19 +51,35 @@ module Podcast
 
       def set_item(items, radio)
         items.new_item do |item|
-          item.title            = radio[:title]
-          item.link             = radio[:path]
-          item.description      = radio[:description]
-          item.pubDate          = radio[:published_at]
-          item.itunes_duration  = duration_to_format(radio[:duration])
-          item.enclosure.url    = radio[:mp3]
+          item.title            = radio.title
+          item.link             = radio_link(radio)
+          item.description      = radio.description
+          item.pubDate          = radio.published_at
+          item.itunes_duration  = duration_to_format(radio.duration)
+          item.enclosure.url    = radio.mp3_url
           item.enclosure.type   = "audio/mpeg"
-          item.enclosure.length = radio[:size]
+          item.enclosure.length = radio.size
         end
       end
 
       def duration_to_format(sec)
         Time.at(sec).utc.strftime((sec < 3600) ? "%-M:%S" : "%-H:%M:%S")
+      end
+
+      def radio_link(radio)
+        # TODO: front/にラジオのページが出来次第変更
+        mp3_upload_server_domain + admin_radio_path(radio)
+      end
+
+      def mp3_upload_server_domain
+        case Rails.env
+        when :development || :test
+          "http://localhost:3000"
+        when :production
+          ENV.fetch("S3_PRODUCTION_PROTOCOL") { "" } + "://" + ENV.fetch("S3_PRODUCTION_HOST") { "" }
+        else
+          "http://localhost:3000"
+        end
       end
   end
 end
