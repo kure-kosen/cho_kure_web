@@ -46,9 +46,9 @@ module Podcast
 
     def server_domain(development:, production:)
       case Rails.env
-        when :development || :test
+        when "development" || "test"
           development
-        when :production
+        when "production"
           production
         else
           development
