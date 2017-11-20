@@ -1,6 +1,9 @@
 class Front::PodcastController < Front::BaseController
   def index
-    rss = Podcast::Feed.new(Radio.published).generate
+    rss = Rails.cache.fetch("/podcast/rss") do
+            Podcast::Feed.new(Radio.published).generate
+          end
+
     render xml: rss
   end
 end

@@ -25,6 +25,8 @@ class Radio < ApplicationRecord
   has_many :community_radios, dependent: :destroy
   has_many :communities, through: :community_radios
 
+  after_save :update_podcast_rss_cache
+
   validates :title,
             presence: true,
             uniqueness: true
@@ -52,4 +54,8 @@ class Radio < ApplicationRecord
   scope :published, -> {
     where.not(published_at: nil)
   }
+
+  def update_podcast_rss_cache
+    Rails.cache.write("/podcast/rss", Podcast::Feed.new(Radio.published).generate)
+  end
 end
