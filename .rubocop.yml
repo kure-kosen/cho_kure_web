@@ -31,3 +31,7 @@ Metrics/BlockLength:
 Lint/HandleExceptions:
   Exclude:
     - "config/unicorn/production.rb"  # 何やってるのかよくわからんのでとりあえずExclude
+
+Naming/AccessorMethodName:
+  Exclude:
+    - "app/services/podcast/feed.rb"

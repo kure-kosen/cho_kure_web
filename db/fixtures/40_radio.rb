@@ -15,5 +15,6 @@ community_ids = Community.pluck(:id)
     r.size = rand(1..1_000_000)
     r.youtube_url = Faker::Internet.url("youtube.com")
     r.podcast_url = Faker::Internet.url("podcast.com")
+    r.published_at = Time.zone.now if i.odd?
   end
 end
