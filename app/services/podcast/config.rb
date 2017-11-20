@@ -12,7 +12,8 @@ module Podcast
                 :application_url,
                 :owner_name,
                 :owner_email,
-                :itunes_explicit
+                :itunes_explicit,
+                :mp3_upload_server_domain,
 
     def initialize
       @podcast_name = "ちょっときいて呉高専 〜呉高専の今をお伝えします〜"
@@ -28,6 +29,20 @@ module Podcast
       @owner_name = "ちょっくれ制作班"
       @owner_email = "cho.kure.radio@gmail.com"
       @itunes_explicit = "clean"
+      @mp3_upload_server_domain = mp3_upload_server_domain
     end
+
+    private
+
+      def mp3_upload_server_domain
+        case Rails.env
+          when :development || :test
+            "http://localhost:3000"
+          when :production
+            ENV.fetch("S3_PRODUCTION_PROTOCOL") { "" } + "://" + ENV.fetch("S3_PRODUCTION_HOST") { "" }
+          else
+            "http://localhost:3000"
+        end
+      end
   end
 end

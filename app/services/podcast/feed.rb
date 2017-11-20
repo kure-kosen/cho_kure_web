@@ -68,18 +68,7 @@ module Podcast
 
       def radio_link(radio)
         # TODO: front/にラジオのページが出来次第変更
-        mp3_upload_server_domain + admin_radio_path(radio)
-      end
-
-      def mp3_upload_server_domain
-        case Rails.env
-        when :development || :test
-          "http://localhost:3000"
-        when :production
-          ENV.fetch("S3_PRODUCTION_PROTOCOL") { "" } + "://" + ENV.fetch("S3_PRODUCTION_HOST") { "" }
-        else
-          "http://localhost:3000"
-        end
+        @config.mp3_upload_server_domain + admin_radio_path(radio)
       end
   end
 end
