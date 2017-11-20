@@ -36,7 +36,7 @@ module Podcast
         channel.sy_updatePeriod     = @config.update_period
         channel.sy_updateFrequency  = @config.update_frequency
         channel.managingEditor      = "#{@config.owner_email} (#{@config.owner_name})"
-        channel.lastBuildDate       = Time.now.utc # 一番後のpublished_atの値が入る
+        channel.lastBuildDate       = Time.zone.now.to_s(:rfc822)
       end
 
       def set_itunes_from_config(channel)
@@ -54,7 +54,7 @@ module Podcast
           item.title            = radio.title
           item.link             = radio_link(radio)
           item.description      = radio.description
-          item.pubDate          = radio.published_at
+          item.pubDate          = radio.published_at.to_s(:rfc822)
           item.itunes_duration  = duration_to_format(radio.duration)
           item.enclosure.url    = audio_link(radio)
           item.enclosure.type   = "audio/mpeg"

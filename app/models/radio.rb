@@ -48,4 +48,8 @@ class Radio < ApplicationRecord
   validates :youtube_url, url: true
 
   validates :podcast_url, url: true
+
+  scope :published, -> {
+    where.not(published_at: nil)
+  }
 end
