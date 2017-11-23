@@ -59,6 +59,6 @@ class Admin::CommunitiesController < Admin::BaseController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def community_params
-      params.require(:community).permit(:name, :url, :description, :logo)
+      params.require(:community).permit(:name, :url, :description, :logo, :tag_list)
     end
 end

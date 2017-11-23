@@ -11,6 +11,15 @@
 </dl>
 
 <dl class="dl-horizontal">
+  <dt><strong><%= Community.human_attribute_name('tag_list') %> :</strong></dt>
+  <dd>
+    <% @community.tag_list.each do |tag| %>
+      <span class="badge badge-primary"><%= tag %></span>
+    <% end %>
+  </dd>
+</dl>
+
+<dl class="dl-horizontal">
   <dt><strong><%= Community.human_attribute_name('url') %> :</strong></dt>
   <dd><%= link_to @community.url, @community.url %></dd>
 </dl>

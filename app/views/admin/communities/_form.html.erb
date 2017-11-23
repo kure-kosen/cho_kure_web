@@ -29,6 +29,13 @@
     </div>
   </div>
 
+  <div class="form-group row">
+    <%= form.label :tag_list, class: 'col-2 col-form-label' %>
+    <div class="col-10">
+      <%= text_field_tag 'community[tag_list]', community.tag_list.join(',') %>
+    </div>
+  </div>
+
   <div class="actions">
     <%= form.submit class: 'btn btn-primary' %>
   </div>

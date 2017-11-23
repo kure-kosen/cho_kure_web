@@ -14,6 +14,8 @@
 class Community < ApplicationRecord
   mount_uploader :logo, CommunityLogoUploader
 
+  acts_as_taggable
+
   has_many :host_events, foreign_key: "host_id", dependent: :destroy
   has_many :events, through: :host_events
   has_many :community_radios, dependent: :destroy
