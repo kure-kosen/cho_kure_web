@@ -23,6 +23,13 @@
   </div>
 
   <div class="form-group row">
+    <%= form.label :tag_list, class: 'col-2 col-form-label' %>
+    <div class="col-10">
+      <%= text_field_tag 'personality[tag_list]', personality.tag_list.join(',') %>
+    </div>
+  </div>
+
+  <div class="form-group row">
     <%= form.label :role, class: 'col-2 col-form-label' %>
     <div class="col-10">
       <%= form.select :role, options_for_select(PersonalityRoles.form_items, personality.role.label), {}, { class: 'form-control' } %>
