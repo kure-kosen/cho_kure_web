@@ -1,5 +1,6 @@
 class Admin::CommunitiesController < Admin::BaseController
   before_action :set_community, only: [:show, :edit, :update, :destroy]
+  before_action :set_tag_list, only: [:new, :edit]
 
   # GET /communities
   # GET /communities.json
@@ -55,6 +56,10 @@ class Admin::CommunitiesController < Admin::BaseController
     # Use callbacks to share common setup or constraints between actions.
     def set_community
       @community = Community.find(params[:id])
+    end
+
+    def set_tag_list
+      @tag_list = Community.tags_on(:tags).pluck(:name)
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

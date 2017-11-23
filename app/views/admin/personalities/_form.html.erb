@@ -42,5 +42,8 @@
 <% end %>
 
 <script>
-  var tag_list = <%= raw @tag_list %>;
+  $('.js-tag-list').tagit({
+    singleField: true,
+    availableTags: <%= raw @tag_list %>
+  });
 </script>
