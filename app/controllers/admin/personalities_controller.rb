@@ -1,5 +1,6 @@
 class Admin::PersonalitiesController < Admin::BaseController
   before_action :set_personality, only: [:show, :edit, :update, :destroy]
+  before_action :set_tag_list, only: [:edit]
 
   # GET /personalities
   # GET /personalities.json
@@ -38,6 +39,10 @@ class Admin::PersonalitiesController < Admin::BaseController
     # Use callbacks to share common setup or constraints between actions.
     def set_personality
       @personality = Personality.find(params[:id])
+    end
+
+    def set_tag_list
+      @tag_list = Personality.tags_on(:tags).pluck(:name)
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
