@@ -1,5 +1,6 @@
 class Admin::PersonalitiesController < Admin::BaseController
   before_action :set_personality, only: [:show, :edit, :update, :destroy]
+  before_action :set_tag_list, only: [:edit]
 
   # GET /personalities
   # GET /personalities.json
@@ -40,8 +41,12 @@ class Admin::PersonalitiesController < Admin::BaseController
       @personality = Personality.find(params[:id])
     end
 
+    def set_tag_list
+      @tag_list = Personality.tags_on(:tags).pluck(:name)
+    end
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def personality_params
-      params.require(:personality).permit(:name, :image, :description, :role)
+      params.require(:personality).permit(:name, :image, :description, :role, :tag_list)
     end
 end

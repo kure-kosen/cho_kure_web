@@ -64,6 +64,7 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
+gem "acts-as-taggable-on"
 gem "bootstrap"
 gem "carrierwave"
 gem "devise"
@@ -72,5 +73,6 @@ gem "faker"
 gem "font-awesome-rails"
 gem "inum"
 gem "jquery-rails"
+gem "jquery-ui-rails"
 gem "mini_magick"
 gem "seed-fu"

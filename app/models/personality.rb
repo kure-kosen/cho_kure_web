@@ -40,6 +40,8 @@ class Personality < ApplicationRecord
 
   mount_uploader :image, PersonalityImageUploader
 
+  acts_as_taggable
+
   has_many :radio_personalities, dependent: :destroy
   has_many :radios, through: :radio_personalities
 end

@@ -11,6 +11,15 @@
 </dl>
 
 <dl class="dl-horizontal">
+  <dt><strong><%= Personality.human_attribute_name('tag_list') %> :</strong></dt>
+  <dd>
+    <% @personality.tag_list.each do |tag| %>
+      <span class="badge badge-primary"><%= tag %></span>
+    <% end %>
+  </dd>
+</dl>
+
+<dl class="dl-horizontal">
   <dt><strong><%= Personality.human_attribute_name('role') %> :</strong></dt>
   <dd><%= @personality.role.t %></dd>
 </dl>

@@ -6,6 +6,7 @@
   <thead>
     <tr>
       <th><%= Personality.human_attribute_name('name') %></th>
+      <th><%= Personality.human_attribute_name('tag_list') %></th>
       <th><%= Personality.human_attribute_name('description') %></th>
       <th><%= Personality.human_attribute_name('role') %></th>
       <th><%= Personality.human_attribute_name('email') %></th>
@@ -17,6 +18,11 @@
     <% @personalities.each do |personality| %>
       <tr>
         <td><%= personality.name %></td>
+        <td>
+          <% personality.tag_list.each do |tag| %>
+            <span class="badge badge-primary"><%= tag %></span>
+          <% end %>
+        </td>
         <td><%= truncate(personality.description) if personality.description %></td>
         <td><%= personality.role.t %></td>
         <td><%= personality.email %></td>
