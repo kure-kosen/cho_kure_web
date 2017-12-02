@@ -1,4 +1,4 @@
-class Personalities::UnlocksController < Devise::UnlocksController
+class Devise::UnlocksController < Devise::UnlocksController
   # GET /resource/unlock/new
   # def new
   #   super

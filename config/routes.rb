@@ -3,7 +3,10 @@ Rails.application.routes.draw do
     mount LetterOpenerWeb::Engine, at: "/letter_opener"
   end
 
-  devise_for :personalities
+  devise_for :personalities, controllers: {
+    registrations: "admin/personalities/registrations"
+  }
+
   root to: "admin/personalities#index"
 
   namespace :front, path: "/" do
