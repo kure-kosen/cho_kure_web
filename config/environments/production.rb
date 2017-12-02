@@ -61,13 +61,13 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: ENV["EC2_PRODUCTION_HOST"] }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-      :enable_starttls_auto => true,
-      :address => "smtp.gmail.com",
-      :port => 587,
-      :domain => 'smtp.gmail.com',
-      :user_name => "cho.kure.radio@gmail.com",
-      :password => ENV["GMAIL_PASSWORD"],
-      :authentication => 'login',
+    enable_starttls_auto: true,
+    address: "smtp.gmail.com",
+    port: 587,
+    domain: "smtp.gmail.com",
+    user_name: "cho.kure.radio@gmail.com",
+    password: ENV["GMAIL_PASSWORD"],
+    authentication: "login",
   }
 
   # Ignore bad email addresses and do not raise email delivery errors.
