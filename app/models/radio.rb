@@ -36,18 +36,6 @@ class Radio < ApplicationRecord
 
   validates :mp3, presence: true
 
-  validates :duration,
-            presence: true,
-            numericality: {
-              greater_than_or_equal_to: 0,
-            }
-
-  validates :size,
-            presence: true,
-            numericality: {
-              greater_than_or_equal_to: 0,
-            }
-
   validates :youtube_url, url: true
 
   validates :podcast_url, url: true
