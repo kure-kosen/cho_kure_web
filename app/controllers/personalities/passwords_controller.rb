@@ -1,4 +1,4 @@
-class Devise::PasswordsController < Devise::PasswordsController
+class Personalities::PasswordsController < Devise::PasswordsController
   # GET /resource/password/new
   # def new
   #   super
