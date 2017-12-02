@@ -58,6 +58,7 @@ Rails.application.configure do
   # config.active_job.queue_name_prefix = "cho_kure_web_#{Rails.env}"
   config.action_mailer.perform_caching = false
   config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.default_url_options = { host: ENV["EC2_PRODUCTION_HOST"] }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
       :enable_starttls_auto => true,
