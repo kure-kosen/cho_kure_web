@@ -25,6 +25,7 @@ class Radio < ApplicationRecord
   has_many :community_radios, dependent: :destroy
   has_many :communities, through: :community_radios
 
+  before_save :extract_meta_mp3
   after_save :update_podcast_rss_cache
 
   validates :title,
@@ -35,18 +36,6 @@ class Radio < ApplicationRecord
 
   validates :mp3, presence: true
 
-  validates :duration,
-            presence: true,
-            numericality: {
-              greater_than_or_equal_to: 0,
-            }
-
-  validates :size,
-            presence: true,
-            numericality: {
-              greater_than_or_equal_to: 0,
-            }
-
   validates :youtube_url, url: true
 
   validates :podcast_url, url: true
@@ -54,6 +43,13 @@ class Radio < ApplicationRecord
   scope :published, -> {
     where.not(published_at: nil)
   }
+
+  def extract_meta_mp3
+    meta = MetaExtractor::Mp3.new(self.mp3.file.file)
+
+    self.duration = meta.duration
+    self.size = meta.size
+  end
 
   def update_podcast_rss_cache
     Rails.cache.write("/podcast/rss", Podcast::Feed.new(Radio.published).generate, compress: true)
