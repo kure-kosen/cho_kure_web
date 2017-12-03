@@ -82,9 +82,7 @@ namespace :deploy do
 
   task :cleanup do
     on roles(:app) do
-      header = "Authorization: Bearer 3EsgJyhuQgAi9dERkkOSfuqZY9afS6ymW3h3ZbEvZoE"
-      message = "デプロイを完了しました"
-      execute "curl -X POST -H '#{header}' -F 'message=#{message}' https://notify-api.line.me/api/notify"
+      execute "curl -X POST --data-urlencode \"payload={ \\\"channel\\\": \\\"#develop_開発\\\", \\\"username\\\": \\\"onigiri\\\", \\\"text\\\": \\\"デプロイを完了したよ！\\\", \\\"icon_emoji\\\": \\\":onigirikun:\\\"}\" https://hooks.slack.com/services/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"
     end
   end
 end
