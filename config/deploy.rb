@@ -82,7 +82,16 @@ namespace :deploy do
 
   task :cleanup do
     on roles(:app) do
-      execute "curl -X POST --data-urlencode \"payload={ \\\"channel\\\": \\\"#develop_開発\\\", \\\"username\\\": \\\"onigiri\\\", \\\"text\\\": \\\"デプロイを完了したよ！\\\", \\\"icon_emoji\\\": \\\":onigirikun:\\\"}\" https://hooks.slack.com/services/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"
+      execute <<-COMMAND
+        curl -X POST --data-urlencode \
+          \"payload={ \
+            \\\"channel\\\": \\\"#develop_開発\\\", \
+            \\\"username\\\": \\\"onigiri\\\", \
+            \\\"text\\\": \\\"デプロイを完了したよ！\\\", \
+            \\\"icon_emoji\\\": \\\":onigirikun:\\\"\
+          }\" \
+        https://hooks.slack.com/services/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
+      COMMAND
     end
   end
 end
