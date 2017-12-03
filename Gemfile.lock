@@ -421,6 +421,7 @@ GEM
       unicode-display_width (~> 1.0, >= 1.0.1)
     rubocop-rspec (1.19.0)
       rubocop (>= 0.51.0)
+    ruby-mp3info (0.8.10)
     ruby-progressbar (1.9.0)
     ruby_dep (1.5.0)
     sass (3.5.3)
@@ -518,6 +519,7 @@ DEPENDENCIES
   puma (~> 3.7)
   rails (~> 5.1.4)
   rspec-rails
+  ruby-mp3info
   sass-rails (~> 5.0)
   seed-fu
   spring

@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   end
 
   devise_for :personalities
+
   root to: "admin/personalities#index"
 
   namespace :front, path: "/" do
@@ -12,7 +13,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     root to: "dashboard#index"
-    resources :personalities, except: [:new, :create]
+    resources :personalities
     resources :communities
     resources :events
     resources :radios

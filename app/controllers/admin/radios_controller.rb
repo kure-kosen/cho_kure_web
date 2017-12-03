@@ -59,8 +59,6 @@ class Admin::RadiosController < Admin::BaseController
         :image,
         :description,
         :mp3,
-        :duration,
-        :size,
         :youtube_url,
         :podcast_url,
         :published_at,

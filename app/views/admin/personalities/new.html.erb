@@ -1,0 +1,23 @@
+<h1>パーソナリティを仮登録</h1>
+
+<%= form_with(model: [:admin, @personality], local: true) do |form| %>
+  <%= render 'admin/shared/errors', object: @personality %>
+
+  <div class="form-group row">
+    <%= form.label :name, class: 'col-2 col-form-label' %>
+    <div class="col-10">
+      <%= form.text_field :name, class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <%= form.label :email, class: 'col-2 col-form-label' %>
+    <div class="col-10">
+      <%= form.text_field :email, class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class="actions">
+    <%= form.submit class: 'btn btn-primary' %>
+  </div>
+<% end %>
