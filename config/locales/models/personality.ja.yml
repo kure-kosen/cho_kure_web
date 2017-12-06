@@ -9,5 +9,6 @@ ja:
         description: 自己紹介
         role: 権限
         email: メールアドレス
+        password: パスワード
         radios: 収録した回
         tag_list: タグ
