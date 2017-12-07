@@ -3,10 +3,11 @@ lock "~> 3.10.0"
 
 set :application, "cho_kure_web"
 set :repo_url, "git@github.com:kure-kosen/cho_kure_web.git"
+set :rails_env, "staging"
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
-set :branch, "feature/dev"
+set :branch, "feature/create-staging-environment"
 
 # Default deploy_to directory is /var/www/my_app_name
 set :deploy_to, "/var/www/cho_kure_web"
