@@ -31,6 +31,7 @@ Metrics/BlockLength:
 Lint/HandleExceptions:
   Exclude:
     - "config/unicorn/production.rb"  # 何やってるのかよくわからんのでとりあえずExclude
+    - "config/unicorn/staging.rb"  # 何やってるのかよくわからんのでとりあえずExclude
 
 Naming/AccessorMethodName:
   Exclude:
