@@ -3,7 +3,6 @@ lock "~> 3.10.0"
 
 set :application, "cho_kure_web"
 set :repo_url, "git@github.com:kure-kosen/cho_kure_web.git"
-set :rails_env, "staging"
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
@@ -88,7 +87,7 @@ namespace :deploy do
           \"payload={ \
             \\\"channel\\\": \\\"#develop_開発\\\", \
             \\\"username\\\": \\\"onigiri\\\", \
-            \\\"text\\\": \\\"デプロイを完了したよ！\\\", \
+            \\\"text\\\": \\\"#{fetch(:rails_env)}にデプロイを完了したよ！\\\", \
             \\\"icon_emoji\\\": \\\":onigirikun:\\\"\
           }\" \
         https://hooks.slack.com/services/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
