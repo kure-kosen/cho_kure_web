@@ -21,7 +21,7 @@
       <div id="editor">
         <div class="row" style="height: 30em;">
           <div class="col-6">
-            <textarea name="radio[description]" class="form-control" rows=20 v-model='input' debounce='50'></textarea>
+            <textarea name="radio[description]" class="form-control" rows="20" v-model="input" debounce="50"></textarea>
           </div>
           <div class="col-6" style="overflow: scroll;">
             <div v-html='input | marked'></div>
@@ -85,18 +85,18 @@
   <div class="actions">
     <%= form.submit class: 'btn btn-primary' %>
   </div>
-
-  <script type="text/javascript">
-    window.onload = function() {
-      new Vue({
-        el: '#editor',
-        data: {
-          input: '<%== j radio.description %>'
-        },
-        filters: {
-          marked: marked
-        },
-      });
-    };
-  </script>
 <% end %>
+
+<script type="text/javascript">
+  $(function() {
+    new Vue({
+      el: '#editor',
+      data: {
+        input: '<%== j radio.description %>',
+      },
+      filters: {
+        marked: marked,
+      },
+    });
+  });
+</script>

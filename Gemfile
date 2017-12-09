@@ -79,3 +79,5 @@ gem "mini_magick"
 gem "redcarpet"
 gem "ruby-mp3info"
 gem "seed-fu"
+gem 'bootstrap-tooltip-rails'
+
