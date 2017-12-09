@@ -12,5 +12,5 @@
 #
 
 class CommunitySerializer < ActiveModel::Serializer
-  attributes :id, :name, :url, :description, :created_at, :updated_at, :logo_url
+  attributes :id, :name, :url, :description, :created_at, :updated_at, :logo
 end
