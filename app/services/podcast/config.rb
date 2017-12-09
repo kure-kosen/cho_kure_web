@@ -4,27 +4,29 @@ module Podcast
                 :podcast_sub_name,
                 :podcast_summary,
                 :podcast_description,
-                :podcast_icon_url,
+                :icon_url,
                 :language,
                 :category,
                 :update_period,
                 :update_frequency,
-                :application_url,
+                :application_domain,
                 :owner_name,
                 :owner_email,
                 :itunes_explicit
+
+    CACHE_KEY = "/podcast/rss".freeze
 
     def initialize
       @podcast_name = "ちょっときいて呉高専 〜呉高専の今をお伝えします〜"
       @podcast_sub_name = "ちょっときいて呉高専"
       @podcast_summary = "〜呉・呉高専の今をお伝えします〜"
       @podcast_description = "呉高専の高専日誌や最近の出来事を中心に呉の今をお伝えするインターネットラジオです。"
-      @podcast_icon_url = "http://www.kure-rad.io/wp-content/uploads/2017/11/ちょっくれロゴ　sumika-ブルー.jpg"
+      @application_domain = application_server_domain
+      @icon_url = @application_domain + "/podcast/icon.png"
       @language = "ja"
       @category = ["Government & Organizations", "Local"]
       @update_period = "hourly"
       @update_frequency = "1"
-      @application_url = application_server_domain
       @owner_name = "ちょっくれ制作班"
       @owner_email = "cho.kure.radio@gmail.com"
       @itunes_explicit = "clean"

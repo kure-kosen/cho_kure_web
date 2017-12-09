@@ -1,3 +1,5 @@
+raise StandardError, "production環境では利用できません" if Rails.env.production?
+
 Personality.seed do |p|
   p.id = 1
   p.name = "新谷 哲平"

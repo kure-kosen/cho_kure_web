@@ -1,3 +1,5 @@
+raise StandardError, "production環境では利用できません" if Rails.env.production?
+
 tags = %w[呉 高専 IW ごはん スポーツ]
 
 (1..20).each do |i|
