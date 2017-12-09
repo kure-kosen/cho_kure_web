@@ -85,16 +85,4 @@
   </div>
 <% end %>
 
-<script type="text/javascript">
-  $(function() {
-    new Vue({
-      el: '#editor',
-      data: {
-        input: '<%== j radio.description %>',
-      },
-      filters: {
-        marked: marked,
-      },
-    });
-  });
-</script>
+<%= render "admin/shared/js_markdown", content: radio.description %>
