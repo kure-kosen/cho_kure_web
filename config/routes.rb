@@ -1,16 +1,4 @@
 Rails.application.routes.draw do
-  namespace :api do
-    namespace :v1 do
-      get 'communities/index'
-    end
-  end
-
-  namespace :api do
-    namespace :v1 do
-      get 'communities/show'
-    end
-  end
-
   if Rails.env.development?
     mount LetterOpenerWeb::Engine, at: "/letter_opener"
   end
@@ -21,6 +9,12 @@ Rails.application.routes.draw do
 
   namespace :front, path: "/" do
     get "/podcast", to: "podcast#index"
+  end
+
+  namespace :api, format: "json" do
+    namespace :v1 do
+      resources :communities, only: [:index, :show]
+    end
   end
 
   namespace :admin do
