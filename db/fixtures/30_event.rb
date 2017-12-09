@@ -1,3 +1,5 @@
+raise StandardError, 'production環境では利用できません' if Rails.env.production?
+
 community_ids = Community.pluck(:id)
 
 (1..50).each do |i|

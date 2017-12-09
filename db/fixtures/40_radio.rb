@@ -1,3 +1,5 @@
+raise StandardError, 'production環境では利用できません' if Rails.env.production?
+
 require "faker"
 
 personality_ids = Personality.pluck(:id)
