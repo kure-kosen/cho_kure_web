@@ -19,7 +19,7 @@ module Podcast
       @podcast_sub_name = "ちょっときいて呉高専"
       @podcast_summary = "〜呉・呉高専の今をお伝えします〜"
       @podcast_description = "呉高専の高専日誌や最近の出来事を中心に呉の今をお伝えするインターネットラジオです。"
-      @podcast_icon_url = "http://www.kure-rad.io/wp-content/uploads/2017/11/ちょっくれロゴ　sumika-ブルー.jpg"
+      @podcast_icon_url = application_server_domain + "/podcast/icon.png"
       @language = "ja"
       @category = ["Government & Organizations", "Local"]
       @update_period = "hourly"
