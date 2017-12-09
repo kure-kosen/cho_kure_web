@@ -52,6 +52,6 @@ class Radio < ApplicationRecord
   end
 
   def update_podcast_rss_cache
-    Rails.cache.write("/podcast/rss", Podcast::Feed.new(Radio.published).generate, compress: true)
+    Rails.cache.write(Podcast::Config::CACHE_KEY, Podcast::Feed.new(Radio.published).generate, compress: true)
   end
 end

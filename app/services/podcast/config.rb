@@ -14,6 +14,8 @@ module Podcast
                 :owner_email,
                 :itunes_explicit
 
+    CACHE_KEY = "/podcast/rss".freeze
+
     def initialize
       @podcast_name = "ちょっときいて呉高専 〜呉高専の今をお伝えします〜"
       @podcast_sub_name = "ちょっときいて呉高専"
