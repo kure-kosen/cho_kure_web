@@ -30,7 +30,7 @@ module Podcast
 
       def set_channel_from_config(channel)
         channel.title               = @config.podcast_name
-        channel.link                = @config.application_url
+        channel.link                = @config.application_domain
         channel.description         = @config.podcast_description
         channel.language            = @config.language
         channel.sy_updatePeriod     = @config.update_period
