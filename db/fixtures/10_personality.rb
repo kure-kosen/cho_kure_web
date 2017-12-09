@@ -1,4 +1,4 @@
-raise StandardError, 'production環境では利用できません' if Rails.env.production?
+raise StandardError, "production環境では利用できません" if Rails.env.production?
 
 Personality.seed do |p|
   p.id = 1
