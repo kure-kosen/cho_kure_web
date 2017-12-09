@@ -36,3 +36,7 @@ Lint/HandleExceptions:
 Naming/AccessorMethodName:
   Exclude:
     - "app/services/podcast/feed.rb"
+
+Rails/OutputSafety:
+  Exclude:
+    - "app/helpers/markdown_helper.rb" # markdownをparseした結果を返すのにhtml_safeは必須
