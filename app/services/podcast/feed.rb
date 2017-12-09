@@ -43,7 +43,7 @@ module Podcast
         channel.itunes_summary            = @config.podcast_summary
         channel.itunes_author             = @config.owner_name
         channel.itunes_explicit           = @config.itunes_explicit
-        channel.itunes_image              = @config.podcast_icon_url
+        channel.itunes_image              = @config.icon_url
         channel.itunes_owner.itunes_name  = @config.owner_name
         channel.itunes_owner.itunes_email = @config.owner_email
         channel.itunes_subtitle           = @config.podcast_sub_name

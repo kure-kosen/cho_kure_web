@@ -4,7 +4,7 @@ module Podcast
                 :podcast_sub_name,
                 :podcast_summary,
                 :podcast_description,
-                :podcast_icon_url,
+                :icon_url,
                 :language,
                 :category,
                 :update_period,
@@ -20,7 +20,7 @@ module Podcast
       @podcast_summary = "〜呉・呉高専の今をお伝えします〜"
       @podcast_description = "呉高専の高専日誌や最近の出来事を中心に呉の今をお伝えするインターネットラジオです。"
       @application_domain = application_server_domain
-      @podcast_icon_url = application_server_domain + "/podcast/icon.png"
+      @icon_url = application_server_domain + "/podcast/icon.png"
       @language = "ja"
       @category = ["Government & Organizations", "Local"]
       @update_period = "hourly"
