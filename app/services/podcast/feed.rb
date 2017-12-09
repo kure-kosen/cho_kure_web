@@ -68,7 +68,7 @@ module Podcast
 
       def join_radio_link(radio)
         # TODO: front/にラジオのページが出来次第変更
-        @config.application_server_domain + admin_radio_path(radio)
+        @config.application_domain + admin_radio_path(radio)
       end
   end
 end
