@@ -396,6 +396,7 @@ GEM
       json (>= 1.8)
       nokogiri (~> 1.5)
       trollop (~> 2.1)
+    redcarpet (3.4.0)
     responders (2.4.0)
       actionpack (>= 4.2.0, < 5.3)
       railties (>= 4.2.0, < 5.3)
@@ -527,6 +528,7 @@ DEPENDENCIES
   pry-byebug
   puma (~> 3.7)
   rails (~> 5.1.4)
+  redcarpet
   rspec-rails
   ruby-mp3info
   sass-rails (~> 5.0)
