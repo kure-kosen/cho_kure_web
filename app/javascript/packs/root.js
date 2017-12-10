@@ -7,6 +7,9 @@
 
 import Vue from 'vue'
 import App from '../app.vue'
+import Test from '../components/test.vue'
+
+Vue.component('test', Test)
 
 document.addEventListener('DOMContentLoaded', () => {
   document.body.appendChild(document.createElement('app'))
