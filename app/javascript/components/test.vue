@@ -1,6 +1,7 @@
 <template>
   <div>
     {{ message }}
+    <button @click="goToRoot">go to root</button>
   </div>
 </template>
 
@@ -9,6 +10,11 @@
     data () {
       return {
         message: 'hoge'
+      }
+    },
+    methods: {
+      goToRoot () {
+          this.$router.push('/')
       }
     }
   }
