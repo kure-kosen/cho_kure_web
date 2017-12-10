@@ -69,6 +69,9 @@ GEM
       autoprefixer-rails (>= 6.0.3)
       popper_js (>= 1.12.3, < 2)
       sass (>= 3.5.2)
+    bootstrap-tooltip-rails (0.1)
+      rails (>= 3.1)
+      thor
     builder (3.2.3)
     byebug (9.1.0)
     capistrano (3.10.0)
@@ -396,6 +399,7 @@ GEM
       json (>= 1.8)
       nokogiri (~> 1.5)
       trollop (~> 2.1)
+    redcarpet (3.4.0)
     responders (2.4.0)
       actionpack (>= 4.2.0, < 5.3)
       railties (>= 4.2.0, < 5.3)
@@ -501,6 +505,7 @@ DEPENDENCIES
   better_errors
   binding_of_caller
   bootstrap
+  bootstrap-tooltip-rails
   byebug
   capistrano
   capistrano-bundler
@@ -527,6 +532,7 @@ DEPENDENCIES
   pry-byebug
   puma (~> 3.7)
   rails (~> 5.1.4)
+  redcarpet
   rspec-rails
   ruby-mp3info
   sass-rails (~> 5.0)

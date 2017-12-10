@@ -1,0 +1,13 @@
+<script type="text/javascript">
+  $(function() {
+  new Vue({
+    el: '#editor',
+    data: {
+      input: '<%== j content %>'
+    },
+    filters: {
+      marked: marked
+    }
+  });
+});
+</script>
