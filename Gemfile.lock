@@ -407,6 +407,8 @@ GEM
       http-cookie (>= 1.0.2, < 2.0)
       mime-types (>= 1.16, < 4.0)
       netrc (~> 0.8)
+    roboto (1.0.1)
+      rails (>= 4.2)
     rspec-core (3.7.0)
       rspec-support (~> 3.7.0)
     rspec-expectations (3.7.0)
@@ -450,6 +452,8 @@ GEM
     seed-fu (2.3.6)
       activerecord (>= 3.1)
       activesupport (>= 3.1)
+    sitemap_generator (6.0.0)
+      builder (~> 3.0)
     spring (2.0.2)
       activesupport (>= 4.2)
     spring-watcher-listen (2.0.1)
@@ -533,10 +537,12 @@ DEPENDENCIES
   puma (~> 3.7)
   rails (~> 5.1.4)
   redcarpet
+  roboto
   rspec-rails
   ruby-mp3info
   sass-rails (~> 5.0)
   seed-fu
+  sitemap_generator
   spring
   spring-watcher-listen (~> 2.0.0)
   turbolinks (~> 5)
