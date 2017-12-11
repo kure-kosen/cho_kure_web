@@ -407,6 +407,8 @@ GEM
       http-cookie (>= 1.0.2, < 2.0)
       mime-types (>= 1.16, < 4.0)
       netrc (~> 0.8)
+    roboto (1.0.1)
+      rails (>= 4.2)
     rspec-core (3.7.0)
       rspec-support (~> 3.7.0)
     rspec-expectations (3.7.0)
@@ -533,6 +535,7 @@ DEPENDENCIES
   puma (~> 3.7)
   rails (~> 5.1.4)
   redcarpet
+  roboto
   rspec-rails
   ruby-mp3info
   sass-rails (~> 5.0)
