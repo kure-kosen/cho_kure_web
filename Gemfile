@@ -54,6 +54,8 @@ group :development do
   gem "capistrano-bundler"
   gem "capistrano-rails"
   gem "capistrano-rbenv"
+
+  gem "foreman"
 end
 
 group :production do
@@ -82,3 +84,4 @@ gem "roboto"
 gem "ruby-mp3info"
 gem "seed-fu"
 gem "sitemap_generator"
+gem "webpacker", github: "rails/webpacker"

@@ -1,0 +1,19 @@
+{
+  "name": "cho_kure_web",
+  "private": true,
+  "dependencies": {
+    "@rails/webpacker": "^3.0.2",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "coffeescript": "1.12.7",
+    "vue": "^2.5.9",
+    "vue-loader": "^13.5.0",
+    "vue-router": "^3.0.1",
+    "vue-template-compiler": "^2.5.9"
+  },
+  "devDependencies": {
+    "eslint": "^4.13.0",
+    "eslint-plugin-vue": "^4.0.0-beta.2",
+    "webpack-dev-server": "^2.9.7"
+  }
+}
