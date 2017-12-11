@@ -1,6 +1,7 @@
 # Set the host name for URL creation
 SitemapGenerator::Sitemap.default_host = ENV.fetch("EC2_PRODUCTION_PROTOCOL") { "" } + "://" + ENV.fetch("EC2_PRODUCTION_HOST") { "" }
 
+# TODO: リリースできるタイミングにもう一度見直す
 SitemapGenerator::Sitemap.create do
   # Add '/personalities'
   add "/personalities", priority: 0.7, changefreq: "daily"
