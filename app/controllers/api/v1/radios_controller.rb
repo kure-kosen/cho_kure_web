@@ -1,4 +1,4 @@
-class Api::V1::RadiosController < ApplicationController
+class Api::V1::RadiosController < Api::V1::BaseController
   def index
     render json: Radio.all
   end
