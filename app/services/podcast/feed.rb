@@ -53,7 +53,7 @@ module Podcast
         items.new_item do |item|
           item.title            = radio.title
           item.link             = join_radio_link(radio)
-          item.description      = radio.description
+          item.description      = MarkdownHelper.markdown(radio.description)
           item.pubDate          = radio.published_at.to_s(:rfc822)
           item.itunes_duration  = format_duration(radio.duration)
           item.enclosure.url    = radio.mp3_url
