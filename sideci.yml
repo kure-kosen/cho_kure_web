@@ -1,6 +1,8 @@
 linter:
-  eslint-plugin-vue:
+  eslint:
     npm_install: development
     dir:
       - app/javascript
       - app/javascript/components
+    options:
+      config: '.eslintrc.js'
