@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   mount_roboto
 
-  root to: "root#index"
+  root to: "front/root#index"
 
   if Rails.env.development?
     mount LetterOpenerWeb::Engine, at: "/letter_opener"
