@@ -26,7 +26,6 @@ class Radio < ApplicationRecord
   has_many :communities, through: :community_radios
 
   before_save :extract_meta_mp3
-  after_save :update_podcast_rss_cache
 
   validates :title,
             presence: true,
@@ -49,9 +48,5 @@ class Radio < ApplicationRecord
 
     self.duration = meta.duration
     self.size = meta.size
-  end
-
-  def update_podcast_rss_cache
-    Rails.cache.write(Podcast::Config::CACHE_KEY, Podcast::Feed.new(Radio.published).generate, compress: true)
   end
 end
