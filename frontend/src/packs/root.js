@@ -13,6 +13,7 @@ import Test from '../components/test.vue'
 
 
 const router = new VueRouter({
+  mode: 'history',
   routes: [
     {
       path: '/test',
