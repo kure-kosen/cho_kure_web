@@ -1,8 +1,0 @@
-linter:
-  eslint:
-    npm_install: development
-    dir:
-      - app/javascript
-      - app/javascript/components
-    options:
-      config: '.eslintrc.js'
