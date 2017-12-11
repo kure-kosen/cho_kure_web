@@ -1,0 +1,6 @@
+linter:
+  eslint-plugin-vue:
+    npm_install: development
+    dir:
+      - app/javascript
+      - app/javascript/components
