@@ -40,7 +40,8 @@ class Radio < ApplicationRecord
   validates :podcast_url, url: true
 
   scope :published, -> {
-    where.not(published_at: nil)
+    where.not(published_at: nil).
+      where("published_at <= ?", Time.zone.now)
   }
 
   def extract_meta_mp3
