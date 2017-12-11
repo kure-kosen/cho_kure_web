@@ -1,8 +1,6 @@
 Rails.application.routes.draw do
   mount_roboto
 
-  root to: "front/root#index"
-
   if Rails.env.development?
     mount LetterOpenerWeb::Engine, at: "/letter_opener"
   end
@@ -10,6 +8,7 @@ Rails.application.routes.draw do
   devise_for :personalities
 
   namespace :front, path: "/" do
+    root to: "root#index"
     get "/podcast", to: "podcast#index"
   end
 
