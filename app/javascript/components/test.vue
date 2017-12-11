@@ -2,6 +2,9 @@
   <div>
     {{ message }}
     <button @click="goToRoot">go to root</button>
+    <ol v-for="i in 5"><!-- "i" is defined but never used. -->
+        <li>item</li>
+    </ol>
   </div>
 </template>
 
