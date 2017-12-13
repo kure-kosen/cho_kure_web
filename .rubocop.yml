@@ -11,7 +11,9 @@ AllCops:
   # uncomment if use rails cops
   TargetRailsVersion: 5.1
   Exclude:
-    - "frontend/*.*"
+    - "frontend/node_modules/**/*"
+    - "node_modules/**/*"
+    - "db/schema.rb"
 
 Style/GlobalVars:
   Exclude:
