@@ -52,6 +52,7 @@ group :development do
 
   gem "capistrano"
   gem "capistrano-bundler"
+  gem "capistrano-npm"
   gem "capistrano-rails"
   gem "capistrano-rbenv"
 

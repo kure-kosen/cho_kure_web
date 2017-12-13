@@ -61,4 +61,4 @@ set :ssh_options, keys: "~/.ssh/cho_kure_web_rsa"
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
-set :branch, "feature/dev"
+set :branch, "feature/install-vue"

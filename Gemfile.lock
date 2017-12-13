@@ -1,8 +1,8 @@
 GIT
   remote: https://github.com/rails/webpacker.git
-  revision: b25c5a993857e2c4bd70ff012e6f852993c2e825
+  revision: d8392315c8e7c86f3ef4fb8014a1285e8558193c
   specs:
-    webpacker (3.0.2)
+    webpacker (3.1.1)
       activesupport (>= 4.2)
       rack-proxy (>= 0.6.1)
       railties (>= 4.2)
@@ -91,6 +91,8 @@ GEM
     capistrano-bundler (1.3.0)
       capistrano (~> 3.1)
       sshkit (~> 1.2)
+    capistrano-npm (1.0.2)
+      capistrano (>= 3.0.0)
     capistrano-rails (1.3.0)
       capistrano (~> 3.1)
       capistrano-bundler (~> 1.1)
@@ -527,6 +529,7 @@ DEPENDENCIES
   byebug
   capistrano
   capistrano-bundler
+  capistrano-npm
   capistrano-rails
   capistrano-rbenv
   carrierwave
