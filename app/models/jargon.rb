@@ -1,0 +1,2 @@
+class Jargon < ApplicationRecord
+end
