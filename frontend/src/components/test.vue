@@ -10,13 +10,13 @@
 
 <script>
   export default {
-    data: function() {
+    data: function () {
       return {
         message: 'hoge'
       }
     },
     methods: {
-      goToRoot: function() {
+      goToRoot: function () {
           this.$router.push('/')
       }
     }
