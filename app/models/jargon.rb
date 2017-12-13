@@ -1,8 +1,8 @@
 # == Schema Information
 # == Schema Information
-# 
+#
 # Table name: jargons
-# 
+#
 # id          :integer        not null, primary key
 # name        :string(255)    not null
 # description :text(65535)    not null

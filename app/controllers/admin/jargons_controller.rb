@@ -28,7 +28,7 @@ class Admin::JargonsController < ApplicationController
 
     respond_to do |format|
       if @jargon.save
-        format.html { redirect_to @jargon, notice: 'Jargon was successfully created.' }
+        format.html { redirect_to @jargon, notice: "Jargon was successfully created." }
         format.json { render :show, status: :created, location: @jargon }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class Admin::JargonsController < ApplicationController
   def update
     respond_to do |format|
       if @jargon.update(jargon_params)
-        format.html { redirect_to @jargon, notice: 'Jargon was successfully updated.' }
+        format.html { redirect_to @jargon, notice: "Jargon was successfully updated." }
         format.json { render :show, status: :ok, location: @jargon }
       else
         format.html { render :edit }
@@ -54,14 +54,15 @@ class Admin::JargonsController < ApplicationController
   # DELETE /jargons/1
   # DELETE /jargons/1.json
   def destroy
-    @jargon.destroy
+    @jargon.destroy!
     respond_to do |format|
-      format.html { redirect_to jargons_url, notice: 'Jargon was successfully destroyed.' }
+      format.html { redirect_to jargons_url, notice: "Jargon was successfully destroyed." }
       format.json { head :no_content }
     end
   end
 
   private
+
     # Use callbacks to share common setup or constraints between actions.
     def set_jargon
       @jargon = Jargon.find(params[:id])
