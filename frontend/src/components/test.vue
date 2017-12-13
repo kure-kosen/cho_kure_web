@@ -17,7 +17,7 @@
     },
     methods: {
       goToRoot () {
-          this.$router.push('/')
+          this.$router.push('/');
       }
     }
   }
