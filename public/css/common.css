@@ -7,7 +7,10 @@ nav {
     background-color: #7ec7d8;
 }
 
-
+.main {
+    padding-top: 80px;
+    padding-bottom: 40px;
+}
 
 .ui.black.segment {
     background-color: #999999;
