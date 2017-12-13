@@ -22,7 +22,7 @@ const router = new VueRouter({
   ]
 })
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', function () {
   document.body.appendChild(document.createElement('app'))
   const app = new Vue({
     router,
