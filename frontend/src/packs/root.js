@@ -1,8 +1,8 @@
-import Vue from 'vue'
+import Vue from '../../node_modules/vue'
 
 
 // Library
-import VueRouter from 'vue-router'
+import VueRouter from '../../node_modules/vue-router'
 
 Vue.use(VueRouter)
 
