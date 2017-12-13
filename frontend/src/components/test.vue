@@ -2,9 +2,9 @@
   <div>
     {{ message }}
     <button @click="goToRoot">go to root</button>
-    <ul v-for="i in 5">
-      <li>{{ i }} item</li>
-    </ul>
+    <ol v-for="i in 5"><!-- "i" is defined but never used. -->
+        <li>item</li>
+    </ol>
   </div>
 </template>
 
@@ -17,7 +17,7 @@
     },
     methods: {
       goToRoot () {
-          this.$router.push('/');
+          this.$router.push('/')
       }
     }
   }
