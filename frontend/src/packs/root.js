@@ -1,15 +1,15 @@
-import Vue from '../../node_modules/vue'
+import Vue from '../../node_modules/vue';
 
 
 // Library
-import VueRouter from '../../node_modules/vue-router'
+import VueRouter from '../../node_modules/vue-router';
 
-Vue.use(VueRouter)
+Vue.use(VueRouter);
 
 
 // Component
-import App from '../app.vue'
-import Test from '../components/test.vue'
+import App from '../app.vue';
+import Test from '../components/test.vue';
 
 
 const router = new VueRouter({
@@ -20,14 +20,14 @@ const router = new VueRouter({
       component: Test
     }
   ]
-})
+});
 
 document.addEventListener('DOMContentLoaded', () => {
-  document.body.appendChild(document.createElement('app'))
+  document.body.appendChild(document.createElement('app'));
   const app = new Vue({
     router,
     render: h => h(App)
-  }).$mount('app')
+  }).$mount('app');
 
-  console.log(app)
-})
+  console.log(app);
+});
