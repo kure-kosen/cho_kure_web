@@ -1,3 +1,12 @@
+GIT
+  remote: https://github.com/rails/webpacker.git
+  revision: d8392315c8e7c86f3ef4fb8014a1285e8558193c
+  specs:
+    webpacker (3.1.1)
+      activesupport (>= 4.2)
+      rack-proxy (>= 0.6.1)
+      railties (>= 4.2)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -82,6 +91,8 @@ GEM
     capistrano-bundler (1.3.0)
       capistrano (~> 3.1)
       sshkit (~> 1.2)
+    capistrano-npm (1.0.2)
+      capistrano (>= 3.0.0)
     capistrano-rails (1.3.0)
       capistrano (~> 3.1)
       capistrano-bundler (~> 1.1)
@@ -284,6 +295,9 @@ GEM
       nokogiri (>= 1.5.11, < 2.0.0)
     font-awesome-rails (4.7.0.2)
       railties (>= 3.2, < 5.2)
+    foreman (0.63.0)
+      dotenv (>= 0.7)
+      thor (>= 0.13.6)
     formatador (0.2.5)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
@@ -359,6 +373,8 @@ GEM
     public_suffix (3.0.0)
     puma (3.10.0)
     rack (2.0.3)
+    rack-proxy (0.6.3)
+      rack
     rack-test (0.7.0)
       rack (>= 1.0, < 3)
     rails (5.1.4)
@@ -513,6 +529,7 @@ DEPENDENCIES
   byebug
   capistrano
   capistrano-bundler
+  capistrano-npm
   capistrano-rails
   capistrano-rbenv
   carrierwave
@@ -523,6 +540,7 @@ DEPENDENCIES
   faker
   fog
   font-awesome-rails
+  foreman
   inum
   jbuilder (~> 2.5)
   jquery-rails
@@ -550,6 +568,7 @@ DEPENDENCIES
   uglifier (>= 1.3.0)
   unicorn
   web-console (>= 3.3.0)
+  webpacker!
 
 BUNDLED WITH
-   1.16.0.pre.2
+   1.16.0
