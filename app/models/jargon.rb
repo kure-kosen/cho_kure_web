@@ -2,11 +2,14 @@
 #
 # Table name: jargons
 #
-# id          :integer          not null, primary key
-# name        :string(255)      not null
-# description :text(65535)      not null
-# radio_id    :integer          not null
-# major       :integer          not null
+#  id          :integer          not null, primary key
+#  name        :string(255)
+#  description :text(65535)
+#  radio_id    :integer
+#  major       :integer
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#
 
 class Jargon < ApplicationRecord
   validates :name,
