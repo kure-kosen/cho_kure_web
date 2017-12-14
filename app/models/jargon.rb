@@ -15,6 +15,6 @@ class Jargon < ApplicationRecord
   validates :description, presence: true
   validates :radio_id, presence: true
   validates :major, presence: true
-  
+
   bind_inum :major, JargonMajors
 end
