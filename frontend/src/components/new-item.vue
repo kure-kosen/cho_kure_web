@@ -1,22 +1,59 @@
 <template>
-  <div class="ui items">
-    <!-- TODO: top.vueでAPIから取ってきたデータに応じてクラスを追加する -->
-    <div class="item radio">
-      <a class="image"  href="https://google.com">
-        <img src="https://placehold.jp/640x480.png">
+    <div class="item" v-bind:class="type">
+      <a class="image"  v-bind:href="itemPath">
+        <img v-bind:src="imagePath">
       </a>
       <div class="content">
-        <a href="https://google.com" class="header">#1 呉高専ってなに〜？</a>
+        <a v-bind:href="itemPath" class="header">{{ title }}</a>
         <div class="description">
-          <p>第1回となる、この放送。パーソナリティ 4 人による特別版。 高専生必聴の呉高専クイズあり。 ちょっくれの伝説がここから始まる!</p>
+          <p>{{ description }}</p>
         </div>
         <div class="meta">
-          <span class="date">2017/12/03 1:08</span>
+          <span class="date">{{ date }}</span>
         </div>
       </div>
     </div>
-  </div>
 </template>
+
+<script>
+module.exports = {
+  props: {
+    imagePath: {
+      type: String,
+      default: 'https://placehold.jp/640x480.png',
+      required: true
+    },
+    itemPath: {
+      type: String,
+      default: '/',
+      required: true
+    },
+    type: {
+      type: String,
+      default: 'other',
+      required: true,
+      validator: function (value) {
+        return ['radio', 'community', 'other'].includes(value)
+      }
+    },
+    title: {
+      type: String,
+      default: 'タイトルを取得できませんでした',
+      required: true,
+    },
+    description: {
+      type: String,
+      default: '詳細を取得できませんでした',
+      required: true,
+    },
+    date: {
+      type: String,
+      default: '2017/12/03 1:08',
+      required: true
+    },
+  }
+}
+</script>
 
 <style scoped>
 .radio {

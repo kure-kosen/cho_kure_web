@@ -4,16 +4,90 @@
       <div class="ui container popular-contents">
         <h2 class="ui inverted header">今日のピックアップ</h2>
         <div class="ui four column doubling grid">
-          <popular-content></popular-content>
+          <div class="column" v-for="radio in popularRadios">
+            <popular-content
+               :image-path="radio.imagePath"
+               :title="radio.title"
+               :date="radio.date">
+            </popular-content>
+          </div>
         </div>
       </div>
     </div>
     <div class="ui container news-contents">
       <h2 class="ui header">新着情報</h2>
-      <new-item></new-item>
+      <div class="ui items" v-for="radio in newRadios">
+        <new-item
+                            :image-path="radio.imagePath"
+                            :item-path="radio.itemPath"
+                            :type="radio.type"
+                            :title="radio.title"
+                            :description="radio.description"
+                            :date="radio.date">
+        </new-item>
+      </div>
     </div>
   </div>
 </template>
+
+<script>
+module.exports = {
+  data: function () {
+    return {
+      // 実際はAPIで取得する
+      newRadios: [
+        {
+          imagePath: 'https://placehold.jp/640x480.png',
+          itemPath: 'https://example.com',
+          type: 'radio',
+          title: 'titlehogehoge',
+          description: 'suggo----i !!!!',
+          date: '2017/12/03 1:08'
+        },
+        {
+          imagePath: 'https://placehold.jp/640x480.png',
+          itemPath: 'https://example.com',
+          type: 'community',
+          title: 'titlehogehoge',
+          description: 'suggo----i !!!!',
+          date: '2017/12/03 1:08'
+        },
+        {
+          imagePath: 'https://placehold.jp/640x480.png',
+          itemPath: 'https://example.com',
+          type: 'other',
+          title: 'titlehogehoge',
+          description: 'suggo----i !!!!',
+          date: '2017/12/03 1:08'
+        },
+      ],
+      popularRadios: [
+        {
+          imagePath: 'https://placehold.jp/640x480.png',
+          title: 'titlehogehoge',
+          date: '2017/12/03 1:08'
+        },
+        {
+          imagePath: 'https://placehold.jp/640x480.png',
+          title: 'titlehogehoge',
+          date: '2017/12/03 1:08'
+        },
+        {
+          imagePath: 'https://placehold.jp/640x480.png',
+          title: 'titlehogehoge',
+          date: '2017/12/03 1:08'
+        },
+        {
+          imagePath: 'https://placehold.jp/640x480.png',
+          title: 'titlehogehoge',
+          date: '2017/12/03 1:08'
+        },
+      ]
+
+    }
+  }
+}
+</script>
 
 <style scoped>
 
