@@ -6,6 +6,8 @@
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
     "coffeescript": "1.12.7",
+    "postcss-loader": "^2.0.9",
+    "semantic-ui": "^2.2.13",
     "vue": "^2.5.9",
     "vue-loader": "^13.5.0",
     "vue-router": "^3.0.1",
