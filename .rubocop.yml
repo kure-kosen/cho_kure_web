@@ -13,6 +13,7 @@ AllCops:
   Exclude:
     - "frontend/node_modules/**/*"
     - "node_modules/**/*"
+    - "vendor/**/*"
     - "db/schema.rb"
 
 Style/GlobalVars:
