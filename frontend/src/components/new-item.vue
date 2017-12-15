@@ -56,27 +56,24 @@ module.exports = {
 </script>
 
 <style scoped>
-.radio {
+.item {
   padding-left: 10px !important;
   border-left: solid 10px !important;
+}
+
+.radio {
   border-color: #7ec7d8 !important;
 }
 
 .community {
-  padding-left: 10px !important;
-  border-left: solid 10px !important;
   border-color: #ffe200 !important;
 }
 
 .news {
-  padding-left: 10px !important;
-  border-left: solid 10px !important;
   border-color: #999999 !important;
 }
 
 .other {
-  padding-left: 10px !important;
-  border-left: solid 10px !important;
   border-color: #999999 !important;
 }
 </style>
