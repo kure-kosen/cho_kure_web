@@ -3,8 +3,8 @@ import Vue from '../../node_modules/vue'
 
 // Library
 import VueRouter from '../../node_modules/vue-router'
-import '../../node_modules/semantic-ui/dist/semantic.min.css'
-import '../../node_modules/semantic-ui/dist/semantic.min.js'
+import '../../node_modules/semantic-ui-css/semantic.min.css'
+import '../../node_modules/semantic-ui-css/semantic.min.js'
 
 Vue.use(VueRouter)
 
