@@ -1,4 +1,15 @@
 <p id="notice"><%= notice %></p>
 
-<%= link_to 'Edit', edit_jargon_path(@jargon) %> |
-<%= link_to 'Back', jargons_path %>
+
+<dl class="dl-horizontal">
+  <dt><strong><%= Jargon.human_attribute_name('name') %> :</strong></dt>
+  <dd><%= @jargon.name %></dd>
+</dl>
+
+
+<dl class="dl-horizontal">
+  <dt><strong><%= Jargon.human_attribute_name('description') %> :</strong></dt>
+  <dd><%= simple_format(@jargon.description) %></dd>
+</dl>
+
+<%= link_to '編集', edit_admin_jargon_path(@jargon) %>
