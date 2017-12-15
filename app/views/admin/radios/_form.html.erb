@@ -76,7 +76,18 @@
   <div class="form-group row">
     <%= form.label :published_at, class: 'col-2 col-form-label' %>
     <div class="col-10">
-      <%= form.datetime_select :published_at, use_month_numbers: true, class: 'form-control' %>
+      <div class="field form-group">
+        <%= f.radio_button :status, :publish %>
+        <%= f.label "公開" %>
+      </div>
+      <div class="field form-group">
+        <%= f.radio_button :status, :reservation %>
+        <%= f.label "予約投稿" %>
+      </div>
+      <div class="field form-group">
+        <%= f.radio_button :status, :draft, checked: "checked" %>
+        <%= f.label "下書き" %>
+      </div>
     </div>
   </div>
 

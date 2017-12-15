@@ -22,6 +22,7 @@ class Admin::RadiosController < Admin::BaseController
   # POST /radios
   def create
     @radio = Radio.new(radio_params)
+    @radio.published_at = published_at_from(params[:status], params[:reservation_time])
 
     if @radio.save
       redirect_to admin_radio_path(@radio), notice: "Radio was successfully created."
@@ -46,6 +47,19 @@ class Admin::RadiosController < Admin::BaseController
   end
 
   private
+
+    def published_at_from(status, datetime = nil)
+      case status
+        when :publish
+          Time.zone.now
+        when :reservation
+          datetime
+        when :draft
+          nil
+        else
+          nil
+      end
+    end
 
     # Use callbacks to share common setup or constraints between actions.
     def set_radio
