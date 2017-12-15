@@ -3,10 +3,13 @@ import Vue from '../../node_modules/vue'
 
 // Library
 import VueRouter from '../../node_modules/vue-router'
+import axios from '../../node_modules/axios'
+import VueAxios from '../../node_modules/vue-axios'
 import '../../node_modules/semantic-ui-css/semantic.min.css'
 import '../../node_modules/semantic-ui-css/semantic.min.js'
 
 Vue.use(VueRouter)
+Vue.use(VueAxios, axios)
 
 // Component
 import App from '../app.vue'

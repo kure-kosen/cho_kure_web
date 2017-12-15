@@ -18,12 +18,12 @@
       <h2 class="ui header">新着情報</h2>
       <div class="ui items" v-for="radio in newRadios">
         <new-item
-                            :image-path="radio.imagePath"
+                            :image-path="radio.image.url"
                             :item-path="radio.itemPath"
-                            :type="radio.type"
+                            type="radio"
                             :title="radio.title"
                             :description="radio.description"
-                            :date="radio.date">
+                            :date="radio.created_at">
         </new-item>
       </div>
     </div>
@@ -34,33 +34,7 @@
 module.exports = {
   data: function () {
     return {
-      // 実際はAPIで取得する
-      newRadios: [
-        {
-          imagePath: 'https://placehold.jp/640x480.png',
-          itemPath: 'https://example.com',
-          type: 'radio',
-          title: 'titlehogehoge',
-          description: 'suggo----i !!!!',
-          date: '2017/12/03 1:08'
-        },
-        {
-          imagePath: 'https://placehold.jp/640x480.png',
-          itemPath: 'https://example.com',
-          type: 'community',
-          title: 'titlehogehoge',
-          description: 'suggo----i !!!!',
-          date: '2017/12/03 1:08'
-        },
-        {
-          imagePath: 'https://placehold.jp/640x480.png',
-          itemPath: 'https://example.com',
-          type: 'other',
-          title: 'titlehogehoge',
-          description: 'suggo----i !!!!',
-          date: '2017/12/03 1:08'
-        },
-      ],
+      newRadios: [],
       popularRadios: [
         {
           imagePath: 'https://placehold.jp/640x480.png',
@@ -85,6 +59,17 @@ module.exports = {
       ]
 
     }
+  },
+  mounted: function () {
+    var that = this
+    this.axios.get('api/v1/radios')
+      .then(function (response) {
+        that.newRadios = response.data
+        console.log(that.newRadios)
+      })
+      .catch( function (error) {
+        console.log(error)
+      })
   }
 }
 </script>
