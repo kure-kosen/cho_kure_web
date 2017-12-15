@@ -1,22 +1,7 @@
 <template>
-  <div>
-    <router-link to='/test'>go to test</router-link>
-    <router-view></router-view>
-  </div>
+  <router-view></router-view>
 </template>
 
-<script>
-export default {
-  data: function () {
-    return {
-    }
-  }
-}
-</script>
+<script></script>
 
-<style scoped>
-p {
-  font-size: 2em;
-  text-align: center;
-}
-</style>
+<style scoped></style>

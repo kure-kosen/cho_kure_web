@@ -9,16 +9,11 @@ Vue.use(VueRouter)
 
 // Component
 import App from '../app.vue'
-import Test from '../components/test.vue'
 
 
 const router = new VueRouter({
   mode: 'history',
   routes: [
-    {
-      path: '/test',
-      component: Test
-    }
   ]
 })
 
