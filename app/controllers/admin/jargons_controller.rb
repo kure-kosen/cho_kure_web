@@ -23,32 +23,26 @@ class Admin::JargonsController < ApplicationController
   def create
     @jargon = Jargon.new(jargon_params)
 
-    respond_to do |format|
-      if @jargon.save
-        format.html { redirect_to @jargon, notice: "Jargon was successfully created." }
-      else
-        format.html { render :new }
-      end
+    if @jargon.save
+      redirect_to admin_jargon_path(@jargon), notice: "Jargon was successfully created"
+    else
+      render :new
     end
   end
 
   # PATCH/PUT /jargons/1
   def update
-    respond_to do |format|
-      if @jargon.update(jargon_params)
-        format.html { redirect_to @jargon, notice: "Jargon was successfully updated." }
-      else
-        format.html { render :edit }
-      end
+    if @jargon.update(jargon_params)
+      redirect_to admin_jargon_path(@jargon), notice: "Jargon was successfully updated"
+    else
+      render :edit
     end
   end
 
   # DELETE /jargons/1
   def destroy
     @jargon.destroy!
-    respond_to do |format|
-      format.html { redirect_to jargons_url, notice: "Jargon was successfully destroyed." }
-    end
+    redirect_to admin_jargons_url, notice: "Jargon was successfully destroyed"
   end
 
   private
@@ -60,6 +54,6 @@ class Admin::JargonsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def jargon_params
-      params.fetch(:jargon, {})
+      params.require(:jargon).permit(:name, :desctiption, :radio_id, :major)
     end
 end
