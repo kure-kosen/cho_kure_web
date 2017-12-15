@@ -1,4 +1,4 @@
-class Admin::JargonsController < ApplicationController
+class Admin::JargonsController < Admin::BaseController
   before_action :set_jargon, only: [:show, :edit, :update, :destroy]
 
   # GET /jargons
@@ -54,6 +54,6 @@ class Admin::JargonsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def jargon_params
-      params.require(:jargon).permit(:name, :desctiption, :radio_id, :major)
+      params.require(:jargon).permit(:name, :description, :radio_id, :major)
     end
 end
