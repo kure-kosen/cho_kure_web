@@ -14,4 +14,4 @@ ja:
         size: mp3のbyte数
         youtube_url: Youtube
         podcast_url: podcast
-        is_published: 公開日
+        published_at: 投稿日時

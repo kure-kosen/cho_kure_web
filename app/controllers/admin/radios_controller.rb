@@ -22,7 +22,10 @@ class Admin::RadiosController < Admin::BaseController
   # POST /radios
   def create
     @radio = Radio.new(radio_params)
-    @radio.published_at = published_at_from(params[:radio][:status], Radio.new(radio_params).published_at)
+    @radio.published_at = published_at_from(
+      params[:radio][:status],
+      Radio.new(radio_params).published_at,
+    )
 
     if @radio.save
       redirect_to admin_radio_path(@radio), notice: "Radio was successfully created."
@@ -33,7 +36,10 @@ class Admin::RadiosController < Admin::BaseController
 
   # PATCH/PUT /radios/1
   def update
-    @radio.published_at = published_at_from(params[:radio][:status], Radio.new(radio_params).published_at)
+    @radio.published_at = published_at_from(
+      params[:radio][:status],
+      Radio.new(radio_params).published_at,
+    )
 
     if @radio.update(radio_params)
       redirect_to admin_radio_path(@radio), notice: "Radio was successfully updated."
