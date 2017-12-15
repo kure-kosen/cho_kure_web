@@ -24,7 +24,13 @@ class Admin::RadiosController < Admin::BaseController
     @radio = Radio.new(radio_params)
     @radio.published_at = published_at_from(
       params[:radio][:status],
-      Radio.new(radio_params).published_at,
+      Time.zone.local(
+        params[:radio]["published_at(1i)"].to_i,
+        params[:radio]["published_at(2i)"].to_i,
+        params[:radio]["published_at(3i)"].to_i,
+        params[:radio]["published_at(4i)"].to_i,
+        params[:radio]["published_at(5i)"].to_i,
+      ),
     )
 
     if @radio.save
@@ -38,9 +44,14 @@ class Admin::RadiosController < Admin::BaseController
   def update
     @radio.published_at = published_at_from(
       params[:radio][:status],
-      Radio.new(radio_params).published_at,
+      Time.zone.local(
+        params[:radio]["published_at(1i)"].to_i,
+        params[:radio]["published_at(2i)"].to_i,
+        params[:radio]["published_at(3i)"].to_i,
+        params[:radio]["published_at(4i)"].to_i,
+        params[:radio]["published_at(5i)"].to_i,
+      ),
     )
-
     if @radio.update(radio_params)
       redirect_to admin_radio_path(@radio), notice: "Radio was successfully updated."
     else
@@ -83,7 +94,6 @@ class Admin::RadiosController < Admin::BaseController
         :mp3,
         :youtube_url,
         :podcast_url,
-        :published_at,
         community_ids: [],
         personality_ids: [],
       )

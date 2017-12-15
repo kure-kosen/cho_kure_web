@@ -50,4 +50,16 @@ class Radio < ApplicationRecord
     self.duration = meta.duration
     self.size = meta.size
   end
+
+  def publish?
+    published_at.present? && published_at <= Time.zone.now
+  end
+
+  def reservation?
+    published_at.present? && published_at > Time.zone.now
+  end
+
+  def draft?
+    published_at.blank?
+  end
 end

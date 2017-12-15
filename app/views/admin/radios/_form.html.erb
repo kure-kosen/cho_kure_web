@@ -77,15 +77,15 @@
     <%= form.label :status, "ステータス", class: 'col-2 col-form-label' %>
     <div class="col-10">
       <div class="form-check form-check-inline">
-        <%= form.radio_button :status, :publish, class: 'radio_status' %>
+        <%= form.radio_button :status, :publish, class: 'radio_status', checked: radio.publish? %>
         <%= form.label :publish, "公開" %>
       </div>
       <div class="form-check form-check-inline">
-        <%= form.radio_button :status, :reservation, class: 'radio_status' %>
+        <%= form.radio_button :status, :reservation, class: 'radio_status', checked: radio.reservation? %>
         <%= form.label :reservation, "予約投稿" %>
       </div>
       <div class="form-check form-check-inline">
-        <%= form.radio_button :status, :draft, class: 'radio_status', checked: "checked" %>
+        <%= form.radio_button :status, :draft, class: 'radio_status', checked: radio.draft? %>
         <%= form.label :draft, "下書き" %>
       </div>
     </div>
