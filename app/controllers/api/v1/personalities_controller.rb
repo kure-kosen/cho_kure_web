@@ -1,4 +1,4 @@
-class Api::V1::PersonalitiesController < ApplicationController
+class Api::V1::PersonalitiesController < Api::V1::BaseController
   def index
     render json: Personality.all
   end

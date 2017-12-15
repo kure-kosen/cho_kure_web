@@ -14,7 +14,6 @@
 !/log/.keep
 !/tmp/.keep
 
-/node_modules
 /yarn-error.log
 
 .byebug_history
@@ -23,3 +22,7 @@
 .env
 
 /public/uploads/
+/public/sitemap.xml.gz
+/public/packs
+/public/packs-test
+/public/assets

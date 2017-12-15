@@ -52,8 +52,11 @@ group :development do
 
   gem "capistrano"
   gem "capistrano-bundler"
+  gem "capistrano-npm"
   gem "capistrano-rails"
   gem "capistrano-rbenv"
+
+  gem "foreman"
 end
 
 group :production do
@@ -78,5 +81,8 @@ gem "jquery-rails"
 gem "jquery-ui-rails"
 gem "mini_magick"
 gem "redcarpet"
+gem "roboto"
 gem "ruby-mp3info"
 gem "seed-fu"
+gem "sitemap_generator"
+gem "webpacker", github: "rails/webpacker"
