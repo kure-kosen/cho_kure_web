@@ -15,7 +15,6 @@
 !/tmp/.keep
 
 /yarn-error.log
-/frontend/node_modules/*
 
 .byebug_history
 
@@ -27,3 +26,5 @@
 /public/packs
 /public/packs-test
 /public/assets
+
+/node_modules/*

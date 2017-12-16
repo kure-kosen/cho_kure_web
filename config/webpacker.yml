@@ -1,6 +1,7 @@
 # Note: You must restart bin/webpack-dev-server for changes to take effect
 
 default: &default
+  node_modules: node_modules
   source_path: frontend/src
   source_entry_path: packs
   public_output_path: packs
