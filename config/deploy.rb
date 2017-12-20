@@ -23,7 +23,7 @@ set :linked_files, fetch(:linked_files, []).push(".env")
 
 # Default value for linked_dirs is []
 # append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/system"
-set :linked_dirs, fetch(:linked_dirs, []).push("log", "tmp/pids", "tmp/cache", "tmp/sockets", "vendor/bundle", "public/system")
+set :linked_dirs, fetch(:linked_dirs, []).push("log", "tmp/pids", "tmp/cache", "tmp/sockets", "vendor/bundle", "public/system", "node_modules")
 
 # Default value for default_env is {}
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
@@ -36,6 +36,8 @@ set :keep_releases, 5
 
 # Uncomment the following to require manually verifying the host key before first deploy.
 # set :ssh_options, verify_host_key: :secure
+
+set :yarn_target_path, -> { release_path.join("frontend/") }
 
 set :rbenv_ruby, "2.4.2"
 
@@ -83,7 +85,7 @@ namespace :deploy do
           \"payload={ \
             \\\"channel\\\": \\\"#develop_開発\\\", \
             \\\"username\\\": \\\"onigiri\\\", \
-            \\\"text\\\": \\\"#{fetch(:rails_env)}にデプロイを完了したよ！\\\", \
+            \\\"text\\\": \\\"#{fetch(:branch)}ブランチの#{fetch(:rails_env)}へのデプロイを完了したよ！\\\", \
             \\\"icon_emoji\\\": \\\":onigirikun:\\\"\
           }\" \
         https://hooks.slack.com/services/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
