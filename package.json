@@ -5,6 +5,7 @@
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
     "coffeescript": "^2.1.0",
+    "semantic-ui-css": "^2.2.12",
     "vue": "^2.5.11",
     "vue-axios": "^2.0.2",
     "vue-loader": "^13.6.0",
