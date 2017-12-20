@@ -1,22 +1,23 @@
 <template>
-  <div>
-    <router-link to='/test'>go to test</router-link>
-    <router-view></router-view>
+  <div id="body">
+    <app-header></app-header>
+    <main id="main">
+      <router-view></router-view>
+    </main>
+    <app-footer></app-footer>
   </div>
 </template>
 
-<script>
-export default {
-  data: function () {
-    return {
-    }
-  }
-}
-</script>
+<script></script>
 
-<style scoped>
-p {
-  font-size: 2em;
-  text-align: center;
+<style>
+#body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+#main {
+  flex: 1;
 }
 </style>
