@@ -26,7 +26,7 @@
         <div class="ui container">
           <a class="header item" href="#"><img  src="img/logo_mini.png">ちょっときいて呉高専</a>
           <div class="right menu">
-            <div id="js-sidebar" class="item"><i class="icon large content"></i>
+            <div id="js-sidebar" class="item" v-on:click="showMenu"><i class="icon large content"></i>
               Menu
             </div>
           </div>
@@ -37,15 +37,14 @@
 </template>
 
 <script>
-module.export = {
+module.exports = {
   methods: {
     showMenu: function () {
-      // TODO: いい感じにする
-      // $('.ui.sidebar')
-      //   .sidebar('setting', 'transition', 'push')
-      //   .sidebar('setting', 'mobileTransition', 'push')
-      //   .sidebar('toggle')
-      // ;
+	$('.ui.sidebar')
+            .sidebar('setting', 'transition', 'push')
+            .sidebar('setting', 'mobileTransition', 'push')
+            .sidebar('toggle')
+	;
     }
   } 
 }
