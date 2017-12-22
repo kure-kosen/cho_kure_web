@@ -52,14 +52,14 @@ class Radio < ApplicationRecord
   end
 
   def publish?
-    published_at.present? && published_at <= Time.zone.now
+    !published_at.nil? && published_at <= Time.zone.now
   end
 
   def reservation?
-    published_at.present? && published_at > Time.zone.now
+    !published_at.nil? && published_at > Time.zone.now
   end
 
   def draft?
-    published_at.blank?
+    published_at.nil?
   end
 end
