@@ -74,7 +74,7 @@
 
   <!-- TODO: 公開/非公開のtoggle的な感じのUIにする -->
   <div class="form-group row">
-    <%= form.label :status, "ステータス", class: 'col-2 col-form-label' %>
+    <%= form.label :status, class: 'col-2 col-form-label' %>
     <div class="col-10">
       <div class="form-check form-check-inline">
         <%= form.radio_button :status, :publish, class: 'radio_status', checked: radio.publish? %>
