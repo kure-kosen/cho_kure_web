@@ -26,7 +26,6 @@ Vue.component('new-item', NewItem)
 import Top from '../pages/top.vue'
 
 const router = new VueRouter({
-  mode: 'history',
   routes: [
     {
       path: '/',
