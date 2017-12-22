@@ -24,12 +24,8 @@ class Admin::RadiosController < Admin::BaseController
     @radio = Radio.new(radio_params)
     @radio.published_at = published_at_from(
       params[:radio][:status],
-      Time.zone.local(
-        params[:radio]["published_at(1i)"].to_i,
-        params[:radio]["published_at(2i)"].to_i,
-        params[:radio]["published_at(3i)"].to_i,
-        params[:radio]["published_at(4i)"].to_i,
-        params[:radio]["published_at(5i)"].to_i,
+      Time.zone.parse(
+          params[:radio].select { |k,_v| k.match(/^published_at/) }.values.join
       ),
     )
 
@@ -44,12 +40,8 @@ class Admin::RadiosController < Admin::BaseController
   def update
     @radio.published_at = published_at_from(
       params[:radio][:status],
-      Time.zone.local(
-        params[:radio]["published_at(1i)"].to_i,
-        params[:radio]["published_at(2i)"].to_i,
-        params[:radio]["published_at(3i)"].to_i,
-        params[:radio]["published_at(4i)"].to_i,
-        params[:radio]["published_at(5i)"].to_i,
+      Time.zone.parse(
+          params[:radio].select { |k,_v| k.match(/^published_at/) }.values.join
       ),
     )
     if @radio.update(radio_params)
