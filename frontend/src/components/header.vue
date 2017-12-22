@@ -5,7 +5,7 @@
         <a class="item">ラジオ</a>
         <a class="disabled item" href="#">コミュニティ</a>
         <a class="disabled item" href="#">カレンダー</a>
-        <a class="item" href="#">ちょっくれとは？</a>
+        <router-link class="item" to="/about">ちょっくれとは？</router-link>
         <a class="disabled item" href="#">メンバー紹介</a>
         <a class="item" href="#">お問い合わせ</a>
       </div>
@@ -16,7 +16,7 @@
           <a class="disabled item" href="#">コミュニティ</a>
           <a class="disabled item" href="#">カレンダー</a>
           <div class="right menu">
-            <a class="item" href="#">ちょっくれとは？</a>
+            <router-link class="item" to="/about">ちょっくれとは？</router-link>
             <a class="disabled item" href="#">メンバー紹介</a>
             <a class="item" href="#">お問い合わせ</a>
           </div>

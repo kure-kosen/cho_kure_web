@@ -24,14 +24,12 @@ Vue.component('new-item', NewItem)
 
 // Page
 import Top from '../pages/top.vue'
+import About from '../pages/about.vue'
 
 const router = new VueRouter({
-  mode: 'history',
   routes: [
-    {
-      path: '/',
-      component: Top
-    }
+    { path: '/', component: Top },
+    { path: '/about', component: About },
   ]
 })
 
