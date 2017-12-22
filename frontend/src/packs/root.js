@@ -23,14 +23,13 @@ Vue.component('popular-content', PopularContent)
 Vue.component('new-item', NewItem)
 
 // Page
+import Contact from '../pages/contact.vue'
 import Top from '../pages/top.vue'
 
 const router = new VueRouter({
   routes: [
-    {
-      path: '/',
-      component: Top
-    }
+    { path: '/',        component: Top },
+    { path: '/contact', component: Contact },
   ]
 })
 
