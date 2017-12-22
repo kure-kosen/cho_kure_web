@@ -46,70 +46,51 @@
       </nav>
     </header>
     <main id="main">
-      <div class="pusher">
-	<div class="main">
-	  <article class="ui text container">
-	    <h2 class="ui header">メンバー一覧</h2>
-	    <div class="ui unstackable link items">
-	      <div class="item">
-		<a class="ui tiny image" href="https://google.com">
-		  <img src="https://placehold.jp/150x150.png">
-		</a>
-		<div class="content">
-		  <a class="header" href="https://google.com">中村 優</a>
-		  <div class="description">
-		    <p>独自のワールドを展開するのが得意です。絵が描けます｡</p>
-		  </div>
-		</div>
-	      </div>
-	      <div class="item">
-		<div class="ui tiny image">
-		  <img src="https://placehold.jp/150x150.png">
-		</div>
-		<div class="content">
-		  <div class="header">ほげ ほげ男</div>
-		  <div class="description">
-		    <p>ほげほげほげほげ</p>
-		  </div>
-		</div>
-	      </div>
-	      <div class="item">
-		<div class="ui tiny image">
-		  <img src="https://placehold.jp/150x150.png">
-		</div>
-		<div class="content">
-		  <div class="header">ふが ふが子</div>
-		  <div class="description">
-		    <p>ふがふがふがふが</p>
-		  </div>
-		</div>
-	      </div>
-	      <div class="item">
-		<div class="ui tiny image">
-		  <img src="https://placehold.jp/150x150.png">
-		</div>
-		<div class="content">
-		  <div class="header">ほげ ほげ男</div>
-		  <div class="description">
-		    <p>ほげほげほげほげ</p>
-		  </div>
-		</div>
-	      </div>
-	      <div class="item">
-		<div class="ui tiny image">
-		  <img src="https://placehold.jp/150x150.png">
-		</div>
-		<div class="content">
-		  <div class="header">ふが ふが子</div>
-		  <div class="description">
-		    <p>ふがふがふがふが</p>
-		  </div>
-		</div>
-	      </div>
-	    </div>
-	  </article>
-	</div>
+    <div class="pusher">
+      <div class="main">
+        <article class="ui text container">
+          <h2 class="ui header">メンバー一覧</h2>
+          <div class="ui link cards">
+            <div class="card">
+              <div class="image">
+                <img src="https://placehold.jp/200x200.png">
+              </div>
+              <div class="content">
+                <div class="header">中村 優</div>
+                <div class="meta">
+                  開発 画伯
+                </div>
+                <div class="description">独自のワールドを展開するのが得意です。絵が描けます｡</div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="image">
+                <img src="https://placehold.jp/200x200.png">
+              </div>
+              <div class="content">
+                <div class="header">新谷 哲平</div>
+                <div class="meta">
+                  OB 開発
+                </div>
+                <div class="description">つくばにいます。 こんにちは。</div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="image">
+                <img src="https://placehold.jp/200x200.png">
+              </div>
+              <div class="content">
+                <div class="header">金子 平</div>
+                <div class="meta">
+                  本科 開発
+                </div>
+                <div class="description">期待のホープです。 期待とホープって意味が同じな気がするのは気のせいでしょうか。</div>
+              </div>
+            </div>
+          </div>
+        </article>
       </div>
+    </div>
     </main>
     <footer>
       <div class="ui black center aligned segment">
@@ -121,20 +102,20 @@
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.2.13/dist/semantic.min.js"></script>
     <script>
-     $('#js-sidebar').click(function() {
-       $('.ui.sidebar')
-         .sidebar('setting', 'transition', 'push')
-         .sidebar('setting', 'mobileTransition', 'push')
-         .sidebar('toggle')
-       ;
-     });
+$('#js-sidebar').click(function() {
+  $('.ui.sidebar')
+    .sidebar('setting', 'transition', 'push')
+    .sidebar('setting', 'mobileTransition', 'push')
+    .sidebar('toggle')
+  ;
+});
     </script>
     <style>
-     #body {
-       display: flex;
-       min-height: 100vh;
-       flex-direction: column;
-     }
+#body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
 
      #main {
        flex: 1;
