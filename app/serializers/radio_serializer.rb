@@ -15,6 +15,10 @@
 #  size         :integer          not null
 #  image        :string(255)
 #
+# Indexes
+#
+#  index_radios_on_published_at  (published_at)
+#
 
 class RadioSerializer < ActiveModel::Serializer
   attributes :id, :title, :description, :mp3, :youtube_url, :podcast_url, :image, :duration, :published_at, :created_at, :updated_at
