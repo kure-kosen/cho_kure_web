@@ -8,8 +8,10 @@ Rails.application.routes.draw do
   devise_for :personalities
 
   namespace :front, path: "/" do
-    root to: "root#index"
+    root to: redirect("/app")
     get "/podcast", to: "podcast#index"
+
+    get "/app(/*other)", to: "app#index" # For vue
   end
 
   namespace :api, format: "json" do

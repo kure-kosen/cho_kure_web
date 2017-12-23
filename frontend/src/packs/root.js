@@ -28,6 +28,8 @@ import Top from '../pages/top.vue'
 import About from '../pages/about.vue'
 
 const router = new VueRouter({
+  mode: 'history',
+  base: '/app/',
   routes: [
     { path: '/', component: Top },
     { path: '/about', component: About },
