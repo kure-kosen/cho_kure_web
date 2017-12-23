@@ -15,6 +15,10 @@
 #  size         :integer          not null
 #  image        :string(255)
 #
+# Indexes
+#
+#  index_radios_on_published_at  (published_at)
+#
 
 class RadioSerializer < ActiveModel::Serializer
   attributes :id, :title, :description, :mp3, :youtube_url, :podcast_url, :image, :duration, :published_at, :created_at, :updated_at
@@ -25,5 +29,17 @@ class RadioSerializer < ActiveModel::Serializer
 
   def description
     MarkdownHelper.markdown(object.description)
+  end
+
+  def published_at
+    object.published_at&.to_s(:datetime)
+  end
+
+  def created_at
+    object.created_at.to_s(:datetime)
+  end
+
+  def updated_at
+    object.updated_at.to_s(:datetime)
   end
 end
