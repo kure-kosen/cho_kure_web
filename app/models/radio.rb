@@ -30,7 +30,6 @@ class Radio < ApplicationRecord
   has_many :communities, through: :community_radios
 
   before_save :extract_meta_mp3
-  after_save :update_podcast_rss_cache
 
   validates :title,
             presence: true,
@@ -45,7 +44,8 @@ class Radio < ApplicationRecord
   validates :podcast_url, url: true
 
   scope :published, -> {
-    where.not(published_at: nil)
+    where.not(published_at: nil).
+      where("published_at <= ?", Time.zone.now)
   }
 
   def extract_meta_mp3
@@ -55,7 +55,15 @@ class Radio < ApplicationRecord
     self.size = meta.size
   end
 
-  def update_podcast_rss_cache
-    Rails.cache.write(Podcast::Config::CACHE_KEY, Podcast::Feed.new(Radio.published).generate, compress: true)
+  def publish?
+    !published_at.nil? && published_at <= Time.zone.now
+  end
+
+  def reservation?
+    !published_at.nil? && published_at > Time.zone.now
+  end
+
+  def draft?
+    published_at.nil?
   end
 end
