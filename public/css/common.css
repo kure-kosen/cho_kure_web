@@ -1,24 +1,21 @@
-#body {
+body {
     display: flex;
     min-height: 100vh;
     flex-direction: column;
-}
-
-#main {
-    flex: 1;
 }
 
 nav {
     background-color: #7ec7d8;
 }
 
-.ui.inverted.blue.menu, .ui.inverted.menu.blue.active.item {
-    background-color: #7ec7d8;
-}
-
-.main {
+main {
+    flex: 1;
     padding-top: 80px;
     padding-bottom: 40px;
+}
+
+.ui.inverted.blue.menu, .ui.inverted.menu.blue.active.item {
+    background-color: #7ec7d8;
 }
 
 .ui.black.segment {
