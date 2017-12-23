@@ -1,6 +1,6 @@
 class Api::V1::RadiosController < Api::V1::BaseController
   def index
-    render json: Radio.all
+    render json: Radio.published
   end
 
   def show
