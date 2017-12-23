@@ -23,7 +23,7 @@
           type="radio"
           :title="radio.title"
           :description="radio.description"
-          :date="radio.created_at">
+          :date="radio.published_at">
         </new-item>
       </div>
     </div>
