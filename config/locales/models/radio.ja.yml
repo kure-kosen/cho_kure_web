@@ -15,4 +15,6 @@ ja:
         youtube_url: Youtube
         podcast_url: podcast
         published_at: 投稿日時
+
         status: 公開ステータス
+        reserve_time: 公開予定日時
