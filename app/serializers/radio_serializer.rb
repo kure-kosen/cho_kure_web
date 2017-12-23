@@ -22,4 +22,16 @@ class RadioSerializer < ActiveModel::Serializer
   def description
     MarkdownHelper.markdown(object.description)
   end
+
+  def published_at
+    object.published_at&.to_s(:datetime)
+  end
+
+  def created_at
+    object.created_at.to_s(:datetime)
+  end
+
+  def updated_at
+    object.updated_at.to_s(:datetime)
+  end
 end
