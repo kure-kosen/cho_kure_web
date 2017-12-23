@@ -1,8 +1,15 @@
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
 nav {
     background-color: #7ec7d8;
 }
 
-.main {
+main {
+    flex: 1;
     padding-top: 80px;
     padding-bottom: 40px;
 }
