@@ -18,7 +18,7 @@
       <h2 class="ui header">新着情報</h2>
       <div class="ui items" v-for="radio in newRadios">
         <new-item
-          :image-path="radio.image.url"
+          :image-path="radio.image"
           :item-path="radio.itemPath"
           type="radio"
           :title="radio.title"
