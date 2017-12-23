@@ -3,5 +3,6 @@
 ja:
   personality_roles:
     admin: 管理者
+    secret: シークレット
     editor: 編集者
     guest: ゲスト
