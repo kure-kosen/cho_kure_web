@@ -1,15 +1,14 @@
-
 nav {
-    background-color: #7ec7d8;
-}
-
-.ui.inverted.blue.menu, .ui.inverted.menu.blue.active.item {
     background-color: #7ec7d8;
 }
 
 .main {
     padding-top: 80px;
     padding-bottom: 40px;
+}
+
+.ui.inverted.blue.menu, .ui.inverted.menu.blue.active.item {
+    background-color: #7ec7d8;
 }
 
 .ui.black.segment {

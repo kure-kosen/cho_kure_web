@@ -1,13 +1,16 @@
 <template>
   <header>
     <nav>
-      <div class="ui blue right sidebar inverted vertical menu">
-        <a class="item">ラジオ</a>
-        <a class="disabled item" href="#">コミュニティ</a>
-        <a class="disabled item" href="#">カレンダー</a>
-        <a class="item" href="#">ちょっくれとは？</a>
-        <a class="disabled item" href="#">メンバー紹介</a>
-        <router-link class="item" to="/contact">お問い合わせ</router-link>
+      <div class="ui blue right sidebar inverted borderless vertical menu">
+	    <div id="js-sidebar" class="item close" v-on:click="hideMenu"><i class="icon remove"></i></div>
+        <div class="items">
+          <a class="item">ラジオ</a>
+          <a class="disabled item" href="#">コミュニティ</a>
+          <a class="disabled item" href="#">カレンダー</a>
+          <a class="item" href="#">ちょっくれとは？</a>
+          <a class="disabled item" href="#">メンバー紹介</a>
+          <router-link class="item" to="/contact">お問い合わせ</router-link>
+	    </div>
       </div>
       <div class="ui blue inverted fixed menu" id="computer">
         <div class="ui container">
@@ -26,7 +29,7 @@
         <div class="ui container">
           <router-link class="header item" to="/"><img src="img/logo_mini.png">ちょっときいて呉高専</router-link>
           <div class="right menu">
-            <div id="js-sidebar" class="item"><i class="icon large content"></i>
+            <div id="js-sidebar" class="item" v-on:click="showMenu"><i class="icon large content"></i>
               Menu
             </div>
           </div>
@@ -37,21 +40,34 @@
 </template>
 
 <script>
-module.export = {
+module.exports = {
   methods: {
     showMenu: function () {
-      // TODO: いい感じにする
-      // $('.ui.sidebar')
-      //   .sidebar('setting', 'transition', 'push')
-      //   .sidebar('setting', 'mobileTransition', 'push')
-      //   .sidebar('toggle')
-      // ;
+      $('.ui.sidebar')
+        .sidebar('show')
+        .sidebar('setting', 'mobileTransition', 'push')
+      ;
+    },
+    hideMenu: function() {
+      $('.ui.sidebar')
+        .sidebar('hide')
+        .sidebar('setting', 'mobileTransition', 'push')
+      ;
     }
   } 
 }
 </script>
 
 <style scoped>
+
+.close {
+  padding: 10px 0;
+}
+
+.items {
+  margin-top: 50px
+}
+
 nav {
   background-color: #7ec7d8;
 }

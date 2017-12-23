@@ -28,4 +28,8 @@
 
 class PersonalitySerializer < ActiveModel::Serializer
   attributes :id, :name, :description, :role, :image
+
+  def description
+    MarkdownHelper.markdown(object.description)
+  end
 end

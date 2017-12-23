@@ -14,4 +14,8 @@
 
 class EventSerializer < ActiveModel::Serializer
   attributes :id, :name, :description, :url, :started_at, :ended_at, :created_at, :updated_at
+
+  def description
+    MarkdownHelper.markdown(object.description)
+  end
 end

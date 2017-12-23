@@ -13,4 +13,8 @@
 
 class CommunitySerializer < ActiveModel::Serializer
   attributes :id, :name, :url, :description, :created_at, :updated_at, :logo
+
+  def description
+    MarkdownHelper.markdown(object.description)
+  end
 end
