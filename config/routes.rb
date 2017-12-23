@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   devise_for :personalities
 
   namespace :front, path: "/" do
-    root :to => redirect("/app")
+    root to: redirect("/app")
     get "/podcast", to: "podcast#index"
 
     get "/app(/*other)", to: "app#index"  # For vue
