@@ -11,7 +11,7 @@ Rails.application.routes.draw do
     root to: redirect("/app")
     get "/podcast", to: "podcast#index"
 
-    get "/app(/*other)", to: "app#index"  # For vue
+    get "/app(/*other)", to: "app#index" # For vue
   end
 
   namespace :api, format: "json" do
