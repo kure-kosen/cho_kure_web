@@ -60,17 +60,13 @@
 
 <dl class="dl-horizontal">
   <dt><strong><%= Radio.human_attribute_name('status') %> :</strong></dt>
-  <dd>
-    <%= status_badge(@radio) %>
-  </dd>
+  <dd><%= status_badge(@radio) %></dd>
 </dl>
 
 <% if @radio.publish? || @radio.reservation? %>
   <dl class="dl-horizontal">
     <dt><strong><%= Radio.human_attribute_name('published_at') %> :</strong></dt>
-    <dd>
-      <%= @radio.published_at %>
-    </dd>
+    <dd><%= @radio.published_at %></dd>
   </dl>
 <% end %>
 
