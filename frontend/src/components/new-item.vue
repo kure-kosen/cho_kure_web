@@ -5,9 +5,7 @@
       </a>
       <div class="content">
         <a v-bind:href="itemPath" class="header">{{ title }}</a>
-        <div class="description">
-          <p>{{ description }}</p>
-        </div>
+        <div v-html="description" class="description"></div>
         <div class="meta">
           <span class="date">{{ date }}</span>
         </div>
