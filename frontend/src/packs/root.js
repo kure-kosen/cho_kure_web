@@ -25,10 +25,12 @@ Vue.component('new-item', NewItem)
 // Page
 import Contact from '../pages/contact.vue'
 import Top from '../pages/top.vue'
+import About from '../pages/about.vue'
 
 const router = new VueRouter({
   routes: [
-    { path: '/',        component: Top },
+    { path: '/', component: Top },
+    { path: '/about', component: About },
     { path: '/contact', component: Contact },
   ]
 })
