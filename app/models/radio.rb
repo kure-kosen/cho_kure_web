@@ -10,10 +10,14 @@
 #  podcast_url  :string(255)
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
-#  image        :string(255)
 #  published_at :datetime
 #  duration     :integer          not null
 #  size         :integer          not null
+#  image        :string(255)
+#
+# Indexes
+#
+#  index_radios_on_published_at  (published_at)
 #
 
 class Radio < ApplicationRecord
@@ -25,7 +29,7 @@ class Radio < ApplicationRecord
   has_many :community_radios, dependent: :destroy
   has_many :communities, through: :community_radios
 
-  after_save :update_podcast_rss_cache
+  before_save :extract_meta_mp3
 
   validates :title,
             presence: true,
@@ -35,27 +39,31 @@ class Radio < ApplicationRecord
 
   validates :mp3, presence: true
 
-  validates :duration,
-            presence: true,
-            numericality: {
-              greater_than_or_equal_to: 0,
-            }
-
-  validates :size,
-            presence: true,
-            numericality: {
-              greater_than_or_equal_to: 0,
-            }
-
   validates :youtube_url, url: true
 
   validates :podcast_url, url: true
 
   scope :published, -> {
-    where.not(published_at: nil)
+    where.not(published_at: nil).
+      where("published_at <= ?", Time.zone.now)
   }
 
-  def update_podcast_rss_cache
-    Rails.cache.write("/podcast/rss", Podcast::Feed.new(Radio.published).generate, compress: true)
+  def extract_meta_mp3
+    meta = MetaExtractor::Mp3.new(self.mp3.file.file)
+
+    self.duration = meta.duration
+    self.size = meta.size
+  end
+
+  def publish?
+    !published_at.nil? && published_at <= Time.zone.now
+  end
+
+  def reservation?
+    !published_at.nil? && published_at > Time.zone.now
+  end
+
+  def draft?
+    published_at.nil?
   end
 end

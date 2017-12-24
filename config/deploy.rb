@@ -4,10 +4,6 @@ lock "~> 3.10.0"
 set :application, "cho_kure_web"
 set :repo_url, "git@github.com:kure-kosen/cho_kure_web.git"
 
-# Default branch is :master
-# ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
-set :branch, "feature/dev"
-
 # Default deploy_to directory is /var/www/my_app_name
 set :deploy_to, "/var/www/cho_kure_web"
 
@@ -27,7 +23,7 @@ set :linked_files, fetch(:linked_files, []).push(".env")
 
 # Default value for linked_dirs is []
 # append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/system"
-set :linked_dirs, fetch(:linked_dirs, []).push("log", "tmp/pids", "tmp/cache", "tmp/sockets", "vendor/bundle", "public/system")
+set :linked_dirs, fetch(:linked_dirs, []).push("log", "tmp/pids", "tmp/cache", "tmp/sockets", "vendor/bundle", "public/system", "node_modules")
 
 # Default value for default_env is {}
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
@@ -40,6 +36,8 @@ set :keep_releases, 5
 
 # Uncomment the following to require manually verifying the host key before first deploy.
 # set :ssh_options, verify_host_key: :secure
+
+set :yarn_target_path, -> { release_path.join("frontend/") }
 
 set :rbenv_ruby, "2.4.2"
 
@@ -82,9 +80,16 @@ namespace :deploy do
 
   task :cleanup do
     on roles(:app) do
-      header = "Authorization: Bearer 3EsgJyhuQgAi9dERkkOSfuqZY9afS6ymW3h3ZbEvZoE"
-      message = "デプロイを完了しました"
-      execute "curl -X POST -H '#{header}' -F 'message=#{message}' https://notify-api.line.me/api/notify"
+      execute <<-COMMAND
+        curl -X POST --data-urlencode \
+          \"payload={ \
+            \\\"channel\\\": \\\"#develop_開発\\\", \
+            \\\"username\\\": \\\"onigiri\\\", \
+            \\\"text\\\": \\\"#{fetch(:branch)}ブランチの#{fetch(:rails_env)}へのデプロイを完了したよ！\\\", \
+            \\\"icon_emoji\\\": \\\":onigirikun:\\\"\
+          }\" \
+        https://hooks.slack.com/services/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
+      COMMAND
     end
   end
 end

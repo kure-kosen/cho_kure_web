@@ -57,3 +57,7 @@ set :ssh_options, keys: "~/.ssh/cho_kure_web_rsa"
 #     auth_methods: %w(publickey password)
 #     # password: "please use keys"
 #   }
+
+# Default branch is :master
+# ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
+set :branch, "master"

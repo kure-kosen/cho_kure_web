@@ -17,8 +17,15 @@
 
   <div class="form-group row">
     <%= form.label :description, class: 'col-2 col-form-label' %>
-    <div class="col-10">
-      <%= form.text_area :description, class: 'form-control' %>
+    <div class="col-10" id="editor">
+      <div class="row" style="height: 30em;">
+        <div class="col-6">
+          <%= form.text_area :description, class: 'form-control', rows: 20, "v-model" => "input", debounce: 50 %>
+        </div>
+        <div class="col-6" style="overflow: scroll;">
+          <div v-html='input | marked'></div>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -47,3 +54,5 @@
     availableTags: <%= raw @tag_list %>
   });
 </script>
+
+<%= render "admin/shared/js_markdown", content: personality.description %>

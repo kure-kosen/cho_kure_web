@@ -1,3 +1,12 @@
+GIT
+  remote: https://github.com/rails/webpacker.git
+  revision: d8392315c8e7c86f3ef4fb8014a1285e8558193c
+  specs:
+    webpacker (3.1.1)
+      activesupport (>= 4.2)
+      rack-proxy (>= 0.6.1)
+      railties (>= 4.2)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -25,6 +34,11 @@ GEM
       erubi (~> 1.4)
       rails-dom-testing (~> 2.0)
       rails-html-sanitizer (~> 1.0, >= 1.0.3)
+    active_model_serializers (0.10.7)
+      actionpack (>= 4.1, < 6)
+      activemodel (>= 4.1, < 6)
+      case_transform (>= 0.2)
+      jsonapi-renderer (>= 0.1.1.beta1, < 0.3)
     activejob (5.1.4)
       activesupport (= 5.1.4)
       globalid (>= 0.3.6)
@@ -64,6 +78,9 @@ GEM
       autoprefixer-rails (>= 6.0.3)
       popper_js (>= 1.12.3, < 2)
       sass (>= 3.5.2)
+    bootstrap-tooltip-rails (0.1)
+      rails (>= 3.1)
+      thor
     builder (3.2.3)
     byebug (9.1.0)
     capistrano (3.10.0)
@@ -80,10 +97,14 @@ GEM
     capistrano-rbenv (2.1.3)
       capistrano (~> 3.1)
       sshkit (~> 1.3)
+    capistrano-yarn (2.0.2)
+      capistrano (~> 3.0)
     carrierwave (1.2.1)
       activemodel (>= 4.0.0)
       activesupport (>= 4.0.0)
       mime-types (>= 1.16)
+    case_transform (0.2)
+      activesupport
     coderay (1.1.2)
     coffee-rails (4.2.2)
       coffee-script (>= 2.2.0)
@@ -274,6 +295,9 @@ GEM
       nokogiri (>= 1.5.11, < 2.0.0)
     font-awesome-rails (4.7.0.2)
       railties (>= 3.2, < 5.2)
+    foreman (0.63.0)
+      dotenv (>= 0.7)
+      thor (>= 0.13.6)
     formatador (0.2.5)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
@@ -296,6 +320,7 @@ GEM
     jquery-ui-rails (6.0.1)
       railties (>= 3.2.16)
     json (2.1.0)
+    jsonapi-renderer (0.2.0)
     kgio (2.11.0)
     launchy (2.4.3)
       addressable (~> 2.3)
@@ -348,6 +373,8 @@ GEM
     public_suffix (3.0.0)
     puma (3.10.0)
     rack (2.0.3)
+    rack-proxy (0.6.3)
+      rack
     rack-test (0.7.0)
       rack (>= 1.0, < 3)
     rails (5.1.4)
@@ -388,6 +415,7 @@ GEM
       json (>= 1.8)
       nokogiri (~> 1.5)
       trollop (~> 2.1)
+    redcarpet (3.4.0)
     responders (2.4.0)
       actionpack (>= 4.2.0, < 5.3)
       railties (>= 4.2.0, < 5.3)
@@ -395,6 +423,8 @@ GEM
       http-cookie (>= 1.0.2, < 2.0)
       mime-types (>= 1.16, < 4.0)
       netrc (~> 0.8)
+    roboto (1.0.1)
+      rails (>= 4.2)
     rspec-core (3.7.0)
       rspec-support (~> 3.7.0)
     rspec-expectations (3.7.0)
@@ -421,6 +451,7 @@ GEM
       unicode-display_width (~> 1.0, >= 1.0.1)
     rubocop-rspec (1.19.0)
       rubocop (>= 0.51.0)
+    ruby-mp3info (0.8.10)
     ruby-progressbar (1.9.0)
     ruby_dep (1.5.0)
     sass (3.5.3)
@@ -437,6 +468,8 @@ GEM
     seed-fu (2.3.6)
       activerecord (>= 3.1)
       activesupport (>= 3.1)
+    sitemap_generator (6.0.0)
+      builder (~> 3.0)
     spring (2.0.2)
       activesupport (>= 4.2)
     spring-watcher-listen (2.0.1)
@@ -486,16 +519,19 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  active_model_serializers
   acts-as-taggable-on
   annotate
   better_errors
   binding_of_caller
   bootstrap
+  bootstrap-tooltip-rails
   byebug
   capistrano
   capistrano-bundler
   capistrano-rails
   capistrano-rbenv
+  capistrano-yarn
   carrierwave
   coffee-rails (~> 4.2)
   devise
@@ -504,6 +540,7 @@ DEPENDENCIES
   faker
   fog
   font-awesome-rails
+  foreman
   inum
   jbuilder (~> 2.5)
   jquery-rails
@@ -517,9 +554,13 @@ DEPENDENCIES
   pry-byebug
   puma (~> 3.7)
   rails (~> 5.1.4)
+  redcarpet
+  roboto
   rspec-rails
+  ruby-mp3info
   sass-rails (~> 5.0)
   seed-fu
+  sitemap_generator
   spring
   spring-watcher-listen (~> 2.0.0)
   turbolinks (~> 5)
@@ -527,6 +568,7 @@ DEPENDENCIES
   uglifier (>= 1.3.0)
   unicorn
   web-console (>= 3.3.0)
+  webpacker!
 
 BUNDLED WITH
-   1.16.0.pre.2
+   1.16.0

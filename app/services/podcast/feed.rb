@@ -30,7 +30,7 @@ module Podcast
 
       def set_channel_from_config(channel)
         channel.title               = @config.podcast_name
-        channel.link                = @config.application_url
+        channel.link                = @config.application_domain
         channel.description         = @config.podcast_description
         channel.language            = @config.language
         channel.sy_updatePeriod     = @config.update_period
@@ -43,7 +43,7 @@ module Podcast
         channel.itunes_summary            = @config.podcast_summary
         channel.itunes_author             = @config.owner_name
         channel.itunes_explicit           = @config.itunes_explicit
-        channel.itunes_image              = @config.podcast_icon_url
+        channel.itunes_image              = @config.icon_url
         channel.itunes_owner.itunes_name  = @config.owner_name
         channel.itunes_owner.itunes_email = @config.owner_email
         channel.itunes_subtitle           = @config.podcast_sub_name
@@ -53,7 +53,7 @@ module Podcast
         items.new_item do |item|
           item.title            = radio.title
           item.link             = join_radio_link(radio)
-          item.description      = radio.description
+          item.description      = MarkdownHelper.markdown(radio.description)
           item.pubDate          = radio.published_at.to_s(:rfc822)
           item.itunes_duration  = format_duration(radio.duration)
           item.enclosure.url    = radio.mp3_url
@@ -68,7 +68,7 @@ module Podcast
 
       def join_radio_link(radio)
         # TODO: front/にラジオのページが出来次第変更
-        @config.application_server_domain + admin_radio_path(radio)
+        @config.application_domain + admin_radio_path(radio)
       end
   end
 end

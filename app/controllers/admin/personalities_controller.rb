@@ -13,6 +13,24 @@ class Admin::PersonalitiesController < Admin::BaseController
   def show
   end
 
+  def new
+    @personality = Personality.new
+  end
+
+  def create
+    @personality = Personality.new(provisional_personality_params)
+
+    # 仮登録なのでちゃんと変更してもらう
+    @personality.password = "password"
+    @personality.password_confirmation = "password"
+
+    if @personality.save
+      redirect_to admin_personalities_url(@personality), notice: "Personality was successfully created."
+    else
+      render :new
+    end
+  end
+
   # GET /personalities/1/edit
   def edit
   end
@@ -48,5 +66,9 @@ class Admin::PersonalitiesController < Admin::BaseController
     # Never trust parameters from the scary internet, only allow the white list through.
     def personality_params
       params.require(:personality).permit(:name, :image, :description, :role, :tag_list)
+    end
+
+    def provisional_personality_params
+      params.require(:personality).permit(:name, :email)
     end
 end

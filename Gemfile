@@ -54,6 +54,9 @@ group :development do
   gem "capistrano-bundler"
   gem "capistrano-rails"
   gem "capistrano-rbenv"
+  gem "capistrano-yarn"
+
+  gem "foreman"
 end
 
 group :production do
@@ -64,8 +67,10 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
+gem "active_model_serializers"
 gem "acts-as-taggable-on"
 gem "bootstrap"
+gem "bootstrap-tooltip-rails"
 gem "carrierwave"
 gem "devise"
 gem "dotenv-rails"
@@ -75,4 +80,9 @@ gem "inum"
 gem "jquery-rails"
 gem "jquery-ui-rails"
 gem "mini_magick"
+gem "redcarpet"
+gem "roboto"
+gem "ruby-mp3info"
 gem "seed-fu"
+gem "sitemap_generator"
+gem "webpacker", github: "rails/webpacker"

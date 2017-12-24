@@ -10,6 +10,11 @@ AllCops:
   TargetRubyVersion: 2.4
   # uncomment if use rails cops
   TargetRailsVersion: 5.1
+  Exclude:
+    - "frontend/node_modules/**/*"
+    - "node_modules/**/*"
+    - "vendor/**/*"
+    - "db/schema.rb"
 
 Style/GlobalVars:
   Exclude:
@@ -31,7 +36,16 @@ Metrics/BlockLength:
 Lint/HandleExceptions:
   Exclude:
     - "config/unicorn/production.rb"  # 何やってるのかよくわからんのでとりあえずExclude
+    - "config/unicorn/staging.rb"  # 何やってるのかよくわからんのでとりあえずExclude
 
 Naming/AccessorMethodName:
   Exclude:
     - "app/services/podcast/feed.rb"
+
+Rails:
+  Exclude:
+    - "config/sitemap.rb"
+
+Rails/OutputSafety:
+  Exclude:
+    - "app/helpers/markdown_helper.rb" # markdownをparseした結果を返すのにhtml_safeは必須

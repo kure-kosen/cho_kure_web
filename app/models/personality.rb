@@ -30,7 +30,6 @@ class Personality < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable,
-         :registerable,
          :recoverable,
          :rememberable,
          :trackable,
@@ -44,4 +43,8 @@ class Personality < ApplicationRecord
 
   has_many :radio_personalities, dependent: :destroy
   has_many :radios, through: :radio_personalities
+
+  scope :on_public, -> {
+    where.not(role: PersonalityRoles::SECRET)
+  }
 end

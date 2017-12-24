@@ -21,7 +21,7 @@
 
 <dl class="dl-horizontal">
   <dt><strong><%= Radio.human_attribute_name('description') %> :</strong></dt>
-  <dd><%= simple_format(@radio.description) if @radio.description %></dd>
+  <dd><%= MarkdownHelper.markdown(@radio.description) %></dd>
 </dl>
 
 <dl class="dl-horizontal">
@@ -59,8 +59,15 @@
 </dl>
 
 <dl class="dl-horizontal">
-  <dt><strong><%= Radio.human_attribute_name('published_at') %> :</strong></dt>
-  <dd><%= @radio.published_at %></dd>
+  <dt><strong><%= Radio.human_attribute_name('status') %> :</strong></dt>
+  <dd><%= status_badge(@radio) %></dd>
 </dl>
+
+<% if @radio.publish? || @radio.reservation? %>
+  <dl class="dl-horizontal">
+    <dt><strong><%= Radio.human_attribute_name('published_at') %> :</strong></dt>
+    <dd><%= @radio.published_at %></dd>
+  </dl>
+<% end %>
 
 <%= link_to '編集', edit_admin_radio_path(@radio) %>

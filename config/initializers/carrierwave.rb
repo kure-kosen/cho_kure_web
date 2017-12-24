@@ -1,5 +1,5 @@
-if Rails.env.production?
-  # 本番環境はS3にUP
+if Rails.env.production? || Rails.env.staging?
+  # 本番環境とステージング環境はS3にUP
   CarrierWave.configure do |config|
     config.fog_provider = "fog/aws"
     config.fog_credentials = {
