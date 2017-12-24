@@ -36,8 +36,4 @@ class PersonalitySerializer < ActiveModel::Serializer
   def description
     MarkdownHelper.markdown(object.description)
   end
-
-  def tag_list
-    object.tag_list
-  end
 end
