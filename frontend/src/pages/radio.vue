@@ -3,7 +3,6 @@
   <div class="ui text container main">
     <h2 class="ui header">{{ radio.title }}</h2>
     <img v-bind:src="radio.image" v-bind:alt="radio.title">
-    <img class="ui fluid  image" alt="アニメーションロゴ" src="/img/logo_animation.gif"/>
     <div v-html="markedDescription"></div>
 
     <h3>パーソナリティ</h3>
