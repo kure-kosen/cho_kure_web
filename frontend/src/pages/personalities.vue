@@ -5,6 +5,7 @@
       <div class="ui link cards">
         <personality-card v-for="personality in personalities"
           :key="personality.id"
+          :id="personality.id"
           :name="personality.name"
           :description="personality.description"
           :image-path="personality.imagePath"

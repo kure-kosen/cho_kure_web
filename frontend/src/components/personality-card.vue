@@ -1,5 +1,5 @@
 <template>
-  <div class="card">
+  <router-link class="card" :to="{ name: 'personality', params: { id: id }}">
     <div class="image">
       <img v-bind:src="imagePath">
     </div>
@@ -12,12 +12,17 @@
       </div>
       <div class="description">{{ description }}</div>
     </div>
-  </div>
+  </router-link>
 </template>
 
 <script>
 module.exports = {
   props: {
+    id: {
+      type: Number,
+      default: 0,
+      required: true
+    },
     name: {
       type: String,
       default: '名前を取得できませんでした',
