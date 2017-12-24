@@ -8,7 +8,8 @@ module MetaExtractor
         if file.class == CarrierWave::SanitizedFile
           # For Local saved file
           file.file
-        else # For Another cloud saved file
+        else
+          # For Another cloud saved file
           open(file.url)
         end,
       )
