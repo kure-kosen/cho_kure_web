@@ -56,10 +56,34 @@ module.exports = {
             return marked(this.description, { sanitize: true })
         }
     },
-    watch: {
-        '$route' (to, from) {
-        }
-    }
+    type: {
+      type: String,
+      default: 'other',
+      required: true,
+      validator: function (value) {
+        return ['radio', 'community', 'other'].includes(value)
+      }
+    },
+    title: {
+      type: String,
+      default: 'タイトルを取得できませんでした',
+      required: true,
+    },
+    description: {
+      type: String,
+      default: '詳細を取得できませんでした',
+      required: true,
+    },
+    mp3Url: {
+      type: String,
+      required: true
+    },
+    date: {
+      type: String,
+      default: '2017/12/03 1:08',
+      required: true
+    },
+  }
 }
 </script>
 

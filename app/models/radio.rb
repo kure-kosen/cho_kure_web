@@ -49,7 +49,7 @@ class Radio < ApplicationRecord
   }
 
   def extract_meta_mp3
-    meta = MetaExtractor::Mp3.new(self.mp3.file.file)
+    meta = MetaExtractor::Mp3.new(self.mp3.file)
 
     self.duration = meta.duration
     self.size = meta.size
