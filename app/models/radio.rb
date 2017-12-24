@@ -51,9 +51,13 @@ class Radio < ApplicationRecord
   def extract_meta_mp3
     Rails.logger.debug(' ===== log start =======')
     Rails.logger.debug("#{__FILE__}:#{__LINE__ }")
+    Rails.logger.debug(self)
     Rails.logger.debug(self.mp3)
+    Rails.logger.debug(self.mp3.class)
+    Rails.logger.debug(self.mp3.file)
+    Rails.logger.debug(self.mp3.file)
     Rails.logger.debug(' ===== log end =======')
-    
+
     meta = MetaExtractor::Mp3.new(self.mp3.file.file)
 
     self.duration = meta.duration
