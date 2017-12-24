@@ -14,6 +14,9 @@
       <div class="thirteen wide column">
         <h4>{{ personality.name }}</h4>
         <div class="description" v-html="personality.description"></div>
+        <div class="ui tag labels">
+          <div class="ui label" v-for="tag in personality.tag_list">{{ tag }}</div>
+        </div>
       </div>
     </div>
     <div class="ui items" v-for="newRadio in newRadios">
