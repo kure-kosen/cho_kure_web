@@ -47,7 +47,7 @@ module.export = {
             //   .sidebar('toggle')
             // ;
         }
-    } 
+    }
 }
 </script>
 
