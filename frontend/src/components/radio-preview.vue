@@ -1,17 +1,17 @@
 <template>
-    <div class="item" v-bind:class="type">
-      <a class="image"  v-bind:href="itemPath">
-        <img v-bind:src="imagePath">
-      </a>
-      <div class="content">
-        <a v-bind:href="itemPath" class="header">{{ title }}</a>
-        <div v-html="description" class="description"></div>
-        <div class="meta">
-          <span class="date">{{ date }}</span>
-        </div>
-        <audio controls="controls" v-bind:src="mp3Url"></audio>
+  <div class="item" v-bind:class="type">
+    <a class="image"  v-bind:href="itemPath">
+      <img v-bind:src="imagePath">
+    </a>
+    <div class="content">
+      <a v-bind:href="itemPath" class="header">{{ title }}</a>
+      <div v-html="description" class="description"></div>
+      <div class="meta">
+        <span class="date">{{ date }}</span>
       </div>
+      <audio controls="controls" v-bind:src="mp3Url"></audio>
     </div>
+  </div>
 </template>
 
 <script>

@@ -3,7 +3,7 @@
     <div class="ui container news-contents">
       <h2 class="ui header">新着情報</h2>
       <div class="ui items" v-for="radio in newRadios">
-        <new-item
+        <radio-preview
           :image-path="radio.image"
           :item-path="radio.itemPath"
           type="radio"
@@ -11,7 +11,7 @@
           :description="radio.description"
           :mp3-url="radio.mp3.url"
           :date="radio.published_at">
-        </new-item>
+        </radio-preview>
       </div>
     </div>
   </div>
