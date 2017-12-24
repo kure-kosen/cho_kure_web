@@ -9,9 +9,7 @@
     <div class="personality-icons">
       <img v-bind:src="personality.image" class="personality-icon" v-for="personality in personalities">
     </div>
-    <div>
-      <audio controls="controls" v-bind:src="mp3Url"></audio>
-    </div>
+    <div><audio controls="controls" v-bind:src="mp3Url"></audio></div>
     <div class="meta">
       <span class="date">{{ date }}</span>
     </div>
