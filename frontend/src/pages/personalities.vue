@@ -9,7 +9,7 @@
           :name="personality.name"
           :description="personality.description"
           :image-path="personality.imagePath"
-          :tags="personality.tags"
+          :tags="personality.tag_list"
         />
       </div>
     </article>

@@ -27,7 +27,7 @@
 #
 
 class PersonalitySerializer < ActiveModel::Serializer
-  attributes :id, :name, :description, :role, :image, :tags
+  attributes :id, :name, :description, :role, :image, :tag_list
 
   has_many :radios
 
@@ -37,9 +37,5 @@ class PersonalitySerializer < ActiveModel::Serializer
 
   def description
     MarkdownHelper.markdown(object.description)
-  end
-
-  def tags
-    object.tags.map(&:name)
   end
 end
