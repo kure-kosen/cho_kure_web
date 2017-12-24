@@ -6,8 +6,11 @@
   <div class="content">
     <router-link class="header" v-bind:to="{ name: 'radios', params: { id: itemId }}">{{ title }}</router-link>
     <div class="description" v-html="description"></div>
-    <div class="personality-icons" v-for="personality in personalities">
-      <img v-bind:src="personality.image" class="personality-icon">
+    <div class="personality-icons">
+      <img v-bind:src="personality.image" class="personality-icon" v-for="personality in personalities">
+    </div>
+    <div>
+      <audio controls="controls" v-bind:src="mp3Url"></audio>
     </div>
     <div class="meta">
       <span class="date">{{ date }}</span>
@@ -50,6 +53,10 @@ module.exports = {
     personalities: {
       type: Array,
       default: [],
+    },
+    mp3Url: {
+      type: String,
+      require: true,
     },
     date: {
       type: String,
