@@ -9,6 +9,7 @@
         <div class="meta">
           <span class="date">{{ date }}</span>
         </div>
+        <audio controls="controls" v-bind:src="mp3Url"></audio>
       </div>
     </div>
 </template>
@@ -43,6 +44,10 @@ module.exports = {
       type: String,
       default: '詳細を取得できませんでした',
       required: true,
+    },
+    mp3Url: {
+      type: String,
+      required: true
     },
     date: {
       type: String,
