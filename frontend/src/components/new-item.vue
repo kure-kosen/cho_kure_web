@@ -6,10 +6,10 @@
       <div class="content">
         <a v-bind:href="itemPath" class="header">{{ title }}</a>
         <div v-html="description" class="description"></div>
-      </div>
-      <audio controls="controls" v-bind:src="mp3Url"></audio>
-      <div class="meta">
-        <span class="date">{{ date }}</span>
+        <div class="meta">
+          <span class="date">{{ date }}</span>
+        </div>
+        <audio controls="controls" v-bind:src="mp3Url"></audio>
       </div>
     </div>
 </template>
