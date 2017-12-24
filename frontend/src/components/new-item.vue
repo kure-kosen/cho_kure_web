@@ -16,45 +16,16 @@
 <script>
 var marked = require('marked');
 module.exports = {
-    props: {
-        imagePath: {
-            type: String,
-            default: 'https://placehold.jp/640x480.png',
-            required: true
-        },
-        itemId: {
-            type: Number,
-            default: 0,
-            required: true
-        },
-        type: {
-            type: String,
-            default: 'other',
-            required: true,
-            validator: function (value) {
-                return ['radio', 'community', 'other'].includes(value)
-            }
-        },
-        title: {
-            type: String,
-            default: 'タイトルを取得できませんでした',
-            required: true,
-        },
-        description: {
-            type: String,
-            default: '詳細を取得できませんでした',
-            required: true,
-        },
-        date: {
-            type: String,
-            default: '2017/12/03 1:08',
-            required: true
-        },
+  props: {
+    imagePath: {
+      type: String,
+      default: 'https://placehold.jp/640x480.png',
+      required: true
     },
-    computed: {
-        markedDescription: function () {
-            return marked(this.description, { sanitize: true })
-        }
+    itemId: {
+      type: Number,
+      default: 0,
+      required: true
     },
     type: {
       type: String,
@@ -74,16 +45,17 @@ module.exports = {
       default: '詳細を取得できませんでした',
       required: true,
     },
-    mp3Url: {
-      type: String,
-      required: true
-    },
     date: {
       type: String,
       default: '2017/12/03 1:08',
       required: true
     },
-  }
+  },
+  computed: {
+    markedDescription: function () {
+      return marked(this.description, { sanitize: true })
+    }
+  },
 }
 </script>
 

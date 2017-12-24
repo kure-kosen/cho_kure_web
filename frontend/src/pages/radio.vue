@@ -2,12 +2,12 @@
 <div class="pusher">
   <div class="ui text container main">
     <h2 class="ui header">{{ radio.title }}</h2>
-    <img v-bind:src="radio.image.url" v-bind:alt="radio.title">
+    <img v-bind:src="radio.image" v-bind:alt="radio.title">
     <img class="ui fluid  image" alt="アニメーションロゴ" src="/img/logo_animation.gif"/>
     <div v-html="markedDescription"></div>
     <div class="ui items" v-for="newRadio in newRadios">
       <new-item
-        :image-path="newRadio.image.url"
+        :image-path="newRadio.image"
         :item-id="newRadio.id"
         type="radio"
         :title="newRadio.title"
@@ -31,7 +31,7 @@ module.exports = {
     methods: {
         getRadio(id) {
             var that = this
-            this.axios.get('api/v1/radios/'+id)
+            this.axios.get('/api/v1/radios/'+id)
                 .then(function (response) {
                     that.radio = response.data
                     console.log(that.radio)
@@ -42,7 +42,7 @@ module.exports = {
         },
         getNewRadios() {
             var that = this
-            this.axios.get('api/v1/radios')
+            this.axios.get('/api/v1/radios')
                 .then(function (response) {
                     that.newRadios = response.data.slice(0, 6)
                     console.log(that.newRadios)

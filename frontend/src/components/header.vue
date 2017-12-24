@@ -54,6 +54,7 @@ module.exports = {
         .sidebar('setting', 'mobileTransition', 'push')
       ;
     }
+  }
 }
 </script>
 
