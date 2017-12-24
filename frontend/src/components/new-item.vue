@@ -1,18 +1,18 @@
 <template>
-    <div class="item" v-bind:class="type">
-      <a class="image"  v-bind:href="itemPath">
-        <img v-bind:src="imagePath">
-      </a>
-      <div class="content">
-        <a v-bind:href="itemPath" class="header">{{ title }}</a>
-        <div class="description">
-          <p>{{ description }}</p>
-        </div>
-        <div class="meta">
-          <span class="date">{{ date }}</span>
-        </div>
-      </div>
+<div class="item" v-bind:class="type">
+  <router-link class="image" v-bind:href="itemPath" to="/about">
+    <img v-bind:src="imagePath">
+  </router-link>
+  <div class="content">
+    <a v-bind:href="itemPath" class="header">{{ title }}</a>
+    <div class="description">
+      <p>{{ description }}</p>
     </div>
+    <div class="meta">
+      <span class="date">{{ date }}</span>
+    </div>
+  </div>
+</div>
 </template>
 
 <script>
