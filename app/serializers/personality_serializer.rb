@@ -27,7 +27,7 @@
 #
 
 class PersonalitySerializer < ActiveModel::Serializer
-  attributes :id, :name, :description, :role, :image
+  attributes :id, :name, :description, :role, :image, :tag_list
 
   def image
     ActionController::Base.helpers.image_url(object.image_url(:thumb))

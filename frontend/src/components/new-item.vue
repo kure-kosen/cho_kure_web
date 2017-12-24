@@ -1,17 +1,20 @@
 <template>
-    <div class="item" v-bind:class="type">
-      <a class="image"  v-bind:href="itemPath">
-        <img v-bind:src="imagePath">
-      </a>
-      <div class="content">
-        <a v-bind:href="itemPath" class="header">{{ title }}</a>
-        <div v-html="description" class="description"></div>
-        <div class="meta">
-          <span class="date">{{ date }}</span>
-        </div>
-        <audio controls="controls" v-bind:src="mp3Url"></audio>
-      </div>
+<div class="item" v-bind:class="type">
+  <router-link class="image" v-bind:to="{ name: 'radios', params: { id: itemId }}">
+    <img v-bind:src="imagePath">
+  </router-link>
+  <div class="content">
+    <router-link class="header" v-bind:to="{ name: 'radios', params: { id: itemId }}">{{ title }}</router-link>
+    <div class="description" v-html="description"></div>
+    <div class="personality-icons">
+      <img v-bind:src="personality.image" class="personality-icon" v-for="personality in personalities">
     </div>
+    <div><audio controls="controls" v-bind:src="mp3Url"></audio></div>
+    <div class="meta">
+      <span class="date">{{ date }}</span>
+    </div>
+  </div>
+</div>
 </template>
 
 <script>
@@ -22,9 +25,9 @@ module.exports = {
       default: 'https://placehold.jp/640x480.png',
       required: true
     },
-    itemPath: {
-      type: String,
-      default: '/',
+    itemId: {
+      type: Number,
+      default: 0,
       required: true
     },
     type: {
@@ -45,16 +48,20 @@ module.exports = {
       default: '詳細を取得できませんでした',
       required: true,
     },
+    personalities: {
+      type: Array,
+      default: [],
+    },
     mp3Url: {
       type: String,
-      required: true
+      require: true,
     },
     date: {
       type: String,
       default: '2017/12/03 1:08',
       required: true
     },
-  }
+  },
 }
 </script>
 
@@ -78,5 +85,20 @@ module.exports = {
 
 .other {
   border-color: #999999 !important;
+}
+
+.personality-icons {
+  display: inline-block;
+}
+
+.personality-icon {
+  width: 50px;
+  height: 50px;
+  border: thin solid #999999;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  margin: 5px;
+  display: inline;
 }
 </style>
