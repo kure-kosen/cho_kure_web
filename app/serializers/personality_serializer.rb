@@ -27,7 +27,7 @@
 #
 
 class PersonalitySerializer < ActiveModel::Serializer
-  attributes :id, :name, :description, :role, :image
+  attributes :id, :name, :description, :role, :image, :tags
 
   def image
     ActionController::Base.helpers.image_url(object.image_url(:thumb))
@@ -35,5 +35,9 @@ class PersonalitySerializer < ActiveModel::Serializer
 
   def description
     MarkdownHelper.markdown(object.description)
+  end
+
+  def tags
+    object.tags.map(&:name)
   end
 end
