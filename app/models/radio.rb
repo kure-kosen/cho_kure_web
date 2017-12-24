@@ -49,15 +49,7 @@ class Radio < ApplicationRecord
   }
 
   def extract_meta_mp3
-    require 'open-uri'
-
-    meta = MetaExtractor::Mp3.new(
-      if self.mp3.file.class == CarrierWave::SanitizedFile # For Local saved file
-        mp3.file.file
-      else # For Another cloud saved file
-        open(mp3.file.url)
-      end
-    )
+    meta = MetaExtractor::Mp3.new(self.mp3.file)
 
     self.duration = meta.duration
     self.size = meta.size
