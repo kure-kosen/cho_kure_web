@@ -25,11 +25,13 @@ Vue.component('new-item', NewItem)
 // Page
 import Top from '../pages/top.vue'
 import About from '../pages/about.vue'
+import Radio from '../pages/radio.vue'
 
 const router = new VueRouter({
   routes: [
     { path: '/', component: Top },
     { path: '/about', component: About },
+    { path: '/radios/:id', name: 'radios', component: Radio },
   ]
 })
 

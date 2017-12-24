@@ -1,0 +1,73 @@
+<template>
+<div class="pusher">
+  <div class="ui text container main">
+    <h2 class="ui header">{{ radio.title }}</h2>
+    <img v-bind:src="radio.image.url" v-bind:alt="radio.title">
+    <img class="ui fluid  image" alt="アニメーションロゴ" src="/img/logo_animation.gif"/>
+    <div v-html="markedDescription"></div>
+    <div class="ui items" v-for="newRadio in newRadios">
+      <new-item
+        :image-path="newRadio.image.url"
+        :item-id="newRadio.id"
+        type="radio"
+        :title="newRadio.title"
+        :description="newRadio.description"
+        :date="newRadio.created_at">
+      </new-item>
+    </div>
+  </div>
+</div>
+</template>
+
+<script>
+var marked = require('marked');
+module.exports = {
+    data: function () {
+        return {
+            radio: {},
+            newRadios: [],
+        }
+    },
+    mounted: function () {
+        var that = this
+        this.axios.get('api/v1/radios/'+this.$route.params.id)
+            .then(function (response) {
+                that.radio = response.data
+                console.log(that.radio)
+            })
+            .catch( function (error) {
+                console.log(error)
+            })
+        this.axios.get('api/v1/radios')
+            .then(function (response) {
+                that.newRadios = response.data.slice(1, 6)
+                console.log(that.newRadios)
+            })
+            .catch( function (error) {
+                console.log(error)
+            })
+    },
+    computed: {
+        markedDescription: function () {
+            return marked(this.radio.description, { sanitize: true })
+        }
+    }
+}
+</script>
+
+<style scoped>
+
+.ui.black.segment {
+    background-color: #999999;
+    padding-top: 80px;
+}
+
+h2.ui.header {
+    font-size: 1.28571429em;
+}
+
+.main {
+    padding-top: 80px;
+    padding-bottom: 40px;
+}
+</style>
