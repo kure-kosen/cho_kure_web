@@ -16,7 +16,6 @@
     </div>
     <div class="ui container news-contents">
       <h2 class="ui header">新着情報</h2>
-      <h2>ほげほげほげ !!!!</h2>
       <div class="ui items" v-for="radio in newRadios">
         <new-item
           :image-path="radio.image"
