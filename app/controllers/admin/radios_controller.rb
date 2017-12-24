@@ -22,6 +22,12 @@ class Admin::RadiosController < Admin::BaseController
   # POST /radios
   def create
     @radio = Radio.new(radio_params)
+    @radio.published_at = published_at_from(
+      params[:radio][:status],
+      Time.zone.parse(
+        datetime_select_to_a(params[:radio], :reserve_time).join,
+      ),
+    )
 
     if @radio.save
       redirect_to admin_radio_path(@radio), notice: "Radio was successfully created."
@@ -32,6 +38,12 @@ class Admin::RadiosController < Admin::BaseController
 
   # PATCH/PUT /radios/1
   def update
+    @radio.published_at = published_at_from(
+      params[:radio][:status],
+      Time.zone.parse(
+        datetime_select_to_a(params[:radio], :reserve_time).join,
+      ),
+    )
     if @radio.update(radio_params)
       redirect_to admin_radio_path(@radio), notice: "Radio was successfully updated."
     else
@@ -47,6 +59,19 @@ class Admin::RadiosController < Admin::BaseController
 
   private
 
+    def published_at_from(status, datetime = nil)
+      case status
+      when "publish"
+        Time.zone.now
+      when "reservation"
+        datetime
+      when "draft"
+        nil
+      else
+        nil
+      end
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_radio
       @radio = Radio.find(params[:id])
@@ -61,7 +86,6 @@ class Admin::RadiosController < Admin::BaseController
         :mp3,
         :youtube_url,
         :podcast_url,
-        :published_at,
         community_ids: [],
         personality_ids: [],
       )

@@ -74,9 +74,29 @@
 
   <!-- TODO: 公開/非公開のtoggle的な感じのUIにする -->
   <div class="form-group row">
-    <%= form.label :published_at, class: 'col-2 col-form-label' %>
+    <%= form.label :status, class: 'col-2 col-form-label' %>
     <div class="col-10">
-      <%= form.datetime_select :published_at, use_month_numbers: true, class: 'form-control' %>
+      <div class="form-check form-check-inline">
+        <%= form.radio_button :status, :publish, class: 'radio_status', checked: radio.publish? %>
+        <%= form.label :publish, "公開" %>
+      </div>
+      <div class="form-check form-check-inline">
+        <%= form.radio_button :status, :reservation, class: 'radio_status', checked: radio.reservation? %>
+        <%= form.label :reservation, "予約投稿" %>
+      </div>
+      <div class="form-check form-check-inline">
+        <%= form.radio_button :status, :draft, class: 'radio_status', checked: radio.draft? %>
+        <%= form.label :draft, "下書き" %>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group row radio_reservation_time">
+    <%= form.label :reserve_time, class: 'col-2 col-form-label' %>
+    <div class="col-10">
+      <div class="field form-group">
+        <%= form.datetime_select :reserve_time, use_month_numbers: true, class: 'form-control' %>
+      </div>
     </div>
   </div>
 
@@ -86,3 +106,15 @@
 <% end %>
 
 <%= render "admin/shared/js_markdown", content: radio.description %>
+
+<script>
+  // 予約日時を表示/非表示させる
+  $('.radio_reservation_time').fadeOut(0);
+  $('input[class=radio_status]:radio').change( function(){
+    if ($('input[class=radio_status]:checked').val() === 'reservation') {
+      $('.radio_reservation_time').fadeIn(100);
+    } else {
+      $('.radio_reservation_time').fadeOut(100);
+    }
+  });
+</script>

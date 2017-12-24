@@ -37,21 +37,33 @@
 </template>
 
 <script>
-module.export = {
-    methods: {
-        showMenu: function () {
-            // TODO: いい感じにする
-            // $('.ui.sidebar')
-            //   .sidebar('setting', 'transition', 'push')
-            //   .sidebar('setting', 'mobileTransition', 'push')
-            //   .sidebar('toggle')
-            // ;
-        }
+module.exports = {
+  methods: {
+    showMenu: function () {
+      $('.ui.sidebar')
+        .sidebar('show')
+        .sidebar('setting', 'mobileTransition', 'push')
+      ;
+    },
+    hideMenu: function() {
+      $('.ui.sidebar')
+        .sidebar('hide')
+        .sidebar('setting', 'mobileTransition', 'push')
+      ;
     }
 }
 </script>
 
 <style scoped>
+
+.close {
+  padding: 10px 0;
+}
+
+.items {
+  margin-top: 50px
+}
+
 nav {
     background-color: #7ec7d8;
 }
