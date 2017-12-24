@@ -17,16 +17,19 @@ import Header from '../components/header.vue'
 import Footer from '../components/footer.vue'
 import RadioPreview from '../components/radio-preview.vue'
 import PersonalityCard from '../components/personality-card.vue'
+import PersonalitySmall from '../components/personality-small.vue'
 Vue.component('app-header', Header)
 Vue.component('app-footer', Footer)
 Vue.component('radio-preview', RadioPreview)
 Vue.component('personality-card', PersonalityCard)
+Vue.component('personality-small', PersonalitySmall)
 
 // Page
 import Contact from '../pages/contact.vue'
 import Top from '../pages/top.vue'
 import About from '../pages/about.vue'
 import Personalities from '../pages/personalities.vue'
+import Personality from '../pages/personality.vue'
 
 const router = new VueRouter({
   mode: 'history',
@@ -36,6 +39,7 @@ const router = new VueRouter({
     { path: '/about', component: About },
     { path: '/contact', component: Contact },
     { path: '/personalities', component: Personalities },
+    { path: '/personalities/:id', name: 'personality', component: Personality },
   ]
 })
 
