@@ -8,7 +8,7 @@
           :id="personality.id"
           :name="personality.name"
           :description="personality.description"
-          :image-path="personality.imagePath"
+          :image-path="personality.image"
           :tags="personality.tag_list"
         />
       </div>
