@@ -10,6 +10,7 @@
           type="radio"
           :title="radio.title"
           :description="radio.description"
+          :personalities="radio.personalities"
           :mp3-url="radio.mp3.url"
           :date="radio.published_at">
         </new-item>

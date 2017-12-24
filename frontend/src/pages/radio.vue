@@ -12,6 +12,7 @@
         type="radio"
         :title="newRadio.title"
         :description="newRadio.description"
+        :personalities="radio.personalities"
         :date="newRadio.created_at">
       </new-item>
     </div>

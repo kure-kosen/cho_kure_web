@@ -6,6 +6,9 @@
   <div class="content">
     <router-link class="header" v-bind:to="{ name: 'radios', params: { id: itemId }}">{{ title }}</router-link>
     <div class="description" v-html="markedDescription"></div>
+    <div class="personality-icons" v-for="personality in personalities">
+      <img v-bind:src="personality.image" class="personality-icon">
+    </div>
     <div class="meta">
       <span class="date">{{ date }}</span>
     </div>
@@ -45,6 +48,10 @@ module.exports = {
       default: '詳細を取得できませんでした',
       required: true,
     },
+    personalities: {
+      type: Array,
+      default: [],
+    },
     date: {
       type: String,
       default: '2017/12/03 1:08',
@@ -79,5 +86,20 @@ module.exports = {
 
 .other {
   border-color: #999999 !important;
+}
+
+.personality-icons {
+  display: inline-block;
+}
+
+.personality-icon {
+  width: 50px;
+  height: 50px;
+  border: thin solid #999999;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  margin: 5px;
+  display: inline;
 }
 </style>
