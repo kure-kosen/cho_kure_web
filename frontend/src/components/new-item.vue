@@ -4,15 +4,12 @@
     <img v-bind:src="imagePath">
   </router-link>
   <div class="content">
-    <router-link class="header" v-bind:to="{ name: 'radios', params: { id: itemId }}">link</router-link>
+    <router-link class="header" v-bind:to="{ name: 'radios', params: { id: itemId }}">{{ title }}</router-link>
     <div class="description" v-html="markedDescription"></div>
     <div class="meta">
       <span class="date">{{ date }}</span>
     </div>
   </div>
-  <router-link class="image" v-bind:to="{ name: 'radios', params: { id: itemId }}">link</router-link>
-  <router-link class="image" to="1">link</router-link>
-  <router-link class="item" to="/about">ちょっくれとは？</router-link>
 </div>
 </template>
 
@@ -26,7 +23,7 @@ module.exports = {
             required: true
         },
         itemId: {
-            type: String,
+            type: Number,
             default: 0,
             required: true
         },
@@ -57,6 +54,10 @@ module.exports = {
     computed: {
         markedDescription: function () {
             return marked(this.description, { sanitize: true })
+        }
+    },
+    watch: {
+        '$route' (to, from) {
         }
     }
 }
