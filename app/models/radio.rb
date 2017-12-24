@@ -51,17 +51,6 @@ class Radio < ApplicationRecord
   def extract_meta_mp3
     require 'open-uri'
 
-    Rails.logger.debug(' ===== log start =======')
-    Rails.logger.debug("#{__FILE__}:#{__LINE__ }")
-    Rails.logger.debug("self : #{self}")
-    Rails.logger.debug("self.mp3 : #{self.mp3}")
-    Rails.logger.debug("self.mp3.class : #{self.mp3.class}")
-    Rails.logger.debug("self.mp3.file : #{self.mp3.file}")
-
-    Rails.logger.debug("self.mp3.respond_to?(:file) : #{self.mp3.respond_to?(:file)}")
-    Rails.logger.debug("self.mp3.file.respond_to?(:file) : #{self.mp3.file.respond_to?(:file)}")
-    Rails.logger.debug(' ===== log end =======')
-
     meta = MetaExtractor::Mp3.new(
       if self.mp3.file.class == CarrierWave::SanitizedFile # For Local saved file
         mp3.file.file
