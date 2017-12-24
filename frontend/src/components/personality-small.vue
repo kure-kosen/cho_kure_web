@@ -1,8 +1,8 @@
 <template>
   <div class="item">
-    <a class="ui tiny image">
+    <router-link class="ui tiny image" :to="{ name: 'personality', params: { id: id }}">
       <img :src="imagePath">
-    </a>
+    </router-link>
     <div class="middle aligned content">
       <router-link class="header" :to="{ name: 'personality', params: { id: id }}">{{ name }}</router-link>
       <div class="description">

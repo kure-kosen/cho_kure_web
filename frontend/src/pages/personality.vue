@@ -12,7 +12,7 @@
             <radio-preview v-for="radio in personality.radios"
               :key="radio.id"
               :image-path="radio.image"
-              :item-path="radio.itemPath"
+              :itemId="radio.id"
               type="radio"
               :title="radio.title"
               :description="radio.description"
@@ -28,8 +28,8 @@
             :id="personality.id"
             :name="personality.name"
             :description="personality.description"
-            :image-path="personality.image"
-          />
+            :image-path="personality.image">
+          </personality-small>
         </div>
       </div>
     </div>
@@ -75,6 +75,11 @@ module.exports = {
   },
   mounted: function () {
     this.getDetail()
+  },
+  watch: {
+    '$route' (to, from){
+      this.getDetail()
+    }
   }
 }
 </script>

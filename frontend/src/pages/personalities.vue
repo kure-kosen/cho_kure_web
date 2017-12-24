@@ -9,8 +9,8 @@
           :name="personality.name"
           :description="personality.description"
           :image-path="personality.image"
-          :tags="personality.tag_list"
-        />
+          :tags="personality.tag_list">
+        </personality-card>
       </div>
     </article>
   </div>

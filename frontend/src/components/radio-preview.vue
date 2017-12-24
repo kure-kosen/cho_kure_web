@@ -1,10 +1,10 @@
 <template>
   <div class="item" v-bind:class="type">
-    <a class="image"  v-bind:href="itemPath">
+    <router-link class="image" v-bind:to="{ name: 'radios', params: { id: itemId }}">
       <img v-bind:src="imagePath">
-    </a>
+    </router-link>
     <div class="content">
-      <a v-bind:href="itemPath" class="header">{{ title }}</a>
+      <router-link class="header" v-bind:to="{ name: 'radios', params: { id: itemId }}">{{ title }}</router-link>
       <div v-html="description" class="description"></div>
       <div class="meta">
         <span class="date">{{ date }}</span>
@@ -22,9 +22,9 @@ module.exports = {
       default: 'https://placehold.jp/640x480.png',
       required: true
     },
-    itemPath: {
-      type: String,
-      default: '/',
+    itemId: {
+      type: Number,
+      default: 0,
       required: true
     },
     type: {
