@@ -2,8 +2,8 @@ require "mp3info"
 
 module MetaExtractor
   class Mp3
-    def initialize(full_path)
-      @mp3 = Mp3Info.open(full_path)
+    def initialize(file)
+      @mp3 = Mp3Info.open(file)
     end
 
     def size

@@ -49,6 +49,8 @@ class Radio < ApplicationRecord
   }
 
   def extract_meta_mp3
+    require 'open-uri'
+
     Rails.logger.debug(' ===== log start =======')
     Rails.logger.debug("#{__FILE__}:#{__LINE__ }")
     Rails.logger.debug("self : #{self}")
@@ -60,7 +62,13 @@ class Radio < ApplicationRecord
     Rails.logger.debug("self.mp3.file.respond_to?(:file) : #{self.mp3.file.respond_to?(:file)}")
     Rails.logger.debug(' ===== log end =======')
 
-    meta = MetaExtractor::Mp3.new(self.mp3.file.file)
+    meta = MetaExtractor::Mp3.new(
+      if self.mp3.file.class == CarrierWave::SanitizedFile # For Local saved file
+        mp3.file.file
+      else # For Another cloud saved file
+        open(mp3.file.url)
+      end
+    )
 
     self.duration = meta.duration
     self.size = meta.size
