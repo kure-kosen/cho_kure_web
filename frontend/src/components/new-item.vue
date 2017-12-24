@@ -6,9 +6,10 @@
       <div class="content">
         <a v-bind:href="itemPath" class="header">{{ title }}</a>
         <div v-html="description" class="description"></div>
-        <div class="meta">
-          <span class="date">{{ date }}</span>
-        </div>
+      </div>
+      <audio controls="controls" v-bind:src="mp3Url"></audio>
+      <div class="meta">
+        <span class="date">{{ date }}</span>
       </div>
     </div>
 </template>
@@ -43,6 +44,10 @@ module.exports = {
       type: String,
       default: '詳細を取得できませんでした',
       required: true,
+    },
+    mp3Url: {
+      type: String,
+      required: true
     },
     date: {
       type: String,

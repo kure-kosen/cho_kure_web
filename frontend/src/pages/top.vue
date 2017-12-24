@@ -9,6 +9,7 @@
           type="radio"
           :title="radio.title"
           :description="radio.description"
+          :mp3-url="radio.mp3.url"
           :date="radio.published_at">
         </new-item>
       </div>
