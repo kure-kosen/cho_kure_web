@@ -6,7 +6,7 @@
     <div class="middle aligned content">
       <router-link class="header" :to="{ name: 'personality', params: { id: id }}">{{ name }}</router-link>
       <div class="description">
-        <p>{{ description }}</p>
+        <p v-html="description"></p>
       </div>
     </div>
   </div>

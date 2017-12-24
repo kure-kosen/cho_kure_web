@@ -6,7 +6,7 @@
           <h2 class="ui header">{{ personality.name }}</h2>
           <img class="ui small right floated image" :src="personality.image">
           <h3 class="ui header">自己紹介</h3>
-          <p>{{ personality.description }}</p>
+          <p v-html="personality.description"></p>
           <h3 class="ui header">過去に出演したラジオ放送回</h3>
           <div class="ui items">
             <radio-preview v-for="radio in personality.radios"

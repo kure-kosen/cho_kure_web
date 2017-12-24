@@ -10,7 +10,7 @@
           {{ tag }}
         </span>
       </div>
-      <div class="description">{{ description }}</div>
+      <div class="description" v-html="description"></div>
     </div>
   </router-link>
 </template>
