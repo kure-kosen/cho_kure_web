@@ -5,7 +5,7 @@
   </router-link>
   <div class="content">
     <router-link class="header" v-bind:to="{ name: 'radios', params: { id: itemId }}">{{ title }}</router-link>
-    <div class="description" v-html="markedDescription"></div>
+    <div class="description" v-html="description"></div>
     <div class="personality-icons" v-for="personality in personalities">
       <img v-bind:src="personality.image" class="personality-icon">
     </div>
@@ -17,7 +17,6 @@
 </template>
 
 <script>
-var marked = require('marked');
 module.exports = {
   props: {
     imagePath: {
@@ -57,11 +56,6 @@ module.exports = {
       default: '2017/12/03 1:08',
       required: true
     },
-  },
-  computed: {
-    markedDescription: function () {
-      return marked(this.description, { sanitize: true })
-    }
   },
 }
 </script>

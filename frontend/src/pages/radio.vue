@@ -3,7 +3,7 @@
   <div class="ui text container main">
     <h2 class="ui header">{{ radio.title }}</h2>
     <img v-bind:src="radio.image" v-bind:alt="radio.title">
-    <div v-html="markedDescription"></div>
+    <div v-html="radio.description"></div>
 
     <h3>パーソナリティ</h3>
     <div class="ui segment grid" v-for="personality in radio.personalities">
@@ -34,7 +34,6 @@
 </template>
 
 <script>
-var marked = require('marked');
 module.exports = {
     data: function () {
         return {
@@ -69,11 +68,6 @@ module.exports = {
     mounted: function () {
         this.getRadio(this.$route.params.id)
         this.getNewRadios()
-    },
-    computed: {
-        markedDescription: function () {
-            return marked(this.radio.description, { sanitize: true })
-        }
     },
     watch: {
         '$route' (to, from){
