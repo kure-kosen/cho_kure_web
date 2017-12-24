@@ -33,7 +33,7 @@ module.exports = {
     imagePath: {
       type: String,
       default: 'https://placehold.jp/150x150.png',
-      required: true,
+      required: true
     },
   }
 }
