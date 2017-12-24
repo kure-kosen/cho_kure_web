@@ -8,7 +8,7 @@
           <a class="disabled item" href="#">コミュニティ</a>
           <a class="disabled item" href="#">カレンダー</a>
           <router-link class="item" to="/about">ちょっくれとは？</router-link>
-          <a class="disabled item" href="#">メンバー紹介</a>
+          <router-link class="item" to="/personalities">パーソナリティ紹介</router-link>
           <router-link class="item" to="/contact">お問い合わせ</router-link>
 	    </div>
       </div>
@@ -20,7 +20,7 @@
           <a class="disabled item" href="#">カレンダー</a>
           <div class="right menu">
             <router-link class="item" to="/about">ちょっくれとは？</router-link>
-            <a class="disabled item" href="#">メンバー紹介</a>
+            <router-link class="item" to="/personalities">パーソナリティ紹介</router-link>
             <router-link class="item" to="/contact">お問い合わせ</router-link>
           </div>
         </div>

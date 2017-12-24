@@ -16,14 +16,17 @@ import App from '../app.vue'
 import Header from '../components/header.vue'
 import Footer from '../components/footer.vue'
 import NewItem from '../components/new-item.vue'
+import PersonalityCard from '../components/personality-card.vue'
 Vue.component('app-header', Header)
 Vue.component('app-footer', Footer)
 Vue.component('new-item', NewItem)
+Vue.component('personality-card', PersonalityCard)
 
 // Page
 import Contact from '../pages/contact.vue'
 import Top from '../pages/top.vue'
 import About from '../pages/about.vue'
+import Personalities from '../pages/personalities.vue'
 
 const router = new VueRouter({
   mode: 'history',
@@ -32,6 +35,7 @@ const router = new VueRouter({
     { path: '/', component: Top },
     { path: '/about', component: About },
     { path: '/contact', component: Contact },
+    { path: '/personalities', component: Personalities },
   ]
 })
 
