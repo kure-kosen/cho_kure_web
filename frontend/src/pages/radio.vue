@@ -9,10 +9,16 @@
     <h3>パーソナリティ</h3>
     <div class="ui segment grid" v-for="personality in radio.personalities">
       <div class="three wide column">
-        <img class="ui top aligned small image" v-bind:src="personality.image">
+        <router-link class="card" :to="{ name: 'personality', params: { id: personality.id }}">
+          <img class="ui top aligned small image" v-bind:src="personality.image">
+        </router-link>
       </div>
       <div class="thirteen wide column">
-        <h4>{{ personality.name }}</h4>
+        <h4>
+          <router-link class="card" :to="{ name: 'personality', params: { id: personality.id }}">
+            {{ personality.name }}
+          </router-link>
+        </h4>
         <div class="description" v-html="personality.description"></div>
         <div class="ui tag labels">
           <div class="ui label" v-for="tag in personality.tag_list">{{ tag }}</div>
@@ -81,6 +87,10 @@ module.exports = {
 </script>
 
 <style scoped>
+a {
+  border: none;
+  color: black;
+}
 
 .ui.black.segment {
     background-color: #999999;
