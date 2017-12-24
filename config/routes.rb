@@ -16,7 +16,9 @@ Rails.application.routes.draw do
 
   namespace :api, format: "json" do
     namespace :v1 do
-      resources :personalities, only: [:index, :show]
+      resources :personalities, only: [:index, :show] do
+        resources :radios, only: [:index]
+      end
       resources :communities, only: [:index, :show]
       resources :events, only: [:index, :show]
       resources :radios, only: [:index, :show]
