@@ -1,0 +1,73 @@
+<p id="notice"><%= notice %></p>
+
+<dl class="dl-horizontal">
+  <dt><strong><%= Radio.human_attribute_name('title') %> :</strong></dt>
+  <dd><%= @radio.title %></dd>
+</dl>
+
+<dl class="dl-horizontal">
+  <dt><strong><%= Radio.human_attribute_name('image') %> :</strong></dt>
+  <dd><%= image_tag @radio.image_url(:thumb) %></dd>
+</dl>
+
+<dl class="dl-horizontal">
+  <dt><strong><%= Radio.human_attribute_name('personalities') %> :</strong></dt>
+  <dd>
+    <% @radio.personalities.each do |personality| %>
+      <%= link_to personality.name, admin_personality_path(personality) %><br>
+    <% end %>
+  </dd>
+</dl>
+
+<dl class="dl-horizontal">
+  <dt><strong><%= Radio.human_attribute_name('description') %> :</strong></dt>
+  <dd><%= MarkdownHelper.markdown(@radio.description) %></dd>
+</dl>
+
+<dl class="dl-horizontal">
+  <dt><strong><%= Radio.human_attribute_name('mp3') %> :</strong></dt>
+  <dd><%= audio_tag @radio.mp3_url, controls: true %></dd>
+</dl>
+
+<dl class="dl-horizontal">
+  <dt><strong><%= Radio.human_attribute_name('duration') %> :</strong></dt>
+  <dd><%= @radio.duration %></dd>
+</dl>
+
+<dl class="dl-horizontal">
+  <dt><strong><%= Radio.human_attribute_name('size') %> :</strong></dt>
+  <dd><%= @radio.size %></dd>
+</dl>
+
+<dl class="dl-horizontal">
+  <dt><strong><%= Radio.human_attribute_name('communities') %> :</strong></dt>
+  <dd>
+    <% @radio.communities.each do |community| %>
+      <%= link_to community.name, admin_community_path(community) %><br>
+    <% end %>
+  </dd>
+</dl>
+
+<dl class="dl-horizontal">
+  <dt><strong><%= Radio.human_attribute_name('youtube_url') %> :</strong></dt>
+  <dd><%= link_to @radio.youtube_url, @radio.youtube_url %></dd>
+</dl>
+
+<dl class="dl-horizontal">
+  <dt><strong><%= Radio.human_attribute_name('podcast_url') %> :</strong></dt>
+  <dd><%= link_to @radio.podcast_url, @radio.podcast_url %></dd>
+</dl>
+
+<dl class="dl-horizontal">
+  <dt><strong><%= Radio.human_attribute_name('status') %> :</strong></dt>
+  <dd><%= status_badge(@radio) %></dd>
+</dl>
+
+<% if @radio.publish? || @radio.reservation? %>
+  <dl class="dl-horizontal">
+    <dt><strong><%= Radio.human_attribute_name('published_at') %> :</strong></dt>
+    <dd><%= @radio.published_at %></dd>
+  </dl>
+<% end %>
+
+<%= link_to '編集', edit_admin_radio_path(@radio) %>

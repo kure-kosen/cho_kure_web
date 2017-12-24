@@ -1,0 +1,46 @@
+<p id="notice"><%= notice %></p>
+
+<dl class="dl-horizontal">
+  <dt><strong><%= Personality.human_attribute_name('name') %> :</strong></dt>
+  <dd><%= @personality.name %></dd>
+</dl>
+
+<dl class="dl-horizontal">
+  <dt><strong><%= Personality.human_attribute_name('image') %> :</strong></dt>
+  <dd><%= image_tag @personality.image_url(:thumb) %></dd>
+</dl>
+
+<dl class="dl-horizontal">
+  <dt><strong><%= Personality.human_attribute_name('tag_list') %> :</strong></dt>
+  <dd>
+    <% @personality.tag_list.each do |tag| %>
+      <span class="badge badge-primary"><%= tag %></span>
+    <% end %>
+  </dd>
+</dl>
+
+<dl class="dl-horizontal">
+  <dt><strong><%= Personality.human_attribute_name('role') %> :</strong></dt>
+  <dd><%= @personality.role.t %></dd>
+</dl>
+
+<dl class="dl-horizontal">
+  <dt><strong><%= Personality.human_attribute_name('description') %> :</strong></dt>
+  <dd><%= MarkdownHelper.markdown(@personality.description) %></dd>
+</dl>
+
+<dl class="dl-horizontal">
+  <dt><strong><%= Personality.human_attribute_name('email') %> :</strong></dt>
+  <dd><%= @personality.email %></dd>
+</dl>
+
+<dl class="dl-horizontal">
+  <dt><strong><%= Personality.human_attribute_name('radios') %> :</strong></dt>
+  <dd>
+    <% @personality.radios.each do |radio| %>
+      <%= link_to radio.title, admin_radio_path(radio) %><br>
+    <% end %>
+  </dd>
+</dl>
+
+<%= link_to '編集', edit_admin_personality_path(@personality) %>

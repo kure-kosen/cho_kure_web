@@ -1,0 +1,20 @@
+# Additional translations at https://github.com/plataformatec/devise/wiki/I18n
+
+ja:
+  activerecord:
+    attributes:
+      radio:
+        title: タイトル
+        image: 画像
+        description: 説明
+        personalities: パーソナリティー
+        communities: 紹介したコミュニティ
+        mp3: 音声ファイル
+        duration: 秒数
+        size: mp3のbyte数
+        youtube_url: Youtube
+        podcast_url: podcast
+        published_at: 投稿日時
+
+        status: 公開ステータス
+        reserve_time: 公開予定日時

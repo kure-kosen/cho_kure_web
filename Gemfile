@@ -27,17 +27,15 @@ gem "jbuilder", "~> 2.5"
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
-# Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
-
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
+  gem "pry-byebug"
 
   gem "factory_bot_rails"
+  gem "letter_opener"
+  gem "letter_opener_web"
   gem "rspec-rails"
-
-  gem "dotenv-rails"
 end
 
 group :development do
@@ -51,9 +49,40 @@ group :development do
   gem "onkcop", require: false
   gem "spring"
   gem "spring-watcher-listen", "~> 2.0.0"
+
+  gem "capistrano"
+  gem "capistrano-bundler"
+  gem "capistrano-rails"
+  gem "capistrano-rbenv"
+  gem "capistrano-yarn"
+
+  gem "foreman"
+end
+
+group :production do
+  gem "fog"
+  gem "unicorn"
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
+gem "active_model_serializers"
+gem "acts-as-taggable-on"
+gem "bootstrap"
+gem "bootstrap-tooltip-rails"
+gem "carrierwave"
+gem "devise"
+gem "dotenv-rails"
+gem "faker"
+gem "font-awesome-rails"
+gem "inum"
+gem "jquery-rails"
+gem "jquery-ui-rails"
+gem "mini_magick"
+gem "redcarpet"
+gem "roboto"
+gem "ruby-mp3info"
 gem "seed-fu"
+gem "sitemap_generator"
+gem "webpacker", github: "rails/webpacker"

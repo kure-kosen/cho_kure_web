@@ -1,0 +1,120 @@
+<%= form_with(model:[:admin, radio], local: true) do |form| %>
+  <%= render 'admin/shared/errors', object: radio %>
+
+  <div class="form-group row">
+    <%= form.label :title, class: 'col-2 col-form-label' %>
+    <div class="col-10">
+      <%= form.text_field :title, class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <%= form.label :image, class: 'col-2 col-form-label' %>
+    <div class="col-10">
+      <%= form.file_field :image %>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <%= form.label :description, class: 'col-2 col-form-label' %>
+    <div class="col-10" id="editor">
+      <div class="row" style="height: 30em;">
+        <div class="col-6">
+          <%= form.text_area :description, class: 'form-control', rows: 20, "v-model" => "input", debounce: 50 %>
+        </div>
+        <div class="col-6" style="overflow: scroll;">
+          <div v-html='input | marked'></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--# TODO: ここの見た目はもう少し考えた方がいいかも-->
+  <div class="form-group row">
+    <%= form.label :personalities, class: 'col-md-2 control-label' %>
+    <div class="col-md-10 form-check">
+      <%= collection_check_boxes(:radio, :personality_ids, Personality.all, :id, :name) do |b| %>
+        <%= b.check_box %>
+        <%= b.label %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <%= form.label :mp3, class: 'col-2 col-form-label' %>
+    <div class="col-10">
+      <%= form.file_field :mp3 %>
+    </div>
+  </div>
+  
+  <!--# TODO: ここの見た目はもう少し考えた方がいいかも-->
+  <div class="form-group row">
+    <%= form.label :communities, class: 'col-md-2 control-label' %>
+    <div class="col-md-10 form-check">
+      <%= collection_check_boxes(:radio, :community_ids, Community.all, :id, :name) do |b| %>
+        <%= b.check_box %>
+        <%= b.label %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <%= form.label :youtube_url, class: 'col-2 col-form-label' %>
+    <div class="col-10">
+      <%= form.text_field :youtube_url, class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <%= form.label :podcast_url, class: 'col-2 col-form-label' %>
+    <div class="col-10">
+      <%= form.text_field :podcast_url, class: 'form-control' %>
+    </div>
+  </div>
+
+  <!-- TODO: 公開/非公開のtoggle的な感じのUIにする -->
+  <div class="form-group row">
+    <%= form.label :status, class: 'col-2 col-form-label' %>
+    <div class="col-10">
+      <div class="form-check form-check-inline">
+        <%= form.radio_button :status, :publish, class: 'radio_status', checked: radio.publish? %>
+        <%= form.label :publish, "公開" %>
+      </div>
+      <div class="form-check form-check-inline">
+        <%= form.radio_button :status, :reservation, class: 'radio_status', checked: radio.reservation? %>
+        <%= form.label :reservation, "予約投稿" %>
+      </div>
+      <div class="form-check form-check-inline">
+        <%= form.radio_button :status, :draft, class: 'radio_status', checked: radio.draft? %>
+        <%= form.label :draft, "下書き" %>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group row radio_reservation_time">
+    <%= form.label :reserve_time, class: 'col-2 col-form-label' %>
+    <div class="col-10">
+      <div class="field form-group">
+        <%= form.datetime_select :reserve_time, use_month_numbers: true, class: 'form-control' %>
+      </div>
+    </div>
+  </div>
+
+  <div class="actions">
+    <%= form.submit class: 'btn btn-primary' %>
+  </div>
+<% end %>
+
+<%= render "admin/shared/js_markdown", content: radio.description %>
+
+<script>
+  // 予約日時を表示/非表示させる
+  $('.radio_reservation_time').fadeOut(0);
+  $('input[class=radio_status]:radio').change( function(){
+    if ($('input[class=radio_status]:checked').val() === 'reservation') {
+      $('.radio_reservation_time').fadeIn(100);
+    } else {
+      $('.radio_reservation_time').fadeOut(100);
+    }
+  });
+</script>

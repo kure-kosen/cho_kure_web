@@ -1,0 +1,50 @@
+<p id="notice"><%= notice %></p>
+
+<dl class="dl-horizontal">
+  <dt><strong><%= Community.human_attribute_name('name') %> :</strong></dt>
+  <dd><%= @community.name %></dd>
+</dl>
+
+<dl class="dl-horizontal">
+  <dt><strong><%= Community.human_attribute_name('logo') %> :</strong></dt>
+  <dd><%= image_tag @community.logo_url(:thumb) %></dd>
+</dl>
+
+<dl class="dl-horizontal">
+  <dt><strong><%= Community.human_attribute_name('tag_list') %> :</strong></dt>
+  <dd>
+    <% @community.tag_list.each do |tag| %>
+      <span class="badge badge-primary"><%= tag %></span>
+    <% end %>
+  </dd>
+</dl>
+
+<dl class="dl-horizontal">
+  <dt><strong><%= Community.human_attribute_name('url') %> :</strong></dt>
+  <dd><%= link_to @community.url, @community.url %></dd>
+</dl>
+
+<dl class="dl-horizontal">
+  <dt><strong><%= Community.human_attribute_name('events') %> :</strong></dt>
+  <dd>
+    <% @community.events.each do |event| %>
+      <%= link_to event.name, admin_event_path(event) %><br>
+    <% end %>
+  </dd>
+</dl>
+
+<dl class="dl-horizontal">
+  <dt><strong><%= Community.human_attribute_name('radios') %> :</strong></dt>
+  <dd>
+    <% @community.radios.each do |radio| %>
+      <%= link_to radio.title, admin_radio_path(radio) %><br>
+    <% end %>
+  </dd>
+</dl>
+
+<dl class="dl-horizontal">
+  <dt><strong><%= Community.human_attribute_name('description') %> :</strong></dt>
+  <dd><%= MarkdownHelper.markdown(@community.description) %></dd>
+</dl>
+
+<%= link_to '編集', edit_admin_community_path(@community) %>

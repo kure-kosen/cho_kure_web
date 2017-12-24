@@ -38,5 +38,15 @@ module ChoKureWeb
                        request_specs: false
       g.fixture_replacement :factory_bot, dir: "spec/factories"
     end
+
+    config.i18n.default_locale = :ja
+    config.i18n.load_path += Dir[Rails.root.join("config", "locales", "**", "*.{rb,yml}").to_s]
+
+    config.time_zone = "Tokyo"
+
+    config.to_prepare do
+      Devise::SessionsController.layout "devise"
+      Devise::PasswordsController.layout "devise"
+    end
   end
 end

@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<div class="row">
+  <div class="col-8">
+    <h1>コミュニティ一覧</h1>
+  </div>
+  <div class="col-4">
+    <%= link_to '新規コミュニティ作成', new_admin_community_path, class: 'btn btn-primary' %>
+  </div>
+</div>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= Community.human_attribute_name('name') %></th>
+      <th><%= Community.human_attribute_name('url') %></th>
+      <th><%= Community.human_attribute_name('tag_list') %></th>
+      <th><%= Community.human_attribute_name('description') %></th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @communities.each do |community| %>
+      <tr>
+        <td><%= community.name %></td>
+        <td><%= link_to community.url, community.url %></td>
+        <td>
+          <% community.tag_list.each do |tag| %>
+            <span class="badge badge-primary"><%= tag %></span>
+          <% end %>
+        </td>
+        <td><%= truncate(community.description) %></td>
+        <td><%= link_to '詳細', admin_community_path(community) %></td>
+        <td><%= link_to '編集', edit_admin_community_path(community) %></td>
+        <td><%= link_to '削除', admin_community_path(community), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
