@@ -5,6 +5,17 @@
     <img v-bind:src="radio.image" v-bind:alt="radio.title">
     <img class="ui fluid  image" alt="アニメーションロゴ" src="/img/logo_animation.gif"/>
     <div v-html="markedDescription"></div>
+
+    <h3>パーソナリティ</h3>
+    <div class="ui segment grid" v-for="personality in radio.personalities">
+      <div class="three wide column">
+        <img class="ui top aligned small image" v-bind:src="personality.image">
+      </div>
+      <div class="thirteen wide column">
+        <h4>{{ personality.name }}</h4>
+        <div class="description" v-html="personality.description"></div>
+      </div>
+    </div>
     <div class="ui items" v-for="newRadio in newRadios">
       <new-item
         :image-path="newRadio.image"
