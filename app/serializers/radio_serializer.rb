@@ -23,6 +23,8 @@
 class RadioSerializer < ActiveModel::Serializer
   attributes :id, :title, :description, :mp3, :youtube_url, :podcast_url, :image, :duration, :published_at, :created_at, :updated_at
 
+  has_many :personalities
+
   def image
     ActionController::Base.helpers.image_url(object.image_url(:thumb))
   end

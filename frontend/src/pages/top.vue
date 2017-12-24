@@ -4,11 +4,13 @@
       <h2 class="ui header">新着情報</h2>
       <div class="ui items" v-for="radio in newRadios">
         <radio-preview
+          :item-id="radio.id"
           :image-path="radio.image"
           :item-path="radio.itemPath"
           type="radio"
           :title="radio.title"
           :description="radio.description"
+          :personalities="radio.personalities"
           :mp3-url="radio.mp3.url"
           :date="radio.published_at">
         </radio-preview>
@@ -26,7 +28,7 @@ module.exports = {
   },
   mounted: function () {
     var that = this
-    this.axios.get('api/v1/radios')
+    this.axios.get('/api/v1/radios')
       .then(function (response) {
         that.newRadios = response.data
         console.log(that.newRadios)

@@ -2,7 +2,7 @@
   <header>
     <nav>
       <div class="ui blue right sidebar inverted borderless vertical menu">
-	    <div id="js-sidebar" class="item close" v-on:click="hideMenu"><i class="icon remove"></i></div>
+        <div id="js-sidebar" class="item close" v-on:click="hideMenu"><i class="icon remove"></i></div>
         <div class="items">
           <a class="item">ラジオ</a>
           <a class="disabled item" href="#">コミュニティ</a>
@@ -10,7 +10,7 @@
           <router-link class="item" to="/about">ちょっくれとは？</router-link>
           <router-link class="item" to="/personalities">パーソナリティ紹介</router-link>
           <router-link class="item" to="/contact">お問い合わせ</router-link>
-	    </div>
+        </div>
       </div>
       <div class="ui blue inverted fixed menu" id="computer">
         <div class="ui container">
@@ -54,7 +54,7 @@ module.exports = {
         .sidebar('setting', 'mobileTransition', 'push')
       ;
     }
-  } 
+  }
 }
 </script>
 
@@ -69,52 +69,52 @@ module.exports = {
 }
 
 nav {
-  background-color: #7ec7d8;
+    background-color: #7ec7d8;
 }
 
 .ui.inverted.blue.menu, .ui.inverted.menu.blue.active.item {
-  background-color: #7ec7d8;
+    background-color: #7ec7d8;
 }
 
 .ui.inverted.menu .item.disabled, .ui.inverted.menu .item.disabled:hover {
-  color: rgba(225,225,225,.8);
+    color: rgba(225,225,225,.8);
 }
 
 a.header.item {
-  font-size: 1.28571429em;
+    font-size: 1.28571429em;
 }
 
 .ui.menu .item {
-  padding: 0.5em 0.8em;
+    padding: 0.5em 0.8em;
 }
 
 #computer {
-  display: block;
+    display: block;
 }
 
 #mobile {
-  display: none;
+    display: none;
 }
 
 @media screen and (max-width: 768px) {
-  #computer {
-    display: none;
-  }
-  #mobile {
-    display: block;
-  }
+    #computer {
+        display: none;
+    }
+    #mobile {
+        display: block;
+    }
 }
 
 @media screen and (max-width: 480px) {
-  #computer {
-    display: none;
-  }
-  #mobile {
-    display: block;
-  }    
+    #computer {
+        display: none;
+    }
+    #mobile {
+        display: block;
+    }    
 }
 
 .ui.blue.right.sidebar.inverted.vertical.menu {
-  font-size: 1.2em;    
+    font-size: 1.2em;    
 }
 </style>
