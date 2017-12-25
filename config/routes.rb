@@ -18,7 +18,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :personalities, only: [:index, :show] do
         member do
-          get :new_radios, to: "radios#new_radios"
+          get :new_radios
         end
       end
       resources :communities, only: [:index, :show]
