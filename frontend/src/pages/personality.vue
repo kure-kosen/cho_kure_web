@@ -65,7 +65,6 @@ module.exports = {
       this.axios.get('/api/v1/personalities/' + this.$route.params.id + '/new_radios')
         .then(function (response) {
           that.relatedNewRadios = response.data
-          console.log("New Radios HERE !!!!")
           console.log(that.relatedNewRadios) 
         })
         .catch( function (error) {
