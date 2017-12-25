@@ -61,6 +61,7 @@ end
 
 group :production do
   gem "fog"
+  gem "google-analytics-rails"
   gem "unicorn"
 end
 
