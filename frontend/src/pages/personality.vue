@@ -60,7 +60,7 @@ module.exports = {
           console.log(error)
         })
     },
-    getRelatedNewRadio: function () {
+    getRelatedNewRadios: function () {
       var that = this
       this.axios.get('/api/v1/personalities/' + this.$route.params.id + '/new_radios')
         .then(function (response) {
@@ -88,12 +88,12 @@ module.exports = {
   },
   mounted: function () {
     this.getDetail()
-    this.getRelatedNewRadio()
+    this.getRelatedNewRadios()
   },
   watch: {
     '$route' (to, from){
       this.getDetail()
-      this.getRelatedNewRadio()
+      this.getRelatedNewRadios()
     }
   }
 }
