@@ -38,12 +38,16 @@
           <span class="nav-link-text">ラジオ一覧</span>
         <% end %>
       </li>
-      <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Communities">
-        <%= link_to admin_communities_path, class: "nav-link" do %>
-          <i class="fa fa-fw fa-users"></i>
-          <span class="nav-link-text">コミュニティ一覧</span>
-        <% end %>
-      </li>
+
+      <% if current_personality.member? %>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Communities">
+          <%= link_to admin_communities_path, class: "nav-link" do %>
+            <i class="fa fa-fw fa-users"></i>
+            <span class="nav-link-text">コミュニティ一覧</span>
+          <% end %>
+        </li>
+      <% end %>
+
       <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Events">
         <%= link_to admin_events_path, class: "nav-link" do %>
           <i class="fa fa-fw fa-calendar"></i>
