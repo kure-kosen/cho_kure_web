@@ -9,20 +9,21 @@
           <p v-html="personality.description"></p>
           <h3 class="ui header">過去に出演したラジオ放送回</h3>
           <div class="ui items">
-            <radio-preview v-for="radio in personality.radios"
+            <radio-preview v-for="radio in relatedNewRadios"
               :key="radio.id"
               :image-path="radio.image"
               :itemId="radio.id"
               type="radio"
               :title="radio.title"
               :description="radio.description"
+              :personalities="radio.personalities"
               :mp3-url="radio.mp3.url"
               :date="radio.published_at">
             </radio-preview>
           </div>
         </article>
         <h3 class="ui header">他のメンバー</h3>
-        <div class="ui unstackable link divided items">
+        <div class="ui unstackable divided items">
           <personality-small v-for="personality in personalities"
             :key="personality.id"
             :id="personality.id"
@@ -41,6 +42,7 @@ module.exports = {
   data: function () {
     return {
       personality: {},
+      relatedNewRadios: [],
       personalities: []
     }
   },
@@ -53,6 +55,17 @@ module.exports = {
           console.log(that.personality)
 
           that.getPersonalities()
+        })
+        .catch( function (error) {
+          console.log(error)
+        })
+    },
+    getRelatedNewRadios: function () {
+      var that = this
+      this.axios.get('/api/v1/personalities/' + this.$route.params.id + '/new_radios')
+        .then(function (response) {
+          that.relatedNewRadios = response.data
+          console.log(that.relatedNewRadios) 
         })
         .catch( function (error) {
           console.log(error)
@@ -75,10 +88,12 @@ module.exports = {
   },
   mounted: function () {
     this.getDetail()
+    this.getRelatedNewRadios()
   },
   watch: {
     '$route' (to, from){
       this.getDetail()
+      this.getRelatedNewRadios()
     }
   }
 }
