@@ -93,6 +93,7 @@ module.exports = {
   watch: {
     '$route' (to, from){
       this.getDetail()
+      this.getRelatedNewRadio()
     }
   }
 }
