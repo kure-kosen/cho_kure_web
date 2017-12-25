@@ -12,7 +12,7 @@
       </div>
       <div class="ui blue inverted fixed menu" id="computer">
         <div class="ui container">
-          <router-link class="header item" to="/"><img src="img/logo_mini.png">ちょっときいて呉高専</router-link>
+          <router-link class="header item" to="/"><img src="../../images/logo_mini.png">ちょっときいて呉高専</router-link>
           <div class="right menu">
             <router-link class="item" to="/about">ちょっくれとは？</router-link>
             <router-link class="item" to="/personalities">パーソナリティ紹介</router-link>
@@ -22,7 +22,7 @@
       </div>
       <div class="ui blue inverted fixed borderless menu" id="mobile">
         <div class="ui container">
-          <router-link class="header item" to="/"><img src="img/logo_mini.png">ちょっときいて呉高専</router-link>
+          <router-link class="header item" to="/"><img src="../../images/logo_mini.png">ちょっときいて呉高専</router-link>
           <div class="right menu">
             <div id="js-sidebar" class="item" v-on:click="showMenu"><i class="icon large content"></i>
               Menu
