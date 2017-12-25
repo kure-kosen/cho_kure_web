@@ -35,7 +35,7 @@ class Personality < ApplicationRecord
          :trackable,
          :validatable
 
-  bind_inum :role, PersonalityRoles
+  bind_inum :role, PersonalityRoles, prefix: nil
 
   mount_uploader :image, PersonalityImageUploader
 
@@ -47,4 +47,8 @@ class Personality < ApplicationRecord
   scope :on_public, -> {
     where.not(role: PersonalityRoles::SECRET)
   }
+
+  def member?
+    admin? || editor? || secret?
+  end
 end

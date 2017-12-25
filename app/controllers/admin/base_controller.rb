@@ -1,4 +1,6 @@
 class Admin::BaseController < ApplicationController
+  include Pundit
+
   before_action :authenticate_personality!
 
   layout "admin"
