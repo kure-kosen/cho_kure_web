@@ -85,8 +85,6 @@ class Admin::RadiosController < Admin::BaseController
         :image,
         :description,
         :mp3,
-        :youtube_url,
-        :podcast_url,
         community_ids: [],
         personality_ids: [],
       )
