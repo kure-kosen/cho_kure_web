@@ -5,7 +5,7 @@
     <h1>ラジオ一覧</h1>
   </div>
   <div class="col-4">
-    <%= link_to '新規ラジオ作成', new_admin_radio_path, class: 'btn btn-primary' %>
+    <%= Admin::RadioViewObject.link_to_new(current_personality) %>
   </div>
 </div>
 
@@ -23,9 +23,9 @@
       <tr>
         <td><%= radio.title %></td>
         <td><%= truncate(radio.description) if radio.description %></td>
-        <td><%= link_to '詳細', admin_radio_path(radio) %></td>
-        <td><%= link_to '編集', edit_admin_radio_path(radio) %></td>
-        <td><%= link_to '削除', admin_radio_path(radio), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= Admin::RadioViewObject.link_to_show(current_personality, radio) %></td>
+        <td><%= Admin::RadioViewObject.link_to_edit(current_personality, radio) %></td>
+        <td><%= Admin::RadioViewObject.link_to_destroy(current_personality, radio) %></td>
       </tr>
     <% end %>
   </tbody>
