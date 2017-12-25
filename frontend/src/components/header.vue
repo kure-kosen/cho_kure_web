@@ -4,9 +4,7 @@
       <div class="ui blue right sidebar inverted borderless vertical menu">
         <div id="js-sidebar" class="item close" v-on:click="hideMenu"><i class="icon remove"></i></div>
         <div class="items">
-          <a class="item">ラジオ</a>
-          <a class="disabled item" href="#">コミュニティ</a>
-          <a class="disabled item" href="#">カレンダー</a>
+          <router-link class="item" to="/">トップ</router-link>
           <router-link class="item" to="/about">ちょっくれとは？</router-link>
           <router-link class="item" to="/personalities">パーソナリティ紹介</router-link>
           <router-link class="item" to="/contact">お問い合わせ</router-link>
@@ -15,9 +13,6 @@
       <div class="ui blue inverted fixed menu" id="computer">
         <div class="ui container">
           <router-link class="header item" to="/"><img src="../../images/logo_mini.png">ちょっときいて呉高専</router-link>
-          <a class="item">ラジオ</a>
-          <a class="disabled item" href="#">コミュニティ</a>
-          <a class="disabled item" href="#">カレンダー</a>
           <div class="right menu">
             <router-link class="item" to="/about">ちょっくれとは？</router-link>
             <router-link class="item" to="/personalities">パーソナリティ紹介</router-link>
