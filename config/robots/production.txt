@@ -2,3 +2,5 @@
 
 User-Agent: *
 Disallow: /admin/
+
+Sitemap: http://kure-rad.io/sitemap.xml.gz
