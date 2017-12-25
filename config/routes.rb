@@ -17,7 +17,9 @@ Rails.application.routes.draw do
   namespace :api, format: "json" do
     namespace :v1 do
       resources :personalities, only: [:index, :show] do
-        resources :radios, only: [:index]
+        member do
+          get :new_radios, to: "radios#new_radios"
+        end
       end
       resources :communities, only: [:index, :show]
       resources :events, only: [:index, :show]
