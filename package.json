@@ -8,6 +8,7 @@
     "postcss-loader": "^2.0.9",
     "semantic-ui-css": "^2.2.12",
     "vue": "^2.5.11",
+    "vue-analytics": "^5.7.1",
     "vue-axios": "^2.0.2",
     "vue-loader": "^13.6.0",
     "vue-router": "^3.0.1",

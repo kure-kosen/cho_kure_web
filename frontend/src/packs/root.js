@@ -5,6 +5,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
+import VueAnalytics from 'vue-analytics'
 import 'semantic-ui-css/semantic.min.css'
 import 'semantic-ui-css/semantic.min.js'
 
@@ -43,6 +44,11 @@ const router = new VueRouter({
     { path: '/personalities/:id', name: 'personality', component: Personality },
     { path: '/radios/:id', name: 'radios', component: Radio },
   ]
+})
+
+Vue.use(VueAnalytics, {
+  id: 'UA-107670560-1',
+  router,
 })
 
 document.addEventListener('DOMContentLoaded', function () {
