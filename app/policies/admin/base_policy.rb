@@ -3,7 +3,7 @@ class Admin::BasePolicy
 
   def initialize(personality, record)
     @personality = personality
-    @record = record
+    @record = record[1]
   end
 
   def index?
