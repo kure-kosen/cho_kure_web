@@ -1,12 +1,11 @@
 class Admin::PersonalityPolicy < Admin::BasePolicy
   def index?
-    return true if personality.member?
-    false
+    true
   end
 
   def show?
     return true if personality.member?
-    return true if personality.guest? && personality.in?(record.personalities)
+    return true if personality.guest? && personality == record
     false
   end
 
@@ -20,8 +19,11 @@ class Admin::PersonalityPolicy < Admin::BasePolicy
   end
 
   def update?
-    return true if personality.member?
-    return true if personality.guest? && personality.in?(record.personalities)
+    return true if personality.admin? || personality.secret?
+    # 自分のユーザー情報は誰でも更新できる
+    return true if personality == record
+    # 編集者はゲストのユーザー情報を更新できる
+    return true if personality.editor? && record.guest?
     false
   end
 

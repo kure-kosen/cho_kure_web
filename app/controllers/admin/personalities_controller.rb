@@ -1,6 +1,7 @@
 class Admin::PersonalitiesController < Admin::BaseController
   before_action :set_personality, only: [:show, :edit, :update, :destroy]
   before_action :set_tag_list, only: [:edit]
+  before_action :check_authorize
 
   # GET /personalities
   # GET /personalities.json
@@ -70,5 +71,10 @@ class Admin::PersonalitiesController < Admin::BaseController
 
     def provisional_personality_params
       params.require(:personality).permit(:name, :email)
+    end
+
+    def check_authorize
+      return authorize [:admin, @personality] if @personality.present?
+      authorize [:admin, :personality]
     end
 end
