@@ -2,7 +2,7 @@
   <div class="pusher">
     <div class="ui text container main">
       <h2 class="ui header">ちょっくれとは？</h2>
-      <img class="ui fluid  image" alt="アニメーションロゴ" src="/img/logo_animation.gif"/>
+      <img class="ui fluid  image" alt="アニメーションロゴ" src="../../images/logo_animation.gif"/>
       <p>ちょっくれとは、呉のちょっと気になるコミュニティやイベントについて発信していく、呉高専公認の学生団体であり、ラジオ番組です。たくさんの呉高専生に、自分のお気に入りのコミュニティを見つけてもらうことを目的に活動しています。ちなみにちょっくれは「ちょっときいて呉高専」の略です！ みんなきいてね！</p>
       <p>2017年11月30日に第1回の配信を開始をしました。</p>
 
