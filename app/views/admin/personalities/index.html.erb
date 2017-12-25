@@ -17,7 +17,7 @@
       <th><%= Personality.human_attribute_name('description') %></th>
       <th><%= Personality.human_attribute_name('role') %></th>
       <th><%= Personality.human_attribute_name('email') %></th>
-      <th colspan="3"></th>
+      <th></th>
     </tr>
   </thead>
 
@@ -33,9 +33,11 @@
         <td><%= truncate(personality.description) if personality.description %></td>
         <td><%= personality.role.t %></td>
         <td><%= personality.email %></td>
-        <td><%= Admin::PersonalityViewObject.link_to_show(current_personality, personality) %></td>
-        <td><%= Admin::PersonalityViewObject.link_to_edit(current_personality, personality) %></td>
-        <td><%= Admin::PersonalityViewObject.link_to_destroy(current_personality, personality) %></td>
+        <td>
+          <%= Admin::PersonalityViewObject.link_to_show(current_personality, personality) %>
+          <%= Admin::PersonalityViewObject.link_to_edit(current_personality, personality) %>
+          <%= Admin::PersonalityViewObject.link_to_destroy(current_personality, personality) %>
+        </td>
       </tr>
     <% end %>
   </tbody>
