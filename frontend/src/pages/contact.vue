@@ -13,6 +13,11 @@
 <script></script>
 
 <style scoped>
+.ui.embed {
+  -webkit-overflow-scrolling: touch;
+  overflow-y: scroll;
+}
+
 .ui.black.segment {
   background-color: #999999;
   padding-top: 80px;
