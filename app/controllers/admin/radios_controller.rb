@@ -1,5 +1,6 @@
 class Admin::RadiosController < Admin::BaseController
   before_action :set_radio, only: [:show, :edit, :update, :destroy]
+  before_action :check_authorize
 
   # GET /radios
   def index
@@ -89,5 +90,10 @@ class Admin::RadiosController < Admin::BaseController
         community_ids: [],
         personality_ids: [],
       )
+    end
+
+    def check_authorize
+      return authorize [:admin, @radio] if @radio.present?
+      authorize [:admin, :radio]
     end
 end
