@@ -36,6 +36,26 @@ class Admin::PersonalityPolicy < Admin::BasePolicy
     false
   end
 
+  def change_role_to_guest?
+    return true if personality.allow_change_role?
+    false
+  end
+
+  def change_role_to_editor?
+    return true if personality.allow_change_role?
+    false
+  end
+
+  def change_role_to_secret?
+    return true if personality.allow_change_role?
+    false
+  end
+
+  def change_role_to_admin?
+    return true if personality.allow_change_role?
+    false
+  end
+
   class Scope < Scope
     def resolve
       if personality.guest?
