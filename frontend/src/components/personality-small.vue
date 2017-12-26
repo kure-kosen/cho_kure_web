@@ -6,7 +6,7 @@
     <div class="middle aligned content">
       <router-link class="header" :to="{ name: 'personality', params: { id: id }}">{{ name }}</router-link>
       <div class="description">
-        <p v-html="description"></p>
+        <p v-html="description"/>
       </div>
     </div>
   </div>
@@ -18,7 +18,7 @@ module.exports = {
     id: {
       type: Number,
       default: 0,
-      required: true,
+      required: true
     },
     name: {
       type: String,
@@ -34,7 +34,7 @@ module.exports = {
       type: String,
       default: 'https://placehold.jp/150x150.png',
       required: true
-    },
+    }
   }
 }
 </script>

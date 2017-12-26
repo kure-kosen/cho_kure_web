@@ -1,18 +1,18 @@
 <template>
-  <div class="item" v-bind:class="type">
-    <router-link class="image" v-bind:to="{ name: 'radios', params: { id: itemId }}">
-      <img v-bind:src="imagePath">
+  <div class="item" :class="type">
+    <router-link class="image" :to="{ name: 'radios', params: { id: itemId }}">
+      <img :src="imagePath">
     </router-link>
     <div class="content">
-      <router-link class="header" v-bind:to="{ name: 'radios', params: { id: itemId }}">{{ title }}</router-link>
-      <div v-html="description" class="description"></div>
+      <router-link class="header" :to="{ name: 'radios', params: { id: itemId }}">{{ title }}</router-link>
+      <div v-html="description" class="description"/>
       <div class="personality-icons">
-        <img v-bind:src="personality.image" class="personality-icon" v-for="personality in personalities">
+        <img :src="personality.image" class="personality-icon" v-for="personality in personalities">
       </div>
       <div class="meta">
         <span class="date">{{ date }}</span>
       </div>
-      <audio controls="controls" v-bind:src="mp3Url"></audio>
+      <audio controls="controls" :src="mp3Url"/>
     </div>
   </div>
 </template>
@@ -41,16 +41,16 @@ module.exports = {
     title: {
       type: String,
       default: 'タイトルを取得できませんでした',
-      required: true,
+      required: true
     },
     description: {
       type: String,
       default: '詳細を取得できませんでした',
-      required: true,
+      required: true
     },
     personalities: {
       type: Array,
-      default: [],
+      default: []
     },
     mp3Url: {
       type: String,
@@ -60,7 +60,7 @@ module.exports = {
       type: String,
       default: '2017/12/03 1:08',
       required: true
-    },
+    }
   }
 }
 </script>

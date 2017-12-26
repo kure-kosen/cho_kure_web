@@ -1,6 +1,5 @@
 import Vue from 'vue'
 
-
 // Library
 import VueRouter from 'vue-router'
 import axios from 'axios'
@@ -42,13 +41,13 @@ const router = new VueRouter({
     { path: '/contact', component: Contact },
     { path: '/personalities', component: Personalities },
     { path: '/personalities/:id', name: 'personality', component: Personality },
-    { path: '/radios/:id', name: 'radios', component: Radio },
+    { path: '/radios/:id', name: 'radios', component: Radio }
   ]
 })
 
 Vue.use(VueAnalytics, {
   id: 'UA-107670560-1',
-  router,
+  router
 })
 
 document.addEventListener('DOMContentLoaded', function () {

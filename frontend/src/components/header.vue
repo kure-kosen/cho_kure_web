@@ -2,7 +2,7 @@
   <header>
     <nav>
       <div class="ui blue right sidebar inverted borderless vertical menu">
-        <div id="js-sidebar" class="item close" v-on:click="hideMenu"><i class="icon remove"></i></div>
+        <div id="js-sidebar" class="item close" @click="hideMenu"><i class="icon remove"/></div>
         <div class="items">
           <router-link class="item" to="/">トップ</router-link>
           <router-link class="item" to="/about">ちょっくれとは？</router-link>
@@ -24,7 +24,7 @@
         <div class="ui container">
           <router-link class="header item" to="/"><img src="../../images/logo_mini.png">ちょっときいて呉高専</router-link>
           <div class="right menu">
-            <div id="js-sidebar" class="item" v-on:click="showMenu"><i class="icon large content"></i>
+            <div id="js-sidebar" class="item" @click="showMenu"><i class="icon large content"/>
               Menu
             </div>
           </div>
@@ -41,13 +41,11 @@ module.exports = {
       $('.ui.sidebar')
         .sidebar('show')
         .sidebar('setting', 'mobileTransition', 'push')
-      ;
     },
-    hideMenu: function() {
+    hideMenu: function () {
       $('.ui.sidebar')
         .sidebar('hide')
         .sidebar('setting', 'mobileTransition', 'push')
-      ;
     }
   }
 }
@@ -106,10 +104,10 @@ a.header.item {
     }
     #mobile {
         display: block;
-    }    
+    }
 }
 
 .ui.blue.right.sidebar.inverted.vertical.menu {
-    font-size: 1.2em;    
+    font-size: 1.2em;
 }
 </style>

@@ -12,8 +12,7 @@
           :description="radio.description"
           :personalities="radio.personalities"
           :mp3-url="radio.mp3.url"
-          :date="radio.published_at">
-        </radio-preview>
+          :date="radio.published_at"/>
       </div>
     </div>
   </div>
@@ -23,7 +22,7 @@
 module.exports = {
   data: function () {
     return {
-      newRadios: [],
+      newRadios: []
     }
   },
   mounted: function () {
@@ -33,7 +32,7 @@ module.exports = {
         that.newRadios = response.data
         console.log(that.newRadios)
       })
-      .catch( function (error) {
+      .catch(function (error) {
         console.log(error)
       })
   }

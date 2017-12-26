@@ -6,31 +6,29 @@
           <h2 class="ui header">{{ personality.name }}</h2>
           <img class="ui small right floated image" :src="personality.image">
           <h3 class="ui header">自己紹介</h3>
-          <p v-html="personality.description"></p>
+          <p v-html="personality.description"/>
           <h3 class="ui header">過去に出演したラジオ放送回</h3>
           <div class="ui items">
             <radio-preview v-for="radio in relatedNewRadios"
-              :key="radio.id"
-              :image-path="radio.image"
-              :itemId="radio.id"
-              type="radio"
-              :title="radio.title"
-              :description="radio.description"
-              :personalities="radio.personalities"
-              :mp3-url="radio.mp3.url"
-              :date="radio.published_at">
-            </radio-preview>
+                           :key="radio.id"
+                           :image-path="radio.image"
+                           :item-id="radio.id"
+                           type="radio"
+                           :title="radio.title"
+                           :description="radio.description"
+                           :personalities="radio.personalities"
+                           :mp3-url="radio.mp3.url"
+                           :date="radio.published_at"/>
           </div>
         </article>
         <h3 class="ui header">他のメンバー</h3>
         <div class="ui unstackable divided items">
           <personality-small v-for="personality in personalities"
-            :key="personality.id"
-            :id="personality.id"
-            :name="personality.name"
-            :description="personality.description"
-            :image-path="personality.image">
-          </personality-small>
+                             :key="personality.id"
+                             :id="personality.id"
+                             :name="personality.name"
+                             :description="personality.description"
+                             :image-path="personality.image"/>
         </div>
       </div>
     </div>
@@ -56,7 +54,7 @@ module.exports = {
 
           that.getPersonalities()
         })
-        .catch( function (error) {
+        .catch(function (error) {
           console.log(error)
         })
     },
@@ -65,9 +63,9 @@ module.exports = {
       this.axios.get('/api/v1/personalities/' + this.$route.params.id + '/new_radios')
         .then(function (response) {
           that.relatedNewRadios = response.data
-          console.log(that.relatedNewRadios) 
+          console.log(that.relatedNewRadios)
         })
-        .catch( function (error) {
+        .catch(function (error) {
           console.log(error)
         })
     },
@@ -76,12 +74,12 @@ module.exports = {
       this.axios.get('/api/v1/personalities')
         .then(function (response) {
           that.personalities = response.data
-          that.personalities.some(function(v, i){
-            if (v.id==that.personality.id) that.personalities.splice(i,1)
+          that.personalities.some(function (v, i) {
+            if (v.id == that.personality.id) that.personalities.splice(i, 1)
           })
           console.log(that.personalities)
         })
-        .catch( function (error) {
+        .catch(function (error) {
           console.log(error)
         })
     }
@@ -91,7 +89,7 @@ module.exports = {
     this.getRelatedNewRadios()
   },
   watch: {
-    '$route' (to, from){
+    '$route' (to, from) {
       this.getDetail()
       this.getRelatedNewRadios()
     }
