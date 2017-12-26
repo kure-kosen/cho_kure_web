@@ -35,4 +35,14 @@ class Admin::PersonalityPolicy < Admin::BasePolicy
     return true if personality.member?
     false
   end
+
+  class Scope < Scope
+    def resolve
+      if personality.guest?
+        scope.where(id: personality.id)
+      else
+        scope.all
+      end
+    end
+  end
 end

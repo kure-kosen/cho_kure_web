@@ -6,7 +6,7 @@ class Admin::PersonalitiesController < Admin::BaseController
   # GET /personalities
   # GET /personalities.json
   def index
-    @personalities = Personality.all
+    @personalities = policy_scope([:admin, Personality])
   end
 
   # GET /personalities/1
