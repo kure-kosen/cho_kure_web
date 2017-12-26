@@ -4,7 +4,7 @@ class Admin::PersonalitiesController < Admin::BaseController
     :change_role_to_guest,
     :change_role_to_editor,
     :change_role_to_secret,
-    :change_role_to_admin,
+    :change_role_to_admin
   ]
   before_action :set_tag_list, only: [:edit]
   before_action :check_authorize
