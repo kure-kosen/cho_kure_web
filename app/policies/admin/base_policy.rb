@@ -38,4 +38,21 @@ class Admin::BasePolicy
     return true if personality.member?
     false
   end
+
+  def scope
+    Pundit.policy_scope!(user, record.class)
+  end
+
+  class Scope
+    attr_reader :personality, :scope
+
+    def initialize(personality, scope)
+      @personality = personality
+      @scope = scope[1]
+    end
+
+    def resolve
+      scope
+    end
+  end
 end
