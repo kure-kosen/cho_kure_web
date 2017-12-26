@@ -92,7 +92,7 @@ class Admin::PersonalitiesController < Admin::BaseController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def personality_params
-      params.require(:personality).permit(:name, :image, :description, :role, :tag_list)
+      params.require(:personality).permit(:name, :image, :description, :tag_list)
     end
 
     def provisional_personality_params
