@@ -51,4 +51,28 @@ class Personality < ApplicationRecord
   def member?
     admin? || editor? || secret?
   end
+
+  def allow_change_role?
+    admin? || secret?
+  end
+
+  def change_role_to_admin!
+    self.role = PersonalityRoles::ADMIN
+    save!
+  end
+
+  def change_role_to_secret!
+    self.role = PersonalityRoles::SECRET
+    save!
+  end
+
+  def change_role_to_editor!
+    self.role = PersonalityRoles::EDITOR
+    save!
+  end
+
+  def change_role_to_guest!
+    self.role = PersonalityRoles.GUEST
+    save!
+  end
 end
