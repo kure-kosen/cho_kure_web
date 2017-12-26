@@ -4,7 +4,7 @@ class Admin::RadiosController < Admin::BaseController
 
   # GET /radios
   def index
-    @radios = Radio.all
+    @radios = policy_scope([:admin, Radio])
   end
 
   # GET /radios/1

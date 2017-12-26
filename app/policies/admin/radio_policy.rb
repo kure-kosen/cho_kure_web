@@ -9,4 +9,14 @@ class Admin::RadioPolicy < Admin::BasePolicy
 
     false
   end
+
+  class Scope < Scope
+    def resolve
+      if personality.guest?
+        personality.radios
+      else
+        scope.all
+      end
+    end
+  end
 end
