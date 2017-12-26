@@ -1,5 +1,11 @@
 class Admin::PersonalitiesController < Admin::BaseController
-  before_action :set_personality, only: [:show, :edit, :update, :destroy]
+  before_action :set_personality, only: [
+    :show, :edit, :update, :destroy,
+    :change_role_to_guest,
+    :change_role_to_editor,
+    :change_role_to_secret,
+    :change_role_to_admin,
+  ]
   before_action :set_tag_list, only: [:edit]
   before_action :check_authorize
 
@@ -55,22 +61,22 @@ class Admin::PersonalitiesController < Admin::BaseController
 
   def change_role_to_guest
     @personality.change_role_to_guest!
-    redirect [:admin, @personality], notice: "権限を「ゲスト」に変更しました。"
+    redirect_to [:admin, @personality], notice: "権限を「ゲスト」に変更しました。"
   end
 
   def change_role_to_editor
     @personality.change_role_to_editor!
-    redirect [:admin, @personality], notice: "権限を「編集者」に変更しました。"
+    redirect_to [:admin, @personality], notice: "権限を「編集者」に変更しました。"
   end
 
   def change_role_to_secret
     @personality.change_role_to_secret!
-    redirect [:admin, @personality], notice: "権限を「シークレット」に変更しました。"
+    redirect_to [:admin, @personality], notice: "権限を「シークレット」に変更しました。"
   end
 
   def change_role_to_admin
     @personality.change_role_to_admin!
-    redirect [:admin, @personality], notice: "権限を「管理者」に変更しました。"
+    redirect_to [:admin, @personality], notice: "権限を「管理者」に変更しました。"
   end
 
   private
