@@ -1,0 +1,7 @@
+linter:
+  eslint:
+    npm_install: true
+    dir: frontend/src
+    options:
+      config: '.eslintrc.json'
+      ext: 'js,vue'
