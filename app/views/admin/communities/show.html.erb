@@ -47,4 +47,4 @@
   <dd><%= MarkdownHelper.markdown(@community.description) %></dd>
 </dl>
 
-<%= link_to '編集', edit_admin_community_path(@community) %>
+<%= Admin::CommunityViewObject.link_to_edit(current_personality, @community) %>

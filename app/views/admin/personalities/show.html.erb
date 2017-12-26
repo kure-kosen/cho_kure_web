@@ -49,4 +49,4 @@
   </dd>
 </dl>
 
-<%= link_to '編集', edit_admin_personality_path(@personality) %>
+<%= Admin::PersonalityViewObject.link_to_edit(current_personality, @personality) %>

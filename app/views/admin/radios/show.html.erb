@@ -50,4 +50,4 @@
   </dl>
 <% end %>
 
-<%= link_to '編集', edit_admin_radio_path(@radio) %>
+<%= Admin::RadioViewObject.link_to_edit(current_personality, @radio) %>
