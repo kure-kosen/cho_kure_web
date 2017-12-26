@@ -53,6 +53,26 @@ class Admin::PersonalitiesController < Admin::BaseController
     redirect_to admin_personalities_url, notice: "Personality was successfully destroyed."
   end
 
+  def change_role_to_guest
+    @personality.change_role_to_guest!
+    redirect [:admin, @personality], notice: "権限を「ゲスト」に変更しました。"
+  end
+
+  def change_role_to_editor
+    @personality.change_role_to_editor!
+    redirect [:admin, @personality], notice: "権限を「編集者」に変更しました。"
+  end
+
+  def change_role_to_secret
+    @personality.change_role_to_secret!
+    redirect [:admin, @personality], notice: "権限を「シークレット」に変更しました。"
+  end
+
+  def change_role_to_admin
+    @personality.change_role_to_admin!
+    redirect [:admin, @personality], notice: "権限を「管理者」に変更しました。"
+  end
+
   private
 
     # Use callbacks to share common setup or constraints between actions.

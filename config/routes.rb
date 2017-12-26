@@ -29,7 +29,14 @@ Rails.application.routes.draw do
 
   namespace :admin do
     root to: "dashboard#index"
-    resources :personalities
+    resources :personalities do
+      member do
+        patch :change_role_to_guest
+        patch :change_role_to_editor
+        patch :change_role_to_secret
+        patch :change_role_to_admin
+      end
+    end
     resources :communities
     resources :events
     resources :radios
