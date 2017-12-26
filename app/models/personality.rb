@@ -72,7 +72,7 @@ class Personality < ApplicationRecord
   end
 
   def change_role_to_guest!
-    self.role = PersonalityRoles.GUEST
+    self.role = PersonalityRoles::GUEST
     save!
   end
 end

@@ -5,6 +5,7 @@ class Admin::DashboardController < Admin::BaseController
   end
 
   private
+
     def check_authorize
       authorize [:admin, :dashboard]
     end
