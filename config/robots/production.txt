@@ -1,4 +1,6 @@
 # See http://www.robotstxt.org/robotstxt.html for documentation on how to use the robots.txt file
-# TODO: リリースするまでは検索にひっかからないようにする
+
 User-Agent: *
-Disallow: /
+Disallow: /admin/
+
+Sitemap: http://kure-rad.io/sitemap.xml.gz

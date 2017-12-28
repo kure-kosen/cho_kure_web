@@ -21,7 +21,13 @@
 
 <dl class="dl-horizontal">
   <dt><strong><%= Personality.human_attribute_name('role') %> :</strong></dt>
-  <dd><%= @personality.role.t %></dd>
+  <dd>
+    <%= @personality.role.t %>
+    <%= Admin::PersonalityViewObject.link_to_change_role_to_guest(current_personality, @personality) %>
+    <%= Admin::PersonalityViewObject.link_to_change_role_to_editor(current_personality, @personality) %>
+    <%= Admin::PersonalityViewObject.link_to_change_role_to_secret(current_personality, @personality) %>
+    <%= Admin::PersonalityViewObject.link_to_change_role_to_admin(current_personality, @personality) %>
+  </dd>
 </dl>
 
 <dl class="dl-horizontal">
@@ -43,4 +49,4 @@
   </dd>
 </dl>
 
-<%= link_to '編集', edit_admin_personality_path(@personality) %>
+<%= Admin::PersonalityViewObject.link_to_edit(current_personality, @personality) %>

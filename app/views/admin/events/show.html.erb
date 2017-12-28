@@ -34,4 +34,4 @@
   <dd><%= @event.ended_at %></dd>
 </dl>
 
-<%= link_to '編集', edit_admin_event_path(@event) %>
+<%= Admin::EventViewObject.link_to_edit(current_personality, @event) %>
