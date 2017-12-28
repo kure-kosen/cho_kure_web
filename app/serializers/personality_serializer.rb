@@ -36,6 +36,6 @@ class PersonalitySerializer < ActiveModel::Serializer
   end
 
   def description
-    MarkdownHelper.markdown(object.description)
+    MarkdownHelper.markdown(object.description) if object.description
   end
 end
