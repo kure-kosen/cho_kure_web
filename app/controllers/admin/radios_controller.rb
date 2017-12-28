@@ -1,9 +1,10 @@
 class Admin::RadiosController < Admin::BaseController
   before_action :set_radio, only: [:show, :edit, :update, :destroy]
+  before_action :check_authorize
 
   # GET /radios
   def index
-    @radios = Radio.all
+    @radios = policy_scope([:admin, Radio])
   end
 
   # GET /radios/1
@@ -84,10 +85,13 @@ class Admin::RadiosController < Admin::BaseController
         :image,
         :description,
         :mp3,
-        :youtube_url,
-        :podcast_url,
         community_ids: [],
         personality_ids: [],
       )
+    end
+
+    def check_authorize
+      return authorize [:admin, @radio] if @radio.present?
+      authorize [:admin, :radio]
     end
 end
