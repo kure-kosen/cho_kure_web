@@ -5,7 +5,9 @@ Rails.application.routes.draw do
     mount LetterOpenerWeb::Engine, at: "/letter_opener"
   end
 
-  devise_for :personalities
+  devise_for :personalities, controllers: {
+    sessions: "admin/devise/sessions",
+  }
 
   namespace :front, path: "/" do
     root to: redirect("/app")
