@@ -41,10 +41,10 @@ class Admin::RadiosController < Admin::BaseController
   def update
     unless @radio.publish? && params[:radio][:status] == "publish"
       @radio.published_at = published_at_from(
-          params[:radio][:status],
-          Time.zone.parse(
-              datetime_select_to_a(params[:radio], :reserve_time).join,
-          ),
+        params[:radio][:status],
+        Time.zone.parse(
+          datetime_select_to_a(params[:radio], :reserve_time).join,
+        ),
       )
     end
 
