@@ -1,0 +1,38 @@
+<ul class="navbar-nav navbar-sidenav">
+  <li class="nav-item">
+    <%= link_to admin_root_path, class: "nav-link" do %>
+      <i class="fa fa-fw fa-dashboard"></i>
+      <span class="nav-link-text">ダッシュボード</span>
+    <% end %>
+  </li>
+  <li class="nav-item">
+    <%= link_to admin_personalities_path, class: "nav-link" do %>
+      <i class="fa fa-fw fa-user-circle-o"></i>
+      <span class="nav-link-text">パーソナリティ一覧</span>
+    <% end %>
+  </li>
+  <li class="nav-item">
+    <%= link_to admin_radios_path, class: "nav-link" do %>
+      <i class="fa fa-fw fa-headphones"></i>
+      <span class="nav-link-text">ラジオ一覧</span>
+    <% end %>
+  </li>
+
+  <% if current_personality.member? %>
+    <li class="nav-item">
+      <%= link_to admin_communities_path, class: "nav-link" do %>
+        <i class="fa fa-fw fa-users"></i>
+        <span class="nav-link-text">コミュニティ一覧</span>
+      <% end %>
+    </li>
+  <% end %>
+
+  <% if current_personality.member? %>
+    <li class="nav-item">
+      <%= link_to admin_events_path, class: "nav-link" do %>
+        <i class="fa fa-fw fa-calendar"></i>
+        <span class="nav-link-text">イベント一覧</span>
+      <% end %>
+    </li>
+  <% end %>
+</ul>
