@@ -12,7 +12,8 @@ module Podcast
                 :application_domain,
                 :owner_name,
                 :owner_email,
-                :itunes_explicit
+                :itunes_explicit,
+                :blubrry_url
 
     CACHE_KEY = "/podcast/rss".freeze
 
@@ -30,6 +31,7 @@ module Podcast
       @owner_name = "ちょっくれ制作班"
       @owner_email = "cho.kure.radio@gmail.com"
       @itunes_explicit = "clean"
+      @blubrry_url = "http://media.blubrry.com/kure_radio/"
     end
 
     def application_server_domain

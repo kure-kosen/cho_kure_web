@@ -56,7 +56,7 @@ module Podcast
           item.description      = MarkdownHelper.markdown(radio.description)
           item.pubDate          = radio.published_at.to_s(:rfc822)
           item.itunes_duration  = format_duration(radio.duration)
-          item.enclosure.url    = radio.mp3_url
+          item.enclosure.url    = transform_to_blubrry(fullpath_to_url(radio.mp3_url))
           item.enclosure.type   = "audio/mpeg"
           item.enclosure.length = radio.size
         end
@@ -68,6 +68,15 @@ module Podcast
 
       def join_radio_link(radio)
         "#{@config.application_domain}/app/radios/#{radio.id}"
+      end
+
+      def fullpath_to_url(url)
+        url.include?("http") ? url : @config.application_domain + url
+      end
+
+      def transform_to_blubrry(url)
+        Rails.env.production? ? url.gsub(/(http|https):\/\//, @config.url) : url
+        end
       end
   end
 end
