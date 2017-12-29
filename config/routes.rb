@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   end
 
   devise_for :personalities, controllers: {
-      sessions: "admin/devise/sessions"
+    sessions: "admin/devise/sessions",
   }
 
   namespace :front, path: "/" do
