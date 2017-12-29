@@ -34,14 +34,14 @@ module Podcast
 
     def application_server_domain
       server_domain(
-        development: "http://localhost:3000",
+        development: "http://localhost:5000",
         production: ENV.fetch("EC2_PRODUCTION_PROTOCOL") { "" } + "://" + ENV.fetch("EC2_PRODUCTION_HOST") { "" },
       )
     end
 
     def mp3_upload_server_domain
       server_domain(
-        development: "http://localhost:3000",
+        development: "http://localhost:5000",
         production: ENV.fetch("S3_PRODUCTION_PROTOCOL") { "" } + "://" + ENV.fetch("S3_PRODUCTION_HOST") { "" },
       )
     end
