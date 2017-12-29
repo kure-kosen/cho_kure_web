@@ -39,12 +39,15 @@ class Admin::RadiosController < Admin::BaseController
 
   # PATCH/PUT /radios/1
   def update
-    @radio.published_at = published_at_from(
-      params[:radio][:status],
-      Time.zone.parse(
-        datetime_select_to_a(params[:radio], :reserve_time).join,
-      ),
-    )
+    unless @radio.publish? && params[:radio][:status] == "publish"
+      @radio.published_at = published_at_from(
+          params[:radio][:status],
+          Time.zone.parse(
+              datetime_select_to_a(params[:radio], :reserve_time).join,
+          ),
+      )
+    end
+
     if @radio.update(radio_params)
       redirect_to admin_radio_path(@radio), notice: "Radio was successfully updated."
     else
