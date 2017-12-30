@@ -4,5 +4,5 @@ ja:
       jargon:
         name: 専門用語
         description: 説明
-        radio_id: 紹介したラジオ
+        radio: 紹介したラジオ
         major: 学科
