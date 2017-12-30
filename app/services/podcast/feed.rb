@@ -75,7 +75,7 @@ module Podcast
       end
 
       def transform_to_blubrry(url)
-        Rails.env.production? ? url.gsub(%r{(http|https)://}, @config.url) : url
+        Rails.env.production? ? url.gsub(%r{(http|https)://}, @config.blubrry_url) : url
       end
   end
 end
