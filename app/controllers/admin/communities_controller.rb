@@ -6,7 +6,7 @@ class Admin::CommunitiesController < Admin::BaseController
   # GET /communities
   # GET /communities.json
   def index
-    @communities = Community.all
+    @communities = Community.all.includes(:taggings)
   end
 
   # GET /communities/1
