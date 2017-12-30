@@ -1,12 +1,14 @@
 class Api::V1::PersonalitiesController < Api::V1::BaseController
-  before_action :set_peresonality, only: %i[new_radios show]
+  before_action :set_peresonality, only: %i[show]
 
   def index
     render json: Personality.on_public.includes(:radios, :taggings)
   end
 
   def new_radios
-    render json: @personality.radios.published.order(published_at: :desc).take(5)
+    render json: Radio.where(
+      id: RadioPersonality.where(personality_id: params[:id]).select(:radio_id),
+    ).published.order(published_at: :desc).includes(personalities: :taggings).take(5)
   end
 
   def show
