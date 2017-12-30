@@ -57,6 +57,8 @@ group :development do
   gem "capistrano-yarn"
 
   gem "foreman"
+
+  gem "bullet"
 end
 
 group :production do
