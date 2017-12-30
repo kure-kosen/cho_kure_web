@@ -14,6 +14,7 @@
     <tr>
       <th><%= Radio.human_attribute_name('title') %></th>
       <th><%= Radio.human_attribute_name('description') %></th>
+      <th><%= Radio.human_attribute_name('status') %></th>
       <th></th>
     </tr>
   </thead>
@@ -23,6 +24,7 @@
       <tr>
         <td><%= radio.title %></td>
         <td><%= truncate(radio.description) if radio.description %></td>
+        <td><%= status_badge(radio) %></td>
         <td>
           <%= Admin::RadioViewObject.link_to_show(current_personality, radio) %>
           <%= Admin::RadioViewObject.link_to_edit(current_personality, radio) %>
