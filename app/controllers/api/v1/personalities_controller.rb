@@ -1,5 +1,5 @@
 class Api::V1::PersonalitiesController < Api::V1::BaseController
-  before_action :set_peresonality, only: %i[show]
+  before_action :set_personality, only: %i[show]
 
   def index
     render json: Personality.on_public.includes(:radios, :taggings)
@@ -17,7 +17,7 @@ class Api::V1::PersonalitiesController < Api::V1::BaseController
 
   private
 
-    def set_peresonality
+    def set_personality
       @personality = Personality.find(params[:id])
     end
 end
