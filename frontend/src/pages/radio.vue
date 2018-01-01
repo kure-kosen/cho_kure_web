@@ -42,45 +42,40 @@
 
 <script>
 module.exports = {
-    data: function () {
-        return {
-            radio: {},
-            newRadios: [],
-        }
+  data: function () {
+    return {
+      radio: {},
+      newRadios: [],
+    }
+  },
+  methods: {
+    getRadio: function (id) {
+      var that = this
+      this.axios.get('/api/v1/radios/'+id)
+        .then(function (response) {
+          that.radio = response.data
+          console.log(that.radio)
+        })
+        .catch( function (error) {
+          console.log(error)
+        })
     },
-    methods: {
-        getRadio(id) {
-            var that = this
-            this.axios.get('/api/v1/radios/'+id)
-                .then(function (response) {
-                    that.radio = response.data
-                    console.log(that.radio)
-                })
-                .catch( function (error) {
-                    console.log(error)
-                })
-        },
-        getNewRadios() {
-            var that = this
-            this.axios.get('/api/v1/radios')
-                .then(function (response) {
-                    that.newRadios = response.data.slice(0, 6)
-                    console.log(that.newRadios)
-                })
-                .catch( function (error) {
-                    console.log(error)
-                })
-        }
-    },
-    mounted: function () {
-        this.getRadio(this.$route.params.id)
-        this.getNewRadios()
-    },
-    watch: {
-        '$route' (to, from){
-            this.getRadio(this.$route.params.id)
-            this.getNewRadios()
-        }
+    getNewRadios: function () {
+      var that = this
+      this.axios.get('/api/v1/radios')
+        .then(function (response) {
+          that.newRadios = response.data.slice(0, 6)
+          console.log(that.newRadios)
+        })
+        .catch( function (error) {
+          console.log(error)
+        })
+    }
+  },
+  mounted: function () {
+    this.getRadio(this.$route.params.id)
+    this.getNewRadios()
+  },
   watch: {
     'this.$route': function (to, from) {
       this.getRadio(this.$route.params.id)
