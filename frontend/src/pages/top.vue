@@ -1,8 +1,9 @@
 <template>
   <div class="pusher">
     <div class="ui container news-contents">
+      <input v-model='query' />
       <h2 class="ui header">新着情報</h2>
-      <div class="ui items" v-for="radio in newRadios">
+      <div class="ui items" v-for="radio in filteredRadio">
         <radio-preview
           :item-id="radio.id"
           :image-path="radio.image"
@@ -24,6 +25,7 @@ module.exports = {
   data: function () {
     return {
       newRadios: [],
+      query: '',
     }
   },
   mounted: function () {
@@ -36,7 +38,18 @@ module.exports = {
       .catch( function (error) {
         console.log(error)
       })
-  }
+  },
+  computed: {
+    filteredRadio: function() {
+      let query = this.query
+      return this.newRadios.filter(function(r) {
+        let personality_ids = r.personalities.map(function(p) {
+          return p.id
+        })
+        return (personality_ids.indexOf(parseInt(query)) !== -1)
+      })
+    },
+  },
 }
 </script>
 
