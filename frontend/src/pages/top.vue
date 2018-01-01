@@ -1,7 +1,21 @@
 <template>
   <div class="pusher">
     <div class="ui container news-contents">
-      <input v-model='query' />
+      <h2 class="ui header">パーソナリティ</h2>
+      <div class="ui items">
+        <div v-for="personality in personalities">
+          <a v-on:click="query = personality.id">
+            <div class="item ui segment">
+              <div class="ui mini rounded image">
+                <img :src="personality.image">
+              </div>
+              <span class="ui header">
+                {{personality.name}}
+              </span>
+            </div>
+          </a>
+        </div>
+      </div>
       <h2 class="ui header">新着情報</h2>
       <div class="ui items" v-for="radio in filteredRadio">
         <radio-preview
@@ -25,6 +39,7 @@ module.exports = {
   data: function () {
     return {
       newRadios: [],
+      personalities: [],
       query: '',
     }
   },
@@ -37,6 +52,10 @@ module.exports = {
       })
       .catch( function (error) {
         console.log(error)
+      })
+    this.axios.get('/api/v1/personalities')
+      .then(function (response) {
+        that.personalities = response.data
       })
   },
   computed: {
