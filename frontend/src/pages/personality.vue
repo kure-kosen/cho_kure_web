@@ -91,7 +91,7 @@ module.exports = {
     this.getRelatedNewRadios()
   },
   watch: {
-    '$route' (to, from){
+    'this.$route': function (to, from) {
       this.getDetail()
       this.getRelatedNewRadios()
     }

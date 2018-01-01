@@ -81,7 +81,12 @@ module.exports = {
             this.getRadio(this.$route.params.id)
             this.getNewRadios()
         }
+  watch: {
+    'this.$route': function (to, from) {
+      this.getRadio(this.$route.params.id)
+      this.getNewRadios()
     }
+  }
 }
 </script>
 
