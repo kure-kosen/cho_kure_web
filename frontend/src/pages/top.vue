@@ -1,35 +1,48 @@
 <template>
   <div class="pusher">
     <div class="ui container news-contents">
-      <h2 class="ui header">パーソナリティ</h2>
-      <div class="ui items">
-        <div v-for="personality in personalities">
-          <a v-on:click="query = personality.id">
-            <div class="item ui segment">
-              <div class="ui mini rounded image">
-                <img :src="personality.image">
-              </div>
-              <span class="ui header">
-                {{personality.name}}
-              </span>
+
+      <div class="ui fluid selection dropdown">
+        <i class="search icon"></i>
+        <span class="text">パーソナリティで調べる</span>
+        <div class="menu">
+          <div class="scrolling menu">
+            <div class="item" v-on:click="filteredRadio(personality.id)" v-for="personality in personalities">
+              <img class="ui avatar image" :src="personality.image">
+              {{personality.name}}
             </div>
-          </a>
+          </div>
         </div>
       </div>
+
       <h2 class="ui header">新着情報</h2>
-      <div class="ui items" v-for="radio in filteredRadio">
+      <div class="ui items" v-for="radio in filteredRadios">
         <radio-preview
-          :item-id="radio.id"
-          :image-path="radio.image"
-          :item-path="radio.itemPath"
-          type="radio"
-          :title="radio.title"
-          :description="radio.description"
-          :personalities="radio.personalities"
-          :mp3-url="radio.mp3.url"
-          :date="radio.published_at">
+            :item-id="radio.id"
+            :image-path="radio.image"
+            :item-path="radio.itemPath"
+            type="radio"
+            :title="radio.title"
+            :description="radio.description"
+            :personalities="radio.personalities"
+            :mp3-url="radio.mp3.url"
+            :date="radio.published_at">
         </radio-preview>
       </div>
+
+      <!--<div class="ui items" v-for="radio in newRadios">-->
+        <!--<radio-preview-->
+          <!--:item-id="radio.id"-->
+          <!--:image-path="radio.image"-->
+          <!--:item-path="radio.itemPath"-->
+          <!--type="radio"-->
+          <!--:title="radio.title"-->
+          <!--:description="radio.description"-->
+          <!--:personalities="radio.personalities"-->
+          <!--:mp3-url="radio.mp3.url"-->
+          <!--:date="radio.published_at">-->
+        <!--</radio-preview>-->
+      <!--</div>-->
     </div>
   </div>
 </template>
@@ -38,36 +51,34 @@
 module.exports = {
   data: function () {
     return {
-      newRadios: [],
       personalities: [],
-      query: '',
+      filteredRadios: [],
     }
   },
   mounted: function () {
     var that = this
     this.axios.get('/api/v1/radios')
       .then(function (response) {
-        that.newRadios = response.data
-        console.log(that.newRadios)
+        that.filteredRadios = response.data
       })
       .catch( function (error) {
-        console.log(error)
+        console.error(error)
       })
     this.axios.get('/api/v1/personalities')
       .then(function (response) {
         that.personalities = response.data
       })
+    $('.ui.dropdown').dropdown()
   },
-  computed: {
-    filteredRadio: function() {
-      let query = this.query
-      return this.newRadios.filter(function(r) {
-        let personality_ids = r.personalities.map(function(p) {
+  methods: {
+    filteredRadio: function(id) {
+      this.filteredRadios = this.newRadios.filter(function(r) {
+        const personality_ids = r.personalities.map(function(p) {
           return p.id
         })
-        return (personality_ids.indexOf(parseInt(query)) !== -1)
+        return (personality_ids.indexOf(id) !== -1)
       })
-    },
+    }
   },
 }
 </script>
