@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   devise_for :personalities, controllers: {
     sessions: "admin/devise/sessions",
+    passwords: "admin/devise/passwords",
   }
 
   namespace :front, path: "/" do

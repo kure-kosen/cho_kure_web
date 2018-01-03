@@ -33,7 +33,7 @@ Rails.application.configure do
   config.action_mailer.raise_delivery_errors = false
 
   config.action_mailer.perform_caching = true
-  config.action_mailer.default_url_options = { host: "localhost:3000" }
+  config.action_mailer.default_url_options = { host: "localhost:5000" }
   config.action_mailer.delivery_method = :letter_opener_web
 
   # Print deprecation notices to the Rails logger.
@@ -57,7 +57,7 @@ Rails.application.configure do
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
-  config.action_mailer.default_url_options = { host: "localhost", port: 3000 }
+  config.action_mailer.default_url_options = { host: "localhost", port: 5000 }
 
   config.after_initialize do
     Bullet.enable = true
