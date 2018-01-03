@@ -56,7 +56,7 @@ module.exports = {
 
           that.getPersonalities()
         })
-        .catch( function (error) {
+        .catch(function (error) {
           console.log(error)
         })
     },
@@ -67,7 +67,7 @@ module.exports = {
           that.relatedNewRadios = response.data
           console.log(that.relatedNewRadios) 
         })
-        .catch( function (error) {
+        .catch(function (error) {
           console.log(error)
         })
     },
@@ -81,7 +81,7 @@ module.exports = {
           })
           console.log(that.personalities)
         })
-        .catch( function (error) {
+        .catch(function (error) {
           console.log(error)
         })
     }
@@ -91,7 +91,7 @@ module.exports = {
     this.getRelatedNewRadios()
   },
   watch: {
-    '$route' (to, from){
+    'this.$route': function (to, from) {
       this.getDetail()
       this.getRelatedNewRadios()
     }
