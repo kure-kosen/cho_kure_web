@@ -18,6 +18,8 @@
 </template>
 
 <script>
+var includes = require('array-includes')
+
 module.exports = {
   props: {
     imagePath: {
@@ -35,7 +37,7 @@ module.exports = {
       default: 'other',
       required: true,
       validator: function (value) {
-        return ['radio', 'community', 'other'].includes(value)
+        return includes(['radio', 'community', 'other'], value)
       }
     },
     title: {

@@ -3,6 +3,7 @@ import Vue from 'vue'
 
 // Library
 import VueRouter from 'vue-router'
+require('es6-promise').polyfill()
 import axios from 'axios'
 import VueAxios from 'vue-axios'
 import VueAnalytics from 'vue-analytics'
@@ -50,7 +51,7 @@ const router = new VueRouter({
 
 Vue.use(VueAnalytics, {
   id: 'UA-107670560-1',
-  router,
+  router: router,
 })
 
 document.addEventListener('DOMContentLoaded', function () {

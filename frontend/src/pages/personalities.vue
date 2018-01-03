@@ -30,7 +30,7 @@ module.exports = {
         that.personalities = response.data
         console.log(that.personalities)
       })
-      .catch( function (error) {
+      .catch(function (error) {
         console.log(error)
       })
   }
