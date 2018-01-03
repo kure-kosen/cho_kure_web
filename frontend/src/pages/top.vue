@@ -2,6 +2,7 @@
   <div class="pusher">
     <div class="ui container news-contents">
 
+      <h2 class="ui header">パーソナリティで調べる</h2>
       <div class="personality-filters">
         <div class="personality-icon" v-on:click="filteredRadio(0)">
           <img class="personality-icon-image" width="100%" src="../../images/filter_all.png">
@@ -112,6 +113,11 @@ h2.ui.header {
   border-radius: 5px;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
+  transition-duration: 100ms;
+}
+
+.personality-icon:hover {
+  box-shadow: 1px 1px 1px 1px rgba(0,0,0,0.2);
 }
 
 @media only screen and (max-width: 450px) {
