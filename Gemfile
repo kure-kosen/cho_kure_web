@@ -57,6 +57,8 @@ group :development do
   gem "capistrano-yarn"
 
   gem "foreman"
+
+  gem "bullet"
 end
 
 group :production do
@@ -80,6 +82,7 @@ gem "inum"
 gem "jquery-rails"
 gem "jquery-ui-rails"
 gem "mini_magick"
+gem "pundit"
 gem "redcarpet"
 gem "roboto"
 gem "ruby-mp3info"

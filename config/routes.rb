@@ -5,7 +5,9 @@ Rails.application.routes.draw do
     mount LetterOpenerWeb::Engine, at: "/letter_opener"
   end
 
-  devise_for :personalities
+  devise_for :personalities, controllers: {
+    sessions: "admin/devise/sessions",
+  }
 
   namespace :front, path: "/" do
     root to: redirect("/app")
@@ -16,7 +18,11 @@ Rails.application.routes.draw do
 
   namespace :api, format: "json" do
     namespace :v1 do
-      resources :personalities, only: [:index, :show]
+      resources :personalities, only: [:index, :show] do
+        member do
+          get :new_radios
+        end
+      end
       resources :communities, only: [:index, :show]
       resources :events, only: [:index, :show]
       resources :radios, only: [:index, :show]
@@ -25,7 +31,14 @@ Rails.application.routes.draw do
 
   namespace :admin do
     root to: "dashboard#index"
-    resources :personalities
+    resources :personalities do
+      member do
+        patch :change_role_to_guest
+        patch :change_role_to_editor
+        patch :change_role_to_secret
+        patch :change_role_to_admin
+      end
+    end
     resources :communities
     resources :events
     resources :radios

@@ -82,6 +82,9 @@ GEM
       rails (>= 3.1)
       thor
     builder (3.2.3)
+    bullet (5.7.0)
+      activesupport (>= 3.0.0)
+      uniform_notifier (~> 1.10.0)
     byebug (9.1.0)
     capistrano (3.10.0)
       airbrussh (>= 1.0.0)
@@ -372,6 +375,8 @@ GEM
       pry (~> 0.10)
     public_suffix (3.0.0)
     puma (3.10.0)
+    pundit (1.1.0)
+      activesupport (>= 3.0.0)
     rack (2.0.3)
     rack-proxy (0.6.3)
       rack
@@ -503,6 +508,7 @@ GEM
     unicorn (5.3.1)
       kgio (~> 2.6)
       raindrops (~> 0.7)
+    uniform_notifier (1.10.0)
     warden (1.2.7)
       rack (>= 1.0)
     web-console (3.5.1)
@@ -526,6 +532,7 @@ DEPENDENCIES
   binding_of_caller
   bootstrap
   bootstrap-tooltip-rails
+  bullet
   byebug
   capistrano
   capistrano-bundler
@@ -553,6 +560,7 @@ DEPENDENCIES
   onkcop
   pry-byebug
   puma (~> 3.7)
+  pundit
   rails (~> 5.1.4)
   redcarpet
   roboto

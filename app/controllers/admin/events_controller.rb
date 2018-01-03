@@ -1,5 +1,6 @@
 class Admin::EventsController < Admin::BaseController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
+  before_action :check_authorize
 
   # GET /events
   # GET /events.json
@@ -60,5 +61,10 @@ class Admin::EventsController < Admin::BaseController
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_params
       params.require(:event).permit(:name, :description, :url, :started_at, :ended_at, host_ids: [])
+    end
+
+    def check_authorize
+      return authorize [:admin, @event] if @event.present?
+      authorize [:admin, :event]
     end
 end

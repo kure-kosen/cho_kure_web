@@ -1,11 +1,12 @@
 class Admin::CommunitiesController < Admin::BaseController
   before_action :set_community, only: [:show, :edit, :update, :destroy]
   before_action :set_tag_list, only: [:new, :edit]
+  before_action :check_authorize
 
   # GET /communities
   # GET /communities.json
   def index
-    @communities = Community.all
+    @communities = Community.all.includes(:taggings)
   end
 
   # GET /communities/1
@@ -65,5 +66,10 @@ class Admin::CommunitiesController < Admin::BaseController
     # Never trust parameters from the scary internet, only allow the white list through.
     def community_params
       params.require(:community).permit(:name, :url, :description, :logo, :tag_list)
+    end
+
+    def check_authorize
+      return authorize [:admin, @community] if @community.present?
+      authorize [:admin, :community]
     end
 end

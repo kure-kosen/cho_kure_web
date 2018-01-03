@@ -1,9 +1,10 @@
 class Admin::RadiosController < Admin::BaseController
   before_action :set_radio, only: [:show, :edit, :update, :destroy]
+  before_action :check_authorize
 
   # GET /radios
   def index
-    @radios = Radio.all
+    @radios = policy_scope([:admin, Radio])
   end
 
   # GET /radios/1
@@ -38,12 +39,15 @@ class Admin::RadiosController < Admin::BaseController
 
   # PATCH/PUT /radios/1
   def update
-    @radio.published_at = published_at_from(
-      params[:radio][:status],
-      Time.zone.parse(
-        datetime_select_to_a(params[:radio], :reserve_time).join,
-      ),
-    )
+    unless @radio.publish? && params[:radio][:status] == "publish"
+      @radio.published_at = published_at_from(
+        params[:radio][:status],
+        Time.zone.parse(
+          datetime_select_to_a(params[:radio], :reserve_time).join,
+        ),
+      )
+    end
+
     if @radio.update(radio_params)
       redirect_to admin_radio_path(@radio), notice: "Radio was successfully updated."
     else
@@ -84,10 +88,13 @@ class Admin::RadiosController < Admin::BaseController
         :image,
         :description,
         :mp3,
-        :youtube_url,
-        :podcast_url,
         community_ids: [],
         personality_ids: [],
       )
+    end
+
+    def check_authorize
+      return authorize [:admin, @radio] if @radio.present?
+      authorize [:admin, :radio]
     end
 end

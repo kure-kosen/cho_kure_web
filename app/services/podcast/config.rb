@@ -12,7 +12,8 @@ module Podcast
                 :application_domain,
                 :owner_name,
                 :owner_email,
-                :itunes_explicit
+                :itunes_explicit,
+                :blubrry_url
 
     CACHE_KEY = "/podcast/rss".freeze
 
@@ -30,18 +31,19 @@ module Podcast
       @owner_name = "ちょっくれ制作班"
       @owner_email = "cho.kure.radio@gmail.com"
       @itunes_explicit = "clean"
+      @blubrry_url = "http://media.blubrry.com/kure_radio/"
     end
 
     def application_server_domain
       server_domain(
-        development: "http://localhost:3000",
+        development: "http://localhost:5000",
         production: ENV.fetch("EC2_PRODUCTION_PROTOCOL") { "" } + "://" + ENV.fetch("EC2_PRODUCTION_HOST") { "" },
       )
     end
 
     def mp3_upload_server_domain
       server_domain(
-        development: "http://localhost:3000",
+        development: "http://localhost:5000",
         production: ENV.fetch("S3_PRODUCTION_PROTOCOL") { "" } + "://" + ENV.fetch("S3_PRODUCTION_HOST") { "" },
       )
     end
