@@ -2,16 +2,10 @@
   <div class="pusher">
     <div class="ui container news-contents">
 
-      <div class="ui fluid selection dropdown">
-        <i class="search icon"></i>
-        <span class="text">パーソナリティで調べる</span>
-        <div class="menu">
-          <div class="scrolling menu">
-            <div class="item" v-on:click="filteredRadio(personality.id)" v-for="personality in personalities">
-              <img class="ui avatar image" :src="personality.image">
-              {{personality.name}}
-            </div>
-          </div>
+
+        <div class="personality-icon" v-on:click="filteredRadio(personality.id)" v-for="personality in personalities">
+          <img class="personality-icon-image" width="100%" :src="personality.image">
+          <p class="personality-name">{{ personality.name }}</p>
         </div>
       </div>
 
@@ -29,20 +23,6 @@
             :date="radio.published_at">
         </radio-preview>
       </div>
-
-      <!--<div class="ui items" v-for="radio in newRadios">-->
-        <!--<radio-preview-->
-          <!--:item-id="radio.id"-->
-          <!--:image-path="radio.image"-->
-          <!--:item-path="radio.itemPath"-->
-          <!--type="radio"-->
-          <!--:title="radio.title"-->
-          <!--:description="radio.description"-->
-          <!--:personalities="radio.personalities"-->
-          <!--:mp3-url="radio.mp3.url"-->
-          <!--:date="radio.published_at">-->
-        <!--</radio-preview>-->
-      <!--</div>-->
     </div>
   </div>
 </template>
@@ -52,6 +32,7 @@ module.exports = {
   data: function () {
     return {
       personalities: [],
+      newRadios: [],
       filteredRadios: [],
     }
   },
@@ -59,6 +40,7 @@ module.exports = {
     var that = this
     this.axios.get('/api/v1/radios')
       .then(function (response) {
+        that.newRadios = response.data
         that.filteredRadios = response.data
       })
       .catch( function (error) {
@@ -97,5 +79,36 @@ h2.ui.header {
 .news-contents {
   padding-top: 80px;
   padding-bottom: 40px;
+}
+
+.personality-filters {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.personality-icon {
+  cursor : pointer;
+  margin: 10px;
+  width: 10%;
+  border: thin solid #999999;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+}
+
+@media only screen and (max-width: 450px) {
+  .personality-icon {
+    Width: 25%;
+  }
+}
+
+.personality-icon-image {
+  border-radius: 5px 5px 0px 0px;
+}
+
+.personality-name {
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 </style>
