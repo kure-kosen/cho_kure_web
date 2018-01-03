@@ -5,7 +5,7 @@
       <h2 class="ui header">パーソナリティで調べる</h2>
       <personality-filter :personalities="personalities"></personality-filter>
 
-      <h2 class="ui header">新着情報</h2>
+      <h2 class="ui header">放送された回</h2>
       <div class="ui items" v-for="radio in filteredRadios">
         <radio-preview
             :item-id="radio.id"
