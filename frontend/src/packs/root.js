@@ -20,11 +20,13 @@ import Footer from '../components/footer.vue'
 import RadioPreview from '../components/radio-preview.vue'
 import PersonalityCard from '../components/personality-card.vue'
 import PersonalitySmall from '../components/personality-small.vue'
+import PersonalityFilter from '../components/personality-filter.vue'
 Vue.component('app-header', Header)
 Vue.component('app-footer', Footer)
 Vue.component('radio-preview', RadioPreview)
 Vue.component('personality-card', PersonalityCard)
 Vue.component('personality-small', PersonalitySmall)
+Vue.component('personality-filter', PersonalityFilter)
 
 // Page
 import Contact from '../pages/contact.vue'
