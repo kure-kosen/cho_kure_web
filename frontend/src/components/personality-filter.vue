@@ -1,10 +1,10 @@
 <template>
 <div class="personality-filters">
-  <div class="personality-icon" v-on:click="filteredRadio(0)">
+  <div class="personality-icon" @click="clickPersonalityIcon(0)">
     <img class="personality-icon-image" width="100%" src="../../images/filter_all.png">
     <p class="personality-name">全員</p>
   </div>
-  <div class="personality-icon" v-on:click="filteredRadio(personality.id)" v-for="personality in personalities">
+  <div class="personality-icon" @click="clickPersonalityIcon(personality.id)" v-for="personality in personalities">
     <img class="personality-icon-image" width="100%" :src="personality.image">
     <p class="personality-name">{{ personality.name }}</p>
   </div>
@@ -14,26 +14,8 @@
 <script>
 module.exports = {
   methods: {
-    filteredRadio: function(id) {
-      if (id === 0) {
-        let that = this.$parent
-        this.axios.get('/api/v1/radios')
-          .then(function (response) {
-            that.filteredRadios = response.data
-          })
-          .catch( function (error) {
-            console.error(error)
-          })
-
-        return
-      }
-
-      this.$parent.filteredRadios = this.$parent.newRadios.filter(function(r) {
-        const personality_ids = r.personalities.map(function(p) {
-          return p.id
-        })
-        return (personality_ids.indexOf(id) !== -1)
-      })
+    clickPersonalityIcon: function(id) {
+      this.$emit('click-personality-icon', id)
     }
   },
   props: {
