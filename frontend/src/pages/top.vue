@@ -33,7 +33,7 @@ module.exports = {
         that.newRadios = response.data
         console.log(that.newRadios)
       })
-      .catch( function (error) {
+      .catch(function (error) {
         console.log(error)
       })
   }

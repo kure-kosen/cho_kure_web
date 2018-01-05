@@ -1,10 +1,12 @@
 <template>
   <div id="body">
-    <app-header></app-header>
-    <main id="main">
+    <div id="wrapper">
+      <app-header></app-header>
+      <main id="main">
       <router-view></router-view>
-    </main>
-    <app-footer></app-footer>
+      </main>
+      <app-footer></app-footer>
+    </div>
   </div>
 </template>
 
@@ -13,11 +15,16 @@
 <style>
 #body {
   display: flex;
-  min-height: 100vh;
   flex-direction: column;
 }
 
+#wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
 #main {
-  flex: 1;
+  flex: 1 1 auto;
 }
 </style>

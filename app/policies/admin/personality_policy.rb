@@ -43,7 +43,7 @@ class Admin::PersonalityPolicy < Admin::BasePolicy
       if personality.guest?
         scope.where(id: personality.id)
       else
-        scope.all
+        scope.all.includes(:taggings)
       end
     end
   end
