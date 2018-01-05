@@ -1,5 +1,6 @@
 class Admin::JargonsController < Admin::BaseController
   before_action :set_jargon, only: [:show, :edit, :update, :destroy]
+  before_action :check_authorize
 
   # GET /jargons
   def index
@@ -55,5 +56,10 @@ class Admin::JargonsController < Admin::BaseController
     # Never trust parameters from the scary internet, only allow the white list through.
     def jargon_params
       params.require(:jargon).permit(:name, :description, :radio_id, :major)
+    end
+
+    def check_authorize
+      return authorize [:admin, @jargon] if @jargon.present?
+      authorize [:admin, :jargon]
     end
 end
