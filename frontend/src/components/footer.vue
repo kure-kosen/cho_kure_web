@@ -17,7 +17,8 @@
 
 .ui.black.segment {
   background-color: #999999;
-  padding-top: 80px;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 .ui.white {
