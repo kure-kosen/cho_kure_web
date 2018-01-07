@@ -9,7 +9,7 @@ class Admin::BaseController < ApplicationController
   private
 
     def datetime_select_to_a(param, column)
-      param.select { |k, _v| k.match(/#{column}\(\di\)/) }.values
+      param.select { |k, _v| k.match(/#{column}\(\di\)/) }.values.map { |i| "%02d" % i }
     end
 
     def pundit_user
