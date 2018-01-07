@@ -7,7 +7,9 @@
       <router-link class="header" v-bind:to="{ name: 'radios', params: { id: itemId }}">{{ title }}</router-link>
       <div v-html="description" class="description"></div>
       <div class="personality-icons">
-        <img v-bind:src="personality.image" class="personality-icon" v-for="personality in personalities">
+        <router-link v-for="personality in personalities" :key="personality.id" :to="{ name: 'personality', params: { id: personality.id }}">
+          <img v-bind:src="personality.image" class="personality-icon" >
+        </router-link>
       </div>
       <div class="meta">
         <span class="date">{{ date }}</span>
