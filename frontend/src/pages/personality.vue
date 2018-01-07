@@ -23,7 +23,7 @@
           </div>
         </article>
         <h3 class="ui header">他のメンバー</h3>
-        <div class="ui unstackable divided items">
+        <div class="ui unstackable divided items link">
           <personality-small v-for="personality in personalities"
             :key="personality.id"
             :id="personality.id"
