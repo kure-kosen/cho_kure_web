@@ -1,0 +1,8 @@
+ja:
+  activerecord:
+    attributes:
+      jargon:
+        name: 専門用語
+        description: 説明
+        radio: 紹介したラジオ
+        major: 学科
