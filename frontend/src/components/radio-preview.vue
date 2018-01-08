@@ -8,7 +8,9 @@
       <div v-html="description" class="description"></div>
       <div class="personality-icons">
         <router-link v-for="personality in personalities" :key="personality.id" :to="{ name: 'personality', params: { id: personality.id }}">
-          <img v-bind:src="personality.image" class="personality-icon" >
+          <span :data-tooltip="personality.name">
+            <img :src="personality.image" class="personality-icon">
+          </span>
         </router-link>
       </div>
       <div class="meta">
