@@ -7,20 +7,20 @@
         @click-personality-icon="setFilteredRadioFromPersonality">
       </personality-filter>
       <h2 class="ui header">放送された回</h2>
-      <transition-group>
-        <div class="ui items" v-bind:key="radio.id" v-for="radio in filteredRadios">
+      <transition-group class="ui items" tag="div">
           <radio-preview
-              :item-id="radio.id"
-              :image-path="radio.image"
-              :item-path="radio.itemPath"
-              type="radio"
-              :title="radio.title"
-              :description="radio.description"
-              :personalities="radio.personalities"
-              :mp3-url="radio.mp3.url"
-              :date="radio.published_at">
+             v-for="radio in filteredRadios"
+             :key="radio.id"
+             :item-id="radio.id"
+             :image-path="radio.image"
+             :item-path="radio.itemPath"
+             type="radio"
+             :title="radio.title"
+             :description="radio.description"
+             :personalities="radio.personalities"
+             :mp3-url="radio.mp3.url"
+             :date="radio.published_at">
           </radio-preview>
-        </div>
       </transition-group>
     </div>
   </div>
