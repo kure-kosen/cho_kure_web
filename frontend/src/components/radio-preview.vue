@@ -12,7 +12,7 @@
       <div class="meta">
         <span class="date">{{ date }}</span>
       </div>
-      <audio controls="controls" v-bind:src="mp3Url"></audio>
+      <audio controls="controls" v-bind:src="mp3Url" controlslist="nodownload"></audio>
     </div>
   </div>
 </template>
