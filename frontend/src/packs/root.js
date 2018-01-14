@@ -35,6 +35,7 @@ import About from '../pages/about.vue'
 import Personalities from '../pages/personalities.vue'
 import Personality from '../pages/personality.vue'
 import Radio from '../pages/radio.vue'
+import HowToUsePodcast from '../pages/how-to-use-podcast.vue'
 
 const router = new VueRouter({
   mode: 'history',
@@ -46,6 +47,7 @@ const router = new VueRouter({
     { path: '/personalities', component: Personalities },
     { path: '/personalities/:id', name: 'personality', component: Personality },
     { path: '/radios/:id', name: 'radios', component: Radio },
+    { path: '/how-to-use-podcast', component: HowToUsePodcast },
   ]
 })
 
