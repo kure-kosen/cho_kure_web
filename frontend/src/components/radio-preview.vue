@@ -13,6 +13,7 @@
         <span class="date">{{ date }}</span>
       </div>
       <audio controls="controls" v-bind:src="mp3Url"></audio>
+      <audio controls="controls" v-if="digestMp3Url" v-bind:src="digestMp3Url"></audio>
     </div>
   </div>
 </template>
@@ -57,6 +58,9 @@ module.exports = {
     mp3Url: {
       type: String,
       required: true
+    },
+    digestMp3Url: {
+      type: String,
     },
     date: {
       type: String,

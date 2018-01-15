@@ -18,6 +18,7 @@
               :description="radio.description"
               :personalities="radio.personalities"
               :mp3-url="radio.mp3.url"
+              :digest-mp3-url="radio.digest_mp3.url"
               :date="radio.published_at">
           </radio-preview>
         </div>
