@@ -9,11 +9,21 @@
       <div class="personality-icons">
         <img v-bind:src="personality.image" class="personality-icon" v-for="personality in personalities">
       </div>
+      <div class="mp3" v-if="digestMp3Url">
+        <div class="ui label">
+          <p>ダイジェスト版:</p>
+          <audio controls="controls" v-bind:src="digestMp3Url"></audio>
+        </div>
+      </div>
+      <div class="mp3">
+        <div class="ui label">
+          <p>本編はこちら！</p>
+          <audio controls="controls" v-bind:src="mp3Url"></audio>
+        </div>
+      </div>
       <div class="meta">
         <span class="date">{{ date }}</span>
       </div>
-      <audio controls="controls" v-bind:src="mp3Url"></audio>
-      <audio controls="controls" v-if="digestMp3Url" v-bind:src="digestMp3Url"></audio>
     </div>
   </div>
 </template>
@@ -106,5 +116,9 @@ module.exports = {
   -moz-border-radius: 5px;
   margin: 5px;
   display: inline;
+}
+
+.mp3 {
+  margin: 10px;
 }
 </style>
