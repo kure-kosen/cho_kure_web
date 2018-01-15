@@ -14,6 +14,7 @@
 #  duration     :integer          not null
 #  size         :integer          not null
 #  image        :string(255)
+#  digest_mp3   :string(255)
 #
 # Indexes
 #
