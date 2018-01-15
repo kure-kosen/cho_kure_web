@@ -48,6 +48,14 @@ class Personality < ApplicationRecord
     where.not(role: PersonalityRoles::SECRET)
   }
 
+  scope :appeared, -> {
+    where(
+      id: RadioPersonality.where(
+        radio_id: Radio.published.select(:id),
+      ).select(:personality_id),
+    ).on_public
+  }
+
   def member?
     admin? || editor? || secret?
   end
