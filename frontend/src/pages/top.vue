@@ -45,7 +45,7 @@ module.exports = {
       .catch( function (error) {
         console.error(error)
       })
-    this.axios.get('/api/v1/personalities')
+    this.axios.get('/api/v1/personalities/appeared')
       .then(function (response) {
         that.personalities = response.data
       })
