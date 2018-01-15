@@ -51,8 +51,8 @@ class Personality < ApplicationRecord
   scope :appeared, -> {
     where(
       id: RadioPersonality.where(
-        radio_id: Radio.published.select(:id)
-      ).select(:personality_id)
+        radio_id: Radio.published.select(:id),
+      ).select(:personality_id),
     ).on_public
   }
 
