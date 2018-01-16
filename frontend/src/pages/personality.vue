@@ -3,7 +3,10 @@
     <div class="main">
       <div class="ui text container">
         <article>
-          <h2 class="ui header">{{ personality.name }}</h2>
+          <div class="names">
+            <h2 class="name">{{ personality.name }}</h2>
+            <div class="nickname">{{ personality.nickname }}</div>
+          </div>
           <img class="ui small right floated image" :src="personality.image">
           <h3 class="ui header">自己紹介</h3>
           <p v-html="personality.description"></p>
@@ -103,5 +106,14 @@ module.exports = {
 .main {
   padding-top: 80px;
   padding-bottom: 40px;
+}
+
+.name {
+  display: inline;
+}
+
+.nickname {
+  display: inline;
+  color: #888888;
 }
 </style>

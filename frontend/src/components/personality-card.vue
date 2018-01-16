@@ -51,7 +51,7 @@ module.exports = {
 }
 </script>
 
-<style>
+<style scoped>
 .name {
   color: #000000;
   font-weight: bold;
