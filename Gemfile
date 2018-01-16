@@ -72,7 +72,7 @@ gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem "active_model_serializers"
 gem "acts-as-taggable-on"
 gem "bootstrap"
-gem "bootstrap-tooltip-rails"
+gem "bootstrap-popover-rails"
 gem "carrierwave"
 gem "devise"
 gem "dotenv-rails"
