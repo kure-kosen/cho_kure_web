@@ -19,6 +19,7 @@
 #  description            :text(65535)
 #  role                   :integer          default(0), not null
 #  image                  :string(255)
+#  nickname               :string(255)
 #
 # Indexes
 #
