@@ -5,8 +5,8 @@
     </div>
     <div class="content">
       <div class="header">{{ name }}</div>
-      <div class="meta">
-        <span v-for="tag in tags">
+      <div class="ui tag labels">
+        <span class="ui label" v-for="tag in tags">
           {{ tag }}
         </span>
       </div>
