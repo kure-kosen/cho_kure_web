@@ -53,7 +53,7 @@ class Personality < ApplicationRecord
       id: RadioPersonality.where(
         radio_id: Radio.published.select(:id),
       ).select(:personality_id),
-    ).on_public
+    )
   }
 
   def member?
