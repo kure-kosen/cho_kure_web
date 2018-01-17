@@ -32,7 +32,7 @@ class Admin::PersonalitiesController < Admin::BaseController
     @personality.password_confirmation = "password"
 
     if @personality.save
-      redirect_to admin_personalities_url(@personality), notice: "Personality was successfully created."
+      redirect_to admin_personalities_url(@personality), notice: "パーソナリティを仮登録しました。"
     else
       render :new
     end
@@ -46,7 +46,7 @@ class Admin::PersonalitiesController < Admin::BaseController
   # PATCH/PUT /personalities/1.json
   def update
     if @personality.update(personality_params)
-      redirect_to admin_personality_path(@personality), notice: "Personality was successfully updated."
+      redirect_to admin_personality_path(@personality), notice: "パーソナリティを更新しました。"
     else
       render :edit
     end
@@ -56,7 +56,7 @@ class Admin::PersonalitiesController < Admin::BaseController
   # DELETE /personalities/1.json
   def destroy
     @personality.destroy!
-    redirect_to admin_personalities_url, notice: "Personality was successfully destroyed."
+    redirect_to admin_personalities_url, notice: "パーソナリティを削除しました。"
   end
 
   def change_role_to_guest
