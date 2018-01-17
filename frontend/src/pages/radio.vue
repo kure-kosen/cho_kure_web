@@ -6,24 +6,25 @@
     <div v-html="radio.description"></div>
     <div><audio controls="controls" v-bind:src="radio.mp3.url"></audio></div>
     <h3>パーソナリティ</h3>
-    <div class="ui link cards one stackable">
-      <router-link v-for="personality in radio.personalities" :key="personality.id" class="card" :to="{ name: 'personality', params: { id: personality.id }}">
+    <div class="ui unstackable divided items">
+      <div class="ui item" v-for="personality in radio.personalities">
+        <div class="image">
+          <router-link :to="{ name: 'personality', params: { id: personality.id }}">
+            <img class="ui small image" v-bind:src="personality.image">
+          </router-link>
+        </div>
         <div class="content">
-          <div class="ui items">
-            <div class="item">
-              <div class="ui tiny image">
-                <img :src="personality.image">
-              </div>
-              <div class="middle aligned content">
-                <div class="header">{{ personality.name }}</div>
-                <div class="description">
-                  <p v-html="personality.description"></p>
-                </div>
-              </div>
-            </div>
+          <h4>
+            <router-link :to="{ name: 'personality', params: { id: personality.id }}">
+              {{ personality.name }}
+            </router-link>
+          </h4>
+          <div class="description" v-html="personality.description"></div>
+          <div class="ui tag labels">
+            <div class="ui label" v-for="tag in personality.tag_list">{{ tag }}</div>
           </div>
         </div>
-      </router-link>
+      </div>
     </div>
     <div class="ui items" v-for="newRadio in newRadios">
       <radio-preview
