@@ -4,7 +4,7 @@
     <h2 class="ui header">{{ radio.title }}</h2>
     <img v-bind:src="radio.image" v-bind:alt="radio.title">
     <div v-html="radio.description"></div>
-    <div><audio controls="controls" v-bind:src="radio.mp3.url"></audio></div>
+    <div><audio controls="controls" v-bind:src="radio.mp3.url" controlslist="nodownload"></audio></div>
     <h3>パーソナリティ</h3>
     <div class="ui segment grid" v-for="personality in radio.personalities">
       <div class="three wide column">
