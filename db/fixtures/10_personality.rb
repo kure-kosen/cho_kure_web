@@ -3,6 +3,7 @@ raise StandardError, "production環境では利用できません" if Rails.env.
 Personality.seed do |p|
   p.id = 1
   p.name = "新谷 哲平"
+  p.nickname = "てっぺー"
   p.email = "shintani@example.com"
   p.tag_list = "OB,開発"
   p.description = <<~TEXT
@@ -19,6 +20,7 @@ end
 Personality.seed do |p|
   p.id = 2
   p.name = "中村 優"
+  p.nickname = "ちゃんゆー"
   p.email = "nakamura@example.com"
   p.tag_list = "専攻科,開発,画伯"
   p.description = <<~TEXT
@@ -62,6 +64,7 @@ end
 Personality.seed do |p|
   p.id = 5
   p.name = "ふが ふが子"
+  p.nickname = "ふが子"
   p.email = "fuga@example.com"
   p.tag_list = "ほげ,ふが"
   p.description = "ふが" * 50

@@ -7,6 +7,7 @@
   <div class="personality-icon" @click="clickPersonalityIcon(personality.id)" v-for="personality in personalities">
     <img class="personality-icon-image" width="100%" :src="personality.image">
     <p class="personality-name">{{ personality.name }}</p>
+    <p class="personality-nickname">{{ personality.nickname }}</p>
   </div>
 </div>
 </template>
@@ -62,6 +63,14 @@ module.exports = {
 .personality-name {
   text-align: center;
   margin-top: 10px;
+  margin-bottom: 0;
+}
+
+.personality-nickname {
+  font-size: 13px;
+  color: #999999;
+  text-align: center;
+  margin-top: 0;
   margin-bottom: 10px;
 }
 </style>
