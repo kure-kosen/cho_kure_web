@@ -32,7 +32,7 @@
         :title="newRadio.title"
         :description="newRadio.description"
         :mp3-url="newRadio.mp3.url"
-        :personalities="radio.personalities"
+        :personalities="newRadio.personalities"
         :date="newRadio.created_at">
       </radio-preview>
     </div>
