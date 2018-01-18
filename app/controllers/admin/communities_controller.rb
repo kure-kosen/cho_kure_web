@@ -29,7 +29,7 @@ class Admin::CommunitiesController < Admin::BaseController
     @community = Community.new(community_params)
 
     if @community.save
-      redirect_to admin_communities_url(@community), notice: "Community was successfully created."
+      redirect_to admin_communities_url(@community), notice: "コミュニティを作成しました。"
     else
       render :new
     end
@@ -39,7 +39,7 @@ class Admin::CommunitiesController < Admin::BaseController
   # PATCH/PUT /communities/1.json
   def update
     if @community.update(community_params)
-      redirect_to admin_community_path(@community), notice: "Community was successfully updated."
+      redirect_to admin_community_path(@community), notice: "コミュニティを更新しました。"
     else
       render :edit
     end
@@ -49,7 +49,7 @@ class Admin::CommunitiesController < Admin::BaseController
   # DELETE /communities/1.json
   def destroy
     @community.destroy!
-    redirect_to admin_communities_url, notice: "Community was successfully destroyed."
+    redirect_to admin_communities_url, notice: "コミュニティを削除しました。"
   end
 
   private
