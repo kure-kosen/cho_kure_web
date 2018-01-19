@@ -2,6 +2,6 @@
 //= require turbolinks
 //= require jquery
 //= require jquery-ui/widgets/autocomplete
-//= require bootstrap/bootstrap-rails-tooltip
-//= require bootstrap/bootstrap-rails-popover
+//= require popper
+//= require bootstrap
 //= require_tree ./admin
