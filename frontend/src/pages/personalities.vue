@@ -7,6 +7,7 @@
           :key="personality.id"
           :id="personality.id"
           :name="personality.name"
+          :nickname="personality.nickname"
           :description="personality.description"
           :image-path="personality.image"
           :tags="personality.tag_list">

@@ -19,6 +19,7 @@
 #  description            :text(65535)
 #  role                   :integer          default(0), not null
 #  image                  :string(255)
+#  nickname               :string(255)
 #
 # Indexes
 #
@@ -53,7 +54,7 @@ class Personality < ApplicationRecord
       id: RadioPersonality.where(
         radio_id: Radio.published.select(:id),
       ).select(:personality_id),
-    ).on_public
+    )
   }
 
   def member?

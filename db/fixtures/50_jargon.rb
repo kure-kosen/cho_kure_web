@@ -1,3 +1,5 @@
+raise StandardError, "production環境では利用できません" if Rails.env.production?
+
 radio_ids = Radio.pluck(:id)
 (1..50).each do |i|
   Jargon.seed do |j|

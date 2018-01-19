@@ -5,6 +5,7 @@ ja:
     attributes:
       personality:
         name: 名前
+        nickname: ニックネーム
         image: 写真
         description: 自己紹介
         role: 権限
