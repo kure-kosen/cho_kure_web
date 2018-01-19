@@ -29,9 +29,9 @@
   <div class="form-group row">
     <%= form.label :description, class: 'col-2 col-form-label' %>
     <div class="col-10" id="editor">
+      <%= render 'admin/shared/markdown_help' %>
       <div class="row" style="height: 30em;">
         <div class="col-6">
-          <%= render 'admin/shared/markdown_help' %>
           <%= form.text_area :description, class: 'form-control', rows: 20, "v-model" => "input", debounce: 50 %>
         </div>
         <div class="col-6" style="overflow: scroll;">
