@@ -14,6 +14,7 @@
 #  duration     :integer          not null
 #  size         :integer          not null
 #  image        :string(255)
+#  digest_mp3   :string(255)
 #
 # Indexes
 #
@@ -21,7 +22,7 @@
 #
 
 class RadioSerializer < ActiveModel::Serializer
-  attributes :id, :title, :description, :mp3, :youtube_url, :podcast_url, :image, :duration, :published_at, :created_at, :updated_at
+  attributes :id, :title, :description, :mp3, :digest_mp3, :youtube_url, :podcast_url, :image, :duration, :published_at, :created_at, :updated_at
 
   has_many :personalities
 
