@@ -28,7 +28,7 @@ t<template>
 module.exports = {
     data: function () {
         return {
-            fullUrl: window.location.protocol + window.location.host + this.$route.path,
+            fullUrl: window.location.protocol + "//" + window.location.host + this.$route.path,
         }
     }
 }
