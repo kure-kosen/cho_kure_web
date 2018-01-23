@@ -25,7 +25,7 @@ class Admin::JargonsController < Admin::BaseController
     @jargon = Jargon.new(jargon_params)
 
     if @jargon.save
-      redirect_to admin_jargon_path(@jargon), notice: "Jargon was successfully created"
+      redirect_to admin_jargon_path(@jargon), notice: "専門用語を作成しました。"
     else
       render :new
     end
@@ -34,7 +34,7 @@ class Admin::JargonsController < Admin::BaseController
   # PATCH/PUT /jargons/1
   def update
     if @jargon.update(jargon_params)
-      redirect_to admin_jargon_path(@jargon), notice: "Jargon was successfully updated"
+      redirect_to admin_jargon_path(@jargon), notice: "専門用語を更新しました。"
     else
       render :edit
     end
@@ -43,7 +43,7 @@ class Admin::JargonsController < Admin::BaseController
   # DELETE /jargons/1
   def destroy
     @jargon.destroy!
-    redirect_to admin_jargons_url, notice: "Jargon was successfully destroyed"
+    redirect_to admin_jargons_url, notice: "専門用語を削除しました。"
   end
 
   private

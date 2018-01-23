@@ -1,0 +1,106 @@
+<p>
+  <button type="button" class="btn btn-info btn-sm" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+    markdownチートシート
+  </button>
+</p>
+<div class="collapse" id="collapseExample">
+  <div class="card card-body">
+    <pre>
+・改行は行末に半角スペース2つ
+・余白をとった改行は1行あける
+・リスト,番号付きリストは1行あけてから使う
+</pre>
+    <div style="display: grid; grid-template-rows: 100px 50px; grid-template-columns: 250px 1fr;">
+      <div style="grid-row: 1 / 3; grid-column: 1 / 2;">
+      <pre>
+# 見出し1
+## 見出し2
+### 見出し3
+      </pre>
+      </div>
+      <div style="grid-row: 1 / 3; grid-column: 2 / 3;">
+        <h1>見出し1</h1>
+        <h2>見出し2</h2>
+        <h3>見出し3</h3>
+      </div>
+      <div style="grid-row: 3 / 4; grid-column: 1 / 2;">
+      <pre>
+[Google先生]
+(https://www.google.co.jp/)
+      </pre>
+      </div>
+      <div style="grid-row: 3 / 4; grid-column: 2 / 3;">
+        <a href="https://www.google.co.jp/">Google先生</a>
+      </div>
+      <div style="grid-row: 4 / 5; grid-column: 1 / 2;">
+      <pre>
+* リスト1
+  * ネスト リスト1_1
+    * ネスト リスト1_1_1
+    * ネスト リスト1_1_2
+  * ネスト リスト1_2
+* リスト2
+* リスト3
+      </pre>
+      </div>
+      <div style="grid-row: 4 / 5; grid-column: 2 / 3;">
+        <ul>
+          <li>リスト1
+            <ul>
+              <li>ネスト リスト1_1
+                <ul>
+                  <li>ネスト リスト1_1_1</li>
+                  <li>ネスト リスト1_1_2</li>
+                </ul>
+              </li>
+              <li>ネスト リスト1_2</li>
+            </ul>
+          </li>
+          <li>リスト2</li>
+          <li>リスト3</li>
+        </ul>
+      </div>
+      <div style="grid-row: 5 / 6; grid-column: 1 / 2;">
+      <pre>
+1. 番号付きリスト1
+  1. 番号付きリスト1_1
+  1. 番号付きリスト1_2
+1. 番号付きリスト2
+1. 番号付きリスト3
+      </pre>
+      </div>
+      <div style="grid-row: 5 / 6; grid-column: 2 / 3;">
+        <ol>
+          <li>番号付きリスト1
+            <ol>
+              <li>番号付きリスト1_1</li>
+              <li>番号付きリスト1_2</li>
+            </ol>
+          </li>
+          <li>番号付きリスト2</li>
+          <li>番号付きリスト3</li>
+        </ol>
+      </div>
+      <div style="grid-row: 6 / 7; grid-column: 1 / 2;">
+      <pre>
+normal **bold** normal
+normal __bold__ normal
+      </pre>
+      </div>
+      <div style="grid-row: 6 / 7; grid-column: 2 / 3;">
+        <p>
+          normal <strong>bold</strong> normal<br>
+          normal <strong>bold</strong> normal
+        </p>
+      </div>
+      <div style="grid-row: 7 / 8; grid-column: 1 / 2;">
+      <pre>
+---
+      </pre>
+      </div>
+      <div style="grid-row: 7 / 8; grid-column: 2 / 3;">
+        <hr>
+      </div>
+    </div>
+  </div>
+</div>

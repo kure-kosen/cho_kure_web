@@ -29,6 +29,9 @@
 </nav>
 <div class="content-wrapper">
   <div class="container-fluid">
+    <% if notice %>
+    <div class="alert alert-info"><%= notice %></div>
+    <% end %>
     <%= yield %>
   </div>
 </div>
