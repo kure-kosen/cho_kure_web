@@ -1,14 +1,18 @@
 <template>
-<transition name="fade">
-  <div v-if="visible" class="how-to-podcast">
-    <div class="how-to-podcast-link">
-      <p>Podcastで聞いてみる？</p>
+<div>
+  <transition name="fade">
+    <div v-if="visible" class="how-to-podcast">
+      <a @click="showModal = true" class="how-to-podcast-link">
+        <p>Podcastで聞いてみる？</p>
+      </a>
+      <a @click="visible = false" class="delete-link">
+        <p>×</p>
+      </a>
     </div>
-    <a @click="visible = false" class="delete-link">
-      <p>×</p>
-    </a>
-  </div>
-</transition>
+  </transition>
+  <how-to-podcast-modal v-if="showModal" @close="showModal = false">
+  </how-to-podcast-modal>
+</div>
 </template>
 
 <script>
@@ -16,6 +20,7 @@ module.exports = {
   data: function () {
     return {
       visible: true,
+      showModal: false,
     }
   },
 }
