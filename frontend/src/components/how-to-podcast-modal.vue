@@ -15,7 +15,13 @@
             閉じる
           </div>
         </div>
-        </div>
+        <a href="https://itunes.apple.com/jp/podcast/%E3%81%A1%E3%82%87%E3%81%A3%E3%81%A8%E3%81%8D%E3%81%84%E3%81%A6%E5%91%89%E9%AB%98%E5%B0%82-%E5%91%89%E9%AB%98%E5%B0%82%E3%81%AE%E4%BB%8A%E3%82%92%E3%81%8A%E4%BC%9D%E3%81%88%E3%81%97%E3%81%BE%E3%81%99/id1293031618?mt=2">
+          <div class="move-podcast">
+            <p class="move-podcast-text">
+              Podcastを起動する
+            </p>
+          </div>
+        </a>
       </div>
     </div>
   </div>
@@ -30,7 +36,7 @@ module.exports = {
 <style scoped>
 .modal-mask {
   position: fixed;
-  z-index: 9998;
+  z-index: 999;
   top: 0;
   left: 0;
   width: 100%;
@@ -48,8 +54,9 @@ module.exports = {
 .modal-container {
   overflow: auto;
   width: 90%;
-  height: 100%;
-  margin: 20px auto 0 auto;
+  line-height: 20px;
+  height: 95%;
+  margin: 0 auto 0 auto;
   padding: 10px;
   background-color: #fff;
   border-radius: 2px;
@@ -61,8 +68,8 @@ module.exports = {
   margin: 20px 0;
 }
 
-.modal-default-button {
-  float: right;
+.modal-footer {
+ padding-bottom: 80px;
 }
 
 .modal-close {
@@ -86,5 +93,27 @@ module.exports = {
 .modal-leave-active .modal-container {
   -webkit-transform: scale(1.1);
   transform: scale(1.1);
+}
+
+.move-podcast {
+  position: fixed;
+  bottom: 5%;
+  left:calc(50% - 270px/2);
+  z-index: 10000;
+  background-color: #40AEC7;
+  color: #e4f5ff;
+  width: 270px;
+  margin: 0 auto;
+  font-size: 18px;
+  border-right: solid 1px #C0E4F5;
+  border-radius: 20px;
+
+  padding-left: 10px;
+  text-align: center;
+}
+
+.move-podcast-text {
+  height: 40px;
+  line-height: 40px;
 }
 </style>
