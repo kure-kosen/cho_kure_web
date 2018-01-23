@@ -64,6 +64,13 @@ module.exports = {
   transition: all .3s ease;
 }
 
+@media only screen and (min-width: 450px) {
+  .modal-container {
+    width: 60%;
+    padding: 30px;
+  }
+}
+
 .modal-body {
   margin: 20px 0;
 }
