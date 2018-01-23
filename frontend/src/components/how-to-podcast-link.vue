@@ -1,10 +1,10 @@
 <template>
 <transition name="fade">
-  <div v-if="show" class="how-to-podcast">
+  <div v-if="visible" class="how-to-podcast">
     <div class="how-to-podcast-link">
       <p>Podcastで聞いてみる？</p>
     </div>
-    <a @click="show = false" class="delete-link">
+    <a @click="visible = false" class="delete-link">
       <p>×</p>
     </a>
   </div>
@@ -15,10 +15,9 @@
 module.exports = {
   data: function () {
     return {
-      show: true
+      visible: true,
     }
   },
-  props: {},
 }
 </script>
 
