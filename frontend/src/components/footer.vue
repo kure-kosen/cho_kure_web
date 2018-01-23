@@ -1,12 +1,12 @@
 <template>
-  <footer>
-    <div class="ui black center aligned segment">
-      <div class="ui text container">
-        <a class="ui white" href="https://www.kure-nct.ac.jp/">呉高専HP</a>
-        <p class="ui white">&copy;2017 ちょっときいて呉高専</p>
-      </div>
+<footer>
+  <div class="ui black center aligned segment">
+    <div class="ui text container">
+      <a class="ui white" href="https://www.kure-nct.ac.jp/">呉高専HP</a>
+      <p class="ui white">&copy;2017 ちょっときいて呉高専</p>
     </div>
-  </footer>
+  </div>
+</footer>
 </template>
 
 <style scoped>
