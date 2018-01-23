@@ -21,12 +21,18 @@ import RadioPreview from '../components/radio-preview.vue'
 import PersonalityCard from '../components/personality-card.vue'
 import PersonalitySmall from '../components/personality-small.vue'
 import PersonalityFilter from '../components/personality-filter.vue'
+import HowToPodcast from '../components/how-to-use-podcast.vue'
+import HowToPodcastLink from '../components/how-to-podcast-link.vue'
+import HowToPodcastModal from '../components/how-to-podcast-modal.vue'
 Vue.component('app-header', Header)
 Vue.component('app-footer', Footer)
 Vue.component('radio-preview', RadioPreview)
 Vue.component('personality-card', PersonalityCard)
 Vue.component('personality-small', PersonalitySmall)
 Vue.component('personality-filter', PersonalityFilter)
+Vue.component('how-to-use-podcast', HowToPodcast)
+Vue.component('how-to-podcast-link', HowToPodcastLink)
+Vue.component('how-to-podcast-modal', HowToPodcastModal)
 
 // Page
 import Contact from '../pages/contact.vue'
