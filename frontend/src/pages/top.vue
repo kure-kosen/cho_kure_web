@@ -23,8 +23,8 @@
           </radio-preview>
         </div>
       </transition-group>
-      <how-to-podcast-link></how-to-podcast-link>
     </div>
+    <how-to-podcast-link></how-to-podcast-link>
   </div>
 </template>
 

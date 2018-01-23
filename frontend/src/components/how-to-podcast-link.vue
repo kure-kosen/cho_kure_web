@@ -1,23 +1,34 @@
 <template>
-<div class="how-to-podcast">
-  <div class="how-to-podcast-link">
-    <p>Podcastで聞いてみる？</p>
+<transition name="fade">
+  <div v-if="show" class="how-to-podcast">
+    <div class="how-to-podcast-link">
+      <p>Podcastで聞いてみる？</p>
+    </div>
+    <a @click="show = false" class="delete-link">
+      <p>×</p>
+    </a>
   </div>
-  <div class="delete-link">
-    <p>×</p>
-  </div>
-</div>
+</transition>
 </template>
 
 <script>
 module.exports = {
+  data: function () {
+    return {
+      show: true
+    }
+  },
   props: {},
 }
 </script>
 
 <style scoped>
 .how-to-podcast {
-  color: #DCEEF7;
+  position: fixed;
+  bottom: 5%;
+  left:calc(50% - 270px/2);
+  z-index: 10;
+  color: #e4f5ff;
   width: 270px;
   margin: 0 auto;
   font-size: 18px;
@@ -27,8 +38,9 @@ module.exports = {
   width: 235px;
   height: 40px;
   background-color: #40AEC7;
-  border: solid 1px #C0E4F5;
+  border-right: solid 1px #C0E4F5;
   border-radius: 20px 0 0 20px;
+  padding-left: 10px;
   text-align: center;
   display: table-cell;
   vertical-align: middle;
@@ -38,10 +50,17 @@ module.exports = {
   width: 35px;
   height: 40px;
   background-color: #40AEC7;
-  border: solid 1px #C0E4F5;
   border-radius: 0 20px 20px 0;
+  padding-right: 5px;
   text-align: center;
   display: table-cell;
   vertical-align: middle;
+}
+
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .7s;
+}
+.fade-enter, .fade-leave-to {
+  opacity: 0;
 }
 </style>
