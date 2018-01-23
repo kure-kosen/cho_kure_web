@@ -2,7 +2,7 @@
 <div>
   <transition name="fade">
     <div v-if="visible" class="how-to-podcast">
-      <a @click="showModal = true" class="how-to-podcast-link">
+      <a @click="openModal()" class="how-to-podcast-link">
         <p>Podcastで聞いてみる？</p>
       </a>
       <a @click="visible = false" class="delete-link">
@@ -10,7 +10,7 @@
       </a>
     </div>
   </transition>
-  <how-to-podcast-modal v-if="showModal" @close="showModal = false">
+  <how-to-podcast-modal v-if="showModal" @close="closeModal()">
   </how-to-podcast-modal>
 </div>
 </template>
@@ -23,6 +23,17 @@ module.exports = {
       showModal: false,
     }
   },
+
+  methods: {
+    openModal: function() {
+      this.showModal = true
+      $('body').css('overflow', 'hidden')
+    },
+    closeModal: function() {
+      this.showModal = false
+      $('body').css('overflow', 'auto')
+    }
+  }
 }
 </script>
 
