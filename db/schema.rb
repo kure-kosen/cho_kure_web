@@ -103,6 +103,7 @@ ActiveRecord::Schema.define(version: 20180116035535) do
     t.integer "duration", null: false
     t.integer "size", null: false
     t.string "image"
+    t.string "digest_mp3"
     t.index ["published_at"], name: "index_radios_on_published_at"
   end
 

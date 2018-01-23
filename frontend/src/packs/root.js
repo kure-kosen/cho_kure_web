@@ -34,6 +34,7 @@ Vue.component('share-buttons', ShareButtons)
 import Contact from '../pages/contact.vue'
 import Top from '../pages/top.vue'
 import About from '../pages/about.vue'
+import Policy from '../pages/policy.vue'
 import Personalities from '../pages/personalities.vue'
 import Personality from '../pages/personality.vue'
 import Radio from '../pages/radio.vue'
@@ -45,6 +46,7 @@ const router = new VueRouter({
   routes: [
     { path: '/', component: Top },
     { path: '/about', component: About },
+    { path: '/policy', component: Policy },
     { path: '/contact', component: Contact },
     { path: '/personalities', component: Personalities },
     { path: '/personalities/:id', name: 'personality', component: Personality },
