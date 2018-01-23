@@ -3,15 +3,18 @@
   <div class="modal-mask">
     <div class="modal-wrapper">
       <div class="modal-container">
+        <div class="modal-close" @click="$emit('close')">
+          <span class="modal-close-large">×</span>
+        </div>
         <div class="modal-body">
           <how-to-use-podcast></how-to-use-podcast>
         </div>
 
         <div class="modal-footer">
-          default footer
-          <button class="modal-default-button" @click="$emit('close')">
-            OK
-          </button>
+          <div class="modal-close" @click="$emit('close')">
+            閉じる
+          </div>
+        </div>
         </div>
       </div>
     </div>
@@ -44,15 +47,14 @@ module.exports = {
 
 .modal-container {
   overflow: auto;
-  width: 300px;
+  width: 90%;
   height: 100%;
-  margin: 0px auto;
-  padding: 20px 30px;
+  margin: 20px auto 0 auto;
+  padding: 10px;
   background-color: #fff;
   border-radius: 2px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, .33);
   transition: all .3s ease;
-  font-family: Helvetica, Arial, sans-serif;
 }
 
 .modal-body {
@@ -63,14 +65,14 @@ module.exports = {
   float: right;
 }
 
-/*
- * The following styles are auto-applied to elements with
- * transition="modal" when their visibility is toggled
- * by Vue.js.
- *
- * You can easily play with the modal transition by editing
- * these styles.
- */
+.modal-close {
+  float: right;
+}
+
+.modal-close-large {
+  font-size: 24px;
+  font-weight: bold;
+}
 
 .modal-enter {
   opacity: 0;
