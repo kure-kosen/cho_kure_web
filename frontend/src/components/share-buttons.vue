@@ -5,16 +5,16 @@ t<template>
      v-bind:href="'http://www.facebook.com/share.php?u='+fullUrl"
      rel="nofollow"
      onclick="window.open(this.href, 'fbwindow', 'width=500, height=500, personalbar=0, toolbar=0, scrollbars=1, sizable=1'); return false;">
-    <img src="../../images/share_buttons/share_fb.png">
+    <i class="big grey facebook icon"></i>
   </a>
   <a class="ui image mini"
      v-bind:href="'https://twitter.com/share?url='+fullUrl+'&via=cho_kure&related=cho_kure&hashtags=ちょっくれ&text='+''"
      rel="nofollow"
      target="_blank"
      onclick="window.open(this.href, 'twwindow', 'width=500, height=500, personalbar=0, toolbar=0, scrollbars=1, sizable=1'); return false;">
-    <img src="../../images/share_buttons/share_tw.png">
+    <i class="big grey twitter icon"></i>
   </a>
-  <a class="ui image mini"
+  <a class="ui image share-size"
      v-bind:href="'http://line.me/R/msg/text/?'+fullUrl"
      rel="nofollow"
      target="_blank"
@@ -35,5 +35,9 @@ module.exports = {
 </script>
 
 <style scoped>
+a.share-size > img {
+    width: auto;
+    height: 22px;
+}
 
 </style>
