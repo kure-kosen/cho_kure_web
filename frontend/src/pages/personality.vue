@@ -24,6 +24,7 @@
               :date="radio.published_at">
             </radio-preview>
           </div>
+          <share-buttons></share-buttons>
         </article>
         <h3 class="ui header">他のメンバー</h3>
         <div class="ui unstackable divided items">

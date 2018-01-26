@@ -21,6 +21,7 @@ import RadioPreview from '../components/radio-preview.vue'
 import PersonalityCard from '../components/personality-card.vue'
 import PersonalitySmall from '../components/personality-small.vue'
 import PersonalityFilter from '../components/personality-filter.vue'
+import ShareButtons from '../components/share-buttons.vue'
 import HowToPodcast from '../components/how-to-use-podcast.vue'
 import HowToPodcastLink from '../components/how-to-podcast-link.vue'
 import HowToPodcastModal from '../components/how-to-podcast-modal.vue'
@@ -30,6 +31,7 @@ Vue.component('radio-preview', RadioPreview)
 Vue.component('personality-card', PersonalityCard)
 Vue.component('personality-small', PersonalitySmall)
 Vue.component('personality-filter', PersonalityFilter)
+Vue.component('share-buttons', ShareButtons)
 Vue.component('how-to-use-podcast', HowToPodcast)
 Vue.component('how-to-podcast-link', HowToPodcastLink)
 Vue.component('how-to-podcast-modal', HowToPodcastModal)
