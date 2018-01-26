@@ -48,7 +48,7 @@ module.exports = {
 
 .modal-wrapper {
   display: table-cell;
-  vertical-align: middle;
+  vertical-align: top;
 }
 
 .modal-container {
@@ -56,9 +56,8 @@ module.exports = {
   width: 90%;
   line-height: 20px;
   height: 80%;
-  margin: 0 auto 0 auto;
+  margin: 20px auto 0 auto;
   padding: 10px;
-  padding-bottom: 80px;
   background-color: #fff;
   border-radius: 2px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, .33);
@@ -69,7 +68,7 @@ module.exports = {
   .modal-container {
     width: 60%;
     padding: 30px;
-    padding-bottom: 150px;
+    padding-bottom: 0;
   }
 }
 
