@@ -1,2 +1,2 @@
-module ContactsHelper
+module Admin::ContactsHelper
 end
