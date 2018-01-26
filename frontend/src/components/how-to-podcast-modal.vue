@@ -53,12 +53,12 @@ module.exports = {
 
 .modal-container {
   overflow: auto;
-  width: 80%;
+  width: 90%;
   line-height: 20px;
-  height: 95%;
+  height: 80%;
   margin: 0 auto 0 auto;
   padding: 10px;
-  padding-bottom: 110px;
+  padding-bottom: 80px;
   background-color: #fff;
   border-radius: 2px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, .33);
@@ -107,7 +107,7 @@ module.exports = {
 .move-podcast {
   position: fixed;
   -webkit-overflow-scrolling: auto;
-  bottom: 5%;
+  bottom: 8%;
   left:calc(50% - 270px/2);
   z-index: 10000;
   background-color: #40AEC7;
