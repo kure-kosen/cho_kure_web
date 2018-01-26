@@ -69,6 +69,7 @@ module.exports = {
   .modal-container {
     width: 60%;
     padding: 30px;
+    padding-bottom: 150px;
   }
 }
 
