@@ -47,5 +47,6 @@ Rails.application.routes.draw do
     resources :events
     resources :radios
     resources :jargons
+    resources :contacts
   end
 end
