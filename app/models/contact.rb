@@ -15,7 +15,7 @@
 
 class Contact < ApplicationRecord
   validates :corner, presence: true
-  validates :message, persence: true
+  validates :message, presence: true
   validates :nickname
   validates :name
   validates :department, presence: true
