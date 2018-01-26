@@ -40,7 +40,7 @@ module.exports = {
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: 120%;
   background-color: rgba(0, 0, 0, .7);
   display: table;
   transition: opacity .3s ease;
@@ -53,11 +53,12 @@ module.exports = {
 
 .modal-container {
   overflow: auto;
-  width: 90%;
+  width: 80%;
   line-height: 20px;
   height: 95%;
   margin: 0 auto 0 auto;
   padding: 10px;
+  padding-bottom: 110px;
   background-color: #fff;
   border-radius: 2px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, .33);
