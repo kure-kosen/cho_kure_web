@@ -104,6 +104,7 @@ module.exports = {
 
 .move-podcast {
   position: fixed;
+  -webkit-overflow-scrolling: auto;
   bottom: 5%;
   left:calc(50% - 270px/2);
   z-index: 10000;
