@@ -5,6 +5,14 @@
     <meta name="apple-mobile-web-app-title" content="ちょっくれ">
     <%= csrf_meta_tags %>
     <meta  name="viewport" content="width=device-width">
+    <meta name="description" content="ちょっくれとは、呉のちょっと気になるコミュニティやイベントについて発信していく、呉高専公認の学生団体であり、ラジオ番組です。">
+    <meta property="og:title" content="ちょっくれ | ちょっときいて呉高専"/>
+    <meta property="og:description" content="ちょっくれとは、呉のちょっと気になるコミュニティやイベントについて発信していく、呉高専公認の学生団体であり、ラジオ番組です。"/>
+    <meta property="og:image" content="<%= asset_url('logo/rectangle.png') %>"/>
+    <meta property="og:url" content="<%= url_for(only_path: false) %>"/>
+    <meta property="og:type" content="website"/>
+    <meta name="twitter:site" content="@cho_kure">
+    <meta name="twitter:card" content="summary">
     <%= render 'shared/favicon'  %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
