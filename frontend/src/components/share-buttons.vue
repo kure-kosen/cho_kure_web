@@ -1,4 +1,4 @@
-t<template>
+<template>
 <div>
   <div class="ui divider"></div>
   <a class="ui image mini"
