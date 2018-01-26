@@ -17,7 +17,6 @@ class Contact < ApplicationRecord
   validates :corner, presence: true
   validates :message, presence: true
   validates :department, presence: true
-  validates :grade
 
   bind_inum :corner, ContactCorners
   bind_inum :department, ContactDepartments
