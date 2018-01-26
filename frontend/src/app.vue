@@ -1,8 +1,8 @@
 <template>
-  <div id="body">
-    <div id="wrapper">
+  <div class="body">
+    <div class="wrapper">
       <app-header></app-header>
-      <main id="main">
+      <main class="main">
       <router-view></router-view>
       </main>
       <app-footer></app-footer>
@@ -13,19 +13,19 @@
 <script></script>
 
 <style>
-#body {
+.body {
   display: flex;
   flex-direction: column;
   -webkit-overflow-scrolling: touch;
 }
 
-#wrapper {
+.wrapper {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
 }
 
-#main {
+.main {
   flex: 1 1 auto;
 }
 </style>
