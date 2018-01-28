@@ -1,0 +1,13 @@
+# Additional translations at https://github.com/plataformatec/devise/wiki/I18n
+
+ja:
+  contact_grades:
+    first_grade: 本科1年
+    second_grade: 本科2年
+    third_grade: 本科3年
+    fourth_grade: 本科4年
+    fifth_grade: 本科5年
+    junior: 専攻科1年
+    senior: 専攻科2年
+    obog: OBOG
+    other: その他

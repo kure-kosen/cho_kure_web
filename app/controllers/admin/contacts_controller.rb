@@ -1,14 +1,13 @@
-class ContactsController < ApplicationController
+class Admin::ContactsController < Admin::BaseController
   before_action :set_contact, only: [:show, :edit, :update, :destroy]
+  before_action :check_authorize
 
   # GET /contacts
-  # GET /contacts.json
   def index
     @contacts = Contact.all
   end
 
   # GET /contacts/1
-  # GET /contacts/1.json
   def show
   end
 
@@ -22,43 +21,29 @@ class ContactsController < ApplicationController
   end
 
   # POST /contacts
-  # POST /contacts.json
   def create
     @contact = Contact.new(contact_params)
 
-    respond_to do |format|
-      if @contact.save
-        format.html { redirect_to @contact, notice: "Contact was successfully created." }
-        format.json { render :show, status: :created, location: @contact }
-      else
-        format.html { render :new }
-        format.json { render json: @contact.errors, status: :unprocessable_entity }
-      end
+    if @contact.save
+      redirect_to admin_contacts_url(@contact), notice: "投稿を作成しました。"
+    else
+      render :new
     end
   end
 
   # PATCH/PUT /contacts/1
-  # PATCH/PUT /contacts/1.json
   def update
-    respond_to do |format|
-      if @contact.update(contact_params)
-        format.html { redirect_to @contact, notice: "Contact was successfully updated." }
-        format.json { render :show, status: :ok, location: @contact }
-      else
-        format.html { render :edit }
-        format.json { render json: @contact.errors, status: :unprocessable_entity }
-      end
+    if @contact.update(contact_params)
+      redirect_to admin_contact_path(@contact), notice: "投稿を更新しました。"
+    else
+      render :edit
     end
   end
 
   # DELETE /contacts/1
-  # DELETE /contacts/1.json
   def destroy
     @contact.destroy!
-    respond_to do |format|
-      format.html { redirect_to contacts_url, notice: "Contact was successfully destroyed." }
-      format.json { head :no_content }
-    end
+    redirect_to admin_contacts_url, notice: "投稿を削除しました。"
   end
 
   private
@@ -71,5 +56,10 @@ class ContactsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def contact_params
       params.require(:contact).permit(:corner, :message, :nickname, :name, :department, :grade)
+    end
+
+    def check_authorize
+      return authorize [:admin, @contact] if @contact.present?
+      authorize [:admin, :contact]
     end
 end

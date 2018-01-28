@@ -1,34 +1,31 @@
-<p id="notice"><%= notice %></p>
+<dl class="dl-horizontal">
+  <dt><strong><%= Contact.human_attribute_name('corner') %> :</strong></dt>
+  <dd><%= @contact.corner.t %></dd>
+</dl>
 
-<p>
-  <strong>Corner:</strong>
-  <%= @contact.corner %>
-</p>
+<dl class="dl-horizontal">
+  <dt><strong><%= Contact.human_attribute_name('message') %> :</strong></dt>
+  <dd><%= @contact.message %></dd>
+</dl>
 
-<p>
-  <strong>Message:</strong>
-  <%= @contact.message %>
-</p>
+<dl class="dl-horizontal">
+  <dt><strong><%= Contact.human_attribute_name('nickname') %> :</strong></dt>
+  <dd><%= @contact.nickname %></dd>
+</dl>
 
-<p>
-  <strong>Nickname:</strong>
-  <%= @contact.nickname %>
-</p>
+<dl class="dl-horizontal">
+  <dt><strong><%= Contact.human_attribute_name('name') %> :</strong></dt>
+  <dd><%= @contact.name %></dd>
+</dl>
 
-<p>
-  <strong>Name:</strong>
-  <%= @contact.name %>
-</p>
+<dl class="dl-horizontal">
+  <dt><strong><%= Contact.human_attribute_name('department') %> :</strong></dt>
+  <dd><%= @contact.department.t %></dd>
+</dl>
 
-<p>
-  <strong>Department:</strong>
-  <%= @contact.department %>
-</p>
+<dl class="dl-horizontal">
+  <dt><strong><%= Contact.human_attribute_name('grade') %> :</strong></dt>
+  <dd><%= @contact.grade.t %></dd>
+</dl>
 
-<p>
-  <strong>Grade:</strong>
-  <%= @contact.grade %>
-</p>
-
-<%= link_to 'Edit', edit_contact_path(@contact) %> |
-<%= link_to 'Back', contacts_path %>
+<%= Admin::ContactViewObject.link_to_edit(current_personality, @contact) %>

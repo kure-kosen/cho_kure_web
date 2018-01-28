@@ -1,47 +1,49 @@
-<%= form_with(model: contact, local: true) do |form| %>
-  <% if contact.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(contact.errors.count, "error") %> prohibited this contact from being saved:</h2>
+<%= form_with(model: [:admin, contact], local: true) do |form| %>
+  <%= render 'admin/shared/errors', object: contact %>
 
-      <ul>
-      <% contact.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+  <div class="form-group row">
+    <%= form.label :corner, class: 'col-2 col-form-label' %>
+    <div class="col-10">
+      <%= form.select :corner, ContactCorners.labels, class: 'form-control' %>
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= form.label :corner %>
-    <%= form.number_field :corner, id: :contact_corner %>
   </div>
 
-  <div class="field">
-    <%= form.label :message %>
-    <%= form.text_field :message, id: :contact_message %>
+  <div class="form-group row">
+    <%= form.label :message, class: 'col-2 col-form-label' %>
+    <div class="col-10">
+      <%= form.text_area :message, class: 'form-control' %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :nickname %>
-    <%= form.text_field :nickname, id: :contact_nickname %>
+  <div class="form-group row">
+    <%= form.label :nickname, class: 'col-2 col-form-label' %>
+    <div class="col-10">
+      <%= form.text_field :nickname, class: 'form-control' %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name, id: :contact_name %>
+  <div class="form-group row">
+    <%= form.label :name, class: 'col-2 col-form-label' %>
+    <div class="col-10">
+      <%= form.text_field :name, class: 'form-control' %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :department %>
-    <%= form.number_field :department, id: :contact_department %>
+  <div class="form-group row">
+    <%= form.label :department, class: 'col-2 col-form-label' %>
+    <div class="col-10">
+      <%= form.select :department, ContactDepartments.labels, class: 'form-control' %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :grade %>
-    <%= form.number_field :grade, id: :contact_grade %>
+  <div class="form-group row">
+    <%= form.label :grade, class: 'col-2 col-form-label' %>
+    <div class="col-10">
+      <%= form.select :grade, ContactGrades.labels, class: 'form-control' %>
+    </div>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class: 'btn btn-primary' %>
   </div>
 <% end %>

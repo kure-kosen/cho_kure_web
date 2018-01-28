@@ -1,0 +1,7 @@
+# Additional translations at https://github.com/plataformatec/devise/wiki/I18n
+
+ja:
+  contact_corners:
+    normal: 普通のお便り
+    feedback: ラジオへの感想・意見
+    casting: ラジオ出演
