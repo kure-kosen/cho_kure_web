@@ -1,11 +1,11 @@
 class ContactGrades < Inum::Base
-  define :first_grade, 10
-  define :second_grade, 20
-  define :third_grade, 30
-  define :fourth_grade, 40
-  define :fifth_grade, 50
-  define :junior, 60
-  define :senior, 70
+  define :FIRST_GRADE, 10
+  define :SECOND_GRADE, 20
+  define :THIRD_GRADE, 30
+  define :FOURTH_GRADE, 40
+  define :FIFTH_GRADE, 50
+  define :JUNIOR, 60
+  define :SENIOR, 70
   define :OBOG, 80
-  define :other, 90
+  define :OTHER, 90
 end

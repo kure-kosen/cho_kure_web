@@ -3,9 +3,9 @@ class ContactDepartments < Inum::Base
   define :E, 20
   define :C, 30
   define :A, 40
-  define :advanced, 50
-  define :graduate, 60
-  define :parent, 70
-  define :teacher, 80
-  define :other, 90
+  define :ADVANCED, 50
+  define :GRADUATE, 60
+  define :PARENT, 70
+  define :TEACHER, 80
+  define :OTHER, 90
 end

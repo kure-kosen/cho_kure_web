@@ -1,5 +1,5 @@
 class ContactCorners < Inum::Base
-  define :normal, 0
-  define :feedback, 10
-  define :casting, 20
+  define :NORMAL, 0
+  define :FEEDBACK, 10
+  define :CASTING, 20
 end
