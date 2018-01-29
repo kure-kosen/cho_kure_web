@@ -1,14 +1,11 @@
 <template>
-  <div class="pusher">  
-    <div class="ui container main">
+  <div class="pusher">
+    <div class="ui text container main">
       <h2 class="ui header">お問い合わせ</h2>
-      <p><a href="https://docs.google.com/forms/d/e/1FAIpQLSeXszkj92kuwFYVY2lebh4lq5ZrnbhwUj_c3jY2WTPt1O_yqg/viewform?embedded=true">フォーム</a>よりご投稿ください。</p>
-      <!-- 
-        <div class="ui embed">
-        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeXszkj92kuwFYVY2lebh4lq5ZrnbhwUj_c3jY2WTPt1O_yqg/viewform?embedded=true" width="760" height="1000" frameborder="0" marginheight="0" marginwidth="0">読み込んでいます...</iframe>
-        </div>
-        -->
+      <contact-form></contact-form>
+      <share-buttons></share-buttons>
     </div>
+    <how-to-podcast-link></how-to-podcast-link>
   </div>
 </template>
 
