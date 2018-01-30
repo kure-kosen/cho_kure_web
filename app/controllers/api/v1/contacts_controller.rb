@@ -1,6 +1,4 @@
 class Api::V1::ContactsController < Api::V1::BaseController
-
-
   def index
     render json: Contact.order(created_at: :desc)
   end
@@ -25,15 +23,7 @@ class Api::V1::ContactsController < Api::V1::BaseController
         :nickname,
         :name,
         :department,
-        :grade ,
+        :grade,
       )
-    end
-
-    def check_api_key
-      if request.headers['api-key'] == "test_key"
-        return true
-      else
-        render json: {message: "api-key error"}.to_json, status:400
-      end
     end
 end
