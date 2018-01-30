@@ -1,6 +1,6 @@
 <template>
-<form class="ui form" @submit="postContact">
-  <div class="grouped fields">
+<form class="ui form" @submit.prevent="postContact">
+  <div class="grouped required fields">
     <label for="corner">コーナー名</label>
     <div class="field">
       <div class="ui radio checkbox">
@@ -21,7 +21,7 @@
       </div>
     </div>
   </div>
-  <div class="field">
+  <div class="required field">
     <label>メッセージ</label>
     <textarea placeholder="メッセージ" name="message" v-model="newContact.message"></textarea>
   </div>
@@ -33,9 +33,9 @@
     <label>お名前</label>
     <input type="text" name="name" placeholder="(例) 高専太郎" v-model="newContact.name">
   </div>
-  <div class="field">
+  <div class="required field">
     <label>所属</label>
-    <select class="ui selection dropdown" v-model="newContact.department">
+    <select class="ui selection dropdown" name="department" v-model="newContact.department">
       <option value="">所属</option>
       <option v-bind:value="10">M</option>
       <option v-bind:value="20">E</option>
@@ -50,7 +50,7 @@
   </div>
   <div class="field">
     <label>学年</label>
-    <select class="ui selection dropdown" v-model="newContact.grade">
+    <select class="ui selection dropdown" name="grade" v-model="newContact.grade">
       <option value="">学年</option>
       <option v-bind:value="10">本科1年</option>
       <option v-bind:value="20">本科2年</option>
@@ -63,7 +63,46 @@
       <option v-bind:value="90">その他</option>
     </select>
   </div>
-  <button class="ui button" type="submit">送信</button>
+  <div v-if="validState === 'uncheck'">
+  </div>
+  <div v-else-if="validState === 'ckecking'">
+    <div class="ui icon message">
+      <i class="notched circle loading icon"></i>
+      <div class="content">
+        <div class="header">
+          検証中
+        </div>
+        <p>入力が正しいか検証しています。</p>
+      </div>
+    </div>
+  </div>
+  <div v-else-if="validState === 'error'">
+    <div class="ui icon error message">
+      <i class="remove icon"></i>
+      <div class="content">
+        <div class="header">
+          送信失敗
+        </div>
+        <p>入力に不備があります。</p>
+      </div>
+    </div>
+  </div>
+  <div v-else-if="validState === 'success'">
+    <div class="ui icon success message">
+      <i class="checkmark icon"></i>
+      <div class="content">
+        <div class="header">
+          送信成功
+        </div>
+        <p>お問合わせ・投稿ありがとうございます！</p>
+      </div>
+    </div>
+  </div>
+  <div v-else>
+    Not A/B/C
+  </div>
+  <button v-bind:class="{ ui: true, submit: true, button: true, disabled: validState === 'success' }" type="submit">Submit</button>
+  <div class="ui error message"></div>
 </form>
 </template>
 
@@ -79,40 +118,80 @@ module.exports = {
                 department: '',
                 grade: '',
             },
-            validation: {
-                corner: false,
-                message: false,
-                nickname: false,
-                name: false,
-                department: false,
-                grade: false,
-            }
+            validState: 'uncheck',
         }
     },
     mounted: function() {
         $('.ui.radio.checkbox').checkbox();
         $('.ui.selection.dropdown').dropdown();
+        $('.ui.form')
+            .form({
+                on: 'blur',
+                inline: true,
+                fields: {
+                    corner: {
+                        identifier: 'corner',
+                        rules: [
+                            {
+                                type: 'number',
+                                prompt: 'コーナーを選択してください。'
+                            }
+                        ]
+                    },
+                    message: {
+                        identifier: 'message',
+                        rules: [
+                            {
+                                type: 'empty',
+                                prompt: 'メッセージを入力してください。'
+                            }
+                        ]
+                    },
+                    department: {
+                        identifier: 'department',
+                        rules: [
+                            {
+                                type: 'empty',
+                                prompt: '所属を入力してください。'
+                            },
+                            {
+                                type: 'number',
+                                prompt: '所属を入力してください。'
+                            }
+                        ]
+                    }
+                }
+            })
+        ;
     },
     methods: {
         postContact: function() {
-            this.axios.defaults.headers['X-CSRF-TOKEN'] = $('meta[name=csrf-token]').attr('content')
-            this.axios.post(
-                '/api/v1/contacts',
-                {
-                    'corner': this.newContact.corner,
-                    'message': this.newContact.message,
-                    'nickname': this.newContact.nickname,
-                    'name': this.newContact.name,
-                    'department': this.newContact.department,
-                    'grade': this.newContact.grade,
-                },
-            )
-                .then(function (response) {
-                    console.log(this.newContact)
+            this.validState = 'ckecking'
+            if ($('.ui.form').form('is valid')){
+                this.axios.defaults.headers['X-CSRF-TOKEN'] = $('meta[name=csrf-token]').attr('content')
+                this.axios.post(
+                    '/api/v1/contacts',
+                    {
+                        'corner': this.newContact.corner,
+                        'message': this.newContact.message,
+                        'nickname': this.newContact.nickname,
+                        'name': this.newContact.name,
+                        'department': this.newContact.department,
+                        'grade': this.newContact.grade,
+                    },
+                )
+                    .then(function (response) {
+                    })
+                    .catch(function (error) {
+                        this.validState = 'error'
+                        console.log(error)
                 })
-                .catch(function (error) {
-                    console.log(error)
-                })
+                this.validState = 'success'
+            }
+            else {
+                this.validState = 'error'
+            }
+            console.log(this.validState)
         },
     },
 }
@@ -126,5 +205,9 @@ h2.ui.header {
 .main {
   padding-top: 80px;
   padding-bottom: 40px;
+}
+
+.message {
+  margin-bottom: 14px !important;
 }
 </style>
