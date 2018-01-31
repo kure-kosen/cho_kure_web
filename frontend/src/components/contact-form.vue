@@ -109,7 +109,7 @@
       </div>
     </div>
   </div>
-  <button v-bind:class="{ ui: true, submit: true, button: true, disabled: validState === 'success' }" type="submit">Submit</button>
+  <button v-bind:class="{ ui: true, submit: true, button: true, disabled: validState === 'success' }" type="submit">送信</button>
 </form>
 </template>
 
