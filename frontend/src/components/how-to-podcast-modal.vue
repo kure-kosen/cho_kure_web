@@ -72,6 +72,16 @@ module.exports = {
   }
 }
 
+@media only screen and (device-width : 375px) and (device-height : 812px) and (-webkit-device-pixel-ratio : 3) {
+  .modal-mask {
+    height: 140%;
+  }
+
+  .modal-container {
+    height: 68%;
+  }
+}
+
 .modal-body {
   margin: 20px 0;
 }
