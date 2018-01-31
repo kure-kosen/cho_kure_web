@@ -3,11 +3,11 @@
 # Table name: contacts
 #
 #  id         :integer          not null, primary key
-#  corner     :integer
-#  message    :string(255)
+#  corner     :integer          not null
+#  message    :string(255)      not null
 #  nickname   :string(255)
 #  name       :string(255)
-#  department :integer
+#  department :integer          not null
 #  grade      :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
