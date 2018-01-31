@@ -5,7 +5,6 @@
       <contact-form></contact-form>
       <share-buttons></share-buttons>
     </div>
-    <how-to-podcast-link></how-to-podcast-link>
   </div>
 </template>
 
