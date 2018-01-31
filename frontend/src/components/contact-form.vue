@@ -99,10 +99,17 @@
     </div>
   </div>
   <div v-else>
-    Not A/B/C
+    <div class="ui icon error message">
+      <i class="question icon"></i>
+      <div class="content">
+        <div class="header">
+          予期しないエラー
+        </div>
+        <p>申し訳ございません。予期しないエラーが発生しました。お手数ですが最初からやり直してください。</p>
+      </div>
+    </div>
   </div>
   <button v-bind:class="{ ui: true, submit: true, button: true, disabled: validState === 'success' }" type="submit">Submit</button>
-  <div class="ui error message"></div>
 </form>
 </template>
 
