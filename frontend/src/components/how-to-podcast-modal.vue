@@ -1,7 +1,7 @@
 <template>
 <transition name="modal">
   <div class="modal-mask">
-    <div class="modal-wrapper">
+    <div class="modal-wrapper" @click.self="$emit('close')">
       <div class="modal-container">
         <div class="modal-close" @click="$emit('close')">
           <span class="modal-close-large">×</span>
@@ -40,7 +40,7 @@ module.exports = {
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: 120%;
   background-color: rgba(0, 0, 0, .7);
   display: table;
   transition: opacity .3s ease;
@@ -48,15 +48,15 @@ module.exports = {
 
 .modal-wrapper {
   display: table-cell;
-  vertical-align: middle;
+  vertical-align: top;
 }
 
 .modal-container {
   overflow: auto;
   width: 90%;
   line-height: 20px;
-  height: 95%;
-  margin: 0 auto 0 auto;
+  height: 80%;
+  margin: 20px auto 0 auto;
   padding: 10px;
   background-color: #fff;
   border-radius: 2px;
@@ -68,6 +68,17 @@ module.exports = {
   .modal-container {
     width: 60%;
     padding: 30px;
+    padding-bottom: 0;
+  }
+}
+
+@media only screen and (device-width : 375px) and (device-height : 812px) and (-webkit-device-pixel-ratio : 3) {
+  .modal-mask {
+    height: 140%;
+  }
+
+  .modal-container {
+    height: 68%;
   }
 }
 
@@ -104,7 +115,8 @@ module.exports = {
 
 .move-podcast {
   position: fixed;
-  bottom: 5%;
+  -webkit-overflow-scrolling: auto;
+  bottom: 8%;
   left:calc(50% - 270px/2);
   z-index: 10000;
   background-color: #40AEC7;
