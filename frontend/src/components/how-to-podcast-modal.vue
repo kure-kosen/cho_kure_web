@@ -15,7 +15,7 @@
             閉じる
           </div>
         </div>
-        <a href="https://itunes.apple.com/jp/podcast/%E3%81%A1%E3%82%87%E3%81%A3%E3%81%A8%E3%81%8D%E3%81%84%E3%81%A6%E5%91%89%E9%AB%98%E5%B0%82-%E5%91%89%E9%AB%98%E5%B0%82%E3%81%AE%E4%BB%8A%E3%82%92%E3%81%8A%E4%BC%9D%E3%81%88%E3%81%97%E3%81%BE%E3%81%99/id1293031618?mt=2" onClick="ga('sent', 'event', 'cv', 'click', location.href, 0, {‘nonInteraction’:1});">
+        <a href="https://itunes.apple.com/jp/podcast/%E3%81%A1%E3%82%87%E3%81%A3%E3%81%A8%E3%81%8D%E3%81%84%E3%81%A6%E5%91%89%E9%AB%98%E5%B0%82-%E5%91%89%E9%AB%98%E5%B0%82%E3%81%AE%E4%BB%8A%E3%82%92%E3%81%8A%E4%BC%9D%E3%81%88%E3%81%97%E3%81%BE%E3%81%99/id1293031618?mt=2" onclick="ga('sent', 'event', 'podcastlink', 'click', location.href, 0, {'nonInteraction':1});">
           <div class="move-podcast">
             <p class="move-podcast-text">
               Podcastを起動する
