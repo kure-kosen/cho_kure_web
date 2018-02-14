@@ -13,6 +13,7 @@
       <th><%= Contact.human_attribute_name('corner') %></th>
       <th><%= Contact.human_attribute_name('nickname') %></th>
       <th><%= Contact.human_attribute_name('message') %></th>
+      <th><%= Contact.human_attribute_name('readable') %></th>
       <th></th>
     </tr>
   </thead>
@@ -23,6 +24,7 @@
         <td><%= contact.corner.t %></td>
         <td><%= contact.nickname %></td>
         <td><%= truncate(contact.message) if contact.message %></td>
+        <td><%= contact.readable ? 'OK' : 'NG' %></td>
         <td>
           <%= Admin::ContactViewObject.link_to_show(current_personality, contact) %>
           <%= Admin::ContactViewObject.link_to_edit(current_personality, contact) %>

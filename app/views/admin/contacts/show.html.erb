@@ -28,4 +28,9 @@
   <dd><%= @contact.grade.t %></dd>
 </dl>
 
+<dl class="dl-horizontal">
+  <dt><strong><%= Contact.human_attribute_name('readable') %> :</strong></dt>
+  <dd><%= @contact.readable ? 'OK' : 'NG' %></dd>
+</dl>
+
 <%= Admin::ContactViewObject.link_to_edit(current_personality, @contact) %>

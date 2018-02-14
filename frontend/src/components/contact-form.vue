@@ -63,6 +63,13 @@
       <option v-bind:value="90">その他</option>
     </select>
   </div>
+  <div class="field">
+    <label>ラジオでの読上げについて</label>
+    <div class="ui checkbox">
+      <input type="checkbox" name="readable" v-model="newContact.readable">
+      <label>ラジオ内でメッセージを読上げてもよい場合はチェックを付けてください。</label>
+    </div>
+  </div>
   <div v-if="validState === 'uncheck'">
   </div>
   <div v-else-if="validState === 'ckecking'">
@@ -124,6 +131,7 @@ module.exports = {
                 name: '',
                 department: '',
                 grade: '',
+                readable: false,
             },
             validState: 'uncheck',
         }
@@ -131,6 +139,7 @@ module.exports = {
     mounted: function() {
         $('.ui.radio.checkbox').checkbox();
         $('.ui.selection.dropdown').dropdown();
+        $('.ui.checkbox').checkbox();
         $('.ui.form')
             .form({
                 on: 'blur',
@@ -185,6 +194,7 @@ module.exports = {
                         'name': this.newContact.name,
                         'department': this.newContact.department,
                         'grade': this.newContact.grade,
+                        'readable': this.newContact.readable,
                     },
                 )
                     .then(function (response) {
