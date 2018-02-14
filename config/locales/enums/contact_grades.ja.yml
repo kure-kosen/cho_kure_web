@@ -2,12 +2,10 @@
 
 ja:
   contact_grades:
-    first_grade: 1年
-    second_grade: 2年
-    third_grade: 3年
-    fourth_grade: 4年
-    fifth_grade: 5年
-    junior: 専攻科1年
-    senior: 専攻科2年
+    first: 1年
+    second: 2年
+    third: 3年
+    fourth: 4年
+    fifth: 5年
     obog: OBOG
     other: その他

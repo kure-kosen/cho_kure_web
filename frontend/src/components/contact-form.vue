@@ -4,19 +4,19 @@
     <label for="corner">コーナー名</label>
     <div class="field">
       <div class="ui radio checkbox">
-        <input type="radio" name="corner" v-bind:value="0" v-model="newContact.corner" checked="checked" tabindex="0" class="hidden">
+        <input type="radio" name="corner" v-bind:value="0" v-model="newContact.corner" checked="checked" class="hidden">
         <label>普通のお便り</label>
       </div>
     </div>
     <div class="field">
       <div class="ui radio checkbox">
-        <input type="radio" name="corner" v-bind:value="10" v-model="newContact.corner" tabindex="0" class="hidden">
+        <input type="radio" name="corner" v-bind:value="10" v-model="newContact.corner" class="hidden">
         <label>ラジオへの感想・意見</label>
       </div>
     </div>
     <div class="field">
       <div class="ui radio checkbox">
-        <input type="radio" name="corner" v-bind:value="20" v-model="newContact.corner" tabindex="0" class="hidden">
+        <input type="radio" name="corner" v-bind:value="20" v-model="newContact.corner" class="hidden">
         <label>ラジオ出演</label>
       </div>
     </div>
@@ -57,10 +57,8 @@
       <option v-bind:value="30">本科3年</option>
       <option v-bind:value="40">本科4年</option>
       <option v-bind:value="50">本科5年</option>
-      <option v-bind:value="60">専攻科1年</option>
-      <option v-bind:value="70">専攻科2年</option>
-      <option v-bind:value="80">OB, OG</option>
-      <option v-bind:value="90">その他</option>
+      <option v-bind:value="60">OB, OG</option>
+      <option v-bind:value="70">その他</option>
     </select>
   </div>
   <div class="field">
