@@ -1,8 +1,8 @@
 class CreateContacts < ActiveRecord::Migration[5.1]
   def change
     create_table :contacts do |t|
-      t.integer :corner, null: false
       t.boolean :readable, null: false, dafault: false
+      t.integer :corner, null: false, default: 0
       t.string :message, null: false
       t.string :nickname
       t.string :name

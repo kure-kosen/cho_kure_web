@@ -31,8 +31,8 @@ ActiveRecord::Schema.define(version: 20180126145434) do
   end
 
   create_table "contacts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer "corner", null: false
     t.boolean "readable", null: false
+    t.integer "corner", default: 0, null: false
     t.string "message", null: false
     t.string "nickname"
     t.string "name"

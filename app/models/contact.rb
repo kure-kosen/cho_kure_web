@@ -3,8 +3,8 @@
 # Table name: contacts
 #
 #  id         :integer          not null, primary key
-#  corner     :integer          not null
 #  readable   :boolean          not null
+#  corner     :integer          default(0), not null
 #  message    :string(255)      not null
 #  nickname   :string(255)
 #  name       :string(255)
