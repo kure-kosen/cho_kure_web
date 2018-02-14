@@ -4,38 +4,38 @@
     <label for="corner">コーナー名</label>
     <div class="field">
       <div class="ui radio checkbox">
-        <input type="radio" name="corner" v-bind:value="0" v-model="newContact.corner" checked="checked" class="hidden">
+        <input type="radio" name="corner" v-bind:value="0" v-model="contact.corner" checked="checked" class="hidden">
         <label>普通のお便り</label>
       </div>
     </div>
     <div class="field">
       <div class="ui radio checkbox">
-        <input type="radio" name="corner" v-bind:value="10" v-model="newContact.corner" class="hidden">
+        <input type="radio" name="corner" v-bind:value="10" v-model="contact.corner" class="hidden">
         <label>ラジオへの感想・意見</label>
       </div>
     </div>
     <div class="field">
       <div class="ui radio checkbox">
-        <input type="radio" name="corner" v-bind:value="20" v-model="newContact.corner" class="hidden">
+        <input type="radio" name="corner" v-bind:value="20" v-model="contact.corner" class="hidden">
         <label>ラジオ出演</label>
       </div>
     </div>
   </div>
   <div class="required field">
     <label>メッセージ</label>
-    <textarea placeholder="メッセージ" name="message" v-model="newContact.message"></textarea>
+    <textarea placeholder="メッセージ" name="message" v-model="contact.message"></textarea>
   </div>
   <div class="field">
     <label>ラジオネーム</label>
-    <input type="text" name="nickname" placeholder="(例) ちょっくれくん" v-model="newContact.nickname">
+    <input type="text" name="nickname" placeholder="(例) ちょっくれくん" v-model="contact.nickname">
   </div>
   <div class="field">
     <label>お名前</label>
-    <input type="text" name="name" placeholder="(例) 高専太郎" v-model="newContact.name">
+    <input type="text" name="name" placeholder="(例) 高専太郎" v-model="contact.name">
   </div>
   <div class="required field">
     <label>所属</label>
-    <select class="ui selection dropdown" name="department" v-model="newContact.department">
+    <select class="ui selection dropdown" name="department" v-model="contact.department">
       <option value="">所属</option>
       <option v-bind:value="10">M</option>
       <option v-bind:value="20">E</option>
@@ -50,7 +50,7 @@
   </div>
   <div class="field">
     <label>学年</label>
-    <select class="ui selection dropdown" name="grade" v-model="newContact.grade">
+    <select class="ui selection dropdown" name="grade" v-model="contact.grade">
       <option value="">学年</option>
       <option v-bind:value="10">本科1年</option>
       <option v-bind:value="20">本科2年</option>
@@ -64,7 +64,7 @@
   <div class="field">
     <label>ラジオでの読上げについて</label>
     <div class="ui checkbox">
-      <input type="checkbox" name="readable" v-model="newContact.readable">
+      <input type="checkbox" name="readable" v-model="contact.readable">
       <label>ラジオ内でメッセージを読上げてもよい場合はチェックを付けてください。</label>
     </div>
   </div>
@@ -122,7 +122,7 @@
 module.exports = {
     data: function() {
         return {
-            newContact: {
+            contact: {
                 corner: 0,
                 message: '',
                 nickname: '',
@@ -186,13 +186,13 @@ module.exports = {
                 this.axios.post(
                     '/api/v1/contacts',
                     {
-                        'corner': this.newContact.corner,
-                        'message': this.newContact.message,
-                        'nickname': this.newContact.nickname,
-                        'name': this.newContact.name,
-                        'department': this.newContact.department,
-                        'grade': this.newContact.grade,
-                        'readable': this.newContact.readable,
+                        'corner': this.contact.corner,
+                        'message': this.contact.message,
+                        'nickname': this.contact.nickname,
+                        'name': this.contact.name,
+                        'department': this.contact.department,
+                        'grade': this.contact.grade,
+                        'readable': this.contact.readable,
                     },
                 )
                     .then(function (response) {
