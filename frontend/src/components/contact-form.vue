@@ -1,25 +1,13 @@
 <template>
 <form class="ui form" @submit.prevent="postContact">
-  <div class="grouped required fields">
-    <label for="corner">コーナー名</label>
-    <div class="field">
-      <div class="ui radio checkbox">
-        <input type="radio" name="corner" v-bind:value="0" v-model="contact.corner" checked="checked" class="hidden">
-        <label>普通のお便り</label>
-      </div>
-    </div>
-    <div class="field">
-      <div class="ui radio checkbox">
-        <input type="radio" name="corner" v-bind:value="10" v-model="contact.corner" class="hidden">
-        <label>ラジオへの感想・意見</label>
-      </div>
-    </div>
-    <div class="field">
-      <div class="ui radio checkbox">
-        <input type="radio" name="corner" v-bind:value="20" v-model="contact.corner" class="hidden">
-        <label>ラジオ出演</label>
-      </div>
-    </div>
+  <div class="required field">
+    <label>コーナー名</label>
+    <select class="ui selection dropdown" name="corner" v-model="contact.corner">
+      <option value="">コーナー名</option>
+      <option v-bind:value="enum_pair.value" v-for="enum_pair in enum_pairs.corners">
+        {{ enum_pair.name }}
+      </option>
+    </select>
   </div>
   <div class="required field">
     <label>メッセージ</label>
@@ -37,28 +25,18 @@
     <label>所属</label>
     <select class="ui selection dropdown" name="department" v-model="contact.department">
       <option value="">所属</option>
-      <option v-bind:value="10">M</option>
-      <option v-bind:value="20">E</option>
-      <option v-bind:value="30">C</option>
-      <option v-bind:value="40">A</option>
-      <option v-bind:value="50">専攻科</option>
-      <option v-bind:value="60">OB, OG</option>
-      <option v-bind:value="70">保護者</option>
-      <option v-bind:value="80">教員</option>
-      <option v-bind:value="90">その他</option>
+      <option v-bind:value="enum_pair.value" v-for="enum_pair in enum_pairs.departments">
+        {{ enum_pair.name }}
+      </option>
     </select>
   </div>
   <div class="field">
     <label>学年</label>
     <select class="ui selection dropdown" name="grade" v-model="contact.grade">
       <option value="">学年</option>
-      <option v-bind:value="10">本科1年</option>
-      <option v-bind:value="20">本科2年</option>
-      <option v-bind:value="30">本科3年</option>
-      <option v-bind:value="40">本科4年</option>
-      <option v-bind:value="50">本科5年</option>
-      <option v-bind:value="60">OB, OG</option>
-      <option v-bind:value="70">その他</option>
+      <option v-bind:value="enum_pair.value" v-for="enum_pair in enum_pairs.grades">
+        {{ enum_pair.name }}
+      </option>
     </select>
   </div>
   <div class="field">
@@ -131,6 +109,7 @@ module.exports = {
                 grade: '',
                 readable: false,
             },
+            enum_pairs: {},
             validState: 'uncheck',
         }
     },
@@ -177,8 +156,20 @@ module.exports = {
                 }
             })
         ;
+        this.getEnumPairs();
     },
     methods: {
+        getEnumPairs: function() {
+            var that = this
+            this.axios.get('/api/v1/contacts/enum')
+                .then(function (response) {
+                    that.enum_pairs = response.data
+                    console.log(that.enum_pairs)
+                })
+                .catch( function (error) {
+                    console.log(error)
+                })
+        },
         postContact: function() {
             this.validState = 'ckecking'
             if ($('.ui.form').form('is valid')){
