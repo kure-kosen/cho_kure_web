@@ -32,7 +32,7 @@ class Api::V1::ContactsController < Api::V1::BaseController
         :name,
         :department,
         :grade,
-        :readable
+        :readable,
       )
     end
 
