@@ -4,10 +4,7 @@ class Api::V1::ContactsController < Api::V1::BaseController
   end
 
   def enum
-    @contact_enum = { "corners": create_enum_pairs(ContactCorners),
-                      "departments": create_enum_pairs(ContactDepartments),
-                      "grades": create_enum_pairs(ContactGrades) }
-    render json: @contact_enum
+    render json: Api::ContactFormItem.new
   end
 
   def create

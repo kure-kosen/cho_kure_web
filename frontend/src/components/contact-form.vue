@@ -4,8 +4,8 @@
     <label>コーナー名</label>
     <select class="ui selection dropdown" name="corner" v-model="contact.corner">
       <option value="">コーナー名</option>
-      <option v-bind:value="enum_pair.value" v-for="enum_pair in enum_pairs.corners">
-        {{ enum_pair.name }}
+      <option v-bind:value="value" v-for="(value, key) in enum_pairs.corners">
+        {{ key }}
       </option>
     </select>
   </div>
@@ -25,8 +25,8 @@
     <label>所属</label>
     <select class="ui selection dropdown" name="department" v-model="contact.department">
       <option value="">所属</option>
-      <option v-bind:value="enum_pair.value" v-for="enum_pair in enum_pairs.departments">
-        {{ enum_pair.name }}
+      <option v-bind:value="value" v-for="(value, key) in enum_pairs.departments">
+        {{ key }}
       </option>
     </select>
   </div>
@@ -34,8 +34,8 @@
     <label>学年</label>
     <select class="ui selection dropdown" name="grade" v-model="contact.grade">
       <option value="">学年</option>
-      <option v-bind:value="enum_pair.value" v-for="enum_pair in enum_pairs.grades">
-        {{ enum_pair.name }}
+      <option v-bind:value="value" v-for="(value, key) in enum_pairs.grades">
+        {{ key }}
       </option>
     </select>
   </div>
