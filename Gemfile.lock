@@ -78,9 +78,6 @@ GEM
       autoprefixer-rails (>= 6.0.3)
       popper_js (>= 1.12.3, < 2)
       sass (>= 3.5.2)
-    bootstrap-tooltip-rails (0.1)
-      rails (>= 3.1)
-      thor
     builder (3.2.3)
     bullet (5.7.0)
       activesupport (>= 3.0.0)
@@ -531,7 +528,6 @@ DEPENDENCIES
   better_errors
   binding_of_caller
   bootstrap
-  bootstrap-tooltip-rails
   bullet
   byebug
   capistrano
@@ -558,6 +554,7 @@ DEPENDENCIES
   mini_magick
   mysql2 (>= 0.3.18, < 0.5)
   onkcop
+  popper_js
   pry-byebug
   puma (~> 3.7)
   pundit

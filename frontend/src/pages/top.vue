@@ -24,6 +24,7 @@
         </div>
       </transition-group>
     </div>
+    <how-to-podcast-link></how-to-podcast-link>
   </div>
 </template>
 
