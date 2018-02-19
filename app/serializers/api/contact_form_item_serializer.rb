@@ -6,6 +6,6 @@ class Api::ContactFormItemSerializer < ActiveModel::Serializer
   private
 
     def enum_to_hash(enum)
-      Hash[*enum.map { |enum| [enum.t, enum.value] }.flatten]
+      Hash[*enum.map { |e| [e.t, e.value] }.flatten]
     end
 end
