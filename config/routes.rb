@@ -31,7 +31,9 @@ Rails.application.routes.draw do
       resources :events, only: [:index, :show]
       resources :radios, only: [:index, :show]
       resource :contacts, only: [:index, :create] do
-        get "enum", to: "contacts#enum"
+        collection do
+          get "enum"
+        end
       end
     end
   end
