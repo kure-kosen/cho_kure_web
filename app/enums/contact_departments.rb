@@ -8,4 +8,5 @@ class ContactDepartments < Inum::Base
   define :PARENT, 70
   define :TEACHER, 80
   define :OTHER, 90
+  define :NOANSWER, 99
 end

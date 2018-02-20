@@ -6,4 +6,5 @@ class ContactGrades < Inum::Base
   define :FIFTH, 50
   define :OBOG, 60
   define :OTHER, 70
+  define :NOANSWER, 99
 end

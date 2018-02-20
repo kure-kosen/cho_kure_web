@@ -6,8 +6,8 @@ class CreateContacts < ActiveRecord::Migration[5.1]
       t.string :message, null: false
       t.string :nickname
       t.string :name
-      t.integer :department, null: false
-      t.integer :grade
+      t.integer :department, null: false, default: 99
+      t.integer :grade, null: false, default: 99
 
       t.timestamps
     end
