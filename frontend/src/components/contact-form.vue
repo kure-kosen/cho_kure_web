@@ -48,7 +48,7 @@
   </div>
   <div v-if="validState === 'uncheck'">
   </div>
-  <div v-else-if="validState === 'ckecking'">
+  <div v-else-if="validState === 'checking'">
     <div class="ui icon message">
       <i class="notched circle loading icon"></i>
       <div class="content">
@@ -171,7 +171,7 @@ module.exports = {
                 })
         },
         postContact: function() {
-            this.validState = 'ckecking'
+            this.validState = 'checking'
             if ($('.ui.form').form('is valid')){
                 this.axios.defaults.headers['X-CSRF-TOKEN'] = $('meta[name=csrf-token]').attr('content')
                 this.axios.post(
