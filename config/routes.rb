@@ -47,5 +47,10 @@ Rails.application.routes.draw do
     resources :events
     resources :radios
     resources :jargons
+    resources :articles, only: [] do
+      collection do
+        post :upload_image
+      end
+    end
   end
 end
