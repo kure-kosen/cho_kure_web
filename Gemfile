@@ -71,6 +71,7 @@ gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem "active_model_serializers"
 gem "acts-as-taggable-on"
+gem "aws-sdk"
 gem "bootstrap"
 gem "carrierwave"
 gem "devise"
@@ -89,4 +90,3 @@ gem "ruby-mp3info"
 gem "seed-fu"
 gem "sitemap_generator"
 gem "webpacker", github: "rails/webpacker"
-gem "aws-sdk"

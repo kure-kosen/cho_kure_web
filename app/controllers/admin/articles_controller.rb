@@ -8,7 +8,7 @@ class Admin::ArticlesController < Admin::BaseController
       path = "s3_uploader/articles/#{SecureRandom.uuid}_#{params[:file].original_filename}"
       response[:filename] = S3Uploader.upload(file: file, path: path)
     rescue
-      response[:error] = 'Error while uploading file'
+      response[:error] = "Error while uploading file"
     end
 
     render json: response.to_json
