@@ -31,14 +31,4 @@ class Api::V1::ContactsController < Api::V1::BaseController
         :readable,
       )
     end
-
-    def create_enum_pairs(enum)
-      @enum_pairs = []
-      enum.form_items.zip(enum.values).each do |item, value|
-        item_name = item[0]
-        enum_pair = { "name": item_name, "value": value }
-        @enum_pairs.push(enum_pair)
-      end
-      @enum_pairs
-    end
 end
