@@ -14,14 +14,14 @@ class Admin::BaseController < ApplicationController
 
     def published_at_from(status, datetime = nil)
       case status
-        when "publish"
-          Time.zone.now
-        when "reservation"
-          datetime
-        when "draft"
-          nil
-        else
-          nil
+      when "publish"
+        Time.zone.now
+      when "reservation"
+        datetime
+      when "draft"
+        nil
+      else
+        nil
       end
     end
 

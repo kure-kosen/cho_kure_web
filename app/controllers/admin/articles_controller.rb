@@ -15,7 +15,7 @@ class Admin::ArticlesController < Admin::BaseController
   end
 
   def edit
-    if (@article.autosave_content.try(:size) || 0) > (@article.content.try(:size) || 0)
+    if (@article.autosave_content&.size || 0) > (@article.content&.size || 0)
       @article.content = @article.autosave_content
       @article.autosave_content = nil
     end

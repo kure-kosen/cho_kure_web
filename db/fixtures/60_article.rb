@@ -22,7 +22,7 @@ Article.seed do |a|
   a.writer = Personality.find_by(name: "中村 優")
   content = <<~TEXT
     みんな大好きちゃんゆーです。
-    
+
     今日の3分クッキングはこれ！！！！
 
     ![file](https://cho-kure-web-s3.s3.ap-northeast-1.amazonaws.com/s3_uploader/articles/808f002e-1ef4-4470-a2be-9ecf16d30d0e_image-1519191537797.jpg)
