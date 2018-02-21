@@ -1,5 +1,5 @@
 class Admin::ArticlesController < Admin::BaseController
-  before_action :set_article, only: [:show, :edit, :update, :destroy]
+  before_action :set_article, only: [:show, :edit, :update, :destroy, :autosave]
   before_action :check_authorize
 
   def index
@@ -10,26 +10,26 @@ class Admin::ArticlesController < Admin::BaseController
   end
 
   def new
-    @article = Article.new
+    @article = Article.new(author: current_personality)
+    @article.save!
   end
 
   def edit
-  end
-
-  def create
-    @article = Article.new(article_params)
-    @article.author = current_personality
-
-    if @article.save
-      redirect_to admin_articles_url(@article), notice: "記事を作成しました。"
-    else
-      render :new
-    end
+    @article.content = @article.autosave_content
+    @article.autosave_content = nil
   end
 
   def update
+    @article.autosave_content = nil
+    @article.published_at = published_at_from(
+      params[:article][:status],
+      Time.zone.parse(
+        datetime_select_to_a(params[:article], :reserve_time).join,
+      ),
+    )
+
     if @article.update(article_params)
-      redirect_to admin_article_path(@article), notice: "記事を更新しました。"
+      redirect_to admin_articles_url(@article), notice: "記事を更新しました。"
     else
       render :edit
     end
@@ -38,6 +38,12 @@ class Admin::ArticlesController < Admin::BaseController
   def destroy
     @article.destroy!
     redirect_to admin_articles_url, notice: "記事を削除しました。"
+  end
+
+  def autosave
+    @article.update!(autosave_content: params[:autosave_content])
+
+    head :no_content
   end
 
   def upload_image
@@ -60,7 +66,7 @@ class Admin::ArticlesController < Admin::BaseController
     end
 
     def article_params
-      params.require(:article).permit(:title, :content, :autosave_content, :published_at)
+      params.require(:article).permit(:title, :content, :published_at)
     end
 
     def check_authorize
