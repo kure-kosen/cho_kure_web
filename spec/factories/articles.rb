@@ -3,6 +3,6 @@ FactoryBot.define do
     title "MyString"
     content "MyText"
     autosave_content "MyText"
-    author nil
+    writer nil
   end
 end

@@ -10,7 +10,7 @@ class Admin::ArticlesController < Admin::BaseController
   end
 
   def new
-    @article = Article.new(author: current_personality)
+    @article = Article.new(writer: current_personality)
     @article.save!
   end
 
