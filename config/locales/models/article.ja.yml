@@ -1,0 +1,14 @@
+# Additional translations at https://github.com/plataformatec/devise/wiki/I18n
+
+ja:
+  activerecord:
+    attributes:
+      article:
+        title: タイトル
+        image: 画像
+        content: 内容
+        autosave_content: 自動保存された内容
+        writer: 執筆者
+        published_at: 公開日
+        tag_list: タグ
+        status: ステータス

@@ -47,5 +47,13 @@ Rails.application.routes.draw do
     resources :events
     resources :radios
     resources :jargons
+    resources :articles, except: [:create] do
+      collection do
+        post :upload_image
+      end
+      member do
+        patch :autosave
+      end
+    end
   end
 end

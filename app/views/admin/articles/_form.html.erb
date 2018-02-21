@@ -1,0 +1,104 @@
+<%= form_with(model:[:admin, article], local: true) do |form| %>
+  <%= render 'admin/shared/errors', object: article %>
+
+  <div class="form-group row">
+    <%= form.label :title, class: 'col-2 col-form-label' %>
+    <div class="col-10">
+      <%= form.text_field :title, class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <%= form.label :image, class: 'col-2 col-form-label' %>
+    <div class="col-10">
+      <%= form.file_field :image %>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <%= form.label :content, class: 'col-2 col-form-label' %>
+    <div class="col-10" id="editor">
+      <%= render 'admin/shared/markdown_help' %>
+      <div class="row" style="height: 30em;">
+        <div class="col-6">
+          <%= form.text_area :content, class: 'form-control pasteable article-content', rows: 20, "v-model" => "input", debounce: 50 %>
+        </div>
+        <div class="col-6" style="overflow: scroll;">
+          <div v-html='input | marked'></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <%= form.label :tag_list, class: 'col-2 col-form-label' %>
+    <div class="col-10">
+      <%= text_field_tag 'article[tag_list]', article.tag_list.join(','), class: 'js-tag-list' %>
+    </div>
+  </div>
+
+  <!-- TODO: 公開/非公開のtoggle的な感じのUIにする -->
+  <div class="form-group row">
+    <%= form.label :status, class: 'col-2 col-form-label' %>
+    <div class="col-10">
+      <div class="form-check form-check-inline">
+        <%= form.radio_button :status, :publish, class: 'article_status', checked: article.publish? %>
+        <%= form.label :publish, "公開" %>
+      </div>
+      <div class="form-check form-check-inline">
+        <%= form.radio_button :status, :reservation, class: 'article_status', checked: article.reservation? %>
+        <%= form.label :reservation, "予約投稿" %>
+      </div>
+      <div class="form-check form-check-inline">
+        <%= form.radio_button :status, :draft, class: 'article_status', checked: article.draft? %>
+        <%= form.label :draft, "下書き" %>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group row article_reservation_time">
+    <%= form.label :reserve_time, class: 'col-2 col-form-label' %>
+    <div class="col-10">
+      <div class="field form-group">
+        <%= form.datetime_select :reserve_time, use_month_numbers: true, class: 'form-control' %>
+      </div>
+    </div>
+  </div>
+
+  <div class="actions">
+    <%= form.submit class: 'btn btn-primary' %>
+  </div>
+<% end %>
+
+<%= render "admin/shared/js_markdown", content: article.content %>
+
+<script>
+  // 予約日時を表示/非表示させる
+  $('.article_reservation_time').fadeOut(0);
+  $('input[class=article_status]:radio').change( function(){
+    if ($('input[class=article_status]:checked').val() === 'reservation') {
+      $('.article_reservation_time').fadeIn(100);
+    } else {
+      $('.article_reservation_time').fadeOut(100);
+    }
+  });
+
+  $(function(){
+    setInterval(function(){
+      $.ajax({
+        type : 'POST',
+        url : '/admin/articles/<%= article.id %>/autosave',
+        data: {
+          '_method': 'PATCH',
+          'autosave_content': $('textarea[class~="article-content"]').val()
+        },
+        headers: { 'X-CSRF-TOKEN': $('meta[name=csrf-token]').attr('content') }
+      });
+    }, 5000);
+  });
+
+  $('.js-tag-list').tagit({
+    singleField: true,
+    availableTags: <%= raw @tag_list %>
+  });
+</script>
