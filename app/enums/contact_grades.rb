@@ -1,4 +1,5 @@
 class ContactGrades < Inum::Base
+  define :NOANSWER, 0
   define :FIRST, 10
   define :SECOND, 20
   define :THIRD, 30
@@ -6,5 +7,4 @@ class ContactGrades < Inum::Base
   define :FIFTH, 50
   define :OBOG, 60
   define :OTHER, 70
-  define :NOANSWER, 99
 end

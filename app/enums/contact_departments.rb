@@ -1,4 +1,5 @@
 class ContactDepartments < Inum::Base
+  define :NOANSWER, 0
   define :M, 10
   define :E, 20
   define :C, 30
@@ -8,5 +9,4 @@ class ContactDepartments < Inum::Base
   define :PARENT, 70
   define :TEACHER, 80
   define :OTHER, 90
-  define :NOANSWER, 99
 end
