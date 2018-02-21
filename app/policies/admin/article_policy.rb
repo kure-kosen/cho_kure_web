@@ -1,6 +1,6 @@
 class Admin::ArticlePolicy < Admin::BasePolicy
   def edit?
-    return true if record.author == personality && personality.member?
+    return true if record.writer == personality && personality.member?
     false
   end
 

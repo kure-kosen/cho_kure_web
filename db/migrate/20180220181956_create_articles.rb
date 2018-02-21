@@ -5,11 +5,11 @@ class CreateArticles < ActiveRecord::Migration[5.1]
       t.text :content
       t.text :autosave_content
       t.datetime :published_at
-      t.references :author, index: true, null: false
+      t.references :writer, index: true, null: false
 
       t.timestamps
     end
 
-    add_foreign_key :articles, :personalities, column: :author_id
+    add_foreign_key :articles, :personalities, column: :writer_id
   end
 end

@@ -17,10 +17,10 @@ ActiveRecord::Schema.define(version: 20180220181956) do
     t.text "content"
     t.text "autosave_content"
     t.datetime "published_at"
-    t.bigint "author_id", null: false
+    t.bigint "writer_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["author_id"], name: "index_articles_on_author_id"
+    t.index ["writer_id"], name: "index_articles_on_writer_id"
   end
 
   create_table "communities", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -143,7 +143,7 @@ ActiveRecord::Schema.define(version: 20180220181956) do
     t.index ["name"], name: "index_tags_on_name", unique: true
   end
 
-  add_foreign_key "articles", "personalities", column: "author_id"
+  add_foreign_key "articles", "personalities", column: "writer_id"
   add_foreign_key "community_radios", "communities"
   add_foreign_key "community_radios", "radios"
   add_foreign_key "host_events", "communities", column: "host_id"
