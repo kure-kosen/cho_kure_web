@@ -16,6 +16,7 @@ ActiveRecord::Schema.define(version: 20180220181956) do
     t.string "title"
     t.text "content"
     t.text "autosave_content"
+    t.datetime "published_at"
     t.bigint "author_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

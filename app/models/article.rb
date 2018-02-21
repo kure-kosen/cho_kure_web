@@ -6,6 +6,7 @@
 #  title            :string(255)
 #  content          :text(65535)
 #  autosave_content :text(65535)
+#  published_at     :datetime
 #  author_id        :integer          not null
 #  created_at       :datetime         not null
 #  updated_at       :datetime         not null
