@@ -22,6 +22,8 @@
 #
 
 class Radio < ApplicationRecord
+  include Publishable
+
   mount_uploader :image, RadioImageUploader
   mount_uploader :mp3, RadioMp3Uploader
   mount_uploader :digest_mp3, RadioDigestMp3Uploader
@@ -55,17 +57,5 @@ class Radio < ApplicationRecord
 
     self.duration = meta.duration
     self.size = meta.size
-  end
-
-  def publish?
-    !published_at.nil? && published_at <= Time.zone.now
-  end
-
-  def reservation?
-    !published_at.nil? && published_at > Time.zone.now
-  end
-
-  def draft?
-    published_at.nil?
   end
 end

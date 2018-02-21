@@ -21,5 +21,7 @@
 #
 
 class Article < ApplicationRecord
+  include Publishable
+
   belongs_to :author, class_name: "Personality"
 end
