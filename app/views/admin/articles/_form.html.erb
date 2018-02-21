@@ -9,6 +9,13 @@
   </div>
 
   <div class="form-group row">
+    <%= form.label :image, class: 'col-2 col-form-label' %>
+    <div class="col-10">
+      <%= form.file_field :image %>
+    </div>
+  </div>
+
+  <div class="form-group row">
     <%= form.label :content, class: 'col-2 col-form-label' %>
     <div class="col-10" id="editor">
       <%= render 'admin/shared/markdown_help' %>
@@ -20,6 +27,13 @@
           <div v-html='input | marked'></div>
         </div>
       </div>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <%= form.label :tag_list, class: 'col-2 col-form-label' %>
+    <div class="col-10">
+      <%= text_field_tag 'article[tag_list]', article.tag_list.join(','), class: 'js-tag-list' %>
     </div>
   </div>
 
@@ -81,5 +95,10 @@
         headers: { 'X-CSRF-TOKEN': $('meta[name=csrf-token]').attr('content') }
       });
     }, 5000);
+  });
+
+  $('.js-tag-list').tagit({
+    singleField: true,
+    availableTags: <%= raw @tag_list %>
   });
 </script>

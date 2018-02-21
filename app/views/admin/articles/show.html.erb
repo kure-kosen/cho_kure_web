@@ -4,6 +4,11 @@
 </dl>
 
 <dl class="dl-horizontal">
+  <dt><strong><%= Article.human_attribute_name('image') %> :</strong></dt>
+  <dd><%= image_tag @article.image_url(:thumb) %></dd>
+</dl>
+
+<dl class="dl-horizontal">
   <dt><strong><%= Article.human_attribute_name('content') %> :</strong></dt>
   <dd><%= MarkdownHelper.markdown(@article.content) %></dd>
 </dl>
@@ -12,6 +17,15 @@
   <summary><strong><%= Article.human_attribute_name('autosave_content') %></strong></summary>
   <%= MarkdownHelper.markdown(@article.autosave_content) %>
 </details>
+
+<dl class="dl-horizontal">
+  <dt><strong><%= Article.human_attribute_name('tag_list') %> :</strong></dt>
+  <dd>
+    <% @article.tag_list.each do |tag| %>
+      <span class="badge badge-primary"><%= tag %></span>
+    <% end %>
+  </dd>
+</dl>
 
 <dl class="dl-horizontal">
   <dt><strong><%= Radio.human_attribute_name('status') %> :</strong></dt>

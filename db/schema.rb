@@ -15,6 +15,7 @@ ActiveRecord::Schema.define(version: 20180220181956) do
   create_table "articles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "title"
     t.text "content"
+    t.string "image"
     t.text "autosave_content"
     t.datetime "published_at"
     t.bigint "writer_id", null: false

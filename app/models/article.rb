@@ -5,6 +5,7 @@
 #  id               :integer          not null, primary key
 #  title            :string(255)
 #  content          :text(65535)
+#  image            :string(255)
 #  autosave_content :text(65535)
 #  published_at     :datetime
 #  writer_id        :integer          not null
@@ -22,6 +23,10 @@
 
 class Article < ApplicationRecord
   include Publishable
+
+  mount_uploader :image, ArticleImageUploader
+
+  acts_as_taggable
 
   belongs_to :writer, class_name: "Personality"
 end

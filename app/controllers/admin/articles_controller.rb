@@ -1,5 +1,6 @@
 class Admin::ArticlesController < Admin::BaseController
   before_action :set_article, only: [:show, :edit, :update, :destroy, :autosave]
+  before_action :set_tag_list, only: [:edit]
   before_action :check_authorize
 
   def index
@@ -31,7 +32,7 @@ class Admin::ArticlesController < Admin::BaseController
     )
 
     if @article.update(article_params)
-      redirect_to admin_articles_url(@article), notice: "記事を更新しました。"
+      redirect_to admin_article_path(@article), notice: "記事を更新しました。"
     else
       render :edit
     end
@@ -74,8 +75,12 @@ class Admin::ArticlesController < Admin::BaseController
       @article = Article.find(params[:id])
     end
 
+    def set_tag_list
+      @tag_list = Article.tags_on(:tags).pluck(:name)
+    end
+
     def article_params
-      params.require(:article).permit(:title, :content, :published_at)
+      params.require(:article).permit(:title, :content, :image, :published_at, :tag_list)
     end
 
     def check_authorize
