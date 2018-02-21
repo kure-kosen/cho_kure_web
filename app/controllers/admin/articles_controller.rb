@@ -43,7 +43,14 @@ class Admin::ArticlesController < Admin::BaseController
   end
 
   def autosave
-    @article.update!(autosave_content: params[:autosave_content])
+    begin
+      unless @article.autosave_content == params[:autosave_content]
+        @article.update!(autosave_content: params[:autosave_content])
+      end
+    rescue
+      head :internal_server_error
+      return
+    end
 
     head :no_content
   end

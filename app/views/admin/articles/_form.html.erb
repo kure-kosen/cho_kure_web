@@ -14,7 +14,7 @@
       <%= render 'admin/shared/markdown_help' %>
       <div class="row" style="height: 30em;">
         <div class="col-6">
-          <%= form.text_area :content, class: 'form-control pasteable', rows: 20, "v-model" => "input", debounce: 50 %>
+          <%= form.text_area :content, class: 'form-control pasteable article-content', rows: 20, "v-model" => "input", debounce: 50 %>
         </div>
         <div class="col-6" style="overflow: scroll;">
           <div v-html='input | marked'></div>
@@ -67,5 +67,19 @@
     } else {
       $('.article_reservation_time').fadeOut(100);
     }
+  });
+
+  $(function(){
+    setInterval(function(){
+      $.ajax({
+        type : 'POST',
+        url : '/admin/articles/<%= article.id %>/autosave',
+        data: {
+          '_method': 'PATCH',
+          'autosave_content': $('textarea[class~="article-content"]').val()
+        },
+        headers: { 'X-CSRF-TOKEN': $('meta[name=csrf-token]').attr('content') }
+      });
+    }, 5000);
   });
 </script>
