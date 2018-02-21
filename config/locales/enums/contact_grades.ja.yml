@@ -2,6 +2,7 @@
 
 ja:
   contact_grades:
+    noanswer: 未記入
     first: 1年
     second: 2年
     third: 3年
@@ -9,4 +10,3 @@ ja:
     fifth: 5年
     obog: OBOG
     other: その他
-    noanswer: 未記入

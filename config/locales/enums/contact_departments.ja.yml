@@ -2,6 +2,7 @@
 
 ja:
   contact_departments:
+    noanswer: 未記入
     m: 機械工学科
     e: 電気情報工学科
     c: 環境都市工学科
@@ -11,4 +12,3 @@ ja:
     parent: 保護者
     teacher: 教員
     other: その他
-    noanswer: 未記入
