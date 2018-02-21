@@ -63,19 +63,6 @@ class Admin::RadiosController < Admin::BaseController
 
   private
 
-    def published_at_from(status, datetime = nil)
-      case status
-      when "publish"
-        Time.zone.now
-      when "reservation"
-        datetime
-      when "draft"
-        nil
-      else
-        nil
-      end
-    end
-
     # Use callbacks to share common setup or constraints between actions.
     def set_radio
       @radio = Radio.find(params[:id])

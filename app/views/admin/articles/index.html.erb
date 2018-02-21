@@ -1,0 +1,36 @@
+<div class="row">
+  <div class="col-8">
+    <h1>記事一覧</h1>
+  </div>
+  <div class="col-4">
+    <%= Admin::ArticleViewObject.link_to_new(current_personality) %>
+  </div>
+</div>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= Article.human_attribute_name('title') %></th>
+      <th><%= Article.human_attribute_name('content') %></th>
+      <th><%= Article.human_attribute_name('writer') %></th>
+      <th><%= Article.human_attribute_name('status') %></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @articles.each do |article| %>
+      <tr>
+        <td><%= article.title %></td>
+        <td><%= truncate(article.content) if article.content %></td>
+        <td><%= article.writer.name %></td>
+        <td><%= status_badge(article) %></td>
+        <td>
+          <%= Admin::ArticleViewObject.link_to_show(current_personality, article) %>
+          <%= Admin::ArticleViewObject.link_to_edit(current_personality, article) %>
+          <%= Admin::ArticleViewObject.link_to_destroy(current_personality, article) %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

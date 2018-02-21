@@ -3,7 +3,7 @@ class Admin::ArticlesController < Admin::BaseController
   before_action :check_authorize
 
   def index
-    @articles = Article.all
+    @articles = Article.all.includes(:writer)
   end
 
   def show
@@ -15,8 +15,10 @@ class Admin::ArticlesController < Admin::BaseController
   end
 
   def edit
-    @article.content = @article.autosave_content
-    @article.autosave_content = nil
+    if (@article.autosave_content.try(:size) || 0) > (@article.content.try(:size) || 0)
+      @article.content = @article.autosave_content
+      @article.autosave_content = nil
+    end
   end
 
   def update

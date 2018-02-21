@@ -12,6 +12,19 @@ class Admin::BaseController < ApplicationController
       param.select { |k, _v| k.match(/#{column}\(\di\)/) }.values.map { |i| "%02d" % i }
     end
 
+    def published_at_from(status, datetime = nil)
+      case status
+        when "publish"
+          Time.zone.now
+        when "reservation"
+          datetime
+        when "draft"
+          nil
+        else
+          nil
+      end
+    end
+
     def pundit_user
       current_personality
     end

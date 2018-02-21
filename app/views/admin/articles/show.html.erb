@@ -1,0 +1,28 @@
+<dl class="dl-horizontal">
+  <dt><strong><%= Article.human_attribute_name('title') %> :</strong></dt>
+  <dd><%= @article.title %></dd>
+</dl>
+
+<dl class="dl-horizontal">
+  <dt><strong><%= Article.human_attribute_name('content') %> :</strong></dt>
+  <dd><%= MarkdownHelper.markdown(@article.content) %></dd>
+</dl>
+
+<details>
+  <summary><strong><%= Article.human_attribute_name('autosave_content') %></strong></summary>
+  <%= MarkdownHelper.markdown(@article.autosave_content) %>
+</details>
+
+<dl class="dl-horizontal">
+  <dt><strong><%= Radio.human_attribute_name('status') %> :</strong></dt>
+  <dd><%= status_badge(@article) %></dd>
+</dl>
+
+<% if @article.publish? || @article.reservation? %>
+  <dl class="dl-horizontal">
+    <dt><strong><%= Article.human_attribute_name('published_at') %> :</strong></dt>
+    <dd><%= @article.published_at %></dd>
+  </dl>
+<% end %>
+
+<%= Admin::ArticleViewObject.link_to_edit(current_personality, @article) %>

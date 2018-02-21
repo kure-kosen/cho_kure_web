@@ -44,4 +44,13 @@
       <% end %>
     </li>
   <% end %>
+
+  <% if current_personality.member? %>
+    <li class="nav-item">
+      <%= link_to admin_articles_path, class: "nav-link" do %>
+        <i class="fa fa-fw fa-edit"></i>
+        <span class="nav-link-text">記事一覧</span>
+      <% end %>
+    </li>
+  <% end %>
 </ul>
