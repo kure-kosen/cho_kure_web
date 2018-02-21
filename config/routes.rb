@@ -51,6 +51,9 @@ Rails.application.routes.draw do
       collection do
         post :upload_image
       end
+      member do
+        patch :autosave
+      end
     end
   end
 end
