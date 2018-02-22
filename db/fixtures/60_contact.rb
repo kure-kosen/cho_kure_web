@@ -7,7 +7,8 @@ Contact.seed do |i|
   i.nickname = "ちゃんゆー"
   i.name = "中村 優"
   i.department = ContactDepartments::ADVANCED
-  i.grade = ContactGrades::JUNIOR
+  i.grade = ContactGrades::FIRST
+  i.readable = true
 end
 Contact.seed do |i|
   i.id = 2
@@ -17,6 +18,7 @@ Contact.seed do |i|
   i.name = "新谷 哲平"
   i.department = ContactDepartments::GRADUATE
   i.grade = ContactGrades::OBOG
+  i.readable = false
 end
 Contact.seed do |i|
   i.id = 3
@@ -25,14 +27,16 @@ Contact.seed do |i|
   i.nickname = "平清盛"
   i.name = "金子 平"
   i.department = ContactDepartments::E
-  i.grade = ContactGrades::FOURTH_GRADE
+  i.grade = ContactGrades::FOURTH
+  i.readable = true
 end
 Contact.seed do |i|
   i.id = 4
-  i.corner = ContactCorners::FEEDBACK
+  i.corner = ContactCorners::BUG_REPORT
   i.message = "hoge" * rand(1..20) + "fuga" * rand(1..20)
   i.nickname = "かじくん"
   i.name = "梶 凌太"
   i.department = ContactDepartments::E
-  i.grade = ContactGrades::SECOND_GRADE
+  i.grade = ContactGrades::SECOND
+  i.readable = false
 end
