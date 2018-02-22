@@ -4,7 +4,7 @@
   <div class="form-group row">
     <%= form.label :corner, class: 'col-2 col-form-label' %>
     <div class="col-10">
-      <%= form.select :corner, options_for_select(ContactCorners.form_items, ContactCorners.labels), {}, { class: 'form-control' } %>
+      <%= form.select :corner, ContactCorners.form_items, {}, { class: 'form-control' } %>
     </div>
   </div>
 
@@ -32,14 +32,14 @@
   <div class="form-group row">
     <%= form.label :department, class: 'col-2 col-form-label' %>
     <div class="col-10">
-      <%= form.select :department, options_for_select(ContactDepartments.form_items, ContactDepartments.labels), {}, { class: 'form-control' } %>
+      <%= form.select :department, ContactDepartments.form_items, {}, { class: 'form-control' } %>
     </div>
   </div>
 
   <div class="form-group row">
     <%= form.label :grade, class: 'col-2 col-form-label' %>
     <div class="col-10">
-      <%= form.select :grade, options_for_select(ContactGrades.form_items, ContactGrades.labels), {}, { class: 'form-control' } %>
+      <%= form.select :grade, ContactGrades.form_items, {}, { class: 'form-control' } %>
     </div>
   </div>
 
