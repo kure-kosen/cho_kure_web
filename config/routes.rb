@@ -30,6 +30,7 @@ Rails.application.routes.draw do
       resources :communities, only: [:index, :show]
       resources :events, only: [:index, :show]
       resources :radios, only: [:index, :show]
+      resources :jargons, only: [:index, :show]
     end
   end
 
