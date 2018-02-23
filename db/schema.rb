@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180116035535) do
+ActiveRecord::Schema.define(version: 20180126145434) do
 
   create_table "communities", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name", null: false
@@ -28,6 +28,18 @@ ActiveRecord::Schema.define(version: 20180116035535) do
     t.datetime "updated_at", null: false
     t.index ["community_id"], name: "index_community_radios_on_community_id"
     t.index ["radio_id"], name: "index_community_radios_on_radio_id"
+  end
+
+  create_table "contacts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.boolean "readable", null: false
+    t.integer "corner", default: 0, null: false
+    t.string "message", null: false
+    t.string "nickname"
+    t.string "name"
+    t.integer "department", default: 0, null: false
+    t.integer "grade", default: 0, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "events", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
