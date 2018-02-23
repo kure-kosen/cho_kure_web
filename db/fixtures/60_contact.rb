@@ -40,3 +40,11 @@ Contact.seed do |i|
   i.grade = ContactGrades::SECOND
   i.readable = false
 end
+Contact.seed do |i|
+  i.id = 5
+  i.corner = ContactCorners::BUG_REPORT
+  i.message = "hoge" * rand(1..20) + "fuga" * rand(1..20)
+  i.nickname = "こばくん"
+  i.department = ContactDepartments::E
+  i.readable = false
+end
