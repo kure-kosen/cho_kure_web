@@ -8,8 +8,8 @@
 #  message    :string(255)      not null
 #  nickname   :string(255)
 #  name       :string(255)
-#  department :integer          default(99), not null
-#  grade      :integer          default(99), not null
+#  department :integer          default(0), not null
+#  grade      :integer          default(0), not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #

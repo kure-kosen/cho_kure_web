@@ -36,8 +36,8 @@ ActiveRecord::Schema.define(version: 20180126145434) do
     t.string "message", null: false
     t.string "nickname"
     t.string "name"
-    t.integer "department", default: 99, null: false
-    t.integer "grade", default: 99, null: false
+    t.integer "department", default: 0, null: false
+    t.integer "grade", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
