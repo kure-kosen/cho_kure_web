@@ -1,5 +1,29 @@
+# == Schema Information
+#
+# Table name: jargons
+#
+#  id          :integer          not null, primary key
+#  name        :string(255)      not null
+#  description :text(65535)      not null
+#  radio_id    :integer          not null
+#  major       :integer          not null
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#
+# Indexes
+#
+#  index_jargons_on_name      (name) UNIQUE
+#  index_jargons_on_radio_id  (radio_id)
+#
+# Foreign Keys
+#
+#  fk_rails_...  (radio_id => radios.id)
+#
+
 class JargonSerializer < ActiveModel::Serializer
-  attributes :id, :name, :description, :radio_id, :major, :created_at, :updated_at
+  attributes :id, :name, :description, :major
+
+  belongs_to :radio
 
   def description
     MarkdownHelper.markdown(object.description)
