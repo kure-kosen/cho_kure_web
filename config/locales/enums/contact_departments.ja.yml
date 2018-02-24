@@ -1,0 +1,14 @@
+# Additional translations at https://github.com/plataformatec/devise/wiki/I18n
+
+ja:
+  contact_departments:
+    noanswer: 未記入
+    m: 機械工学科
+    e: 電気情報工学科
+    c: 環境都市工学科
+    a: 建築学科
+    advanced: 専攻科
+    graduate: 卒業生
+    parent: 保護者
+    teacher: 教員
+    other: その他
