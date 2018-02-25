@@ -13,6 +13,7 @@ import 'semantic-ui-css/semantic.min.js'
 Vue.use(VueRouter)
 Vue.use(VueAxios, axios)
 
+
 // Component
 import App from '../app.vue'
 import Header from '../components/header.vue'
@@ -25,6 +26,7 @@ import ShareButtons from '../components/share-buttons.vue'
 import HowToPodcast from '../components/how-to-use-podcast.vue'
 import HowToPodcastLink from '../components/how-to-podcast-link.vue'
 import HowToPodcastModal from '../components/how-to-podcast-modal.vue'
+import ContactForm from '../components/contact-form.vue'
 Vue.component('app-header', Header)
 Vue.component('app-footer', Footer)
 Vue.component('radio-preview', RadioPreview)
@@ -35,6 +37,7 @@ Vue.component('share-buttons', ShareButtons)
 Vue.component('how-to-use-podcast', HowToPodcast)
 Vue.component('how-to-podcast-link', HowToPodcastLink)
 Vue.component('how-to-podcast-modal', HowToPodcastModal)
+Vue.component('contact-form', ContactForm)
 
 // Page
 import Contact from '../pages/contact.vue'
