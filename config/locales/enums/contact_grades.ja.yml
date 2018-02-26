@@ -1,0 +1,12 @@
+# Additional translations at https://github.com/plataformatec/devise/wiki/I18n
+
+ja:
+  contact_grades:
+    noanswer: 未記入
+    first: 1年
+    second: 2年
+    third: 3年
+    fourth: 4年
+    fifth: 5年
+    obog: OBOG
+    other: その他

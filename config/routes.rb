@@ -31,6 +31,11 @@ Rails.application.routes.draw do
       resources :events, only: [:index, :show]
       resources :radios, only: [:index, :show]
       resources :jargons, only: [:index, :show]
+      resource :contacts, only: [:index, :create] do
+        collection do
+          get "enum"
+        end
+      end
     end
   end
 
@@ -48,5 +53,6 @@ Rails.application.routes.draw do
     resources :events
     resources :radios
     resources :jargons
+    resources :contacts
   end
 end

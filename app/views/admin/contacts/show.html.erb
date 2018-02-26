@@ -1,0 +1,36 @@
+<dl class="dl-horizontal">
+  <dt><strong><%= Contact.human_attribute_name('corner') %> :</strong></dt>
+  <dd><%= @contact.corner.t %></dd>
+</dl>
+
+<dl class="dl-horizontal">
+  <dt><strong><%= Contact.human_attribute_name('message') %> :</strong></dt>
+  <dd><%= @contact.message %></dd>
+</dl>
+
+<dl class="dl-horizontal">
+  <dt><strong><%= Contact.human_attribute_name('nickname') %> :</strong></dt>
+  <dd><%= @contact.nickname %></dd>
+</dl>
+
+<dl class="dl-horizontal">
+  <dt><strong><%= Contact.human_attribute_name('name') %> :</strong></dt>
+  <dd><%= @contact.name %></dd>
+</dl>
+
+<dl class="dl-horizontal">
+  <dt><strong><%= Contact.human_attribute_name('department') %> :</strong></dt>
+  <dd><%= @contact.department.t %></dd>
+</dl>
+
+<dl class="dl-horizontal">
+  <dt><strong><%= Contact.human_attribute_name('grade') %> :</strong></dt>
+  <dd><%= @contact.grade.t %></dd>
+</dl>
+
+<dl class="dl-horizontal">
+  <dt><strong><%= Contact.human_attribute_name('readable') %> :</strong></dt>
+  <dd><%= @contact.readable ? 'OK' : 'NG' %></dd>
+</dl>
+
+<%= Admin::ContactViewObject.link_to_edit(current_personality, @contact) %>
