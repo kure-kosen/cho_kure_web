@@ -20,15 +20,20 @@
 #  fk_rails_...  (radio_id => radios.id)
 #
 
-class Jargon < ApplicationRecord
-  validates :name,
-            presence: true,
-            uniqueness: true
-  validates :description, presence: true
-  validates :radio_id, presence: true
-  validates :major, presence: true
-
-  bind_inum :major, JargonMajors
+class JargonSerializer < ActiveModel::Serializer
+  attributes :id, :name, :description, :major
 
   belongs_to :radio
+
+  def description
+    MarkdownHelper.markdown(object.description)
+  end
+
+  def created_at
+    object.created_at.to_s(:datetime)
+  end
+
+  def updated_at
+    object.updated_at.to_s(:datetime)
+  end
 end
