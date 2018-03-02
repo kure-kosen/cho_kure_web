@@ -14,7 +14,7 @@
 
       <h2 class="ui header">最新情報はどこから入手すればいいの？</h2>
       <p>ちょっくれ公式のTwitterアカウント<a href="https://twitter.com/cho_kure">@cho_kure</a>&nbsp;で発信しています！</p>
-      <p>ラジオはPodcastでも配信しています。「Podcastってなんだ？」という方は<a href="http://www.kure-rad.io/how-to-use-podcast/">こちら</a>で説明していますので、ぜひ読んで利用してみてください！</p>
+      <p>ラジオはPodcastでも配信しています。「Podcastってなんだ？」という方は<a href="http://www.kure-rad.io/app/how-to-use-podcast/">こちら</a>で説明していますので、ぜひ読んで利用してみてください！</p>
       <share-buttons></share-buttons>
     </div>
   </div>
