@@ -1,6 +1,7 @@
 import Vue from 'vue'
 
 // Library
+import 'babel-polyfill'
 import VueRouter from 'vue-router'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
