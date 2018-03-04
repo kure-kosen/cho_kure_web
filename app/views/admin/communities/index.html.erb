@@ -1,11 +1,9 @@
-<p id="notice"><%= notice %></p>
-
 <div class="row">
   <div class="col-8">
     <h1>コミュニティ一覧</h1>
   </div>
   <div class="col-4">
-    <%= link_to '新規コミュニティ作成', new_admin_community_path, class: 'btn btn-primary' %>
+    <%= Admin::CommunityViewObject.link_to_new(current_personality) %>
   </div>
 </div>
 
@@ -16,7 +14,7 @@
       <th><%= Community.human_attribute_name('url') %></th>
       <th><%= Community.human_attribute_name('tag_list') %></th>
       <th><%= Community.human_attribute_name('description') %></th>
-      <th colspan="3"></th>
+      <th></th>
     </tr>
   </thead>
 
@@ -31,9 +29,11 @@
           <% end %>
         </td>
         <td><%= truncate(community.description) %></td>
-        <td><%= link_to '詳細', admin_community_path(community) %></td>
-        <td><%= link_to '編集', edit_admin_community_path(community) %></td>
-        <td><%= link_to '削除', admin_community_path(community), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td>
+          <%= Admin::CommunityViewObject.link_to_show(current_personality, community) %>
+          <%= Admin::CommunityViewObject.link_to_edit(current_personality, community) %>
+          <%= Admin::CommunityViewObject.link_to_destroy(current_personality, community) %>
+        </td>
       </tr>
     <% end %>
   </tbody>

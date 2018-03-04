@@ -1,11 +1,12 @@
 class Admin::CommunitiesController < Admin::BaseController
   before_action :set_community, only: [:show, :edit, :update, :destroy]
   before_action :set_tag_list, only: [:new, :edit]
+  before_action :check_authorize
 
   # GET /communities
   # GET /communities.json
   def index
-    @communities = Community.all
+    @communities = Community.all.includes(:taggings)
   end
 
   # GET /communities/1
@@ -28,7 +29,7 @@ class Admin::CommunitiesController < Admin::BaseController
     @community = Community.new(community_params)
 
     if @community.save
-      redirect_to admin_communities_url(@community), notice: "Community was successfully created."
+      redirect_to admin_communities_url(@community), notice: "コミュニティを作成しました。"
     else
       render :new
     end
@@ -38,7 +39,7 @@ class Admin::CommunitiesController < Admin::BaseController
   # PATCH/PUT /communities/1.json
   def update
     if @community.update(community_params)
-      redirect_to admin_community_path(@community), notice: "Community was successfully updated."
+      redirect_to admin_community_path(@community), notice: "コミュニティを更新しました。"
     else
       render :edit
     end
@@ -48,7 +49,7 @@ class Admin::CommunitiesController < Admin::BaseController
   # DELETE /communities/1.json
   def destroy
     @community.destroy!
-    redirect_to admin_communities_url, notice: "Community was successfully destroyed."
+    redirect_to admin_communities_url, notice: "コミュニティを削除しました。"
   end
 
   private
@@ -65,5 +66,10 @@ class Admin::CommunitiesController < Admin::BaseController
     # Never trust parameters from the scary internet, only allow the white list through.
     def community_params
       params.require(:community).permit(:name, :url, :description, :logo, :tag_list)
+    end
+
+    def check_authorize
+      return authorize [:admin, @community] if @community.present?
+      authorize [:admin, :community]
     end
 end

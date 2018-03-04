@@ -57,6 +57,8 @@ group :development do
   gem "capistrano-yarn"
 
   gem "foreman"
+
+  gem "bullet"
 end
 
 group :production do
@@ -70,7 +72,6 @@ gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem "active_model_serializers"
 gem "acts-as-taggable-on"
 gem "bootstrap"
-gem "bootstrap-tooltip-rails"
 gem "carrierwave"
 gem "devise"
 gem "dotenv-rails"
@@ -80,6 +81,8 @@ gem "inum"
 gem "jquery-rails"
 gem "jquery-ui-rails"
 gem "mini_magick"
+gem "popper_js"
+gem "pundit"
 gem "redcarpet"
 gem "roboto"
 gem "ruby-mp3info"

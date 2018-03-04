@@ -1,23 +1,31 @@
 <template>
-  <div id="body">
-    <app-header/>
-    <main id="main">
-      <router-view/>
-    </main>
-    <app-footer/>
+  <div class="body">
+    <div class="wrapper">
+      <app-header/>
+      <main class="main">
+        <router-view/>
+      </main>
+      <app-footer/>
+    </div>
   </div>
 </template>
 
 <script></script>
 
 <style>
-#body {
+.body {
   display: flex;
-  min-height: 100vh;
   flex-direction: column;
+  -webkit-overflow-scrolling: touch;
 }
 
-#main {
-  flex: 1;
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main {
+  flex: 1 1 auto;
 }
 </style>

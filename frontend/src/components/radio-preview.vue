@@ -9,15 +9,28 @@
       <div class="personality-icons">
         <img :src="personality.image" class="personality-icon" v-for="personality in personalities">
       </div>
+      <div class="mp3" v-if="digestMp3Url">
+        <div class="ui label">
+          <p>ダイジェスト版:</p>
+          <audio controls="controls" :src="digestMp3Url"/>
+        </div>
+      </div>
+      <div class="mp3">
+        <div class="ui label">
+          <p>本編はこちら！</p>
+          <audio controls="controls" :src="mp3Url"/>
+        </div>
+      </div>
       <div class="meta">
         <span class="date">{{ date }}</span>
       </div>
-      <audio controls="controls" :src="mp3Url"/>
     </div>
   </div>
 </template>
 
 <script>
+var includes = require('array-includes')
+
 module.exports = {
   props: {
     imagePath: {
@@ -35,7 +48,7 @@ module.exports = {
       default: 'other',
       required: true,
       validator: function (value) {
-        return ['radio', 'community', 'other'].includes(value)
+        return includes(['radio', 'community', 'other'], value)
       }
     },
     title: {
@@ -55,6 +68,9 @@ module.exports = {
     mp3Url: {
       type: String,
       required: true
+    },
+    digestMp3Url: {
+      type: String
     },
     date: {
       type: String,
@@ -100,5 +116,9 @@ module.exports = {
   -moz-border-radius: 5px;
   margin: 5px;
   display: inline;
+}
+
+.mp3 {
+  margin: 10px;
 }
 </style>

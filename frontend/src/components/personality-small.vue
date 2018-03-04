@@ -4,7 +4,12 @@
       <img :src="imagePath">
     </router-link>
     <div class="middle aligned content">
-      <router-link class="header" :to="{ name: 'personality', params: { id: id }}">{{ name }}</router-link>
+      <router-link class="header" :to="{ name: 'personality', params: { id: id }}">
+        <div class="names">
+          <h2 class="name">{{ name }}</h2>
+          <div class="nickname">{{ nickname }}</div>
+        </div>
+      </router-link>
       <div class="description">
         <p v-html="description"/>
       </div>
@@ -25,6 +30,9 @@ module.exports = {
       default: '名前を取得できませんでした',
       required: true
     },
+    nickname: {
+      type: String
+    },
     description: {
       type: String,
       default: '自己紹介を取得できませんでした',
@@ -38,3 +46,18 @@ module.exports = {
   }
 }
 </script>
+
+<style scoped>
+.name {
+  font-size: 20px;
+  display: inline-block;
+  margin-bottom: 0;
+}
+
+.nickname {
+  font-size: 16px;
+  font-weight: normal;
+  display: inline-block;
+  color: #888888;
+}
+</style>

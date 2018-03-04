@@ -19,6 +19,7 @@
 #  description            :text(65535)
 #  role                   :integer          default(0), not null
 #  image                  :string(255)
+#  nickname               :string(255)
 #
 # Indexes
 #
@@ -35,7 +36,7 @@ class Personality < ApplicationRecord
          :trackable,
          :validatable
 
-  bind_inum :role, PersonalityRoles
+  bind_inum :role, PersonalityRoles, prefix: nil
 
   mount_uploader :image, PersonalityImageUploader
 
@@ -47,4 +48,40 @@ class Personality < ApplicationRecord
   scope :on_public, -> {
     where.not(role: PersonalityRoles::SECRET)
   }
+
+  scope :appeared, -> {
+    where(
+      id: RadioPersonality.where(
+        radio_id: Radio.published.select(:id),
+      ).select(:personality_id),
+    )
+  }
+
+  def member?
+    admin? || editor? || secret?
+  end
+
+  def allow_change_role?
+    admin? || secret?
+  end
+
+  def change_role_to_admin!
+    self.role = PersonalityRoles::ADMIN
+    save!
+  end
+
+  def change_role_to_secret!
+    self.role = PersonalityRoles::SECRET
+    save!
+  end
+
+  def change_role_to_editor!
+    self.role = PersonalityRoles::EDITOR
+    save!
+  end
+
+  def change_role_to_guest!
+    self.role = PersonalityRoles::GUEST
+    save!
+  end
 end

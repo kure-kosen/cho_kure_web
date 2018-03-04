@@ -2,7 +2,8 @@
   <footer>
     <div class="ui black center aligned segment">
       <div class="ui text container">
-        <a class="ui white" href="https://www.kure-nct.ac.jp/">呉高専HP</a>
+        <p><a class="ui white" href="https://www.kure-nct.ac.jp/">呉高専HP</a></p>
+        <p><router-link class="ui white" to="/policy">プライバシーポリシー</router-link></p>
         <p class="ui white">&copy;2017 ちょっときいて呉高専</p>
       </div>
     </div>
@@ -16,7 +17,8 @@
 
 .ui.black.segment {
   background-color: #999999;
-  padding-top: 80px;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 .ui.white {

@@ -9,12 +9,13 @@ ja:
         description: 説明
         personalities: パーソナリティー
         communities: 紹介したコミュニティ
-        mp3: 音声ファイル
+        mp3: 本編
+        digest_mp3: ダイジェスト版
         duration: 秒数
         size: mp3のbyte数
         youtube_url: Youtube
         podcast_url: podcast
         published_at: 投稿日時
 
-        status: 公開ステータス
+        status: ステータス
         reserve_time: 公開予定日時

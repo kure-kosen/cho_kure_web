@@ -5,6 +5,7 @@
       <img :src="radio.image" :alt="radio.title">
       <div v-html="radio.description"/>
       <div><audio controls="controls" :src="radio.mp3.url"/></div>
+      <share-buttons/>
       <h3>パーソナリティ</h3>
       <div class="ui segment grid" v-for="personality in radio.personalities">
         <div class="three wide column">
@@ -24,17 +25,17 @@
           </div>
         </div>
       </div>
-      <div class="ui items" v-for="newRadio in newRadios">
-        <radio-preview
-          :image-path="newRadio.image"
-          :item-id="newRadio.id"
-          type="radio"
-          :title="newRadio.title"
-          :description="newRadio.description"
-          :mp3-url="newRadio.mp3.url"
-          :personalities="radio.personalities"
-          :date="newRadio.created_at"/>
-      </div>
+    </div>
+    <div class="ui items" v-for="newRadio in newRadios">
+      <radio-preview
+        :image-path="newRadio.image"
+        :item-id="newRadio.id"
+        type="radio"
+        :title="newRadio.title"
+        :description="newRadio.description"
+        :mp3-url="newRadio.mp3.url"
+        :personalities="newRadio.personalities"
+        :date="newRadio.created_at"/>
     </div>
   </div>
 </template>

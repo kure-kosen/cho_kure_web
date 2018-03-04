@@ -4,9 +4,10 @@
       <img :src="imagePath">
     </div>
     <div class="content">
-      <div class="header">{{ name }}</div>
-      <div class="meta">
-        <span v-for="tag in tags">
+      <span class="name">{{ name }}</span>
+      <span class="nickname">{{ nickname }}</span>
+      <div class="ui tag labels">
+        <span class="ui label" v-for="tag in tags">
           {{ tag }}
         </span>
       </div>
@@ -28,6 +29,9 @@ module.exports = {
       default: '名前を取得できませんでした',
       required: true
     },
+    nickname: {
+      type: String
+    },
     description: {
       type: String,
       default: '自己紹介を取得できませんでした',
@@ -47,4 +51,19 @@ module.exports = {
 }
 </script>
 
-<style></style>
+<style scoped>
+.name {
+  color: #000000;
+  font-weight: bold;
+  font-size: 22px;
+  margin-right: 10px;
+}
+
+.nickname {
+  color: #888888;
+}
+
+.tag {
+  margin-top: 5px;
+}
+</style>

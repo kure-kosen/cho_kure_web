@@ -1,0 +1,32 @@
+<div class="row">
+  <div class="col-8">
+    <h1>専門用語一覧</h1>
+  </div>
+  <div class="col-4">
+    <%= Admin::JargonViewObject.link_to_new(current_personality) %>
+  </div>
+</div>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= Jargon.human_attribute_name('name') %></th>
+      <th><%= Jargon.human_attribute_name('description') %></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @jargons.each do |jargon| %>
+      <tr>
+        <td><%= jargon.name %></td>
+        <td><%= truncate(jargon.description) %></td>
+        <td>
+          <%= Admin::JargonViewObject.link_to_show(current_personality, jargon) %>
+          <%= Admin::JargonViewObject.link_to_edit(current_personality, jargon) %>
+          <%= Admin::JargonViewObject.link_to_destroy(current_personality, jargon) %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
