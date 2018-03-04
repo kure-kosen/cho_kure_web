@@ -4,27 +4,25 @@
       <h2 class="ui header">パーソナリティで調べる</h2>
       <personality-filter
         :personalities="personalities"
-        @click-personality-icon="setFilteredRadioFromPersonality">
-      </personality-filter>
+        @click-personality-icon="setFilteredRadioFromPersonality"/>
       <h2 class="ui header">放送された回</h2>
       <transition-group>
-        <div class="ui items" v-bind:key="radio.id" v-for="radio in filteredRadios">
+        <div class="ui items" :key="radio.id" v-for="radio in filteredRadios">
           <radio-preview
-              :item-id="radio.id"
-              :image-path="radio.image"
-              :item-path="radio.itemPath"
-              type="radio"
-              :title="radio.title"
-              :description="radio.description"
-              :personalities="radio.personalities"
-              :mp3-url="radio.mp3.url"
-              :digest-mp3-url="radio.digest_mp3.url"
-              :date="radio.published_at">
-          </radio-preview>
+            :item-id="radio.id"
+            :image-path="radio.image"
+            :item-path="radio.itemPath"
+            type="radio"
+            :title="radio.title"
+            :description="radio.description"
+            :personalities="radio.personalities"
+            :mp3-url="radio.mp3.url"
+            :digest-mp3-url="radio.digest_mp3.url"
+            :date="radio.published_at"/>
         </div>
       </transition-group>
     </div>
-    <how-to-podcast-link></how-to-podcast-link>
+    <how-to-podcast-link/>
   </div>
 </template>
 
@@ -34,7 +32,7 @@ module.exports = {
     return {
       personalities: [],
       newRadios: [],
-      filteredRadios: [],
+      filteredRadios: []
     }
   },
   mounted: function () {
@@ -44,8 +42,8 @@ module.exports = {
         that.newRadios = response.data
         that.filteredRadios = response.data
       })
-      .catch( function (error) {
-        console.error(error)
+      .catch(function (error) {
+        console.log(error)
       })
     this.axios.get('/api/v1/personalities/appeared')
       .then(function (response) {
@@ -53,28 +51,28 @@ module.exports = {
       })
   },
   methods: {
-    setFilteredRadioFromPersonality: function(id) {
+    setFilteredRadioFromPersonality: function (id) {
       if (id === 0) {
-        let that = this
+        const that = this
         this.axios.get('/api/v1/radios')
           .then(function (response) {
             that.filteredRadios = response.data
           })
-          .catch( function (error) {
+          .catch(function (error) {
             console.error(error)
           })
 
         return
       }
 
-      this.filteredRadios = this.newRadios.filter(function(r) {
-        const personality_ids = r.personalities.map(function(p) {
+      this.filteredRadios = this.newRadios.filter(function (r) {
+        const personality_ids = r.personalities.map(function (p) {
           return p.id
         })
         return (personality_ids.indexOf(id) !== -1)
       })
     }
-  },
+  }
 }
 </script>
 

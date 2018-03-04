@@ -4,14 +4,12 @@
       <h2 class="ui header">パーソナリティ一覧</h2>
       <div class="ui link cards">
         <personality-card v-for="personality in personalities"
-          :key="personality.id"
-          :id="personality.id"
-          :name="personality.name"
-          :nickname="personality.nickname"
-          :description="personality.description"
-          :image-path="personality.image"
-          :tags="personality.tag_list">
-        </personality-card>
+                          :key="personality.id"
+                          :id="personality.id"
+                          :name="personality.name"
+                          :description="personality.description"
+                          :image-path="personality.image"
+                          :tags="personality.tag_list"/>
       </div>
     </article>
   </div>

@@ -1,7 +1,7 @@
 import Vue from 'vue'
 
-
 // Library
+import 'babel-polyfill'
 import VueRouter from 'vue-router'
 require('es6-promise').polyfill()
 import axios from 'axios'

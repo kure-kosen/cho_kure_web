@@ -1,21 +1,21 @@
 <template>
-<div class="personality-filters">
-  <div class="personality-icon" @click="clickPersonalityIcon(0)">
-    <img class="personality-icon-image" width="100%" src="../../images/filter_all.png">
-    <p class="personality-name">全員</p>
+  <div class="personality-filters">
+    <div class="personality-icon" @click="clickPersonalityIcon(0)">
+      <img class="personality-icon-image" width="100%" src="../../images/filter_all.png">
+      <p class="personality-name">全員</p>
+    </div>
+    <div class="personality-icon" @click="clickPersonalityIcon(personality.id)" v-for="personality in personalities">
+      <img class="personality-icon-image" width="100%" :src="personality.image">
+      <p class="personality-name">{{ personality.name }}</p>
+      <p class="personality-nickname">{{ personality.nickname }}</p>
+    </div>
   </div>
-  <div class="personality-icon" @click="clickPersonalityIcon(personality.id)" v-for="personality in personalities">
-    <img class="personality-icon-image" width="100%" :src="personality.image">
-    <p class="personality-name">{{ personality.name }}</p>
-    <p class="personality-nickname">{{ personality.nickname }}</p>
-  </div>
-</div>
 </template>
 
 <script>
 module.exports = {
   methods: {
-    clickPersonalityIcon: function(id) {
+    clickPersonalityIcon: function (id) {
       this.$emit('click-personality-icon', id)
     }
   },
@@ -24,7 +24,7 @@ module.exports = {
       type: Array,
       default: [],
       required: true
-    },
+    }
   }
 }
 </script>

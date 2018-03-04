@@ -1,18 +1,17 @@
 <template>
-<div>
-  <transition name="fade">
-    <div v-if="visible" class="how-to-podcast">
-      <a @click="openModal()" class="how-to-podcast-link">
-        <p>Podcastで聞いてみる？</p>
-      </a>
-      <a @click="visible = false" class="delete-link">
-        <p>×</p>
-      </a>
-    </div>
-  </transition>
-  <how-to-podcast-modal v-if="showModal" @close="closeModal()">
-  </how-to-podcast-modal>
-</div>
+  <div>
+    <transition name="fade">
+      <div v-if="visible" class="how-to-podcast">
+        <a @click="openModal()" class="how-to-podcast-link">
+          <p>Podcastで聞いてみる？</p>
+        </a>
+        <a @click="visible = false" class="delete-link">
+          <p>×</p>
+        </a>
+      </div>
+    </transition>
+    <how-to-podcast-modal v-if="showModal" @close="closeModal()"/>
+  </div>
 </template>
 
 <script>
@@ -20,16 +19,16 @@ module.exports = {
   data: function () {
     return {
       visible: true,
-      showModal: false,
+      showModal: false
     }
   },
 
   methods: {
-    openModal: function() {
+    openModal: function () {
       this.showModal = true
       $('body').css('overflow', 'hidden')
     },
-    closeModal: function() {
+    closeModal: function () {
       this.showModal = false
       $('body').css('overflow', 'auto')
     }

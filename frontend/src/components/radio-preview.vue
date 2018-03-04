@@ -1,24 +1,24 @@
 <template>
-  <div class="item" v-bind:class="type">
-    <router-link class="image" v-bind:to="{ name: 'radios', params: { id: itemId }}">
-      <img v-bind:src="imagePath">
+  <div class="item" :class="type">
+    <router-link class="image" :to="{ name: 'radios', params: { id: itemId }}">
+      <img :src="imagePath">
     </router-link>
     <div class="content">
-      <router-link class="header" v-bind:to="{ name: 'radios', params: { id: itemId }}">{{ title }}</router-link>
-      <div v-html="description" class="description"></div>
+      <router-link class="header" :to="{ name: 'radios', params: { id: itemId }}">{{ title }}</router-link>
+      <div v-html="description" class="description"/>
       <div class="personality-icons">
-        <img v-bind:src="personality.image" class="personality-icon" v-for="personality in personalities">
+        <img :src="personality.image" class="personality-icon" v-for="personality in personalities">
       </div>
       <div class="mp3" v-if="digestMp3Url">
         <div class="ui label">
           <p>ダイジェスト版:</p>
-          <audio controls="controls" v-bind:src="digestMp3Url"></audio>
+          <audio controls="controls" :src="digestMp3Url"/>
         </div>
       </div>
       <div class="mp3">
         <div class="ui label">
           <p>本編はこちら！</p>
-          <audio controls="controls" v-bind:src="mp3Url"></audio>
+          <audio controls="controls" :src="mp3Url"/>
         </div>
       </div>
       <div class="meta">
@@ -54,29 +54,29 @@ module.exports = {
     title: {
       type: String,
       default: 'タイトルを取得できませんでした',
-      required: true,
+      required: true
     },
     description: {
       type: String,
       default: '詳細を取得できませんでした',
-      required: true,
+      required: true
     },
     personalities: {
       type: Array,
-      default: [],
+      default: []
     },
     mp3Url: {
       type: String,
       required: true
     },
     digestMp3Url: {
-      type: String,
+      type: String
     },
     date: {
       type: String,
       default: '2017/12/03 1:08',
       required: true
-    },
+    }
   }
 }
 </script>

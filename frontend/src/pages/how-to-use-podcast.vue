@@ -1,9 +1,9 @@
 <template>
-<div class="pusher">
-  <div class="ui text container main">
-    <how-to-use-podcast></how-to-use-podcast>
+  <div class="pusher">
+    <div class="ui text container main">
+      <how-to-use-podcast/>
+    </div>
   </div>
-</div>
 </template>
 
 <script></script>

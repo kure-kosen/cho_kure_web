@@ -2,8 +2,8 @@
   <div class="pusher">
     <div class="ui text container main">
       <h2 class="ui header">投稿フォーム・お問い合わせ</h2>
-      <contact-form></contact-form>
-      <share-buttons></share-buttons>
+      <contact-form/>
+      <share-buttons/>
     </div>
   </div>
 </template>

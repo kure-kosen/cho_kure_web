@@ -1,7 +1,7 @@
 <template>
   <router-link class="card" :to="{ name: 'personality', params: { id: id }}">
     <div class="image">
-      <img v-bind:src="imagePath">
+      <img :src="imagePath">
     </div>
     <div class="content">
       <span class="name">{{ name }}</span>
@@ -11,7 +11,7 @@
           {{ tag }}
         </span>
       </div>
-      <div class="description" v-html="description"></div>
+      <div class="description" v-html="description"/>
     </div>
   </router-link>
 </template>
@@ -30,7 +30,7 @@ module.exports = {
       required: true
     },
     nickname: {
-      type: String,
+      type: String
     },
     description: {
       type: String,
@@ -40,13 +40,13 @@ module.exports = {
     imagePath: {
       type: String,
       default: 'https://placehold.jp/200x200.png',
-      required: true,
+      required: true
     },
     tags: {
       type: Array,
       default: [],
-      required: true,
-    },
+      required: true
+    }
   }
 }
 </script>
