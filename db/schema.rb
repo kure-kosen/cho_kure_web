@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171223071451) do
+ActiveRecord::Schema.define(version: 20180126145434) do
 
   create_table "communities", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name", null: false
@@ -28,6 +28,18 @@ ActiveRecord::Schema.define(version: 20171223071451) do
     t.datetime "updated_at", null: false
     t.index ["community_id"], name: "index_community_radios_on_community_id"
     t.index ["radio_id"], name: "index_community_radios_on_radio_id"
+  end
+
+  create_table "contacts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.boolean "readable", null: false
+    t.integer "corner", default: 0, null: false
+    t.string "message", null: false
+    t.string "nickname"
+    t.string "name"
+    t.integer "department", default: 0, null: false
+    t.integer "grade", default: 0, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "events", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -49,6 +61,17 @@ ActiveRecord::Schema.define(version: 20171223071451) do
     t.index ["host_id"], name: "index_host_events_on_host_id"
   end
 
+  create_table "jargons", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "name", null: false
+    t.text "description", null: false
+    t.bigint "radio_id", null: false
+    t.integer "major", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_jargons_on_name", unique: true
+    t.index ["radio_id"], name: "index_jargons_on_radio_id"
+  end
+
   create_table "personalities", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -66,6 +89,7 @@ ActiveRecord::Schema.define(version: 20171223071451) do
     t.text "description"
     t.integer "role", default: 0, null: false
     t.string "image"
+    t.string "nickname"
     t.index ["email"], name: "index_personalities_on_email", unique: true
     t.index ["reset_password_token"], name: "index_personalities_on_reset_password_token", unique: true
   end
@@ -91,6 +115,7 @@ ActiveRecord::Schema.define(version: 20171223071451) do
     t.integer "duration", null: false
     t.integer "size", null: false
     t.string "image"
+    t.string "digest_mp3"
     t.index ["published_at"], name: "index_radios_on_published_at"
   end
 
@@ -123,6 +148,7 @@ ActiveRecord::Schema.define(version: 20171223071451) do
   add_foreign_key "community_radios", "radios"
   add_foreign_key "host_events", "communities", column: "host_id"
   add_foreign_key "host_events", "events"
+  add_foreign_key "jargons", "radios"
   add_foreign_key "radio_personalities", "personalities"
   add_foreign_key "radio_personalities", "radios"
 end

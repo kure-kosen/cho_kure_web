@@ -14,6 +14,7 @@
 #  duration     :integer          not null
 #  size         :integer          not null
 #  image        :string(255)
+#  digest_mp3   :string(255)
 #
 # Indexes
 #
@@ -23,6 +24,7 @@
 class Radio < ApplicationRecord
   mount_uploader :image, RadioImageUploader
   mount_uploader :mp3, RadioMp3Uploader
+  mount_uploader :digest_mp3, RadioDigestMp3Uploader
 
   has_many :radio_personalities, dependent: :destroy
   has_many :personalities, through: :radio_personalities

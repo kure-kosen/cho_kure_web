@@ -5,6 +5,7 @@
     <img v-bind:src="radio.image" v-bind:alt="radio.title">
     <div v-html="radio.description"></div>
     <div><audio controls="controls" v-bind:src="radio.mp3.url"></audio></div>
+    <share-buttons></share-buttons>
     <h3>パーソナリティ</h3>
     <div class="ui unstackable divided items">
       <div class="ui item" v-for="personality in radio.personalities">
@@ -34,7 +35,7 @@
         :title="newRadio.title"
         :description="newRadio.description"
         :mp3-url="newRadio.mp3.url"
-        :personalities="radio.personalities"
+        :personalities="newRadio.personalities"
         :date="newRadio.created_at">
       </radio-preview>
     </div>

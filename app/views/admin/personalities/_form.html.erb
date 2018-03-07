@@ -9,6 +9,13 @@
   </div>
 
   <div class="form-group row">
+    <%= form.label :nickname, class: 'col-2 col-form-label' %>
+    <div class="col-10">
+      <%= form.text_field :nickname, class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class="form-group row">
     <%= form.label :image, class: 'col-2 col-form-label' %>
     <div class="col-10">
       <%= form.file_field :image %>
@@ -18,6 +25,7 @@
   <div class="form-group row">
     <%= form.label :description, class: 'col-2 col-form-label' %>
     <div class="col-10" id="editor">
+      <%= render 'admin/shared/markdown_help' %>
       <div class="row" style="height: 30em;">
         <div class="col-6">
           <%= form.text_area :description, class: 'form-control', rows: 20, "v-model" => "input", debounce: 50 %>

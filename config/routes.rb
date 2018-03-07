@@ -20,6 +20,9 @@ Rails.application.routes.draw do
   namespace :api, format: "json" do
     namespace :v1 do
       resources :personalities, only: [:index, :show] do
+        collection do
+          get :appeared
+        end
         member do
           get :new_radios
         end
@@ -27,6 +30,12 @@ Rails.application.routes.draw do
       resources :communities, only: [:index, :show]
       resources :events, only: [:index, :show]
       resources :radios, only: [:index, :show]
+      resources :jargons, only: [:index, :show]
+      resource :contacts, only: [:index, :create] do
+        collection do
+          get "enum"
+        end
+      end
     end
   end
 
@@ -43,5 +52,7 @@ Rails.application.routes.draw do
     resources :communities
     resources :events
     resources :radios
+    resources :jargons
+    resources :contacts
   end
 end

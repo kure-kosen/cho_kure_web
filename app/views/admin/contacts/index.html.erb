@@ -1,0 +1,36 @@
+<div class="row">
+  <div class="col-8">
+    <h1>投稿一覧</h1>
+  </div>
+  <div class="col-4">
+    <%= Admin::ContactViewObject.link_to_new(current_personality) %>
+  </div>
+</div>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= Contact.human_attribute_name('corner') %></th>
+      <th><%= Contact.human_attribute_name('nickname') %></th>
+      <th><%= Contact.human_attribute_name('message') %></th>
+      <th><%= Contact.human_attribute_name('readable') %></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @contacts.each do |contact| %>
+      <tr>
+        <td><%= contact.corner.t %></td>
+        <td><%= contact.nickname %></td>
+        <td><%= truncate(contact.message) if contact.message %></td>
+        <td><%= contact.readable ? 'OK' : 'NG' %></td>
+        <td>
+          <%= Admin::ContactViewObject.link_to_show(current_personality, contact) %>
+          <%= Admin::ContactViewObject.link_to_edit(current_personality, contact) %>
+          <%= Admin::ContactViewObject.link_to_destroy(current_personality, contact) %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

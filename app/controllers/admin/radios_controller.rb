@@ -31,7 +31,7 @@ class Admin::RadiosController < Admin::BaseController
     )
 
     if @radio.save
-      redirect_to admin_radio_path(@radio), notice: "Radio was successfully created."
+      redirect_to admin_radio_path(@radio), notice: "ラジオを作成しました。"
     else
       render :new
     end
@@ -49,7 +49,7 @@ class Admin::RadiosController < Admin::BaseController
     end
 
     if @radio.update(radio_params)
-      redirect_to admin_radio_path(@radio), notice: "Radio was successfully updated."
+      redirect_to admin_radio_path(@radio), notice: "ラジオを更新しました。"
     else
       render :edit
     end
@@ -58,7 +58,7 @@ class Admin::RadiosController < Admin::BaseController
   # DELETE /radios/1
   def destroy
     @radio.destroy!
-    redirect_to admin_radios_url, notice: "Radio was successfully destroyed."
+    redirect_to admin_radios_url, notice: "ラジオを削除しました。"
   end
 
   private
@@ -88,6 +88,7 @@ class Admin::RadiosController < Admin::BaseController
         :image,
         :description,
         :mp3,
+        :digest_mp3,
         community_ids: [],
         personality_ids: [],
       )

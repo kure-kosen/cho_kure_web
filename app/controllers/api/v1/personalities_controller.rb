@@ -11,6 +11,10 @@ class Api::V1::PersonalitiesController < Api::V1::BaseController
     ).published.order(published_at: :desc).includes(personalities: :taggings).take(5)
   end
 
+  def appeared
+    render json: Personality.appeared.on_public
+  end
+
   def show
     render json: @personality
   end

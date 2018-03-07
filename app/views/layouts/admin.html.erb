@@ -3,7 +3,9 @@
 
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <%= render 'shared/favicon'  %>
   <title>[ADMIN]ちょっときいて呉高専</title>
+  <meta name="apple-mobile-web-app-title" content="ちょっくれ">
   <%= stylesheet_link_tag    'admin', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= javascript_include_tag 'admin', 'data-turbolinks-track': 'reload' %>
   <!-- Realtime preview -->
@@ -13,6 +15,7 @@
 </head>
 
 <body class="fixed-nav bg-dark">
+
 <nav class="row navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
   <div class="col-3">
     <%= link_to "[ADMIN]ちょっときいて呉高専", admin_root_path, class: "navbar-brand" %>
@@ -28,6 +31,9 @@
 </nav>
 <div class="content-wrapper">
   <div class="container-fluid">
+    <% if notice %>
+    <div class="alert alert-info"><%= notice %></div>
+    <% end %>
     <%= yield %>
   </div>
 </div>

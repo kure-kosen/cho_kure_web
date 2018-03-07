@@ -35,4 +35,22 @@
       <% end %>
     </li>
   <% end %>
+
+  <% if current_personality.member? %>
+    <li class="nav-item">
+      <%= link_to admin_jargons_path, class: "nav-link" do %>
+        <i class="fa fa-fw fa-book"></i>
+        <span class="nav-link-text">専門用語一覧</span>
+      <% end %>
+    </li>
+  <% end %>
+
+  <% if current_personality.member? %>
+    <li class="nav-item">
+      <%= link_to admin_contacts_path, class: "nav-link" do %>
+        <i class="fa fa-fw fa-book"></i>
+        <span class="nav-link-text">投稿一覧</span>
+      <% end %>
+    </li>
+  <% end %>
 </ul>

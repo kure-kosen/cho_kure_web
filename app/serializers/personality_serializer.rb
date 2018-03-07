@@ -19,6 +19,7 @@
 #  description            :text(65535)
 #  role                   :integer          default(0), not null
 #  image                  :string(255)
+#  nickname               :string(255)
 #
 # Indexes
 #
@@ -27,7 +28,7 @@
 #
 
 class PersonalitySerializer < ActiveModel::Serializer
-  attributes :id, :name, :description, :role, :image, :tag_list
+  attributes :id, :name, :nickname, :description, :role, :image, :tag_list
 
   has_many :radios
 
