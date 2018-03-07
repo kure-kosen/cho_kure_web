@@ -27,8 +27,10 @@
         </div>
       </div>
     </div>
-    <div class="ui items" v-for="newRadio in newRadios">
+    <div class="ui items">
       <radio-preview
+        v-for="newRadio in newRadios"
+        :key="newRadio.id"
         :image-path="newRadio.image"
         :item-id="newRadio.id"
         type="radio"
