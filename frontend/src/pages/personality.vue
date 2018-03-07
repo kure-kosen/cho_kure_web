@@ -27,15 +27,25 @@
           <share-buttons></share-buttons>
         </article>
         <h3 class="ui header">他のメンバー</h3>
-        <div class="ui unstackable divided items link">
-          <personality-small v-for="personality in personalities"
-            :key="personality.id"
-            :id="personality.id"
-            :name="personality.name"
-            :nickname="personality.nickname"
-            :description="personality.description"
-            :image-path="personality.image">
-          </personality-small>
+        <div class="ui unstackable divided items">
+          <div class="ui item" v-for="personality in personalities">
+            <div class="image">
+              <router-link :to="{ name: 'personality', params: { id: personality.id }}">
+                <img class="ui small image" v-bind:src="personality.image">
+              </router-link>
+            </div>
+            <div class="content">
+              <h4>
+                <router-link :to="{ name: 'personality', params: { id: personality.id }}">
+                  {{ personality.name }}
+                </router-link>
+              </h4>
+              <div class="description" v-html="personality.description"></div>
+              <div class="ui tag labels">
+                <div class="ui label" v-for="tag in personality.tag_list">{{ tag }}</div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
