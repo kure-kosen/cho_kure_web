@@ -1,11 +1,11 @@
 <template>
 <div class="pusher">
   <div class="ui text container main">
+    <share-buttons></share-buttons>
     <h2 class="ui header">{{ radio.title }}</h2>
     <img v-bind:src="radio.image" v-bind:alt="radio.title">
     <div v-html="radio.description"></div>
     <div><audio controls="controls" v-bind:src="radio.mp3.url"></audio></div>
-    <share-buttons></share-buttons>
     <h3>パーソナリティ</h3>
     <div class="ui segment grid" v-for="personality in radio.personalities">
       <div class="three wide column">
@@ -37,6 +37,7 @@
         :date="newRadio.created_at">
       </radio-preview>
     </div>
+    <share-buttons></share-buttons>
   </div>
 </div>
 </template>
@@ -45,7 +46,7 @@
 module.exports = {
   data: function () {
     return {
-      radio: {},
+     radio: {},
       newRadios: [],
     }
   },
