@@ -32,10 +32,12 @@ group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
   gem "pry-byebug"
 
+  gem "capybara"
   gem "factory_bot_rails"
   gem "letter_opener"
   gem "letter_opener_web"
   gem "rspec-rails"
+  gem "selenium-webdriver"
 end
 
 group :development do
