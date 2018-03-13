@@ -29,7 +29,7 @@ feature "listen on Podcast", js: true do
     end
 
     it "closes modal" do
-      first(".modal-close").click
+      find(".modal-close", match: :first).click
 
       expect(page).not_to have_css ".modal-mask"
     end
