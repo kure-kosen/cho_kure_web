@@ -56,7 +56,7 @@ RSpec.configure do |config|
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
 
-  caps = Selenium::WebDriver::Remote::Capabilities.chrome(chromeOptions: { args: %w[headless disable-gpu] })
+  caps = Selenium::WebDriver::Remote::Capabilities.chrome(chromeOptions: { args: %w[headless disable-gpu window-size=1920,1080] })
   Capybara.register_driver :selenium do |app|
     Capybara::Selenium::Driver.new(app, browser: :chrome, desired_capabilities: caps)
   end
