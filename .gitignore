@@ -28,3 +28,6 @@
 /public/assets
 
 /node_modules/*
+
+/spec/screenshots/
+#/spec/screenshots/*
