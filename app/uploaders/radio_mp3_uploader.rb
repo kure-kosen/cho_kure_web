@@ -11,7 +11,7 @@ class RadioMp3Uploader < CarrierWave::Uploader::Base
   # This is a sensible default for uploaders that are meant to be mounted:
   def store_dir
     if Rails.env.test?
-      Rails.root.join("spec", "support", "uploads", model.class.to_s.underscore, mounted_as, model.id)
+      Rails.root.join("public", "uploads", model.class.to_s.underscore, mounted_as.to_s, model.id.to_s)
     else
       "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
     end
