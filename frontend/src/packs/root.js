@@ -27,6 +27,7 @@ import HowToPodcast from '../components/how-to-use-podcast.vue'
 import HowToPodcastLink from '../components/how-to-podcast-link.vue'
 import HowToPodcastModal from '../components/how-to-podcast-modal.vue'
 import ContactForm from '../components/contact-form.vue'
+import JargonCard from '../components/jargon-card.vue'
 Vue.component('app-header', Header)
 Vue.component('app-footer', Footer)
 Vue.component('radio-preview', RadioPreview)
@@ -38,6 +39,7 @@ Vue.component('how-to-use-podcast', HowToPodcast)
 Vue.component('how-to-podcast-link', HowToPodcastLink)
 Vue.component('how-to-podcast-modal', HowToPodcastModal)
 Vue.component('contact-form', ContactForm)
+Vue.component('jargon-card', JargonCard)
 
 // Page
 import Contact from '../pages/contact.vue'
@@ -48,6 +50,7 @@ import Personalities from '../pages/personalities.vue'
 import Personality from '../pages/personality.vue'
 import Radio from '../pages/radio.vue'
 import HowToUsePodcast from '../pages/how-to-use-podcast.vue'
+import Jargon from '../pages/jargon.vue'
 
 const router = new VueRouter({
   mode: 'history',
@@ -61,6 +64,7 @@ const router = new VueRouter({
     { path: '/personalities/:id', name: 'personality', component: Personality },
     { path: '/radios/:id', name: 'radios', component: Radio },
     { path: '/how-to-use-podcast', component: HowToUsePodcast },
+    { path: '/jargons', component: Jargon },
   ],
   scrollBehavior: function scrollBehavior (to, from, savedPosition) {
     return { x: 0, y: 0 }
