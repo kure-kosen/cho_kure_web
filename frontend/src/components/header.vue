@@ -37,13 +37,13 @@
 <script>
 module.exports = {
   methods: {
-    showMenu: () => {
+    showMenu: function () {
       $('.ui.sidebar')
         .sidebar('show')
         .sidebar('setting', 'mobileTransition', 'push')
       ;
     },
-    hideMenu: () => {
+    hideMenu: function() {
       $('.ui.sidebar')
         .sidebar('hide')
         .sidebar('setting', 'mobileTransition', 'push')

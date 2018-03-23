@@ -17,7 +17,7 @@
 
 <script>
 module.exports = {
-  data: () => {
+  data: function () {
     return {
       visible: true,
       showModal: false,
@@ -25,11 +25,11 @@ module.exports = {
   },
 
   methods: {
-    openModal: () => {
+    openModal: function() {
       this.showModal = true
       $('body').css('overflow', 'hidden')
     },
-    closeModal: () => {
+    closeModal: function() {
       this.showModal = false
       $('body').css('overflow', 'auto')
     }

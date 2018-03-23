@@ -19,19 +19,19 @@
 
 <script>
 module.exports = {
-  data: () => {
+  data: function () {
     return {
       personalities: []
     }
   },
-  mounted: () => {
+  mounted: function () {
     var that = this
     this.axios.get('/api/v1/personalities')
-      .then((response) => {
+      .then(function (response) {
         that.personalities = response.data
         console.log(that.personalities)
       })
-      .catch((error) => {
+      .catch(function (error) {
         console.log(error)
       })
   }
