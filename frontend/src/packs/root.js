@@ -62,7 +62,7 @@ const router = new VueRouter({
     { path: '/radios/:id', name: 'radios', component: Radio },
     { path: '/how-to-use-podcast', component: HowToUsePodcast },
   ],
-  scrollBehavior: function scrollBehavior (to, from, savedPosition) {
+  scrollBehavior (to, from, savedPosition) {
     return { x: 0, y: 0 }
   }
 })
