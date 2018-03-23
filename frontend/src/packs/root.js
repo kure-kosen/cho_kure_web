@@ -2,8 +2,8 @@ import Vue from 'vue'
 
 
 // Library
+import 'babel-polyfill'
 import VueRouter from 'vue-router'
-require('es6-promise').polyfill()
 import axios from 'axios'
 import VueAxios from 'vue-axios'
 import VueAnalytics from 'vue-analytics'
