@@ -98,7 +98,7 @@
 
 <script>
 module.exports = {
-    data: function() {
+    data: () => {
         return {
             contact: {
                 corner: 0,
@@ -113,7 +113,7 @@ module.exports = {
             validState: 'uncheck',
         }
     },
-    mounted: function() {
+    mounted: () => {
         $('.ui.radio.checkbox').checkbox();
         $('.ui.selection.dropdown').dropdown();
         $('.ui.checkbox').checkbox();
@@ -159,18 +159,18 @@ module.exports = {
         this.getEnumPairs();
     },
     methods: {
-        getEnumPairs: function() {
+        getEnumPairs: () => {
             var that = this
             this.axios.get('/api/v1/contacts/enum')
-                .then(function (response) {
+                .then((response) => {
                     that.enum_pairs = response.data
                     console.log(that.enum_pairs)
                 })
-                .catch( function (error) {
+                .catch((error) => {
                     console.log(error)
                 })
         },
-        postContact: function() {
+        postContact: () => {
             this.validState = 'checking'
             if ($('.ui.form').form('is valid')){
                 this.axios.defaults.headers['X-CSRF-TOKEN'] = $('meta[name=csrf-token]').attr('content')
@@ -186,9 +186,9 @@ module.exports = {
                         'readable': this.contact.readable,
                     },
                 )
-                    .then(function (response) {
+                    .then((response) => {
                     })
-                    .catch(function (error) {
+                    .catch((error) => {
                         this.validState = 'error'
                         console.log(error)
                 })

@@ -26,7 +26,7 @@
 
 <script>
 module.exports = {
-    data: function () {
+    data: () => {
         return {
             fullUrl: window.location.protocol + "//" + window.location.host + "/app" + this.$route.path,
         }

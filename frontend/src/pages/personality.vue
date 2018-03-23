@@ -52,51 +52,51 @@ module.exports = {
     }
   },
   methods: {
-    getDetail: function () {
+    getDetail: () => {
       var that = this
       this.axios.get('/api/v1/personalities/' + this.$route.params.id)
-        .then(function (response) {
+        .then((response) => {
           that.personality = response.data
           console.log(that.personality)
 
           that.getPersonalities()
         })
-        .catch(function (error) {
+        .catch((error) => {
           console.log(error)
         })
     },
-    getRelatedNewRadios: function () {
+    getRelatedNewRadios: () => {
       var that = this
       this.axios.get('/api/v1/personalities/' + this.$route.params.id + '/new_radios')
-        .then(function (response) {
+        .then((response) => {
           that.relatedNewRadios = response.data
           console.log(that.relatedNewRadios) 
         })
-        .catch(function (error) {
+        .catch((error) => {
           console.log(error)
         })
     },
-    getPersonalities: function () {
+    getPersonalities: () => {
       var that = this
       this.axios.get('/api/v1/personalities')
-        .then(function (response) {
+        .then((response) => {
           that.personalities = response.data
-          that.personalities.some(function(v, i){
+          that.personalities.some((v, i) => {
             if (v.id==that.personality.id) that.personalities.splice(i,1)
           })
           console.log(that.personalities)
         })
-        .catch(function (error) {
+        .catch((error) => {
           console.log(error)
         })
     }
   },
-  mounted: function () {
+  mounted: () => {
     this.getDetail()
     this.getRelatedNewRadios()
   },
   watch: {
-    'this.$route': function (to, from) {
+    'this.$route': (to, from) => {
       this.getDetail()
       this.getRelatedNewRadios()
     }

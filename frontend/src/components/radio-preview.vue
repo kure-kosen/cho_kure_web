@@ -47,7 +47,7 @@ module.exports = {
       type: String,
       default: 'other',
       required: true,
-      validator: function (value) {
+      validator: (value) => {
         return includes(['radio', 'community', 'other'], value)
       }
     },
