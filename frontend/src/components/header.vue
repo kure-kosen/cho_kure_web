@@ -7,6 +7,7 @@
           <router-link class="item" to="/">トップ</router-link>
           <router-link class="item" to="/about">ちょっくれとは？</router-link>
           <router-link class="item" to="/personalities">パーソナリティ紹介</router-link>
+          <router-link class="item" to="/jargons">高専のススメ</router-link>
           <router-link class="item" to="/contact">投稿フォーム・お問い合わせ</router-link>
         </div>
       </div>
@@ -16,6 +17,7 @@
           <div class="right menu">
             <router-link class="item" to="/about">ちょっくれとは？</router-link>
             <router-link class="item" to="/personalities">パーソナリティ紹介</router-link>
+            <router-link class="item" to="/jargons">高専のススメ</router-link>
             <router-link class="item" to="/contact">投稿フォーム・お問い合わせ</router-link>
           </div>
         </div>
