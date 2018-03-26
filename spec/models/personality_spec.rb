@@ -3,16 +3,23 @@ require "rails_helper"
 RSpec.describe Personality, type: :model do
   describe "scope" do
     describe "on_public" do
-      it "returns personalities without secret" do
+      it "returns 3 personalities count" do
         count = Personality.on_public.count
         create(:personality, :guest)
         create(:personality, :editor)
         create(:personality, :secret)
         create(:personality, :admin)
 
-        public_personalities = Personality.on_public
-        expect(public_personalities.count).to eq count + 3
-        public_personalities.each do |personality|
+        expect(Personality.on_public.count).to eq count + 3
+      end
+
+      it "returns personalities without secret" do
+        create(:personality, :guest)
+        create(:personality, :editor)
+        create(:personality, :secret)
+        create(:personality, :admin)
+
+        Personality.on_public.each do |personality|
           expect(personality.role).not_to be PersonalityRoles::SECRET
         end
       end
