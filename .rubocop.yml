@@ -43,7 +43,8 @@ Naming/AccessorMethodName:
     - "app/services/podcast/feed.rb"
 
 Style/ClassVars:
-  Enabled: false
+  Exclude:
+    - "app/services/s3_uploader.rb"
 
 Rails:
   Exclude:
