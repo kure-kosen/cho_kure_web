@@ -56,4 +56,9 @@ RSpec.configure do |config|
   config.filter_rails_from_backtrace!
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
+
+  config.after(:suite) do
+    # テスト終了時にuploadなどで生成されたファイルを全て削除する
+    FileUtils.rm_rf(Rails.root.join("spec", "tmp"))
+  end
 end
