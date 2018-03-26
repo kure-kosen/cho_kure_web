@@ -1,6 +1,50 @@
 require "rails_helper"
 
 RSpec.describe Personality, type: :model do
+  describe "scope" do
+    describe "on_public" do
+      it "returns personalities without secret" do
+        count = Personality.on_public.count
+        create(:personality, :guest)
+        create(:personality, :editor)
+        create(:personality, :secret)
+        create(:personality, :admin)
+
+        public_personalities = Personality.on_public
+        expect(public_personalities.count).to eq count + 3
+        public_personalities.each do |personality|
+          expect(personality.role).not_to be PersonalityRoles::SECRET
+        end
+      end
+    end
+
+    describe "appeared" do
+      it "returns personalities that have appeared radio" do
+        count = Personality.appeared.count
+        create(:radio, :published).tap do |radio|
+          create(:radio_personality, radio: radio, personality: create(:personality, :guest))
+          create(:radio_personality, radio: radio, personality: create(:personality, :guest))
+          create(:radio_personality, radio: radio, personality: create(:personality, :guest))
+        end
+
+        expect(Personality.appeared.count).to eq count + 3
+      end
+
+      context "when radio of draft" do
+        it "returns no personalities" do
+          count = Personality.appeared.count
+          create(:radio, :draft).tap do |radio|
+            create(:radio_personality, radio: radio, personality: create(:personality, :guest))
+            create(:radio_personality, radio: radio, personality: create(:personality, :guest))
+            create(:radio_personality, radio: radio, personality: create(:personality, :guest))
+          end
+
+          expect(Personality.appeared.count).to eq count
+        end
+      end
+    end
+  end
+
   describe "#member?" do
     let(:guest) { create(:personality, :guest) }
     let(:editor) { create(:personality, :editor) }

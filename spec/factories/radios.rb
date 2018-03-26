@@ -1,9 +1,17 @@
 FactoryBot.define do
   factory :radio do
-    title "MyString"
-    description "MyText"
-    mp3 "MyString"
-    youtube_url "MyString"
-    podcast_url "MyString"
+    sequence(:title) { |n| "##{n} radio_title" }
+    description "We talked hoge, huga, foo, bar, and so on."
+    mp3 File.open(Rails.root.join("db", "fixtures", "audios", "sample.mp3"))
+    duration 1000
+    size 10000
+
+    trait :draft do
+      published_at nil
+    end
+
+    trait :published do
+      published_at Time.zone.now
+    end
   end
 end
