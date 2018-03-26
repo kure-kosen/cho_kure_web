@@ -7,12 +7,10 @@ RSpec.describe Personality, type: :model do
     let(:secret) { create(:personality, :secret) }
     let(:admin) { create(:personality, :admin) }
 
-    it "return boolean correctly" do
-      expect(guest.member?).to be false
-      expect(editor.member?).to be true
-      expect(secret.member?).to be true
-      expect(admin.member?).to be true
-    end
+    it { expect(guest.member?).to be false }
+    it { expect(editor.member?).to be true }
+    it { expect(secret.member?).to be true }
+    it { expect(admin.member?).to be true }
   end
 
   describe "#allow_change_role?" do
@@ -21,12 +19,10 @@ RSpec.describe Personality, type: :model do
     let(:secret) { create(:personality, :secret) }
     let(:admin) { create(:personality, :admin) }
 
-    it "return boolean correctly" do
-      expect(guest.allow_change_role?).to be false
-      expect(editor.allow_change_role?).to be false
-      expect(secret.allow_change_role?).to be true
-      expect(admin.allow_change_role?).to be true
-    end
+    it { expect(guest.allow_change_role?).to be false }
+    it { expect(editor.allow_change_role?).to be false }
+    it { expect(secret.allow_change_role?).to be true }
+    it { expect(admin.allow_change_role?).to be true }
   end
 
   describe "#change_role_to_admin!" do
