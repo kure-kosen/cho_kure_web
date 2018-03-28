@@ -9,6 +9,7 @@
 #  major       :integer          not null
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
+#  image       :string(255)
 #
 # Indexes
 #
@@ -24,6 +25,10 @@ class JargonSerializer < ActiveModel::Serializer
   attributes :id, :name, :description, :major
 
   belongs_to :radio
+
+  def image
+    ActionController::Base.helpers.image_url(object.image_url(:thumb))
+  end
 
   def description
     MarkdownHelper.markdown(object.description)
