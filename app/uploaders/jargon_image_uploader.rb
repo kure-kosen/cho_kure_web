@@ -16,7 +16,7 @@ class JargonImageUploader < CarrierWave::Uploader::Base
 
   # Provide a default URL as a default if there hasn't been a file uploaded:
   def default_url
-    "default/" + [version_name, "jargon_image.png"].compact.join("_")
+    "default/" + [version_name, "jargon_image_c.png"].compact.join("_")
   end
 
   # Process files as they are uploaded:
