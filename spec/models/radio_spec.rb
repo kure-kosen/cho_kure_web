@@ -1,6 +1,19 @@
 require "rails_helper"
 
 RSpec.describe Radio, type: :model do
+  describe "scope" do
+    describe "published" do
+      it "returns published records" do
+        count = described_class.published.count
+        create(:radio, :published)
+        create(:radio, :published)
+        create(:radio, :reservation)
+        create(:radio, :draft)
+        expect(described_class.published.count).to eq count + 2
+      end
+    end
+  end
+
   describe "#extract_meta_mp3" do
     let(:radio) { build(:radio) }
     it "set size and duration" do

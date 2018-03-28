@@ -8,6 +8,10 @@ FactoryBot.define do
       published_at nil
     end
 
+    trait :reservation do
+      published_at { 1.week.since }
+    end
+
     trait :published do
       published_at { Time.zone.now }
     end
