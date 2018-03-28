@@ -7,7 +7,7 @@ RSpec.describe Api::ContactFormItem, type: :model do
       expect(item).to have_attributes(
         corners: ContactCorners.to_a,
         departments: ContactDepartments.to_a,
-        grades: ContactGrades.to_a
+        grades: ContactGrades.to_a,
       )
     end
   end
