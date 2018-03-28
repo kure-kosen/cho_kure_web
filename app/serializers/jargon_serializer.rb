@@ -27,7 +27,7 @@ class JargonSerializer < ActiveModel::Serializer
   belongs_to :radio
 
   def image
-    ActionController::Base.helpers.image_url(object.image_url())
+    ActionController::Base.helpers.image_url(object.image_url)
   end
 
   def description
