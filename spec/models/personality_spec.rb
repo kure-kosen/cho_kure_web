@@ -4,13 +4,13 @@ RSpec.describe Personality, type: :model do
   describe "scope" do
     describe "on_public" do
       it "returns 3 personalities count" do
-        count = Personality.on_public.count
+        count = described_class.on_public.count
         create(:personality, :guest)
         create(:personality, :editor)
         create(:personality, :secret)
         create(:personality, :admin)
 
-        expect(Personality.on_public.count).to eq count + 3
+        expect(described_class.on_public.count).to eq count + 3
       end
 
       it "returns personalities without secret" do
@@ -19,7 +19,7 @@ RSpec.describe Personality, type: :model do
         create(:personality, :secret)
         create(:personality, :admin)
 
-        Personality.on_public.each do |personality|
+        described_class.on_public.each do |personality|
           expect(personality.role).not_to be PersonalityRoles::SECRET
         end
       end
@@ -27,7 +27,7 @@ RSpec.describe Personality, type: :model do
 
     describe "appeared" do
       it "returns personalities that have appeared radio" do
-        count = Personality.appeared.count
+        count = described_class.appeared.count
         create(:radio, :published).tap do |radio|
           create(:radio_personality, radio: radio, personality: create(:personality, :guest))
           create(:radio_personality, radio: radio, personality: create(:personality, :guest))
@@ -39,14 +39,14 @@ RSpec.describe Personality, type: :model do
 
       context "when radio of draft" do
         it "returns no personalities" do
-          count = Personality.appeared.count
+          count = described_class.appeared.count
           create(:radio, :draft).tap do |radio|
             create(:radio_personality, radio: radio, personality: create(:personality, :guest))
             create(:radio_personality, radio: radio, personality: create(:personality, :guest))
             create(:radio_personality, radio: radio, personality: create(:personality, :guest))
           end
 
-          expect(Personality.appeared.count).to eq count
+          expect(described_class.appeared.count).to eq count
         end
       end
     end
