@@ -31,5 +31,7 @@ class Jargon < ApplicationRecord
 
   bind_inum :major, JargonMajors
 
+  mount_uploader :image, JargonImageUploader
+
   belongs_to :radio
 end
