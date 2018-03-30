@@ -14,7 +14,7 @@ class ContactCreatedNotifyJob < ApplicationJob
       channel: "#debug",
       username: "ハムスター師匠",
       icon_emoji: ":hamster_dance:",
-      force: true
+      force: true,
     )
   end
 end
