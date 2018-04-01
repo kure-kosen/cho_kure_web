@@ -1,7 +1,7 @@
 # ワーカーの数。後述
 $worker  = 2
 # 何秒経過すればワーカーを削除するのかを決める
-$timeout = 30
+$timeout = 300
 # 自分のアプリケーション名、currentがつくことに注意。
 $app_dir = "/var/www/cho_kure_web/current"
 # リクエストを受け取るポート番号を指定。後述

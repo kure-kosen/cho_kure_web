@@ -1,32 +1,36 @@
 <template>
 <div class="pusher">
   <div class="ui text container main">
+    <share-buttons></share-buttons>
     <h2 class="ui header">{{ radio.title }}</h2>
     <img v-bind:src="radio.image" v-bind:alt="radio.title">
     <div v-html="radio.description"></div>
     <div><audio controls="controls" v-bind:src="radio.mp3.url"></audio></div>
-    <share-buttons></share-buttons>
     <h3>パーソナリティ</h3>
-    <div class="ui segment grid" v-for="personality in radio.personalities">
-      <div class="three wide column">
-        <router-link class="card" :to="{ name: 'personality', params: { id: personality.id }}">
-          <img class="ui top aligned small image" v-bind:src="personality.image">
-        </router-link>
-      </div>
-      <div class="thirteen wide column">
-        <h4>
-          <router-link class="card" :to="{ name: 'personality', params: { id: personality.id }}">
-            {{ personality.name }}
+    <div class="ui unstackable divided items">
+      <div class="ui item" v-for="personality in radio.personalities">
+        <div class="image">
+          <router-link :to="{ name: 'personality', params: { id: personality.id }}">
+            <img class="ui small image" v-bind:src="personality.image">
           </router-link>
-        </h4>
-        <div class="description" v-html="personality.description"></div>
-        <div class="ui tag labels">
-          <div class="ui label" v-for="tag in personality.tag_list">{{ tag }}</div>
+        </div>
+        <div class="content">
+          <h4>
+            <router-link :to="{ name: 'personality', params: { id: personality.id }}">
+              {{ personality.name }}
+            </router-link>
+          </h4>
+          <div class="description" v-html="personality.description"></div>
+          <div class="ui tag labels">
+            <div class="ui label" v-for="tag in personality.tag_list">{{ tag }}</div>
+          </div>
         </div>
       </div>
     </div>
-    <div class="ui items" v-for="newRadio in newRadios">
+    <div class="ui items">
       <radio-preview
+        v-for="newRadio in newRadios"
+        :key="newRadio.id"
         :image-path="newRadio.image"
         :item-id="newRadio.id"
         type="radio"
@@ -37,6 +41,7 @@
         :date="newRadio.created_at">
       </radio-preview>
     </div>
+    <share-buttons></share-buttons>
   </div>
 </div>
 </template>
@@ -45,7 +50,7 @@
 module.exports = {
   data: function () {
     return {
-      radio: {},
+     radio: {},
       newRadios: [],
     }
   },
