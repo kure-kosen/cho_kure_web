@@ -45,6 +45,8 @@ jobs:
       - run: mv config/database.yml.ci config/database.yml
       - run: bundle exec rake db:create db:schema:load RAILS_ENV=test --trace
 
+      - run: bundle exec rails assets:precompile RAILS_ENV=test
+
       # run tests!
       - run:
           name: run tests
