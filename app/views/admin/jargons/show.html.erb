@@ -3,6 +3,10 @@
   <dd><%= @jargon.name %></dd>
 </dl>
 
+<dl class="dl-horizontal">
+  <dt><strong><%= Jargon.human_attribute_name('image') %> :</strong></dt> 
+  <dd><%= image_tag @jargon.image_url %></dd>
+</dl>
 
 <dl class="dl-horizontal">
   <dt><strong><%= Jargon.human_attribute_name('description') %> :</strong></dt>
