@@ -22,11 +22,11 @@
 #
 
 class JargonSerializer < ActiveModel::Serializer
-  attributes :id, :name, :description, :major, :image
+  attributes :id, :name, :description, :major
 
   belongs_to :radio
 
-  def image
+  attribute :image do
     ActionController::Base.helpers.image_url(object.image_url)
   end
 
