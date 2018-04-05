@@ -16,13 +16,13 @@
       <div class="mp3" v-if="digestMp3Url">
         <div class="ui label">
           <p>ダイジェスト版:</p>
-          <audio controls="controls" v-bind:src="digestMp3Url"></audio>
+          <audio controls="controls" v-bind:src="digestMp3Url" preload="metadata"></audio>
         </div>
       </div>
       <div class="mp3">
         <div class="ui label">
           <p>本編はこちら！</p>
-          <audio controls="controls" v-bind:src="mp3Url"></audio>
+          <audio controls="controls" v-bind:src="mp3Url" preload="metadata"></audio>
         </div>
       </div>
       <div class="meta">
