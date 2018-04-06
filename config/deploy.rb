@@ -83,7 +83,7 @@ namespace :deploy do
       execute <<-COMMAND
         curl -X POST --data-urlencode \
           \"payload={ \
-            \\\"channel\\\": \\\"#develop_開発\\\", \
+            \\\"channel\\\": \\\"#team-web\\\", \
             \\\"username\\\": \\\"onigiri\\\", \
             \\\"text\\\": \\\"#{fetch(:branch)}ブランチの#{fetch(:rails_env)}へのデプロイを完了したよ！\\\", \
             \\\"icon_emoji\\\": \\\":onigirikun:\\\"\
