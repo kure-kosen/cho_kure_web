@@ -2,7 +2,7 @@ class Api::V1::PersonalitiesController < Api::V1::BaseController
   before_action :set_personality, only: %i[show]
 
   def index
-    render json: Personality.on_public.includes(:radios, :taggings)
+    render json: Personality.appeared.includes(:radios, :taggings)
   end
 
   def new_radios
