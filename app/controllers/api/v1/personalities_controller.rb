@@ -12,7 +12,7 @@ class Api::V1::PersonalitiesController < Api::V1::BaseController
   end
 
   def appeared
-    render json: Personality.appeared
+    render json: Personality.appeared.includes(:radios, :taggings)
   end
 
   def show
