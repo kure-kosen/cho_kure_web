@@ -66,21 +66,25 @@ class Personality < ApplicationRecord
   end
 
   def change_role_to_admin!
+    return if self.admin?
     self.role = PersonalityRoles::ADMIN
     save!
   end
 
   def change_role_to_secret!
+    return if self.secret?
     self.role = PersonalityRoles::SECRET
     save!
   end
 
   def change_role_to_editor!
+    return if self.editor?
     self.role = PersonalityRoles::EDITOR
     save!
   end
 
   def change_role_to_guest!
+    return if self.guest?
     self.role = PersonalityRoles::GUEST
     save!
   end
