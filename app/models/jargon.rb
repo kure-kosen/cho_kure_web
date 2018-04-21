@@ -41,10 +41,11 @@ class Jargon < ApplicationRecord
   after_initialize :set_image_default, if: :new_record?
 
   private
-  def set_image_default
-  #  image ||= "default/" + [version_name, "jargon_image_m.png"].compact.join("_") if major == 10
-  #  image ||= "default/" + [version_name, "jargon_image_e.png"].compact.join("_") if major == 20
-  #  image ||= "default/" + [version_name, "jargon_image_c.png"].compact.join("_") if major == 30
-  #  image ||= "default/" + [version_name, "jargon_image_a.png"].compact.join("_") if major == 40
-  end
+
+    def set_image_default
+      #  image ||= "default/" + [version_name, "jargon_image_m.png"].compact.join("_") if major == 10
+      #  image ||= "default/" + [version_name, "jargon_image_e.png"].compact.join("_") if major == 20
+      #  image ||= "default/" + [version_name, "jargon_image_c.png"].compact.join("_") if major == 30
+      #  image ||= "default/" + [version_name, "jargon_image_a.png"].compact.join("_") if major == 40
+    end
 end
