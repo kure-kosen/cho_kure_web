@@ -13,4 +13,4 @@
   <dd><%= simple_format(@jargon.description) %></dd>
 </dl>
 
-<%= link_to '編集', edit_admin_jargon_path(@jargon) %>
+<%= Admin::JargonViewObject.link_to_edit(current_personality, @jargon) %>

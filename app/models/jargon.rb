@@ -37,6 +37,4 @@ class Jargon < ApplicationRecord
   validates :major, presence: true
 
   bind_inum :major, JargonMajors
-
-
 end
