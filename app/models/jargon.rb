@@ -22,16 +22,21 @@
 #
 
 class Jargon < ApplicationRecord
+  mount_uploader :image, JargonImageUploader
+
+  belongs_to :radio
+
   validates :name,
             presence: true,
             uniqueness: true
+
   validates :description, presence: true
+
   validates :radio_id, presence: true
+
   validates :major, presence: true
 
   bind_inum :major, JargonMajors
 
-  mount_uploader :image, JargonImageUploader
 
-  belongs_to :radio
 end
