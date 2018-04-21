@@ -1,8 +1,8 @@
 <template>
-  <div class="item">
-    <router-link class="ui tiny image" :to="{ name: 'personality', params: { id: id }}">
+  <router-link class="item" :to="{ name: 'personality', params: { id: id }}">
+    <div class="ui tiny image">
       <img :src="imagePath">
-    </router-link>
+    </div>
     <div class="middle aligned content">
       <router-link class="header" :to="{ name: 'personality', params: { id: id }}">
         <div class="names">
@@ -14,7 +14,7 @@
         <p v-html="description"></p>
       </div>
     </div>
-  </div>
+  </router-link>
 </template>
 
 <script>

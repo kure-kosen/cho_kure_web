@@ -2,8 +2,8 @@ import Vue from 'vue'
 
 
 // Library
+import 'babel-polyfill'
 import VueRouter from 'vue-router'
-require('es6-promise').polyfill()
 import axios from 'axios'
 import VueAxios from 'vue-axios'
 import VueAnalytics from 'vue-analytics'
@@ -66,7 +66,7 @@ const router = new VueRouter({
     { path: '/how-to-use-podcast', component: HowToUsePodcast },
     { path: '/jargons', component: Jargon },
   ],
-  scrollBehavior: function scrollBehavior (to, from, savedPosition) {
+  scrollBehavior (to, from, savedPosition) {
     return { x: 0, y: 0 }
   }
 })
