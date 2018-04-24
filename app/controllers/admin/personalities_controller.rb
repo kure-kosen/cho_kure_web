@@ -3,6 +3,7 @@ class Admin::PersonalitiesController < Admin::BaseController
     :show, :edit, :update, :destroy,
     :change_role_to_guest,
     :change_role_to_editor,
+    :change_role_to_reviewer,
     :change_role_to_secret,
     :change_role_to_admin
   ]
@@ -67,6 +68,11 @@ class Admin::PersonalitiesController < Admin::BaseController
   def change_role_to_editor
     @personality.change_role_to_editor!
     redirect_to [:admin, @personality], notice: "権限を「編集者」に変更しました。"
+  end
+
+  def change_role_to_reviewer
+    @personality.change_role_to_reviewer!
+    redirect_to [:admin, @personality], notice: "権限を「レビュアー」に変更しました。"
   end
 
   def change_role_to_secret

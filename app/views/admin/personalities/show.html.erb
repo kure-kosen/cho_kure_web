@@ -28,6 +28,7 @@
     <%= @personality.role.t %>
     <%= Admin::PersonalityViewObject.link_to_change_role_to_guest(current_personality, @personality) %>
     <%= Admin::PersonalityViewObject.link_to_change_role_to_editor(current_personality, @personality) %>
+    <%= Admin::PersonalityViewObject.link_to_change_role_to_reviewer(current_personality, @personality) %>
     <%= Admin::PersonalityViewObject.link_to_change_role_to_secret(current_personality, @personality) %>
     <%= Admin::PersonalityViewObject.link_to_change_role_to_admin(current_personality, @personality) %>
   </dd>
