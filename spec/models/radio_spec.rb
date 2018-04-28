@@ -103,21 +103,21 @@ RSpec.describe Radio, type: :model do
       radio.duration = 3
       expect(radio.play_time).to eq "0:03"
       radio.duration = 20
-      expect(radio.play_time).to eq "0:20" 
+      expect(radio.play_time).to eq "0:20"
     end
 
     it "returns XX:XX when under 1 hour" do
       radio.duration = 300
       expect(radio.play_time).to eq "5:00"
       radio.duration = 1000
-      expect(radio.play_time).to eq "16:40" 
+      expect(radio.play_time).to eq "16:40"
     end
 
     it "returns XX:XX:XX when over 1 hour" do
       radio.duration = 3600
       expect(radio.play_time).to eq "1:00:00"
       radio.duration = 4000
-      expect(radio.play_time).to eq "1:06:40" 
+      expect(radio.play_time).to eq "1:06:40"
     end
   end
 end
