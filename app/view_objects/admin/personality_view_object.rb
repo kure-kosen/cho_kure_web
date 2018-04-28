@@ -44,6 +44,16 @@ class Admin::PersonalityViewObject < Admin::BaseViewObject
               class: "btn btn-info btn-sm"
     end
 
+    def link_to_change_role_to_reviewer(current_personality, personality)
+      return unless Pundit.policy(current_personality, [:admin, personality]).change_role_to_reviewer?
+      return if personality.role == PersonalityRoles::REVIEWER
+      link_to "レビュアーに変更",
+              change_role_to_reviewer_admin_personality_path(personality),
+              method: :patch,
+              data: { confirm: "#{personality.name}をレビュアーに変更します。よろしいですか？" },
+              class: "btn btn-info btn-sm"
+    end
+
     def link_to_change_role_to_secret(current_personality, personality)
       return unless Pundit.policy(current_personality, [:admin, personality]).change_role_to_secret?
       return if personality.role == PersonalityRoles::SECRET

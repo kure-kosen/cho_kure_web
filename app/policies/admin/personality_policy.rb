@@ -35,6 +35,11 @@ class Admin::PersonalityPolicy < Admin::BasePolicy
     false
   end
 
+  def change_role_to_reviewer?
+    return true if personality.allow_change_role?
+    false
+  end
+
   def change_role_to_secret?
     return true if personality.allow_change_role?
     false
