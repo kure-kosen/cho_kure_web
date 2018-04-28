@@ -97,23 +97,27 @@ RSpec.describe Radio, type: :model do
   end
 
   describe "#play_time" do
-    before do
-      allow_any_instance_of(Radio).to receive(:extract_meta_mp3).and_return(nil)
+    let(:radio) { create(:radio) }
+
+    it "returns 0:XX when under 1 minute" do
+      radio.duration = 3
+      expect(radio.play_time).to eq "0:03"
+      radio.duration = 20
+      expect(radio.play_time).to eq "0:20" 
     end
 
-    context "under 1 minute" do
-      it { expect(create(:radio, size: 1000, duration: 3).play_time).to eq "0:03" }
-      it { expect(create(:radio, size: 1000, duration: 20).play_time).to eq "0:20" }
+    it "returns XX:XX when under 1 hour" do
+      radio.duration = 300
+      expect(radio.play_time).to eq "5:00"
+      radio.duration = 1000
+      expect(radio.play_time).to eq "16:40" 
     end
 
-    context "under 1 hour" do
-      it { expect(create(:radio, size: 1000, duration: 300).play_time).to eq "5:00" }
-      it { expect(create(:radio, size: 1000, duration: 1000).play_time).to eq "16:40" }
-    end
-
-    context "over 1 hour" do
-      it { expect(create(:radio, size: 1000, duration: 3600).play_time).to eq "1:00:00" }
-      it { expect(create(:radio, size: 1000, duration: 4000).play_time).to eq "1:06:40" }
+    it "returns XX:XX:XX when over 1 hour" do
+      radio.duration = 3600
+      expect(radio.play_time).to eq "1:00:00"
+      radio.duration = 4000
+      expect(radio.play_time).to eq "1:06:40" 
     end
   end
 end
