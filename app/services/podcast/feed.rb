@@ -55,15 +55,11 @@ module Podcast
           item.link             = join_radio_link(radio)
           item.description      = MarkdownHelper.markdown(radio.description)
           item.pubDate          = radio.published_at.to_s(:rfc822)
-          item.itunes_duration  = format_duration(radio.duration)
+          item.itunes_duration  = radio.play_time
           item.enclosure.url    = transform_to_blubrry(fullpath_to_url(radio.mp3_url))
           item.enclosure.type   = "audio/mpeg"
           item.enclosure.length = radio.size
         end
-      end
-
-      def format_duration(sec)
-        Time.at(sec).utc.strftime((sec < 3600) ? "%-M:%S" : "%-H:%M:%S")
       end
 
       def join_radio_link(radio)

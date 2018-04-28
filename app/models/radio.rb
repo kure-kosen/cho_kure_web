@@ -68,4 +68,8 @@ class Radio < ApplicationRecord
   def draft?
     published_at.nil?
   end
+
+  def play_time
+    Time.at(duration).utc.strftime((duration < 3600) ? "%-M:%S" : "%-H:%M:%S")
+  end
 end
