@@ -11,7 +11,7 @@ class ContactCreatedNotifyJob < ApplicationJob
 
     Notifier::SlackNotifier.call(
       text: text,
-      channel: "#debug",
+      channel: "#z_feed-debug_デバッグ",
       username: "ハムスター師匠",
       icon_emoji: ":hamster_dance:",
       force: true,
