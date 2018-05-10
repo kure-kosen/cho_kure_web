@@ -18,12 +18,24 @@ class Admin::PersonalityPolicy < Admin::BasePolicy
     false
   end
 
+  def destroy?
+    # 自分自身のユーザー情報は削除できない
+    return false if personality == record
+    return true if personality.admin? || personality.secret?
+    false
+  end
+
   def change_role_to_guest?
     return true if personality.allow_change_role?
     false
   end
 
   def change_role_to_editor?
+    return true if personality.allow_change_role?
+    false
+  end
+
+  def change_role_to_reviewer?
     return true if personality.allow_change_role?
     false
   end

@@ -46,7 +46,7 @@ class Personality < ApplicationRecord
   has_many :radios, through: :radio_personalities
 
   scope :on_public, -> {
-    where.not(role: PersonalityRoles::SECRET)
+    where.not(role: [PersonalityRoles::SECRET, PersonalityRoles::REVIEWER])
   }
 
   scope :appeared, -> {
@@ -58,7 +58,7 @@ class Personality < ApplicationRecord
   }
 
   def member?
-    admin? || editor? || secret?
+    admin? || editor? || reviewer? || secret?
   end
 
   def allow_change_role?
@@ -66,21 +66,31 @@ class Personality < ApplicationRecord
   end
 
   def change_role_to_admin!
+    return if self.admin?
     self.role = PersonalityRoles::ADMIN
     save!
   end
 
   def change_role_to_secret!
+    return if self.secret?
     self.role = PersonalityRoles::SECRET
     save!
   end
 
+  def change_role_to_reviewer!
+    return if self.reviewer?
+    self.role = PersonalityRoles::REVIEWER
+    save!
+  end
+
   def change_role_to_editor!
+    return if self.editor?
     self.role = PersonalityRoles::EDITOR
     save!
   end
 
   def change_role_to_guest!
+    return if self.guest?
     self.role = PersonalityRoles::GUEST
     save!
   end

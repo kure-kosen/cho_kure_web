@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :radio_personality do
-    radio nil
-    personality nil
+    radio
+    personality
   end
 end
