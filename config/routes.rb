@@ -14,6 +14,8 @@ Rails.application.routes.draw do
     root to: redirect("/app")
     get "/podcast", to: "podcast#index"
 
+    get "/alexa", to: "alexa#index"
+
     get "/app(/*other)", to: "app#index" # For vue
   end
 
