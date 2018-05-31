@@ -28,4 +28,3 @@
 /public/assets
 
 /frontend/node_modules/*
-/app/assets/javascripts/webpack/*

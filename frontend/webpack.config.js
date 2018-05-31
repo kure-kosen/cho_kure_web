@@ -6,7 +6,7 @@ module.exports = {
   },
 
   output: {
-    path: path.resolve(__dirname, "../app/assets/javascripts/webpack"),
+    path: path.resolve(__dirname, "../public/assets/build"),
     filename: "[name].js",
   },
 
