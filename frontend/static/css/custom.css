@@ -5,8 +5,42 @@
  *960px〜小型PC
  *1280px〜大型PC
    ==================*/
+header {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  background-color: #FFFFFF;
+  width: 100%;
+}
 
-/*  画面サイズが480pxまで  */
+div.hero {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background-image: url("../img/hero.jpg");
+  background-size: cover;
+  background-position: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+div.hero-form {
+  background-color: #FFFFFF;
+}
+
 
 @media screen and (min-width:480px) and ( max-width:600px) {
 }
