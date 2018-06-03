@@ -1,0 +1,54 @@
+/*==================
+ *〜479px：SP縦
+ *480px〜：SP横
+ *600px〜タブレット
+ *960px〜小型PC
+ *1280px〜大型PC
+   ==================*/
+
+/*  画面サイズが480pxまで  */
+
+@media screen and (min-width:480px) and ( max-width:600px) {
+}
+
+@media screen and (min-width:600px) and ( max-width:960px) {
+}
+
+@media screen and (min-width:960px) and ( max-width:1280px) {
+}
+
+@media screen and (min-width:1280px) {
+  header {
+    height: 100px;
+  }
+
+  img.navbar-logo {
+    width: 57px;
+    height: 57px;
+    margin: 23px 19px 20px 40px;
+  }
+
+  h1.navbar-title {
+    font-size: 26px;
+    color: #0FB8BF;
+    line-height: 100px;
+  }
+
+  ul.navbar-menu {
+    list-style-type: none;
+  }
+
+  li.navbar-menu-content {
+    display: inline;
+  }
+
+  li.navbar-menu-content > a {
+    line-height: 100px;
+    padding: 30px 20px;
+    margin: 0px 10px;
+    font-size: 20px;
+    color: #575B63;
+    //  font-family: 'Lato', sans-serif;
+    font-family: 'Open Sans', sans-serif;
+  }
+}
