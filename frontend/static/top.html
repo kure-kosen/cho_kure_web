@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <link href="css/reset.css" rel="stylesheet"/>
+    <link href="css/custom.css" rel="stylesheet"/>
+    <script src="https://use.typekit.net/pws6ptb.js"></script>
+    <script>try{Typekit.load({ async: true });}catch(e){}</script>
+    <link href="https://fonts.googleapis.com/css?family=Lato|Open+Sans" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.3.0/milligram.min.css" rel="stylesheet">
+    <title>ちょっくれ</title>
+    <meta name="apple-mobile-web-app-title" content="ちょっくれ">
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width">
+    <meta name="description" content="ちょっくれとは、呉のちょっと気になるコミュニティやイベントについて発信していく、呉高専公認の学生団体であり、ラジオ番組です。">
+    <meta property="og:title" content="ちょっくれ | ちょっときいて呉高専"/>
+    <meta property="og:description" content="呉のちょっと気になるコミュニティやイベントについて発信していくラジオ番組です。"/>
+    <meta property="og:image" content="<%= asset_url('logo/rectangle.png') %>"/>
+    <meta property="og:url" content="<%= url_for(only_path: false) %>"/>
+    <meta property="og:type" content="website"/>
+    <meta name="twitter:title" content="ちょっくれ | ちょっときいて呉高専"/>
+    <meta name="twitter:description" content="呉のちょっと気になるコミュニティやイベントについて発信していくラジオ番組です。"/>
+    <meta name="twitter:site" content="@cho_kure"/>
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:image" content="<%= asset_url('logo/rectangle.png') %>"/>
+  </head>
+  <body>
+    <header class="clearfix">
+      <div class="container">
+        <div class="logo">
+          <a href="#">
+            <div class="float-left">
+              <img alt="ちょっくれ" src="img/logo_mini.png" class="navbar-logo">
+            </div>
+            <div class="float-left">
+              <h1 class="tk-fot-tsukuardgothic-std navbar-title">ちょっくれ</h1>
+            </div>
+          </a>
+        </div>
+        <nav class="float-right">
+          <ul class="navbar-menu">
+            <li class="navbar-menu-content"><a href="#">history</a></li>
+            <li class="navbar-menu-content"><a href="#">blog</a></li>
+            <li class="navbar-menu-content"><a href="#">personality</a></li>
+            <li class="navbar-menu-content"><a href="#">contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <main>
+      <div class="hero">
+        <div class="hero-form">
+          <form>
+            <fieldset>
+              <label for="whatRadio">どんなこと</label>
+              <select placeholder="どんなこと" id="whatRadio">
+                <option value='' disabled selected style='display:none;'>どんなこと</option>
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">1</option>
+                <option value="3">2</option>
+              </select>
+              <label for="whoRadio">だれが</label>
+              <select placeholder="だれが" id="whoRadio">
+                <option value='' disabled selected style='display:none;'>だれが</option>
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">1</option>
+                <option value="3">2</option>
+              </select>
+              <input class="button-primary" type="submit" value="search">
+            </fieldset>
+          </form>
+        </div>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="column">.column</div>
+          <div class="column">.column</div>
+          <div class="column">.column</div>
+          <div class="column">.column</div>
+        </div>
+      </div>
+    </main>
+    <h1>hoge</h1>
+    <p>fuga</p>
+  </body>
+</html>

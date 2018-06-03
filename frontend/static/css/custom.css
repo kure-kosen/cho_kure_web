@@ -1,0 +1,88 @@
+/*==================
+ *〜479px：SP縦
+ *480px〜：SP横
+ *600px〜タブレット
+ *960px〜小型PC
+ *1280px〜大型PC
+   ==================*/
+header {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  background-color: #FFFFFF;
+  width: 100%;
+}
+
+div.hero {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background-image: url("../img/hero.jpg");
+  background-size: cover;
+  background-position: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+div.hero-form {
+  background-color: #FFFFFF;
+}
+
+
+@media screen and (min-width:480px) and ( max-width:600px) {
+}
+
+@media screen and (min-width:600px) and ( max-width:960px) {
+}
+
+@media screen and (min-width:960px) and ( max-width:1280px) {
+}
+
+@media screen and (min-width:1280px) {
+  header {
+    height: 100px;
+  }
+
+  img.navbar-logo {
+    width: 57px;
+    height: 57px;
+    margin: 23px 19px 20px 40px;
+  }
+
+  h1.navbar-title {
+    font-size: 26px;
+    color: #0FB8BF;
+    line-height: 100px;
+  }
+
+  ul.navbar-menu {
+    list-style-type: none;
+  }
+
+  li.navbar-menu-content {
+    display: inline;
+  }
+
+  li.navbar-menu-content > a {
+    line-height: 100px;
+    padding: 30px 20px;
+    margin: 0px 10px;
+    font-size: 20px;
+    color: #575B63;
+    //  font-family: 'Lato', sans-serif;
+    font-family: 'Open Sans', sans-serif;
+  }
+}
