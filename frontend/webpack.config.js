@@ -14,7 +14,7 @@ module.exports = {
   devtool: "source-map",
 
   resolve: {
-    extensions: [".ts", ".tsx", ".js", ".json"],
+    extensions: [".ts", ".tsx", ".js", ".css", ".json"],
   },
 
   module: {
@@ -27,6 +27,10 @@ module.exports = {
         query: {
           presets: ["es2015", "react", "react-dom"],
         },
+      },
+      {
+        test: /\.css$/,
+        use: ["style-loader", "css-loader"],
       },
     ],
   },
