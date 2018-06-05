@@ -1,4 +1,5 @@
 import * as React from "react";
+import styled from "styled-components";
 
 export interface HelloProps {
   compiler: string;
@@ -6,7 +7,11 @@ export interface HelloProps {
 }
 
 export const Hello = (props: HelloProps) => (
-  <h1>
+  <Title>
     Hello from {props.compiler} and {props.framework}!
-  </h1>
+  </Title>
 );
+
+const Title = styled.h1`
+  color: red;
+`;
