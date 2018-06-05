@@ -27,4 +27,4 @@
 /public/packs-test
 /public/assets
 
-/node_modules/*
+/frontend/node_modules/*

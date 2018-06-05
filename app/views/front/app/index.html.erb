@@ -1,2 +1,26 @@
-<%= javascript_pack_tag 'root' %>
-<%= stylesheet_pack_tag 'root' %>
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <title>ちょっときいて呉高専</title>
+    <meta name="apple-mobile-web-app-title" content="ちょっくれ">
+    <%= csrf_meta_tags %>
+    <meta name="viewport" content="width=device-width">
+    <meta name="description" content="ちょっくれとは、呉のちょっと気になるコミュニティやイベントについて発信していく、呉高専公認の学生団体であり、ラジオ番組です。">
+    <meta property="og:title" content="ちょっくれ | ちょっときいて呉高専"/>
+    <meta property="og:description" content="呉のちょっと気になるコミュニティやイベントについて発信していくラジオ番組です。"/>
+    <meta property="og:image" content="<%= asset_url('logo/rectangle.png') %>"/>
+    <meta property="og:url" content="<%= url_for(only_path: false) %>"/>
+    <meta property="og:type" content="website"/>
+    <meta name="twitter:title" content="ちょっくれ | ちょっときいて呉高専"/>
+    <meta name="twitter:description" content="呉のちょっと気になるコミュニティやイベントについて発信していくラジオ番組です。"/>
+    <meta name="twitter:site" content="@cho_kure"/>
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:image" content="<%= asset_url('logo/rectangle.png') %>"/>
+    <%= render 'shared/favicon' %>
+  </head>
+
+  <body>
+    <div id="app"></div>
+    <%= webpack_javascript_include_tag('app') %>
+  </body>
+</html>
