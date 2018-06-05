@@ -2,6 +2,7 @@ import * as React from "react";
 import styled from "styled-components";
 
 import { Header } from "./../layouts/Header";
+import { Footer } from "./../layouts/Footer";
 
 export const Index = () => (
   <div>
@@ -21,7 +22,7 @@ export const Index = () => (
       </div>
     </div>
     <AboutFooter>about-footer</AboutFooter>
-    <Footer>footer</Footer>
+    <Footer />
   </div>
 );
 
@@ -86,11 +87,4 @@ const AboutFooter = styled.div`
   color: white;
   background-color: #40aaef;
   height: 400px;
-`;
-
-const Footer = styled.footer`
-  width: 100%;
-  color: white;
-  background-color: #fba848;
-  height: 100px;
 `;
