@@ -1,9 +1,11 @@
 import * as React from "react";
 import styled from "styled-components";
 
+import { Header } from "./../layouts/Header";
+
 export const Index = () => (
   <div>
-    <Header>header</Header>
+    <Header />
     <HeroArea>hero-area</HeroArea>
     <FeaturedPersonalitiesWrapper>featured-personalities-wrapper</FeaturedPersonalitiesWrapper>
     <div className="row">
@@ -22,13 +24,6 @@ export const Index = () => (
     <Footer>footer</Footer>
   </div>
 );
-
-const Header = styled.header`
-  width: 100%;
-  color: white;
-  background-color: #ffd464;
-  height: 80px;
-`;
 
 const HeroArea = styled.div`
   width: 100%;
