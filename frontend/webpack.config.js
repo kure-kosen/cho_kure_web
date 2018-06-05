@@ -2,7 +2,7 @@ const path = require("path");
 
 module.exports = {
   entry: {
-    app: [path.resolve(__dirname, "src/index.js")],
+    app: [path.resolve(__dirname, "src/index.tsx")],
   },
 
   output: {
@@ -10,14 +10,22 @@ module.exports = {
     filename: "[name].js",
   },
 
+  mode: "development",
+  devtool: "source-map",
+
+  resolve: {
+    extensions: [".ts", ".tsx", ".js", ".json"],
+  },
+
   module: {
     rules: [
+      { test: /\.tsx?$/, loader: "awesome-typescript-loader" },
       {
         test: /\.(js|jsx)$/,
         loader: "babel-loader",
         exclude: /node_modules/,
         query: {
-          presets: ["es2015", "react"],
+          presets: ["es2015", "react", "react-dom"],
         },
       },
     ],
