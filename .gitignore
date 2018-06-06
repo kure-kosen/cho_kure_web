@@ -28,3 +28,4 @@
 /public/assets
 
 /frontend/node_modules/*
+/frontend/yarn-error.log
