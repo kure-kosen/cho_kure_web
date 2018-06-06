@@ -2,7 +2,7 @@ const path = require("path");
 
 module.exports = {
   entry: {
-    app: [path.resolve(__dirname, "src/index.tsx")],
+    app: ["babel-polyfill", path.resolve(__dirname, "src/index.tsx")],
   },
 
   output: {
