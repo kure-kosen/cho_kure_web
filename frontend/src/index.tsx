@@ -1,9 +1,8 @@
-require("milligram");
 require("normalize.css");
 
 import * as React from "react";
 import * as ReactDOM from "react-dom";
 
-import { Hello } from "./compoments/Hello";
+import { Index } from "./entries/Index";
 
-ReactDOM.render(<Hello compiler="TypeScript" framework="React" />, document.getElementById("app"));
+ReactDOM.render(<Index />, document.getElementById("app"));
