@@ -19,19 +19,31 @@ export const Index = () => (
     <Header />
     <HeroArea />
     <FeaturedPersonalitiesWrapper />
-    <div className="row">
-      <div className="column column-20">
+    <Contrainer>
+      <Sidebar>
         <AboutSidebar />
         <WeeklyComic />
         <PopularRadioWrapper />
         <TweetStream />
-      </div>
-      <div className="column column-80">
+      </Sidebar>
+      <MainContentWrapper>
         <RadioCardWrapper />
         <FeaturedBlogWrapper />
-      </div>
-    </div>
+      </MainContentWrapper>
+    </Contrainer>
     <AboutFooter />
     <Footer />
   </div>
 );
+
+const Contrainer = styled.div`
+  display: flex;
+`;
+
+const Sidebar = styled.div`
+  flex: 0 0 20%;
+`;
+
+const MainContentWrapper = styled.div`
+  flex: 0 0 80%;
+`;
