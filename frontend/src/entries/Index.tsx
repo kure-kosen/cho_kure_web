@@ -1,6 +1,8 @@
 import * as React from "react";
 import styled from "styled-components";
 
+import { media } from "./../commons/StyleUtils";
+
 import { Header } from "./../layouts/Header";
 import { Footer } from "./../layouts/Footer";
 
@@ -42,8 +44,17 @@ const Contrainer = styled.div`
 
 const Sidebar = styled.div`
   flex: 0 0 20%;
+
+  @media ${media.mobile} {
+    flex: 0 0 0%;
+    display: none;
+  }
 `;
 
 const MainContentWrapper = styled.div`
   flex: 0 0 80%;
+
+  @media ${media.mobile} {
+    flex: 0 0 100%;
+  }
 `;
