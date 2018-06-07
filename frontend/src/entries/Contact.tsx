@@ -1,6 +1,8 @@
 import * as React from "react";
 import styled from "styled-components";
 
+import { media } from "./../commons/StyleUtils";
+
 import * as img from "./../../images/hero.jpg";
 
 export const Contact = () => (
@@ -57,6 +59,10 @@ const HeroContent = styled.div`
   font-size: 2rem;
   text-align: center;
   color: white;
+
+  @media ${media.mobile} {
+    width: 90%;
+  }
 `;
 
 const HeroContentBar = styled.hr`
@@ -84,6 +90,10 @@ const ContactFormTitle = styled.div`
 
 const ContactForm = styled.div`
   width: 50%;
+
+  @media ${media.mobile} {
+    width: 90%;
+  }
 `;
 
 const ContactFormInputWrapper = styled.div`
@@ -91,11 +101,21 @@ const ContactFormInputWrapper = styled.div`
 `;
 
 const ContactFormInput = styled.input`
+  margin: 5px;
   padding: 5px;
+  padding-left: 30px;
   line-height: 1.5rem;
   width: 100%;
   border: 2px solid #00afec;
   border-radius: 1.5rem;
+
+  ::placeholder {
+    color: #00afec;
+    opacity: 1;
+  }
+  ::-ms-input-placeholder {
+    color: #00afec;
+  }
 `;
 
 const ContactFormButton = styled.button`
