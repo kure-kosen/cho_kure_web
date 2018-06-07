@@ -3,9 +3,6 @@ import styled from "styled-components";
 
 import { media } from "./../commons/StyleUtils";
 
-import { Header } from "./../layouts/Header";
-import { Footer } from "./../layouts/Footer";
-
 import { HeroArea } from "./../components/HeroArea";
 import { FeaturedPersonalitiesWrapper } from "./../components/FeaturedPersonalitiesWrapper";
 import { AboutSidebar } from "./../components/AboutSidebar";
@@ -18,7 +15,6 @@ import { AboutFooter } from "./../components/AboutFooter";
 
 export const Index = () => (
   <div>
-    <Header />
     <HeroArea />
     <FeaturedPersonalitiesWrapper />
     <Contrainer>
@@ -34,7 +30,6 @@ export const Index = () => (
       </MainContentWrapper>
     </Contrainer>
     <AboutFooter />
-    <Footer />
   </div>
 );
 
@@ -42,7 +37,7 @@ const Contrainer = styled.div`
   display: flex;
 `;
 
-const Sidebar = styled.div`
+const Sidebar = styled.nav`
   flex: 0 0 20%;
 
   @media ${media.mobile} {

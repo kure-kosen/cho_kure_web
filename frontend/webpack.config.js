@@ -40,7 +40,7 @@ module.exports = {
             options: {
               name: "[name].[ext]",
               outputPath: "images/",
-              publicPath: "assets/build/images/",
+              publicPath: "../assets/build/images/",
             },
           },
         ],
