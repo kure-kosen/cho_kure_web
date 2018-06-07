@@ -12,6 +12,33 @@ export const Contact = () => (
         ご意見ご感想お待ちしております
       </HeroContent>
     </HeroArea>
+    <ContactFormWrapper>
+      <ContactForm>
+        <ContactFormTitle>お問い合わせフォーム</ContactFormTitle>
+        <form action="">
+          <ContactFormInputWrapper>
+            <ContactFormInput name="name" type="text" placeholder="名前" />
+          </ContactFormInputWrapper>
+          <ContactFormInputWrapper>
+            <ContactFormInput name="corner" type="text" placeholder="題名" />
+          </ContactFormInputWrapper>
+          <ContactFormInputWrapper>
+            <ContactFormInput name="department" type="text" placeholder="所属" />
+            <ContactFormInput name="grade" type="text" placeholder="学年" />
+          </ContactFormInputWrapper>
+          <ContactFormInputWrapper>
+            <ContactFormInput name="email" type="text" placeholder="メールアドレス" />
+          </ContactFormInputWrapper>
+          <ContactFormInputWrapper>
+            <ContactFormInput name="nickname" type="text" placeholder="ラジオネーム" />
+          </ContactFormInputWrapper>
+          <ContactFormInputWrapper>
+            <ContactFormInput name="content" type="text" placeholder="内容" />
+          </ContactFormInputWrapper>
+          <ContactFormButton>送信</ContactFormButton>
+        </form>
+      </ContactForm>
+    </ContactFormWrapper>
   </div>
 );
 
@@ -38,4 +65,43 @@ const HeroContentBar = styled.hr`
   height: 2px;
   background-color: #f6ad3c;
   border: 0;
+`;
+
+const ContactFormWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+const ContactFormTitle = styled.div`
+  margin: 2rem;
+  margin-top: 4rem;
+  font-size: 1.5rem;
+  text-align: center;
+  color: #00afec;
+`;
+
+const ContactForm = styled.div`
+  width: 50%;
+`;
+
+const ContactFormInputWrapper = styled.div`
+  margin: 20px;
+`;
+
+const ContactFormInput = styled.input`
+  padding: 5px;
+  line-height: 1.5rem;
+  width: 100%;
+  border: 2px solid #00afec;
+  border-radius: 1.5rem;
+`;
+
+const ContactFormButton = styled.button`
+  padding: 10px;
+  color: white;
+  background-color: #edb600;
+  border-style: none;
+  box-shadow: 2px 2px 3px 1px rgba(0, 0, 0, 0.1);
 `;
