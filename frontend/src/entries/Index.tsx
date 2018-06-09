@@ -1,7 +1,7 @@
 import * as React from "react";
 import styled from "styled-components";
 
-import { media } from "./../commons/StyleUtils";
+import { media } from "./../commons/style";
 
 import { HeroArea } from "./../components/HeroArea";
 import { FeaturedPersonalitiesWrapper } from "./../components/FeaturedPersonalitiesWrapper";
