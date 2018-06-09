@@ -15,7 +15,7 @@ import { AboutFooter } from "./../components/AboutFooter";
 
 export const Index = () => (
   <div>
-    <HeroArea />
+    <HeroArea InnerComponent="検索バー" />
     <FeaturedPersonalitiesWrapper />
     <Contrainer>
       <Sidebar>

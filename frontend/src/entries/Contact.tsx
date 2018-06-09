@@ -3,17 +3,12 @@ import styled from "styled-components";
 
 import { media } from "./../commons/style";
 
-import * as img from "./../../images/hero.jpg";
+import { HeroArea } from "./../components/HeroArea";
+import { ContactHeroContent } from "./../components/ContactHeroContent";
 
 export const Contact = () => (
   <div>
-    <HeroArea>
-      <HeroContent>
-        Contact
-        <HeroContentBar />
-        ご意見ご感想お待ちしております
-      </HeroContent>
-    </HeroArea>
+    <HeroArea InnerComponent={<ContactHeroContent />} />
     <ContactFormWrapper>
       <ContactForm>
         <ContactFormTitle>お問い合わせフォーム</ContactFormTitle>
@@ -43,47 +38,6 @@ export const Contact = () => (
     </ContactFormWrapper>
   </div>
 );
-
-const HeroArea = styled.div`
-  width: 100%;
-  height: 500px;
-  background: linear-gradient(-60deg, rgba(204, 224, 244, 0.4), rgba(0, 117, 190, 0.4), rgba(118, 220, 151, 0.4)),
-    url(${img});
-  background-size: cover;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1;
-
-  :before {
-    content: "";
-    position: absolute;
-    width: 100%;
-    height: 500px;
-    opacity: 0.4;
-    background: #fff;
-    z-index: 2;
-  }
-`;
-
-const HeroContent = styled.div`
-  width: 60%;
-  font-size: 2rem;
-  text-align: center;
-  color: white;
-
-  @media ${media.mobile} {
-    width: 90%;
-  }
-`;
-
-const HeroContentBar = styled.hr`
-  display: box;
-  width: 50%;
-  height: 2px;
-  background-color: #f6ad3c;
-  border: 0;
-`;
 
 const ContactFormWrapper = styled.div`
   width: 100%;
