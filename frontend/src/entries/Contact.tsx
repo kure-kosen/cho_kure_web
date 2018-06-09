@@ -25,8 +25,8 @@ export const Contact = () => (
             <ContactFormInput name="corner" type="text" placeholder="題名" />
           </ContactFormInputWrapper>
           <ContactFormInputWrapper>
-            <ContactFormInput name="department" type="text" placeholder="所属" />
-            <ContactFormInput name="grade" type="text" placeholder="学年" />
+            <ContactFormInputHalf name="department" type="text" placeholder="所属" />
+            <ContactFormInputHalf name="grade" type="text" placeholder="学年" />
           </ContactFormInputWrapper>
           <ContactFormInputWrapper>
             <ContactFormInput name="email" type="text" placeholder="メールアドレス" />
@@ -47,11 +47,23 @@ export const Contact = () => (
 const HeroArea = styled.div`
   width: 100%;
   height: 500px;
-  background: linear-gradient(-45deg, rgba(211, 237, 251, 0.2), rgba(243, 225, 100, 0.2)), url(${img});
+  background: linear-gradient(-60deg, rgba(204, 224, 244, 0.4), rgba(0, 117, 190, 0.4), rgba(118, 220, 151, 0.4)),
+    url(${img});
   background-size: cover;
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 1;
+
+  :before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 500px;
+    opacity: 0.4;
+    background: #fff;
+    z-index: 2;
+  }
 `;
 
 const HeroContent = styled.div`
@@ -83,6 +95,7 @@ const ContactFormWrapper = styled.div`
 const ContactFormTitle = styled.div`
   margin: 2rem;
   margin-top: 4rem;
+  margin-bottom: 3rem;
   font-size: 1.5rem;
   text-align: center;
   color: #00afec;
@@ -90,6 +103,7 @@ const ContactFormTitle = styled.div`
 
 const ContactForm = styled.div`
   width: 50%;
+  margin-bottom: 100px;
 
   @media ${media.mobile} {
     width: 90%;
@@ -102,6 +116,8 @@ const ContactFormInputWrapper = styled.div`
 
 const ContactFormInput = styled.input`
   margin: 5px;
+  margin-left: 0;
+  margin-right: 0;
   padding: 5px;
   padding-left: 30px;
   line-height: 1.5rem;
@@ -118,10 +134,20 @@ const ContactFormInput = styled.input`
   }
 `;
 
+const ContactFormInputHalf = ContactFormInput.extend`
+  width: 50%;
+`;
+
 const ContactFormButton = styled.button`
+  display: block;
+  width: 30%;
+  margin-top: 40px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 20px;
   padding: 10px;
   color: white;
   background-color: #edb600;
   border-style: none;
-  box-shadow: 2px 2px 3px 1px rgba(0, 0, 0, 0.1);
+  box-shadow: 4px 3px 10px 0px rgba(20, 20, 20, 0.2);
 `;
