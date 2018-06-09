@@ -2,6 +2,7 @@ import * as React from "react";
 import styled from "styled-components";
 
 import { media } from "./../commons/style";
+import { chkColors } from "./../commons/color";
 
 export const ContactHeroContent = () => (
   <Wrapper>
@@ -26,6 +27,6 @@ const HeroContentBar = styled.hr`
   display: box;
   width: 50%;
   height: 2px;
-  background-color: #f6ad3c;
+  background-color: ${chkColors.orange};
   border: 0;
 `;
