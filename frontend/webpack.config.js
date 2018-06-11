@@ -33,14 +33,14 @@ module.exports = {
         use: ["style-loader", "css-loader"],
       },
       {
-        test: /\.(jpg|png|gif)$/,
+        test: /\.(jpg|png|gif|woff|woff2|eot|ttf|svg)$/,
         use: [
           {
             loader: "file-loader",
             options: {
-              name: "[name].[ext]",
-              outputPath: "images/",
-              publicPath: "assets/build/images/",
+              name: "[path][name].[ext]",
+              outputPath: "/",
+              publicPath: "../assets/build",
             },
           },
         ],

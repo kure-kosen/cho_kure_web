@@ -1,10 +1,7 @@
 import * as React from "react";
 import styled from "styled-components";
 
-import { media } from "./../commons/StyleUtils";
-
-import { Header } from "./../layouts/Header";
-import { Footer } from "./../layouts/Footer";
+import { media } from "./../commons/style";
 
 import { HeroArea } from "./../components/HeroArea";
 import { FeaturedPersonalitiesWrapper } from "./../components/FeaturedPersonalitiesWrapper";
@@ -18,8 +15,7 @@ import { AboutFooter } from "./../components/AboutFooter";
 
 export const Index = () => (
   <div>
-    <Header />
-    <HeroArea />
+    <HeroArea InnerComponent="検索バー" />
     <FeaturedPersonalitiesWrapper />
     <Contrainer>
       <Sidebar>
@@ -34,7 +30,6 @@ export const Index = () => (
       </MainContentWrapper>
     </Contrainer>
     <AboutFooter />
-    <Footer />
   </div>
 );
 
@@ -42,7 +37,7 @@ const Contrainer = styled.div`
   display: flex;
 `;
 
-const Sidebar = styled.div`
+const Sidebar = styled.nav`
   flex: 0 0 20%;
 
   @media ${media.mobile} {

@@ -1,8 +1,15 @@
 require("normalize.css");
+require("./commons/font");
 
 import * as React from "react";
 import * as ReactDOM from "react-dom";
+import { BrowserRouter } from "react-router-dom";
 
-import { Index } from "./entries/Index";
+import { App } from "./App";
 
-ReactDOM.render(<Index />, document.getElementById("app"));
+ReactDOM.render(
+  <BrowserRouter basename="/app">
+    <App />
+  </BrowserRouter>,
+  document.getElementById("app")
+);
