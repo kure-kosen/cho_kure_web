@@ -41,10 +41,6 @@ const MaskStyle = styled.div`
   align-items: center;
 `;
 
-const ButtonStyle = ChkButtonBase.extend`
-  background-color: ${chkColors.orange};
-`;
-
 const ContentStyle = styled.div`
   box-sizing: border-box;
   width: 50vw;
@@ -63,4 +59,8 @@ const TitleStyle = styled.h3`
 const ParagraphStyle = styled.p`
   color: ${chkColors.white};
   line-height: 1.42em;
+`;
+
+const ButtonStyle = ChkButtonBase.extend`
+  background-color: ${chkColors.orange};
 `;
