@@ -30,7 +30,6 @@ export const Index = () => (
       </MainContentWrapper>
     </Contrainer>
     <AboutBottom />
-    <Footer />
   </div>
 );
 
