@@ -5,11 +5,7 @@ export const AboutText = () => (
   <AboutTextStyle>
     <AboutTitleTextStyle>about</AboutTitleTextStyle>
     <AboutParagraphTextStyle>
-      インキュベーションワークが始まった 2015 年頃から、呉高専の学生は縦のつながり
-      と横のつながりが広がっていきました。しかし、まだ多くの学生は同じクラス、部
-      活動の友だちなどのコミュニティで完結してしまっています。私たちはこれまで多
-      様な人とつながったことで、将来の選択肢が増えていきました。後輩たちにも同じ
-      ようにもっとたくさんの人とつながりを作って、多くの経験をしてほしいという想 いから、この活動を開始しました。
+      インキュベーションワークが始まった2015年頃から、呉高専の学生は縦のつながりと横のつながりが広がっていきました。しかし、まだ多くの学生は同じクラス、部活動の友だちなどのコミュニティで完結してしまっています。私たちはこれまで多様な人とつながったことで、将来の選択肢が増えていきました。後輩たちにも同じようにもっとたくさんの人とつながりを作って、多くの経験をしてほしいという想いから、この活動を開始しました。
     </AboutParagraphTextStyle>
   </AboutTextStyle>
 );
@@ -29,4 +25,5 @@ const AboutTitleTextStyle = styled.h3`
 
 const AboutParagraphTextStyle = styled.p`
   color: white;
+  line-height: 1.42em;
 `;
