@@ -4,37 +4,32 @@ import styled from "styled-components";
 import { media } from "./../commons/style";
 
 import { HeroArea } from "./../components/HeroArea";
-import { FeaturedPersonalitiesWrapper } from "./../components/FeaturedPersonalitiesWrapper";
+import { RadioSeacher } from "./../components/RadioSeacher";
 import { AboutSidebar } from "./../components/AboutSidebar";
 import { PopularRadioWrapper } from "./../components/PopularRadioWrapper";
-import { WeeklyComic } from "./../components/WeeklyComic";
 import { TweetStream } from "./../components/TweetStream";
-import { RadioCardWrapper } from "./../components/RadioCardWrapper";
+import { RadioHistoryContentWrapper } from "./../components/RadioHistoryContentWrapper";
 import { FeaturedBlogWrapper } from "./../components/FeaturedBlogWrapper";
-import { AboutBottom } from "./../components/AboutBottom";
 
-export const Index = () => (
+export const RadioHistory = () => (
   <div>
-    <HeroArea InnerComponent="検索バー" />
-    <FeaturedPersonalitiesWrapper />
-    <Contrainer>
+    <HeroArea InnerComponent="Radio History" />
+    <Container>
       <Sidebar>
+        <RadioSeacher />
         <AboutSidebar />
-        <WeeklyComic />
         <PopularRadioWrapper />
         <TweetStream />
       </Sidebar>
       <MainContentWrapper>
-        <RadioCardWrapper />
+        <RadioHistoryContentWrapper />
         <FeaturedBlogWrapper />
       </MainContentWrapper>
-    </Contrainer>
-    <AboutBottom />
-    <Footer />
+    </Container>
   </div>
 );
 
-const Contrainer = styled.div`
+const Container = styled.div`
   display: flex;
 `;
 
