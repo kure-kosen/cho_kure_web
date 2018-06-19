@@ -2,6 +2,7 @@ import * as React from "react";
 import styled from "styled-components";
 import * as img from "./../../images/bg.jpg";
 
+import { Link } from "react-router-dom";
 import { media } from "./../commons/style";
 import { ChkButtonBase } from "./../commons/ChkButtonBase";
 import { chkColors } from "./../commons/color";
@@ -14,7 +15,9 @@ export const AboutBottom = () => (
         <ParagraphStyle>
           インキュベーションワークが始まった2015年頃から、呉高専の学生は縦のつながりと横のつながりが広がっていきました。しかし、まだ多くの学生は同じクラス、部活動の友だちなどのコミュニティで完結してしまっています。私たちはこれまで多様な人とつながったことで、将来の選択肢が増えていきました。後輩たちにも同じようにもっとたくさんの人とつながりを作って、多くの経験をしてほしいという想いから、この活動を開始しました。
         </ParagraphStyle>
-        <ButtonStyle>contact</ButtonStyle>
+        <Link to="/contact" style={{ textDecoration: "none" }}>
+          <ButtonStyle>contact</ButtonStyle>
+        </Link>
       </ContentStyle>
     </MaskStyle>
   </AboutBottomStyle>
