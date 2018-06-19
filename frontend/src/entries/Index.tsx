@@ -14,7 +14,7 @@ import { WeeklyComic } from "./../components/WeeklyComic";
 import { TweetStream } from "./../components/TweetStream";
 import { RadioCardWrapper } from "./../components/RadioCardWrapper";
 import { FeaturedBlogWrapper } from "./../components/FeaturedBlogWrapper";
-import { AboutFooter } from "./../components/AboutFooter";
+import { AboutBottom } from "./../components/AboutBottom";
 
 export const Index = () => (
   <div>
@@ -33,7 +33,7 @@ export const Index = () => (
         <FeaturedBlogWrapper />
       </MainContentWrapper>
     </Contrainer>
-    <AboutFooter />
+    <AboutBottom />
     <Footer />
   </div>
 );
