@@ -99,8 +99,9 @@ const RadioSearchTagButton = styled.button`
   display: block;
   padding: 5px 1rem;
   line-height: 1.5rem;
-  color: ${chkColors.blue}
+  color: ${chkColors.blue};
   border: 2px solid ${chkColors.blue};
+  background-color: #fff;
   border-radius: 1.5rem;
   outline: none;
 `;
