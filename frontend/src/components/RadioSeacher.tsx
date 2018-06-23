@@ -1,6 +1,7 @@
 import * as React from "react";
 import styled from "styled-components";
 
+import { title } from "./../commons/style";
 import { ChkButtonBase } from "./../commons/ChkButtonBase";
 import { chkColors } from "./../commons/color";
 
@@ -53,11 +54,7 @@ const Wrapper = styled.div`
 `;
 
 const RadioSeacherTitle = styled.div`
-  padding-top: 2rem;
-  padding-bottom: 1rem;
-  font-size: 1.5rem;
-  text-align: left;
-  color: #00afec;
+  ${title};
   color: ${chkColors.blue};
 `;
 
