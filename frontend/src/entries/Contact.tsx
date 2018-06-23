@@ -20,16 +20,24 @@ export const Contact = () => (
           </ContactFormInputWrapper>
           <ContactFormInputWrapper>
             <ContactFormInput name="corner" type="text" placeholder="題名" />
-          </ContactFormInputWrapper>
+          </ContactFormInputWrapper>
           <ContactFormInputWrapper>
             <ContactFormInputHalf name="department" type="text" placeholder="所属" />
             <ContactFormInputHalf name="grade" type="text" placeholder="学年" />
           </ContactFormInputWrapper>
           <ContactFormInputWrapper>
-            <ContactFormInput name="email" type="text" placeholder="メールアドレス" />
+            <ContactFormInput
+              name="email"
+              type="text"
+              placeholder="メールアドレス"
+            />
           </ContactFormInputWrapper>
           <ContactFormInputWrapper>
-            <ContactFormInput name="nickname" type="text" placeholder="ラジオネーム" />
+            <ContactFormInput
+              name="nickname"
+              type="text"
+              placeholder="ラジオネーム"
+            />
           </ContactFormInputWrapper>
           <ContactFormInputWrapper>
             <ContactFormInput name="content" type="text" placeholder="内容" />
@@ -96,4 +104,9 @@ const ContactFormInputHalf = ContactFormInput.extend`
 
 const ContactFormButton = ChkButtonBase.extend`
   background-color: ${chkColors.orange};
+  width: 30%;
+  margin-top: 40px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 20px;
 `;
