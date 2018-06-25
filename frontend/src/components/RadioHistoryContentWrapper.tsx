@@ -6,12 +6,11 @@ import { ChkButtonBase } from "./../commons/ChkButtonBase";
 import { chkColors } from "./../commons/color";
 
 import { RadioCardWrapper } from "./../components/RadioCardWrapper";
-
-const hero = "http://localhost:5000/images/radio-history-hero.png";
+import { RadioHistoryFeature } from "./../components/RadioHistoryFeature";
 
 export const RadioHistoryContentWrapper = () => (
   <Wrapper>
-    <RadioHistoryHeroArea />
+    <RadioHistoryFeature />
     <RadioHistoryContentArea>
       <Title>category</Title>
       <RadioDateButtonWrapper>
@@ -53,16 +52,8 @@ const Wrapper = styled.div`
   height: auto;
 `;
 
-const RadioHistoryHeroArea = styled.div`
-  height: 600px;
-  background-image: url(${hero});
-  background-size: cover;
-  justify-content: center;
-  align-items: center;
-`;
-
 const RadioHistoryContentArea = styled.div`
-  margin: 0 100px 50px 100px;
+  margin: 0 50px 50px 50px;
 `;
 
 const Title = styled.div`
