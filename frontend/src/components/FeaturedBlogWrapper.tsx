@@ -17,10 +17,51 @@ export const FeaturedBlogWrapper = () => (
   					<Article>
   						人の世界は住みにくい人の世界は住みにくい人の世界は住みにくい。
   						人の世界は住みにくい人の世界は住みにくい人の世界は住みにくい。
+  						<br></br>
+  						<NameDates>
+  						YYYY/MM/DD
+  						<ICON></ICON>
+  						ちゃんゆー
+  						</NameDates>
+  					</Article>
+  				</Sentence>	
+   			</BlogPartsWrapper>
+   			<BlogPartsWrapper>
+  				<Picture></Picture>
+  				<Sentence>
+  					<NewsTitle>newstitle</NewsTitle>
+  					<Article>
+  						人の世界は住みにくい人の世界は住みにくい人の世界は住みにくい。
+  						人の世界は住みにくい人の世界は住みにくい人の世界は住みにくい。
+  						<br></br>
+  						<NameDates>
+  						YYYY/MM/DD
+  						<ICON></ICON>
+  						ちゃんゆー
+  						</NameDates>
+  					</Article>
+  				</Sentence>	
+   			</BlogPartsWrapper>
+   			<BlogPartsWrapper>
+  				<Picture></Picture>
+  				<Sentence>
+  					<NewsTitle>newstitle</NewsTitle>
+  					<Article>
+  						人の世界は住みにくい人の世界は住みにくい人の世界は住みにくい。
+  						人の世界は住みにくい人の世界は住みにくい人の世界は住みにくい。
+  						<br></br>
+  						<NameDates>
+  						YYYY/MM/DD
+  						<ICON></ICON>
+  						ちゃんゆー
+  						</NameDates>
   					</Article>
   				</Sentence>	
    			</BlogPartsWrapper>
   		</BlogWrapper>
+  		<Container>
+  			<BUTTON>more</BUTTON>
+  		</Container>
 	</FeaturedBlogWrapperStyle>
 );
 
@@ -45,11 +86,14 @@ const TitleWrapper = styled.section`
 `;
 
 const BlogWrapper = styled.section`
-  padding: 2em;
+  padding: 1em 2em 1em 2em;
 `;
 
 const BlogPartsWrapper = styled.section`
-  padding: 0em;
+  margin: 0px 0px 20px 0px;
+  overflow: hidden;
+  display: block;
+  clear: both;
 `;
 
 const Picture = styled.div`
@@ -62,7 +106,7 @@ const Picture = styled.div`
 `;
 
 const Sentence = styled.div`
-  padding: 0px 0px 0px 30px;
+  margin: 0px 0px 10px 30px;
   float: left;
 `;
 
@@ -74,10 +118,41 @@ const NewsTitle = styled.h3`
 `;
 
 const Article = styled.p`
-  padding: 0px;
+  padding: 0px 30px 0px 0px;
   margin: 0px;
   color: white;
-  word-break: normal;
+  word-break: break-all;
   position: absolute;
+`;
+
+const NameDates = styled.p`
+  padding: 5px 0px 0px 0px;
+  margin: 0px;
+  color: white;
+`;
+
+const ICON = styled.div`
+  background-image: url(${img});
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  border: solid thin #e6ba4b;
+  display: inline-block;
+  vertical-align: -4px;	
+  margin: 0px 20px 0px 20px;
+`;
+
+const BUTTON = styled.button`
+	text-align: center;
+    display: inline-block;
+    padding: 10px 35px;
+	border-radius: 25px;
+    text-decoration: none;
+    color: #FFF;
+    background: #eeb73f;
+`;
+
+const Container = styled.div`
+	text-align: center;
 `;
 
