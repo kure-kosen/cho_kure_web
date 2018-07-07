@@ -45,6 +45,6 @@ const FeaturedPersonalitiesWrapperStyle = styled.div`
 `;
 
 const SliderWrapper = styled.div`
-  padding: 50px;
+  padding: 50px 100px;
   margin: 0 auto;
 `;
