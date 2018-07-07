@@ -3,12 +3,22 @@ import styled from "styled-components";
 
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+import "../../css/chkArrows.css";
 
 import { chkColors } from "./../commons/color";
 
 import { FeaturedPersonality } from "./../components/FeaturedPersonality";
 import { FeaturedPersonalityButton } from "./../components/FeaturedPersonalityButton";
+
+function ChkNextArrow(props: any) {
+  const { className, onClick } = props;
+  return <div className={className} onClick={onClick} />;
+}
+
+function ChkPrevArrow(props: any) {
+  const { className, onClick } = props;
+  return <div className={className} onClick={onClick} />;
+}
 
 export const FeaturedPersonalitiesWrapper = () => (
   <FeaturedPersonalitiesWrapperStyle>
@@ -21,18 +31,19 @@ export const FeaturedPersonalitiesWrapper = () => (
         <FeaturedPersonality />
       </Slider>
     </SliderWrapper>
-
     <FeaturedPersonalityButton />
   </FeaturedPersonalitiesWrapperStyle>
 );
 
 const settings = {
-  dots: true,
+  dots: false,
   infinite: true,
   speed: 250,
   slidesToShow: 3,
   slidesToScroll: 1,
   adaptiveHeight: true,
+  nextArrow: <ChkNextArrow />,
+  prevArrow: <ChkPrevArrow />,
 };
 
 const FeaturedPersonalitiesWrapperStyle = styled.div`
