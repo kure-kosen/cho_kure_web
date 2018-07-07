@@ -28,6 +28,7 @@ export const FeaturedPersonality = () => (
 const FeaturedPersonalityStyle = styled.div`
   width: 350px;
   height: 500px;
+  margin-bottom: 15px;
   border-radius: 8px;
   color: ${chkColors.black};
   font-weight: bold;

@@ -1,7 +1,10 @@
 import * as React from "react";
 import styled from "styled-components";
 
-import { goodSpace } from "./../commons/style";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
 import { chkColors } from "./../commons/color";
 
 import { FeaturedPersonality } from "./../components/FeaturedPersonality";
@@ -9,14 +12,28 @@ import { FeaturedPersonalityButton } from "./../components/FeaturedPersonalityBu
 
 export const FeaturedPersonalitiesWrapper = () => (
   <FeaturedPersonalitiesWrapperStyle>
-    <Slider>
-      <FeaturedPersonality />
-      <FeaturedPersonality />
-      <FeaturedPersonality />
-    </Slider>
+    <SliderWrapper>
+      <Slider {...settings}>
+        <FeaturedPersonality />
+        <FeaturedPersonality />
+        <FeaturedPersonality />
+        <FeaturedPersonality />
+        <FeaturedPersonality />
+      </Slider>
+    </SliderWrapper>
+
     <FeaturedPersonalityButton />
   </FeaturedPersonalitiesWrapperStyle>
 );
+
+const settings = {
+  dots: true,
+  infinite: true,
+  speed: 500,
+  slidesToShow: 3,
+  slidesToScroll: 1,
+  adaptiveHeight: true,
+};
 
 const FeaturedPersonalitiesWrapperStyle = styled.div`
   width: 100%;
@@ -27,7 +44,7 @@ const FeaturedPersonalitiesWrapperStyle = styled.div`
   background: linear-gradient(to bottom, ${chkColors.skyblue} 0%, #ffffff 100%);
 `;
 
-const Slider = styled.div`
-  padding: 45px 50px;
-  ${goodSpace};
+const SliderWrapper = styled.div`
+  padding: 50px;
+  margin: 0 auto;
 `;
