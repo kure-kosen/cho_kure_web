@@ -1,7 +1,7 @@
 import * as React from "react";
 import styled from "styled-components";
 
-const feature = "http://localhost:5000/images/radio-history-feature.jpg";
+import * as feature from "../../images/radio-history-feature.jpg";
 
 export const RadioHistoryFeature = () => (
   <Wrapper>
