@@ -6,6 +6,9 @@
   "author": "Shintani Teppei <teppest1215@gmail.com>",
   "license": "MIT",
   "private": true,
+  "scripts": {
+    "dev": "npx webpack -w"
+  },
   "devDependencies": {
     "awesome-typescript-loader": "^5.0.0",
     "babel-loader": "^7.1.4",
