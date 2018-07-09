@@ -59,9 +59,17 @@ const ModalIntroduction = styled.div`
 `;
 
 const PictureArea = styled.div`
-  width: 100%;
+  width: calc(100% + 6px);
   height: 305px;
+  margin-top: -3px;
+  margin-left: -3px;
   background-image: url(${chanyou});
+  background-color: ${chkColors.skyblue};
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  border-top: 3px solid ${chkColors.skyblue};
+  border-left: 3px solid ${chkColors.skyblue};
+  border-right: 3px solid ${chkColors.skyblue};
 `;
 
 const DescriptionArea = styled.div`
