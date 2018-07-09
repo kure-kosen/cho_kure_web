@@ -10,16 +10,6 @@ import { chkColors } from "./../commons/color";
 import { FeaturedPersonality } from "./../components/FeaturedPersonality";
 import { FeaturedPersonalityButton } from "./../components/FeaturedPersonalityButton";
 
-function ChkNextArrow(props: any) {
-  const { className, onClick } = props;
-  return <div className={className} onClick={onClick} />;
-}
-
-function ChkPrevArrow(props: any) {
-  const { className, onClick } = props;
-  return <div className={className} onClick={onClick} />;
-}
-
 export const FeaturedPersonalitiesWrapper = () => (
   <FeaturedPersonalitiesWrapperStyle>
     <SliderWrapper>
@@ -34,6 +24,16 @@ export const FeaturedPersonalitiesWrapper = () => (
     <FeaturedPersonalityButton />
   </FeaturedPersonalitiesWrapperStyle>
 );
+
+const ChkNextArrow = (props: any) => {
+  const { className, onClick } = props;
+  return <div className={className} onClick={onClick} />;
+};
+
+const ChkPrevArrow = (props: any) => {
+  const { className, onClick } = props;
+  return <div className={className} onClick={onClick} />;
+};
 
 const settings = {
   dots: false,
