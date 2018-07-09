@@ -14,13 +14,13 @@ export const FeaturedPersonality = () => (
       フロントエンド開発やTwitter解析とかをしてるよ！ わーい！
       <SNSArea>
         <Circle>
-          <i class="fab fa-twitter fa-fw" />
+          <i className="fab fa-twitter fa-fw" />
         </Circle>
         <Circle>
-          <i class="fab fa-facebook-f fa-fw" />
+          <i className="fab fa-facebook-f fa-fw" />
         </Circle>
         <Circle>
-          <i class="fab fa-instagram fa-fw" />
+          <i className="fab fa-instagram fa-fw" />
         </Circle>
       </SNSArea>
     </ModalIntroduction>
