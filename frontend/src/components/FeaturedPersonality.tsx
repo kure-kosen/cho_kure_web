@@ -4,7 +4,7 @@ import styled from "styled-components";
 import { chkColors } from "./../commons/color";
 import { FeaturedPersonalityListenToRadioButton } from "./../components/FeaturedPersonalityListenToRadioButton";
 
-const chanyou = "http://localhost:5000/images/chanyou.jpg";
+import * as chanyou from "./../../images/chanyou.jpg";
 
 export const FeaturedPersonality = () => (
   <FeaturedPersonalityStyle>
