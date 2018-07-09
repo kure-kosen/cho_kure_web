@@ -3,14 +3,30 @@ import styled from "styled-components";
 import * as img from "./../../images/1d4633a2034e71e3992efe6776fcce91-1.png";
 
 export const FeaturedBlogWrapper = () => (
-	<FeaturedBlogWrapperStyle>
-		<TitleWrapper>
-    		<Title>
-     		 	BLOG
-    		</Title>
+  <FeaturedBlogWrapperStyle>
+    <TitleWrapper>
+      <Title>
+        BLOG
+      </Title>
   		</TitleWrapper>
   		<BlogWrapper>
-  			<BlogPartsWrapper>
+  	    <BlogPartsWrapper>
+  			  <Picture></Picture>
+  			  <Sentence>
+  				  <NewsTitle>newstitle</NewsTitle>
+  					<Article>
+  					  人の世界は住みにくい人の世界は住みにくい人の世界は住みにくい。
+  					  人の世界は住みにくい人の世界は住みにくい人の世界は住みにくい。
+  					  <br></br>
+  					  <NameDates>
+  					  YYYY/MM/DD
+  					  <Icon></Icon>
+  					  だれかさん
+  					  </NameDates>
+  				  </Article>
+  				</Sentence>	
+   			</BlogPartsWrapper>
+   			<BlogPartsWrapper>
   				<Picture></Picture>
   				<Sentence>
   					<NewsTitle>newstitle</NewsTitle>
@@ -20,8 +36,8 @@ export const FeaturedBlogWrapper = () => (
   						<br></br>
   						<NameDates>
   						YYYY/MM/DD
-  						<ICON></ICON>
-  						ちゃんゆー
+  						<Icon></Icon>
+  						だれかさん
   						</NameDates>
   					</Article>
   				</Sentence>	
@@ -36,33 +52,17 @@ export const FeaturedBlogWrapper = () => (
   						<br></br>
   						<NameDates>
   						YYYY/MM/DD
-  						<ICON></ICON>
-  						ちゃんゆー
-  						</NameDates>
-  					</Article>
-  				</Sentence>	
-   			</BlogPartsWrapper>
-   			<BlogPartsWrapper>
-  				<Picture></Picture>
-  				<Sentence>
-  					<NewsTitle>newstitle</NewsTitle>
-  					<Article>
-  						人の世界は住みにくい人の世界は住みにくい人の世界は住みにくい。
-  						人の世界は住みにくい人の世界は住みにくい人の世界は住みにくい。
-  						<br></br>
-  						<NameDates>
-  						YYYY/MM/DD
-  						<ICON></ICON>
-  						ちゃんゆー
+  						<Icon></Icon>
+  						だれかさん
   						</NameDates>
   					</Article>
   				</Sentence>	
    			</BlogPartsWrapper>
   		</BlogWrapper>
-  		<Container>
-  			<BUTTON>more</BUTTON>
-  		</Container>
-	</FeaturedBlogWrapperStyle>
+    <Container>
+      <Button>more</Button>
+    </Container>
+  </FeaturedBlogWrapperStyle>
 );
 
 const FeaturedBlogWrapperStyle = styled.div`
@@ -72,7 +72,7 @@ const FeaturedBlogWrapperStyle = styled.div`
   margin: 8px;
   border-radius: 5px;
   box-shadow: 2px 2px 2px gray;
- `;
+`;
 
 const Title = styled.h1`
   font-size: 1.5em;
@@ -131,7 +131,7 @@ const NameDates = styled.p`
   color: white;
 `;
 
-const ICON = styled.div`
+const Icon = styled.div`
   background-image: url(${img});
   height: 30px;
   width: 30px;
@@ -142,14 +142,14 @@ const ICON = styled.div`
   margin: 0px 20px 0px 20px;
 `;
 
-const BUTTON = styled.button`
+const Button = styled.Button`
 	text-align: center;
-    display: inline-block;
-    padding: 10px 35px;
+  display: inline-block;
+  padding: 10px 35px;
 	border-radius: 25px;
-    text-decoration: none;
-    color: #FFF;
-    background: #eeb73f;
+  text-decoration: none;
+  color: #FFF;
+  background: #eeb73f;
 `;
 
 const Container = styled.div`
