@@ -9,7 +9,6 @@ const PersonalityButton = ChkButtonBase.extend`
   background-color: ${chkColors.orange};
   width: 210px;
   height: 48px;
-  /* width: 30%; */
   margin-top: 40px;
   margin-left: auto;
   margin-right: auto;
