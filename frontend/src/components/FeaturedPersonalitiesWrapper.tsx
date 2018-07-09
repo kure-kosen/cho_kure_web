@@ -11,7 +11,16 @@ import { FeaturedPersonalityButton } from "./../components/FeaturedPersonalityBu
 export const FeaturedPersonalitiesWrapper = () => (
   <FeaturedPersonalitiesWrapperStyle>
     <SliderWrapper>
-      <ChkSlider InnerComponent={<FeaturedPersonality />} />
+      <ChkSlider
+        InnerComponent={[
+          <FeaturedPersonality />,
+          <FeaturedPersonality />,
+          <FeaturedPersonality />,
+          <FeaturedPersonality />,
+          <FeaturedPersonality />,
+          <FeaturedPersonality />,
+        ]}
+      />
     </SliderWrapper>
     <FeaturedPersonalityButton />
   </FeaturedPersonalitiesWrapperStyle>
