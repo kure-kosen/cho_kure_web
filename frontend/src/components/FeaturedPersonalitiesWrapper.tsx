@@ -1,11 +1,9 @@
 import * as React from "react";
 import styled from "styled-components";
 
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "../../css/chkArrows.css";
-
 import { chkColors } from "./../commons/color";
+
+import { ChkSlider } from "./ChkSlider";
 
 import { FeaturedPersonality } from "./../components/FeaturedPersonality";
 import { FeaturedPersonalityButton } from "./../components/FeaturedPersonalityButton";
@@ -13,38 +11,11 @@ import { FeaturedPersonalityButton } from "./../components/FeaturedPersonalityBu
 export const FeaturedPersonalitiesWrapper = () => (
   <FeaturedPersonalitiesWrapperStyle>
     <SliderWrapper>
-      <Slider {...settings}>
-        <FeaturedPersonality />
-        <FeaturedPersonality />
-        <FeaturedPersonality />
-        <FeaturedPersonality />
-        <FeaturedPersonality />
-      </Slider>
+      <ChkSlider InnerComponent={<FeaturedPersonality />} />
     </SliderWrapper>
     <FeaturedPersonalityButton />
   </FeaturedPersonalitiesWrapperStyle>
 );
-
-const ChkNextArrow = (props: any) => {
-  const { className, onClick } = props;
-  return <div className={className} onClick={onClick} />;
-};
-
-const ChkPrevArrow = (props: any) => {
-  const { className, onClick } = props;
-  return <div className={className} onClick={onClick} />;
-};
-
-const settings = {
-  dots: false,
-  infinite: true,
-  speed: 250,
-  slidesToShow: 3,
-  slidesToScroll: 1,
-  adaptiveHeight: true,
-  nextArrow: <ChkNextArrow />,
-  prevArrow: <ChkPrevArrow />,
-};
 
 const FeaturedPersonalitiesWrapperStyle = styled.div`
   width: 100%;
