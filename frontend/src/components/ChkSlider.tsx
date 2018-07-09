@@ -2,7 +2,7 @@ import * as React from "react";
 
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
-import "../../css/chkArrows.css";
+import "../../css/ChkSlider.css";
 
 export interface Props {
   InnerComponent: any;
