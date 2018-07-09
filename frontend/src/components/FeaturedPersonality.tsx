@@ -12,6 +12,17 @@ export const FeaturedPersonality = () => (
     <ModalIntroduction>
       こんにちは。ちゃんゆーだよ！<br />
       フロントエンド開発やTwitter解析とかをしてるよ！ わーい！
+      <SNSArea>
+        <Circle>
+          <i class="fab fa-twitter fa-fw" />
+        </Circle>
+        <Circle>
+          <i class="fab fa-facebook-f fa-fw" />
+        </Circle>
+        <Circle>
+          <i class="fab fa-instagram fa-fw" />
+        </Circle>
+      </SNSArea>
     </ModalIntroduction>
     <DescriptionArea>
       <Name>中村 優</Name>
@@ -46,7 +57,7 @@ const ModalIntroduction = styled.div`
   height: calc(305px - 30px);
   margin: 15px;
   margin-bottom: 100px;
-  padding: 25px;
+  padding: 30px;
   background-color: rgba(255, 255, 255, 0.7);
   border-radius: 8px;
   font-size: 1.1rem;
@@ -56,6 +67,29 @@ const ModalIntroduction = styled.div`
   ${FeaturedPersonalityStyle}:hover & {
     visibility: visible;
   }
+`;
+
+const SNSArea = styled.div`
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100px;
+  padding: 35px;
+`;
+
+const Circle = styled.div`
+  float: left;
+  font-size: 20px;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  vertical-align: middle;
+  margin-right: 10px;
+  border-radius: 50%;
+  background-color: ${chkColors.orange};
+  color: rgba(255, 255, 255, 0.8);
 `;
 
 const PictureArea = styled.div`
