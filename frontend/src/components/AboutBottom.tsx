@@ -18,7 +18,6 @@ export const AboutBottom = () => (
         <Link to="/contact" style={{ textDecoration: "none" }}>
           <ButtonStyle>contact</ButtonStyle>
         </Link>
-        <ChkButtonBase>hoge</ChkButtonBase>
       </ContentStyle>
     </MaskStyle>
   </AboutBottomStyle>
