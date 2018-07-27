@@ -18,6 +18,7 @@ export const AboutBottom = () => (
         <Link to="/contact" style={{ textDecoration: "none" }}>
           <ButtonStyle>contact</ButtonStyle>
         </Link>
+        <ChkButtonBase>hoge</ChkButtonBase>
       </ContentStyle>
     </MaskStyle>
   </AboutBottomStyle>
@@ -61,6 +62,4 @@ const ParagraphStyle = styled.p`
   line-height: 1.42em;
 `;
 
-const ButtonStyle = ChkButtonBase.extend`
-  background-color: ${chkColors.orange};
-`;
+const ButtonStyle = ChkButtonBase.extend``;
