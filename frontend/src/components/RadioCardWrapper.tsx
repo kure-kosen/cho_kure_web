@@ -1,11 +1,13 @@
 import * as React from "react";
 import styled from "styled-components";
 
-export const RadioCardWrapper = () => <RadioCardWrapperStyle>radio-card-wrapper</RadioCardWrapperStyle>;
+import * as card from "../../images/radio-card.png";
+
+export const RadioCardWrapper = () => <RadioCardWrapperStyle />;
 
 const RadioCardWrapperStyle = styled.div`
-  width: 100%;
-  color: white;
-  background-color: #2fcdb4;
-  height: 1000px;
+  width: 282px;
+  height: 445px;
+  background-image: url(${card});
+  background-size: cover;
 `;
