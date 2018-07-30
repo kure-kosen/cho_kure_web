@@ -5,5 +5,6 @@
   "prettier.singleQuote": false,
   "prettier.trailingComma": "es5",
   "prettier.bracketSpacing": true,
-  "prettier.jsxBracketSameLine": false
+  "prettier.jsxBracketSameLine": false,
+  "git.ignoreLimitWarning": true
 }
