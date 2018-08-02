@@ -1,62 +1,62 @@
 import * as React from "react";
 import styled from "styled-components";
+
 import * as img from "./../../images/1d4633a2034e71e3992efe6776fcce91-1.png";
+import { chkColors } from "./../commons/color";
 
 export const FeaturedBlogWrapper = () => (
   <FeaturedBlogWrapperStyle>
     <TitleWrapper>
-      <Title>
-        BLOG
-      </Title>
+      <Title>BLOG</Title>
     </TitleWrapper>
     <BlogWrapper>
       <BlogPartsWrapper>
-        <Picture></Picture>
-          <Sentence>
-            <NewsTitle>newstitle</NewsTitle>
-            <Article>
-              人の世界は住みにくい人の世界は住みにくい人の世界は住みにくい。
-              人の世界は住みにくい人の世界は住みにくい人の世界は住みにくい。
-              <br></br>
-              <NameDates>
+        <Picture />
+        <Sentence>
+          <NewsTitle>newstitle</NewsTitle>
+          <Article>
+            人の世界は住みにくい人の世界は住みにくい人の世界は住みにくい。
+            人の世界は住みにくい人の世界は住みにくい人の世界は住みにくい。
+            <br />
+            <NameDates>
               YYYY/MM/DD
-              <Icon></Icon>
+              <Icon />
               だれかさん
-              </NameDates>
-            </Article>
-          </Sentence>
+            </NameDates>
+          </Article>
+        </Sentence>
       </BlogPartsWrapper>
       <BlogPartsWrapper>
-        <Picture></Picture>
-          <Sentence>
-            <NewsTitle>newstitle</NewsTitle>
-            <Article>
-              人の世界は住みにくい人の世界は住みにくい人の世界は住みにくい。
-              人の世界は住みにくい人の世界は住みにくい人の世界は住みにくい。
-              <br></br>
-              <NameDates>
+        <Picture />
+        <Sentence>
+          <NewsTitle>newstitle</NewsTitle>
+          <Article>
+            人の世界は住みにくい人の世界は住みにくい人の世界は住みにくい。
+            人の世界は住みにくい人の世界は住みにくい人の世界は住みにくい。
+            <br />
+            <NameDates>
               YYYY/MM/DD
-              <Icon></Icon>
+              <Icon />
               だれかさん
-              </NameDates>
-            </Article>
-          </Sentence>
+            </NameDates>
+          </Article>
+        </Sentence>
       </BlogPartsWrapper>
       <BlogPartsWrapper>
-        <Picture></Picture>
-          <Sentence>
-            <NewsTitle>newstitle</NewsTitle>
-            <Article>
-              人の世界は住みにくい人の世界は住みにくい人の世界は住みにくい。
-              人の世界は住みにくい人の世界は住みにくい人の世界は住みにくい。
-              <br></br>
-              <NameDates>
+        <Picture />
+        <Sentence>
+          <NewsTitle>newstitle</NewsTitle>
+          <Article>
+            人の世界は住みにくい人の世界は住みにくい人の世界は住みにくい。
+            人の世界は住みにくい人の世界は住みにくい人の世界は住みにくい。
+            <br />
+            <NameDates>
               YYYY/MM/DD
-              <Icon></Icon>
+              <Icon />
               だれかさん
-              </NameDates>
-            </Article>
-          </Sentence>
+            </NameDates>
+          </Article>
+        </Sentence>
       </BlogPartsWrapper>
     </BlogWrapper>
     <Container>
@@ -77,7 +77,7 @@ const FeaturedBlogWrapperStyle = styled.div`
 const Title = styled.h1`
   font-size: 1.5em;
   text-align: center;
-  color:  #{chkColors.white};
+  color: #{chkColors.white};
 `;
 
 // Create a Wrapper component that'll render a <section> tag with some styles
@@ -136,9 +136,9 @@ const Icon = styled.div`
   height: 30px;
   width: 30px;
   border-radius: 50%;
-  border: solid thin #{chkColors.orange};;
+  border: solid thin #{chkColors.orange};
   display: inline-block;
-  vertical-align: -4px;	
+  vertical-align: -4px;
   margin: 0px 20px 0px 20px;
 `;
 
@@ -155,4 +155,3 @@ const Button = styled.button`
 const Container = styled.div`
   text-align: center;
 `;
-
