@@ -7,4 +7,5 @@ export const chkColors = {
   shadow: "#14141433",
   white: "#ffffff",
   placeholder: "#b0bec5",
+  aqua: "#b3dfe2",
 };
