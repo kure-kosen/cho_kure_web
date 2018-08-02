@@ -17,48 +17,48 @@ export const FeaturedBlogWrapper = () => (
             <Article>
               人の世界は住みにくい人の世界は住みにくい人の世界は住みにくい。
               人の世界は住みにくい人の世界は住みにくい人の世界は住みにくい。
-  					  <br></br>
-  					  <NameDates>
-  					  YYYY/MM/DD
-  					  <Icon></Icon>
-  					  だれかさん
-  					  </NameDates>
-  				  </Article>
-  				</Sentence>	
-   			</BlogPartsWrapper>
-   			<BlogPartsWrapper>
-  				<Picture></Picture>
-  				<Sentence>
-  					<NewsTitle>newstitle</NewsTitle>
-  					<Article>
-  						人の世界は住みにくい人の世界は住みにくい人の世界は住みにくい。
-  						人の世界は住みにくい人の世界は住みにくい人の世界は住みにくい。
-  						<br></br>
-  						<NameDates>
-  						YYYY/MM/DD
-  						<Icon></Icon>
-  						だれかさん
-  						</NameDates>
-  					</Article>
-  				</Sentence>	
-   			</BlogPartsWrapper>
-   			<BlogPartsWrapper>
-  				<Picture></Picture>
-  				<Sentence>
-  					<NewsTitle>newstitle</NewsTitle>
-  					<Article>
-  						人の世界は住みにくい人の世界は住みにくい人の世界は住みにくい。
-  						人の世界は住みにくい人の世界は住みにくい人の世界は住みにくい。
-  						<br></br>
-  						<NameDates>
-  						YYYY/MM/DD
-  						<Icon></Icon>
-  						だれかさん
-  						</NameDates>
-  					</Article>
-  				</Sentence>	
-   			</BlogPartsWrapper>
-  		</BlogWrapper>
+              <br></br>
+              <NameDates>
+              YYYY/MM/DD
+              <Icon></Icon>
+              だれかさん
+              </NameDates>
+            </Article>
+          </Sentence>
+      </BlogPartsWrapper>
+      <BlogPartsWrapper>
+        <Picture></Picture>
+          <Sentence>
+            <NewsTitle>newstitle</NewsTitle>
+            <Article>
+              人の世界は住みにくい人の世界は住みにくい人の世界は住みにくい。
+              人の世界は住みにくい人の世界は住みにくい人の世界は住みにくい。
+              <br></br>
+              <NameDates>
+              YYYY/MM/DD
+              <Icon></Icon>
+              だれかさん
+              </NameDates>
+            </Article>
+          </Sentence>
+      </BlogPartsWrapper>
+      <BlogPartsWrapper>
+        <Picture></Picture>
+          <Sentence>
+            <NewsTitle>newstitle</NewsTitle>
+            <Article>
+              人の世界は住みにくい人の世界は住みにくい人の世界は住みにくい。
+              人の世界は住みにくい人の世界は住みにくい人の世界は住みにくい。
+              <br></br>
+              <NameDates>
+              YYYY/MM/DD
+              <Icon></Icon>
+              だれかさん
+              </NameDates>
+            </Article>
+          </Sentence>
+      </BlogPartsWrapper>
+    </BlogWrapper>
     <Container>
       <Button>more</Button>
     </Container>
@@ -143,16 +143,16 @@ const Icon = styled.div`
 `;
 
 const Button = styled.Button`
-	text-align: center;
+  text-align: center;
   display: inline-block;
   padding: 10px 35px;
-	border-radius: 25px;
+  border-radius: 25px;
   text-decoration: none;
   color: #FFF;
   background: #eeb73f;
 `;
 
 const Container = styled.div`
-	text-align: center;
+  text-align: center;
 `;
 
