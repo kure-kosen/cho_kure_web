@@ -4,7 +4,7 @@ import styled from "styled-components";
 import { media } from "./../commons/style";
 
 import { HeroArea } from "./../components/HeroArea";
-import { RadioSeacher } from "./../components/RadioSeacher";
+import { RadioSearcher } from "./../components/RadioSearcher";
 import { AboutSidebar } from "./../components/AboutSidebar";
 import { PopularRadioWrapper } from "./../components/PopularRadioWrapper";
 import { TweetStream } from "./../components/TweetStream";
@@ -16,7 +16,7 @@ export const RadioHistory = () => (
     <HeroArea InnerComponent="Radio History" />
     <Container>
       <Sidebar>
-        <RadioSeacher />
+        <RadioSearcher />
         <AboutSidebar />
         <PopularRadioWrapper />
         <TweetStream />
