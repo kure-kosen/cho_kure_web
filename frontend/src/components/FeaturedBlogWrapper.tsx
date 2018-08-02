@@ -8,15 +8,15 @@ export const FeaturedBlogWrapper = () => (
       <Title>
         BLOG
       </Title>
-  		</TitleWrapper>
-  		<BlogWrapper>
-  	    <BlogPartsWrapper>
-  			  <Picture></Picture>
-  			  <Sentence>
-  				  <NewsTitle>newstitle</NewsTitle>
-  					<Article>
-  					  人の世界は住みにくい人の世界は住みにくい人の世界は住みにくい。
-  					  人の世界は住みにくい人の世界は住みにくい人の世界は住みにくい。
+    </TitleWrapper>
+    <BlogWrapper>
+      <BlogPartsWrapper>
+        <Picture></Picture>
+          <Sentence>
+            <NewsTitle>newstitle</NewsTitle>
+            <Article>
+              人の世界は住みにくい人の世界は住みにくい人の世界は住みにくい。
+              人の世界は住みにくい人の世界は住みにくい人の世界は住みにくい。
   					  <br></br>
   					  <NameDates>
   					  YYYY/MM/DD
