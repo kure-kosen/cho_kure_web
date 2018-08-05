@@ -1,10 +1,14 @@
 import * as React from "react";
 import styled from "styled-components";
 
+import { title } from "./../commons/style";
+import { chkColors } from "./../commons/color";
+
 import * as comic from "./../../images/WeeklyComic.jpg";
 
 export const WeeklyComic = () => (
   <WeeklyComicStyle>
+    <Title>this week</Title>
     <PictureArea />
   </WeeklyComicStyle>
 );
@@ -12,12 +16,19 @@ export const WeeklyComic = () => (
 const WeeklyComicStyle = styled.div`
   width: 100%;
   color: white;
-  background-color: #333333;
+  background-color: ${chkColors.white};
   height: 600px;
+  padding: 0 20px;
+`;
+
+const Title = styled.div`
+  ${title};
+  color: ${chkColors.blue};
 `;
 
 const PictureArea = styled.div`
   background-image: url(${comic});
-  width: 100%;
-  height: 100%;
+  width: 80%;
+  height: 80%;
+  background-size: cover;
 `;
