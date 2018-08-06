@@ -18,16 +18,15 @@ const WeeklyComicStyle = styled.div`
   color: white;
   background-color: ${chkColors.white};
   height: auto;
-  padding: 0 20px;
 `;
 
 const Title = styled.div`
   ${title};
   color: ${chkColors.blue};
+  padding: 0 20px;
 `;
 
 const PictureArea = styled.img`
-  width: 80%;
-  height: 80%;
-  background-size: cover;
+  width: 100%;
+  height: auto;
 `;
