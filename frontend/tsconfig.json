@@ -12,6 +12,7 @@
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
     "forceConsistentCasingInFileNames": true,
+    "experimentalDecorators": true,
     "newLine": "LF"
   },
   "include": ["src/**/*"],

@@ -1,12 +1,12 @@
 export default class RestClient {
   axios: any;
 
-  constructor(baseUrl: string) {
+  constructor() {
     const axiosBase = require("axios");
     const csrfToken = (<HTMLMetaElement>document.querySelector("meta[name=csrf-token]")).content;
 
     this.axios = axiosBase.create({
-      baseURL: baseUrl,
+      baseURL: "http://localhost:3000", // TODO(euglena1215): productionとの切り替え方法を考える
       timeout: 1000,
       headers: {
         "Content-Type": "application/json",

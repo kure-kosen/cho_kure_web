@@ -3,7 +3,7 @@ import { Switch, Route } from "react-router-dom";
 
 import { Index } from "./../entries/Index";
 import { RadioHistory } from "./../entries/RadioHistory";
-import { Contact } from "./../entries/Contact";
+import Contact from "./../entries/Contact";
 
 export const Main = () => (
   <main>
