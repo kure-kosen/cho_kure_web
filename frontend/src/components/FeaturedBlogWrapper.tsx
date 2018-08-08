@@ -3,6 +3,7 @@ import styled from "styled-components";
 
 import * as img from "./../../images/1d4633a2034e71e3992efe6776fcce91-1.png";
 import { chkColors } from "./../commons/color";
+import { ChkButtonBase } from "./../commons/ChkButtonBase";
 
 export const FeaturedBlogWrapper = () => (
   <FeaturedBlogWrapperStyle>
@@ -11,7 +12,7 @@ export const FeaturedBlogWrapper = () => (
     </TitleWrapper>
     <BlogWrapper>
       <BlogPartsWrapper>
-        <Picture />
+        <Picture src={img} />
         <Sentence>
           <NewsTitle>newstitle</NewsTitle>
           <Article>
@@ -20,14 +21,14 @@ export const FeaturedBlogWrapper = () => (
             <br />
             <NameDates>
               YYYY/MM/DD
-              <Icon />
+              <Icon src={img} />
               だれかさん
             </NameDates>
           </Article>
         </Sentence>
       </BlogPartsWrapper>
       <BlogPartsWrapper>
-        <Picture />
+        <Picture src={img} />
         <Sentence>
           <NewsTitle>newstitle</NewsTitle>
           <Article>
@@ -36,14 +37,14 @@ export const FeaturedBlogWrapper = () => (
             <br />
             <NameDates>
               YYYY/MM/DD
-              <Icon />
+              <Icon src={img} />
               だれかさん
             </NameDates>
           </Article>
         </Sentence>
       </BlogPartsWrapper>
       <BlogPartsWrapper>
-        <Picture />
+        <Picture src={img} />
         <Sentence>
           <NewsTitle>newstitle</NewsTitle>
           <Article>
@@ -52,7 +53,7 @@ export const FeaturedBlogWrapper = () => (
             <br />
             <NameDates>
               YYYY/MM/DD
-              <Icon />
+              <Icon src={img} />
               だれかさん
             </NameDates>
           </Article>
@@ -96,8 +97,7 @@ const BlogPartsWrapper = styled.div`
   clear: both;
 `;
 
-const Picture = styled.div`
-  background-image: url(${img});
+const Picture = styled.img`
   height: 120px;
   width: 120px;
   border-radius: 10px;
@@ -131,8 +131,7 @@ const NameDates = styled.p`
   color: ${chkColors.white};
 `;
 
-const Icon = styled.div`
-  background-image: url(${img});
+const Icon = styled.img`
   height: 30px;
   width: 30px;
   border-radius: 50%;
@@ -142,9 +141,10 @@ const Icon = styled.div`
   margin: 0px 20px 0px 20px;
 `;
 
-const Button = styled.button`
+const Button = ChkButtonBase.extend`
   text-align: center;
   display: inline-block;
+  width: 20%;
   padding: 10px 35px;
   border-radius: 25px;
   text-decoration: none;
