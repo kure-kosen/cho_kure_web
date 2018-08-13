@@ -57,11 +57,11 @@ const Title = styled.h1`
 
 // Create a Wrapper component that'll render a <section> tag with some styles
 const TitleWrapper = styled.div`
-  padding: 0.8em;
+  padding-top: 10px;
 `;
 
 const BlogWrapper = styled.div`
-  padding: 1em 2em 1em 2em;
+  padding: 5px 20px;
 `;
 
 const Button = ChkButtonBase.extend`

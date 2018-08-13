@@ -28,10 +28,9 @@ export const FeaturedBlog = (props: Props) => (
 );
 
 const BlogPartsWrapper = styled.div`
-  margin: 0px 0px 20px 0px;
+  margin: 20px 0px;
   overflow: hidden;
   display: block;
-  clear: both;
 `;
 
 const Picture = styled.img`
@@ -43,7 +42,8 @@ const Picture = styled.img`
 `;
 
 const Sentence = styled.div`
-  margin: 0px 0px 10px 30px;
+  margin-top: 10px;
+  margin-left: 30px;
   float: left;
 `;
 
@@ -73,7 +73,7 @@ const Icon = styled.img`
   width: 30px;
   border-radius: 50%;
   border: solid thin ${chkColors.orange};
-  display: inline-block;
+  display: box;
   vertical-align: -4px;
-  margin: 0px 20px 0px 20px;
+  margin: 0px 10px 0px 10px;
 `;
