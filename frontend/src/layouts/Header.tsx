@@ -13,7 +13,7 @@ export const Header = () => (
     <Link to="/">
       <Title>ちょっと聞いて呉高専</Title>
     </Link>
-    <Nav>
+    <nav>
       <NavUl>
         <NavLi>
           <Link to="/radios">history</Link>
@@ -28,7 +28,7 @@ export const Header = () => (
           <Link to="/contact">contact</Link>
         </NavLi>
       </NavUl>
-    </Nav>
+    </nav>
   </HeaderStyle>
 );
 
@@ -38,9 +38,6 @@ const HeaderStyle = styled.header`
   height: 80px;
 `;
 
-// const Logo = styled.header`
-// `;
-
 const Title = styled.span`
   ${title};
   color: ${chkColors.blue};
@@ -49,14 +46,6 @@ const Title = styled.span`
 const PictureArea = styled.img`
   width: auto;
   height: 60px;
-`;
-
-// const Link = styled.link`
-//   ${link};
-//   text-decoration: none;
-// `;
-
-const Nav = styled.span `
 `;
 
 const NavLi = styled.li `

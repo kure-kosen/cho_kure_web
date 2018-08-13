@@ -44,4 +44,8 @@ injectGlobal`
   a {
     text-decoration: none;
   }
+
+  nav {
+    display: inline;
+  }
 `;
