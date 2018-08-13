@@ -41,4 +41,7 @@ injectGlobal`
         -ms-box-sizing: border-box;
             box-sizing: border-box;
   }
+  a {
+    text-decoration: none;
+  }
 `;

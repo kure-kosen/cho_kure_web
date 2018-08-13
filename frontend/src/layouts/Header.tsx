@@ -5,51 +5,71 @@ import { Link } from "react-router-dom";
 import { title } from "./../commons/style";
 import { chkColors } from "./../commons/color";
 
-import * as img from "./../../images/1d4633a2034e71e3992efe6776fcce91-1.png";
 import * as logo from "./../../images/radio-logo.jpg";
 
 export const Header = () => (
   <HeaderStyle>
-    header
-    <Logo>Logo</Logo>
-    <Link to="/"><Title>ちょっと聞いて呉高専</Title></Link>
-    <nav>
-      <ul>
-        <li>
+    <PictureArea src={logo}/>
+    <Link to="/">
+      <Title>ちょっと聞いて呉高専</Title>
+    </Link>
+    <Nav>
+      <NavUl>
+        <NavLi>
           <Link to="/radios">history</Link>
-        </li>
-        <li>
+        </NavLi>
+        <NavLi>
           <Link to="/blog">blog</Link>
-        </li>
-        <li>
+        </NavLi>
+        <NavLi>
           <Link to="/personality">personality</Link>
-        </li>
-        <li>
+        </NavLi>
+        <NavLi>
           <Link to="/contact">contact</Link>
-        </li>
-
-      </ul>
-    </nav>
+        </NavLi>
+      </NavUl>
+    </Nav>
   </HeaderStyle>
 );
-
-const Logo = styled.header`
-`;
-
-const Title = styled.div`
-  ${title};
-  color: ${chkColors.blue};
-  padding: 0 20px;
-`;
 
 const HeaderStyle = styled.header`
   width: 100%;
   color: black;
-  background-image: url(${img});
   height: 80px;
 `;
 
+// const Logo = styled.header`
+// `;
+
+const Title = styled.span`
+  ${title};
+  color: ${chkColors.blue};
+`;
+
 const PictureArea = styled.img`
-  width: 100%;
-  height: auto;
+  width: auto;
+  height: 60px;
+`;
+
+// const Link = styled.link`
+//   ${link};
+//   text-decoration: none;
+// `;
+
+const Nav = styled.span `
+`;
+
+const NavLi = styled.li `
+  list-style: none;
+  float: left;
+  padding: 10px 50px;
+
+  a:hover {
+    background-color: white;
+    color: #f38d00;
+  }
+`;
+
+const NavUl = styled.ul`
+  float: right;
 `;
