@@ -56,8 +56,9 @@ export default class Contact extends React.Component<Prop, State> {
       <div>
         <HeroArea InnerComponent={<ContactHeroContent />} />
         <ContactFormWrapper>
-          <ContactForm>
+          <div>
             <ContactFormTitle>お問い合わせフォーム</ContactFormTitle>
+
             <form>
               <ContactFormInputWrapper>
                 {this.state.alert.status === void 0 ? null : <AlertMessage>{this.state.alert.message}</AlertMessage>}
@@ -157,7 +158,7 @@ export default class Contact extends React.Component<Prop, State> {
               </ContactFormInputWrapper>
               <ContactFormButton onClick={this.createContact}>送信</ContactFormButton>
             </form>
-          </ContactForm>
+          </div>
         </ContactFormWrapper>
       </div>
     );
@@ -185,6 +186,15 @@ const ContactFormWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+
+  > div {
+    width: 50%;
+    margin-bottom: 100px;
+
+    @media ${media.mobile} {
+      width: 90%;
+    }
+  }
 `;
 
 const ContactFormTitle = styled.div`
@@ -194,15 +204,6 @@ const ContactFormTitle = styled.div`
   font-size: 1.5rem;
   text-align: center;
   color: #00afec;
-`;
-
-const ContactForm = styled.div`
-  width: 50%;
-  margin-bottom: 100px;
-
-  @media ${media.mobile} {
-    width: 90%;
-  }
 `;
 
 const ContactFormInputWrapper = styled.div`
