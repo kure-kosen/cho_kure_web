@@ -28,6 +28,11 @@
 </dl>
 
 <dl class="dl-horizontal">
+  <dt><strong>4コマ漫画 :</strong></dt>
+  <dd id="comic"><%= image_tag @radio.comic.image_url(:thumb) %></dd>
+</dl>
+
+<dl class="dl-horizontal">
   <dt><strong><%= Radio.human_attribute_name('digest_mp3') %> :</strong></dt>
   <dd><%= audio_tag(@radio.digest_mp3_url, controls: true, preload: "metadata") if @radio.digest_mp3_url %></dd>
 </dl>

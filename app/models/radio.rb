@@ -33,6 +33,8 @@ class Radio < ApplicationRecord
 
   has_one :comic, dependent: :destroy
 
+  accepts_nested_attributes_for :comic
+
   before_save :extract_meta_mp3
 
   validates :title,
