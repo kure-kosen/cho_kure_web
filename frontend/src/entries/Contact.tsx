@@ -22,6 +22,10 @@ type State = {
   nickname: string;
   message: string;
   readable: boolean;
+  alert: {
+    message: string;
+    status?: string;
+  };
 };
 
 @inject("rootStore")
@@ -37,6 +41,10 @@ export default class Contact extends React.Component<Prop, State> {
       nickname: "",
       message: "",
       readable: false,
+      alert: {
+        message: "",
+        status: undefined,
+      },
     };
 
     this.createContact = this.createContact.bind(this);
@@ -59,6 +67,7 @@ export default class Contact extends React.Component<Prop, State> {
             <ContactFormTitle>お問い合わせフォーム</ContactFormTitle>
             <form onSubmit={this.createContact}>
               <ContactFormInputWrapper>
+                {this.state.alert.status === void 0 ? null : <AlertMessage>{this.state.alert.message}</AlertMessage>}
                 <ContactFormInput
                   name="name"
                   type="text"
@@ -138,7 +147,14 @@ export default class Contact extends React.Component<Prop, State> {
     const root = this.props.rootStore!;
     const contact = root.contactStore.createContact(this.state);
 
-    contact.save();
+    contact.save(
+      (_: object) => {
+        this.setState({ alert: { status: "successed", message: "おたよりを送信しました。" } });
+      },
+      (_: object) => {
+        this.setState({ alert: { status: "failed", message: "おたよりの送信に失敗しました。" } });
+      }
+    );
   }
 
   onChangeName(e: any) {
@@ -265,4 +281,16 @@ const ContactFormButton = ChkButtonBase.extend`
   margin-left: auto;
   margin-right: auto;
   border-radius: 20px;
+`;
+
+const AlertMessage = styled.div`
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 10px;
+  padding: 15px;
+  border-radius: 8px;
+  background-color: #ffe18e;
+  color: #c59406;
+  z-index: 100;
 `;

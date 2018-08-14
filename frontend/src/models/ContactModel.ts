@@ -29,13 +29,9 @@ export default class ContactModel {
     this.grade = grade;
   }
 
-  save() {
+  save(successed: (res: object) => void, failed: (res: object) => void) {
     console.log(this.toJson);
-    return this.store.transportLayer.saveContact(
-      this.toJson,
-      (res: object) => console.log(res),
-      (err: object) => console.log(err)
-    );
+    return this.store.transportLayer.saveContact(this.toJson, successed, failed);
   }
 
   @computed
