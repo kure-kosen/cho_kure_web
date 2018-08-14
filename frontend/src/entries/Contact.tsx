@@ -142,6 +142,19 @@ export default class Contact extends React.Component<Prop, State> {
                   required
                 />
               </ContactFormInputWrapper>
+              <ContactFormInputWrapper>
+                <label>
+                  <ContactFormCheckbox
+                    name="readable"
+                    type="checkbox"
+                    checked={this.state.readable}
+                    onChange={(_: any) => {
+                      this.setState({ readable: !this.state.readable });
+                    }}
+                  />
+                  ラジオ内でメッセージを読み上げてもいい場合はチェックをつけてください
+                </label>
+              </ContactFormInputWrapper>
               <ContactFormButton onClick={this.createContact}>送信</ContactFormButton>
             </form>
           </ContactForm>
@@ -253,6 +266,11 @@ const ContactFormTextarea = styled.textarea`
   ::-ms-input-placeholder {
     color: #00afec;
   }
+`;
+
+const ContactFormCheckbox = styled.input`
+  margin-left: 20px;
+  margin-right: 10px;
 `;
 
 const ContactFormButton = ChkButtonBase.extend`
