@@ -22,5 +22,5 @@ class Comic < ApplicationRecord
 
   belongs_to :radio
 
-  validates :image, presence:true
+  validates :image, presence: true
 end

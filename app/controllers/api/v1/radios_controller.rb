@@ -9,6 +9,6 @@ class Api::V1::RadiosController < Api::V1::BaseController
   end
 
   def show
-    render json: Radio.includes({personalities: :taggings}, :comic).find(params[:id])
+    render json: Radio.includes({ personalities: :taggings }, :comic).find(params[:id])
   end
 end
