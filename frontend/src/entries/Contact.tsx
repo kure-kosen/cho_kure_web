@@ -15,9 +15,9 @@ type Prop = {
 };
 type State = {
   name: string;
-  corner: number;
-  department: number;
-  grade: number;
+  corner?: number;
+  department?: number;
+  grade?: number;
   email: string;
   nickname: string;
   message: string;
@@ -30,9 +30,9 @@ export default class Contact extends React.Component<Prop, State> {
     super(props);
     this.state = {
       name: "",
-      corner: 0,
-      department: 0,
-      grade: 0,
+      corner: undefined,
+      department: undefined,
+      grade: undefined,
       email: "",
       nickname: "",
       message: "",
@@ -50,6 +50,7 @@ export default class Contact extends React.Component<Prop, State> {
   }
 
   render() {
+    // TODO(euglena1215): requiredの*をべた書きで書かなくてもいいようにする
     return (
       <div>
         <HeroArea InnerComponent={<ContactHeroContent />} />
@@ -67,33 +68,38 @@ export default class Contact extends React.Component<Prop, State> {
                 />
               </ContactFormInputWrapper>
               <ContactFormInputWrapper>
-                <ContactFormInput
-                  name="corner"
-                  type="text"
-                  placeholder="題名"
-                  value={this.state.corner}
-                  onChange={this.onChangeCorner}
-                />
+                <ContactFormSelect name="corner" value={this.state.corner} onChange={this.onChangeCorner} required>
+                  <option value="">題名*</option>
+                  <option value="0">ふつうのお便り</option>
+                  <option value="10">ラジオへの感想・意見</option>
+                  <option value="20">ラジオ出演</option>
+                  <option value="30">バグ報告</option>
+                </ContactFormSelect>
               </ContactFormInputWrapper>
               <ContactFormInputWrapper>
-                <select name="department" value={this.state.department} onChange={this.onChangeDepartment}>
-                  <option value="0">所属</option>
+                <ContactFormSelectHalf
+                  name="department"
+                  value={this.state.department}
+                  onChange={this.onChangeDepartment}
+                  required
+                >
+                  <option value="">所属*</option>
                   <option value="10">機械工科</option>
                   <option value="20">電気情報工学科</option>
                   <option value="30">環境都市工学科</option>
                   <option value="40">建築学科</option>
                   <option value="50">専攻科</option>
                   <option value="60">卒業生</option>
-                </select>
-                <select name="grade" value={this.state.grade} onChange={this.onChangeGrade}>
-                  <option value="0">学年</option>
+                </ContactFormSelectHalf>
+                <ContactFormSelectHalf name="grade" value={this.state.grade} onChange={this.onChangeGrade} required>
+                  <option value="">学年*</option>
                   <option value="10">1年生</option>
-                </select>
+                </ContactFormSelectHalf>
               </ContactFormInputWrapper>
               <ContactFormInputWrapper>
                 <ContactFormInput
                   name="email"
-                  type="text"
+                  type="email"
                   placeholder="メールアドレス"
                   value={this.state.email}
                   onChange={this.onChangeEmail}
@@ -109,12 +115,13 @@ export default class Contact extends React.Component<Prop, State> {
                 />
               </ContactFormInputWrapper>
               <ContactFormInputWrapper>
-                <ContactFormInput
+                <ContactFormTextarea
                   name="message"
-                  type="text"
-                  placeholder="内容"
+                  placeholder="内容*"
+                  rows={4}
                   value={this.state.message}
                   onChange={this.onChangeMessage}
+                  required
                 />
               </ContactFormInputWrapper>
               <ContactFormButton>送信</ContactFormButton>
@@ -193,6 +200,45 @@ const ContactFormInputWrapper = styled.div`
 `;
 
 const ContactFormInput = styled.input`
+  margin: 5px;
+  margin-left: 0;
+  margin-right: 0;
+  padding: 5px;
+  padding-left: 30px;
+  line-height: 1.5rem;
+  width: 100%;
+  border: 2px solid #00afec;
+  border-radius: 1.5rem;
+
+  ::placeholder {
+    color: #00afec;
+    opacity: 1;
+  }
+  ::-ms-input-placeholder {
+    color: #00afec;
+  }
+`;
+
+const ContactFormSelect = styled.select`
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  line-height: 1.5rem;
+  padding: 5px;
+  padding-left: 30px;
+  border: 2px solid #00afec;
+  border-radius: 1.5rem;
+  background: none transparent;
+  vertical-align: middle;
+  color: #00afec;
+`;
+
+const ContactFormSelectHalf = ContactFormSelect.extend`
+  width: 50%;
+`;
+
+const ContactFormTextarea = styled.textarea`
   margin: 5px;
   margin-left: 0;
   margin-right: 0;
