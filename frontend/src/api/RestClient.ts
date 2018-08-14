@@ -26,12 +26,12 @@ export default class RestClient {
       .get(path, { params: params })
       .then((result: object) => {
         console.log(`GET ${this.axios.baseURL}/${path}`);
-        console.log(`result: ${result}`);
+        console.log(`result: ${JSON.stringify(result)}`);
         successed(result);
       })
       .catch((error: object) => {
         console.log(`ERROR! GET ${this.axios.baseURL}/${path}`);
-        console.log(`error: ${error}`);
+        console.log(`error: ${JSON.stringify(error)}`);
         errored(error);
       })
       .then(always());

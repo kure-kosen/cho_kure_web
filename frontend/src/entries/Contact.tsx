@@ -48,13 +48,6 @@ export default class Contact extends React.Component<Prop, State> {
     };
 
     this.createContact = this.createContact.bind(this);
-    this.onChangeName = this.onChangeName.bind(this);
-    this.onChangeCorner = this.onChangeCorner.bind(this);
-    this.onChangeDepartment = this.onChangeDepartment.bind(this);
-    this.onChangeGrade = this.onChangeGrade.bind(this);
-    this.onChangeEmail = this.onChangeEmail.bind(this);
-    this.onChangeNickname = this.onChangeNickname.bind(this);
-    this.onChangeMessage = this.onChangeMessage.bind(this);
   }
 
   render() {
@@ -73,11 +66,16 @@ export default class Contact extends React.Component<Prop, State> {
                   type="text"
                   placeholder="名前"
                   value={this.state.name}
-                  onChange={this.onChangeName}
+                  onChange={(e: any) => this.setState({ name: e.target.value })}
                 />
               </ContactFormInputWrapper>
               <ContactFormInputWrapper>
-                <ContactFormSelect name="corner" value={this.state.corner} onChange={this.onChangeCorner} required>
+                <ContactFormSelect
+                  name="corner"
+                  value={this.state.corner}
+                  onChange={(e: any) => this.setState({ corner: e.target.value })}
+                  required
+                >
                   <option value="">題名*</option>
                   <option value="0">ふつうのお便り</option>
                   <option value="10">ラジオへの感想・意見</option>
@@ -89,7 +87,7 @@ export default class Contact extends React.Component<Prop, State> {
                 <ContactFormSelectHalf
                   name="department"
                   value={this.state.department}
-                  onChange={this.onChangeDepartment}
+                  onChange={(e: any) => this.setState({ department: e.target.value })}
                   required
                 >
                   <option value="">所属*</option>
@@ -100,7 +98,12 @@ export default class Contact extends React.Component<Prop, State> {
                   <option value="50">専攻科</option>
                   <option value="60">卒業生</option>
                 </ContactFormSelectHalf>
-                <ContactFormSelectHalf name="grade" value={this.state.grade} onChange={this.onChangeGrade} required>
+                <ContactFormSelectHalf
+                  name="grade"
+                  value={this.state.grade}
+                  onChange={(e: any) => this.setState({ grade: e.target.value })}
+                  required
+                >
                   <option value="">学年*</option>
                   <option value="10">1年生</option>
                   <option value="20">2年生</option>
@@ -117,7 +120,7 @@ export default class Contact extends React.Component<Prop, State> {
                   type="email"
                   placeholder="メールアドレス"
                   value={this.state.email}
-                  onChange={this.onChangeEmail}
+                  onChange={(e: any) => this.setState({ email: e.target.value })}
                 />
               </ContactFormInputWrapper>
               <ContactFormInputWrapper>
@@ -126,7 +129,7 @@ export default class Contact extends React.Component<Prop, State> {
                   type="text"
                   placeholder="ラジオネーム"
                   value={this.state.nickname}
-                  onChange={this.onChangeNickname}
+                  onChange={(e: any) => this.setState({ nickname: e.target.value })}
                 />
               </ContactFormInputWrapper>
               <ContactFormInputWrapper>
@@ -135,7 +138,7 @@ export default class Contact extends React.Component<Prop, State> {
                   placeholder="内容*"
                   rows={4}
                   value={this.state.message}
-                  onChange={this.onChangeMessage}
+                  onChange={(e: any) => this.setState({ message: e.target.value })}
                   required
                 />
               </ContactFormInputWrapper>
@@ -161,34 +164,6 @@ export default class Contact extends React.Component<Prop, State> {
         this.setState({ alert: { status: "failed", message: "おたよりの送信に失敗しました。" } });
       }
     );
-  }
-
-  onChangeName(e: any) {
-    this.setState({ name: e.target.value });
-  }
-
-  onChangeCorner(e: any) {
-    this.setState({ corner: e.target.value });
-  }
-
-  onChangeDepartment(e: any) {
-    this.setState({ department: e.target.value });
-  }
-
-  onChangeGrade(e: any) {
-    this.setState({ grade: e.target.value });
-  }
-
-  onChangeEmail(e: any) {
-    this.setState({ email: e.target.value });
-  }
-
-  onChangeNickname(e: any) {
-    this.setState({ nickname: e.target.value });
-  }
-
-  onChangeMessage(e: any) {
-    this.setState({ message: e.target.value });
   }
 }
 
