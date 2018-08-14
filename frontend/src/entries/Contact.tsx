@@ -65,7 +65,7 @@ export default class Contact extends React.Component<Prop, State> {
         <ContactFormWrapper>
           <ContactForm>
             <ContactFormTitle>お問い合わせフォーム</ContactFormTitle>
-            <form onSubmit={this.createContact}>
+            <form>
               <ContactFormInputWrapper>
                 {this.state.alert.status === void 0 ? null : <AlertMessage>{this.state.alert.message}</AlertMessage>}
                 <ContactFormInput
@@ -139,7 +139,7 @@ export default class Contact extends React.Component<Prop, State> {
                   required
                 />
               </ContactFormInputWrapper>
-              <ContactFormButton>送信</ContactFormButton>
+              <ContactFormButton onClick={this.createContact}>送信</ContactFormButton>
             </form>
           </ContactForm>
         </ContactFormWrapper>
