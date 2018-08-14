@@ -31,6 +31,8 @@ class Radio < ApplicationRecord
   has_many :community_radios, dependent: :destroy
   has_many :communities, through: :community_radios
 
+  has_one :comic, dependent: :destroy
+
   before_save :extract_meta_mp3
 
   validates :title,
