@@ -18,6 +18,8 @@
 #
 
 class Comic < ApplicationRecord
+  mount_uploader :image, ComicImageUploader
+
   belongs_to :radio
 
   validates :image, presence:true

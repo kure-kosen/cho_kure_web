@@ -26,6 +26,8 @@ class RadioSerializer < ActiveModel::Serializer
 
   has_many :personalities
 
+  has_one :comic
+
   def image
     ActionController::Base.helpers.image_url(object.image_url(:thumb))
   end
