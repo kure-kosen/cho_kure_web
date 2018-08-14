@@ -9,14 +9,14 @@ export const ChkButtonBase = styled.div`
   border-style: none;
   box-shadow: 4px 3px 10px 0px ${chkColors.shadow};
   text-align: center;
-  margin: 20px auto 0 auto;
-  padding: 5px 1rem;
-  width: 20%;
+  margin: 0;
+  padding: 10px;
+  width: 100%;
   line-height: 1.5rem;
   border-radius: 1.5rem;
   background-color: ${chkColors.orange};
 
-  @media ${media.mobile} {
-    width: 50%;
-  }
+  // @media ${media.mobile} {
+  //   width: 50%;
+  // }
 `;
