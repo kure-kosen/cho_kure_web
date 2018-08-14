@@ -1,5 +1,6 @@
 import * as React from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 import { title } from "./../commons/style";
 import { ChkButtonBase } from "./../commons/ChkButtonBase";
@@ -21,9 +22,25 @@ export const PopularRadioWrapper = () => (
           </RadioDescript>
         </RadioText>
       </PopularRadioCard>
+      <PopularRadioCard>
+        <RadioImg src={radioCardImg}/>
+        <RadioText>
+          <RadioTitle>飲食店バグハンター</RadioTitle>
+          <RadioDescript>
+            最近やっていること、Ruby25周年、else if、コードゴルフ…
+          </RadioDescript>
+        </RadioText>
+      </PopularRadioCard>
+      <PopularRadioCard>
+        <RadioImg src={radioCardImg}/>
+        <RadioText>
+          <RadioTitle>飲食店バグハンター</RadioTitle>
+          <RadioDescript>
+            最近やっていること、Ruby25周年、else if、コードゴルフ…
+          </RadioDescript>
+        </RadioText>
+      </PopularRadioCard>
     </PopularRadioCardWrapper>
-    
-    <PopularRadioMoreButton>more</PopularRadioMoreButton>
   </PopularRadioWrapperStyle>
 );
 
@@ -66,14 +83,4 @@ const RadioImg = styled.img`
 const RadioTitle = styled.div `
   font-size: 18px;
   color: ${chkColors.orange};
-`;
-
-const PopularRadioMoreButton = ChkButtonBase.extend`
-  background-color: ${chkColors.orange};
-  width: 90px;
-  height: 48px;
-  margin-top: 40px;
-  margin-left: auto;
-  margin-right: auto;
-  border-radius: 20px;
 `;
