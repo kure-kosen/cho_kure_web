@@ -103,6 +103,12 @@ export default class Contact extends React.Component<Prop, State> {
                 <ContactFormSelectHalf name="grade" value={this.state.grade} onChange={this.onChangeGrade} required>
                   <option value="">学年*</option>
                   <option value="10">1年生</option>
+                  <option value="20">2年生</option>
+                  <option value="30">3年生</option>
+                  <option value="40">4年生</option>
+                  <option value="50">5年生</option>
+                  <option value="60">OGOB</option>
+                  <option value="70">その他</option>
                 </ContactFormSelectHalf>
               </ContactFormInputWrapper>
               <ContactFormInputWrapper>
