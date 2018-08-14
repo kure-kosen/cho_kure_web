@@ -1,9 +1,7 @@
 import * as React from "react";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
 
 import { title } from "./../commons/style";
-import { ChkButtonBase } from "./../commons/ChkButtonBase";
 import { chkColors } from "./../commons/color";
 
 import * as radioCardImg from "./../../images/radiocard_img.png"
@@ -54,7 +52,7 @@ const PopularRadioWrapperStyle = styled.div`
 const Title = styled.div`
   ${title};
   color: ${chkColors.blue};
-  padding: 0 20px;
+  padding: 10px 20px;
 `;
 
 const PopularRadioCardWrapper = styled.div `
@@ -64,6 +62,7 @@ const PopularRadioCardWrapper = styled.div `
 
 const RadioText = styled.span `
 `;
+
 const PopularRadioCard = styled.div `
   width: 100%;
   display: flex;
@@ -73,14 +72,16 @@ const RadioDescript = styled.p`
   width: auto;
   height: auto;
   color: ${chkColors.gray};
+  font-size: 14px;
 `;
 
 const RadioImg = styled.img`
   width: auto;
-  height: 100px;
+  height: 120px;
+  padding: 10px 10px;
 `;
 
 const RadioTitle = styled.div `
-  font-size: 18px;
+  font-size: 16px;
   color: ${chkColors.orange};
 `;
