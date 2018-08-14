@@ -1,17 +1,18 @@
 import * as React from "react";
 import styled from "styled-components";
 
-import RestClient from "./../api/RestClient";
-import ContactApi from "./../api/ContactApi";
+import { media } from "../commons/style";
+import { ChkButtonBase } from "../commons/ChkButtonBase";
+import { chkColors } from "../commons/color";
 
-import { media } from "./../commons/style";
-import { ChkButtonBase } from "./../commons/ChkButtonBase";
-import { chkColors } from "./../commons/color";
+import { HeroArea } from "../components/HeroArea";
+import { ContactHeroContent } from "../components/ContactHeroContent";
+import { inject } from "../../node_modules/mobx-react";
+import RootStore from "../stores/RootStore";
 
-import { HeroArea } from "./../components/HeroArea";
-import { ContactHeroContent } from "./../components/ContactHeroContent";
-
-type Prop = {};
+type Prop = {
+  rootStore?: RootStore;
+};
 type State = {
   name: string;
   corner: number;
@@ -19,10 +20,11 @@ type State = {
   grade: number;
   email: string;
   nickname: string;
-  content: string;
+  message: string;
   readable: boolean;
 };
 
+@inject("rootStore")
 export default class Contact extends React.Component<Prop, State> {
   constructor(props: Prop) {
     super(props);
@@ -33,7 +35,7 @@ export default class Contact extends React.Component<Prop, State> {
       grade: 0,
       email: "",
       nickname: "",
-      content: "",
+      message: "",
       readable: false,
     };
 
@@ -44,7 +46,7 @@ export default class Contact extends React.Component<Prop, State> {
     this.onChangeGrade = this.onChangeGrade.bind(this);
     this.onChangeEmail = this.onChangeEmail.bind(this);
     this.onChangeNickname = this.onChangeNickname.bind(this);
-    this.onChangeContent = this.onChangeContent.bind(this);
+    this.onChangeMessage = this.onChangeMessage.bind(this);
   }
 
   render() {
@@ -108,11 +110,11 @@ export default class Contact extends React.Component<Prop, State> {
               </ContactFormInputWrapper>
               <ContactFormInputWrapper>
                 <ContactFormInput
-                  name="content"
+                  name="message"
                   type="text"
                   placeholder="内容"
-                  value={this.state.content}
-                  onChange={this.onChangeContent}
+                  value={this.state.message}
+                  onChange={this.onChangeMessage}
                 />
               </ContactFormInputWrapper>
               <ContactFormButton>送信</ContactFormButton>
@@ -126,21 +128,10 @@ export default class Contact extends React.Component<Prop, State> {
   createContact(e: any) {
     e.preventDefault();
 
-    const contactApi = new ContactApi(new RestClient());
+    const root = this.props.rootStore!;
+    const contact = root.contactStore.createContact(this.state);
 
-    contactApi.saveContact(
-      {
-        corner: this.state.corner,
-        message: this.state.content,
-        nickname: this.state.nickname,
-        name: this.state.name,
-        department: this.state.department,
-        grade: this.state.grade,
-        readable: this.state.readable,
-      },
-      (res: object) => console.log(res),
-      (err: object) => console.log(err)
-    );
+    contact.save();
   }
 
   onChangeName(e: any) {
@@ -167,8 +158,8 @@ export default class Contact extends React.Component<Prop, State> {
     this.setState({ nickname: e.target.value });
   }
 
-  onChangeContent(e: any) {
-    this.setState({ content: e.target.value });
+  onChangeMessage(e: any) {
+    this.setState({ message: e.target.value });
   }
 }
 

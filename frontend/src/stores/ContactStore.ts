@@ -1,5 +1,5 @@
 import ContactApi from "../api/ContactApi";
-import Contact from "../models/Contact";
+import ContactModel from "../models/ContactModel";
 
 export default class ContactStore {
   transportLayer: ContactApi;
@@ -9,6 +9,6 @@ export default class ContactStore {
   }
 
   createContact(json: object) {
-    return new Contact(this, json);
+    return new ContactModel(this, json);
   }
 }
