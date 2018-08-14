@@ -27,21 +27,21 @@ export const RadioHistoryContentWrapper = () => (
           2018/01
         </RadioDateButton>
       </RadioDateButtonWrapper>
-      <RadioCardsWapper>
+      <RadioCardsWrapper>
         <RadioCardWrapper />
         <RadioCardWrapper />
         <RadioCardWrapper />
-      </RadioCardsWapper>
-      <RadioCardsWapper>
+      </RadioCardsWrapper>
+      <RadioCardsWrapper>
         <RadioCardWrapper />
         <RadioCardWrapper />
         <RadioCardWrapper />
-      </RadioCardsWapper>
-      <RadioCardsWapper>
+      </RadioCardsWrapper>
+      <RadioCardsWrapper>
         <RadioCardWrapper />
         <RadioCardWrapper />
         <RadioCardWrapper />
-      </RadioCardsWapper>
+      </RadioCardsWrapper>
       <MoreButton>more</MoreButton>
     </RadioHistoryContentArea>
   </Wrapper>
@@ -80,7 +80,7 @@ const RadioDateButton = styled.button`
   outline: none;
 `;
 
-const RadioCardsWapper = styled.div`
+const RadioCardsWrapper = styled.div`
   margin: 0 auto 20px auto;
   ${goodSpace};
 `;

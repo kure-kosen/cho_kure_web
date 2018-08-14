@@ -5,9 +5,9 @@ import { title } from "./../commons/style";
 import { ChkButtonBase } from "./../commons/ChkButtonBase";
 import { chkColors } from "./../commons/color";
 
-export const RadioSeacher = () => (
+export const RadioSearcher = () => (
   <Wrapper>
-    <RadioSeacherTitle>Search</RadioSeacherTitle>
+    <RadioSearcherTitle>Search</RadioSearcherTitle>
     <form action="">
       <RadioSearchInputWrapper>
         <RadioSearchInput name="who" type="text" placeholder="誰が" />
@@ -53,7 +53,7 @@ const Wrapper = styled.div`
   background-color: #fff;
 `;
 
-const RadioSeacherTitle = styled.div`
+const RadioSearcherTitle = styled.div`
   ${title};
   color: ${chkColors.blue};
 `;
