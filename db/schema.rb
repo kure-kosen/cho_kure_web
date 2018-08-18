@@ -151,13 +151,6 @@ ActiveRecord::Schema.define(version: 20180814052753) do
     t.index ["name"], name: "index_tags_on_name", unique: true
   end
 
-  create_table "twitter_followers_transitions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer "count", null: false
-    t.date "data", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   add_foreign_key "comics", "radios"
   add_foreign_key "community_radios", "communities"
   add_foreign_key "community_radios", "radios"
