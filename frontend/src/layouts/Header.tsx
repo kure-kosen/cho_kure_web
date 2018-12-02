@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import { title } from "./../commons/style";
 import { chkColors } from "./../commons/color";
 
-import * as logo from "./../../images/radio-logo.jpg";
+import * as logo from "./../../images/chkLogo.jpg";
 
 export const Header = () => (
   <HeaderStyle>
