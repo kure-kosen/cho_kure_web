@@ -7,7 +7,8 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "dev": "npx webpack -w"
+    "dev": "npx webpack -w",
+    "lint": "npx tslint --fix -c ./tslint.json 'src/**/*{.ts,.tsx}'"
   },
   "devDependencies": {
     "awesome-typescript-loader": "^5.0.0",
