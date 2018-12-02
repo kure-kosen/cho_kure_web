@@ -18,7 +18,7 @@ export const FeaturedPersonalitiesWrapper = () => (
           <FeaturedPersonality />,
           <FeaturedPersonality />,
           <FeaturedPersonality />,
-          <FeaturedPersonality />,
+          <FeaturedPersonality />
         ]}
       />
     </SliderWrapper>

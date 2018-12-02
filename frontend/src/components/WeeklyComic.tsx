@@ -9,7 +9,7 @@ import * as comic from "./../../images/WeeklyComic.jpg";
 export const WeeklyComic = () => (
   <WeeklyComicStyle>
     <Title>this week</Title>
-    <PictureArea src={comic}/>
+    <PictureArea src={comic} />
   </WeeklyComicStyle>
 );
 

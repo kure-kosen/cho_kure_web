@@ -9,7 +9,9 @@ import * as logo from "./../../images/radio-logo.jpg";
 
 export const Header = () => (
   <HeaderStyle>
-    <PictureArea src={logo}/>
+    <LogoArea>
+      <Logo src={logo} />
+    </LogoArea>
     <Link to="/">
       <Title>ちょっと聞いて呉高専</Title>
     </Link>
@@ -34,24 +36,27 @@ export const Header = () => (
 
 const HeaderStyle = styled.header`
   width: 100%;
-  color: black;
-  height: 80px;
-`;
-
-const Title = styled.span`
-  ${title};
-  color: ${chkColors.blue};
-`;
-
-const PictureArea = styled.img`
-  width: auto;
   height: 60px;
 `;
 
-const NavLi = styled.li `
+const Title = styled.span`
+  /* ${title}; */
+  color: ${chkColors.blue};
+  `;
+
+const LogoArea = styled.img`
+  margin: 10px;
+`;
+
+const Logo = styled.img`
+  width: 100%;
+  height: auto;
+`;
+
+const NavLi = styled.li`
   list-style: none;
   float: left;
-  padding: 10px 50px;
+  /* padding: 10px 50px; */
 
   a:hover {
     background-color: white;

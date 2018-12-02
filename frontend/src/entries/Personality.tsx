@@ -1,9 +1,7 @@
 import * as React from "react";
 import styled from "styled-components";
 
-export const Personality = () => (
-    <Wrapper>RadioPersonality</Wrapper>
-);
+export const Personality = () => <Wrapper>RadioPersonality</Wrapper>;
 
 const Wrapper = styled.div`
   width: 100%;
