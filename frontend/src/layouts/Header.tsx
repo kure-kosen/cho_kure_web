@@ -2,6 +2,7 @@ import * as React from "react";
 import styled from "styled-components";
 
 import { Link } from "react-router-dom";
+
 import { title } from "./../commons/style";
 import { chkColors } from "./../commons/color";
 
@@ -12,25 +13,23 @@ export const Header = () => (
     <LogoArea>
       <Logo src={logo} />
     </LogoArea>
-    <Link to="/">
-      <Title>ちょっと聞いて呉高専</Title>
-    </Link>
-    <nav>
-      <NavUl>
-        <NavLi>
-          <Link to="/radios">history</Link>
-        </NavLi>
-        <NavLi>
-          <Link to="/blog">blog</Link>
-        </NavLi>
-        <NavLi>
-          <Link to="/personality">personality</Link>
-        </NavLi>
-        <NavLi>
-          <Link to="/contact">contact</Link>
-        </NavLi>
-      </NavUl>
-    </nav>
+    <Nav>
+      <ToTopPage to="/">ちょっと聞いて呉高専</ToTopPage>
+      <LinksWrapper>
+        <LinkWrapper>
+          <PageLink to="/radios">history</PageLink>
+        </LinkWrapper>
+        <LinkWrapper>
+          <PageLink to="/blog">blog</PageLink>
+        </LinkWrapper>
+        <LinkWrapper>
+          <PageLink to="/personality">personality</PageLink>
+        </LinkWrapper>
+        <LinkWrapper>
+          <PageLink to="/contact">contact</PageLink>
+        </LinkWrapper>
+      </LinksWrapper>
+    </Nav>
   </HeaderStyle>
 );
 
@@ -39,31 +38,50 @@ const HeaderStyle = styled.header`
   height: 60px;
 `;
 
-const Title = styled.span`
-  /* ${title}; */
-  color: ${chkColors.blue};
-  `;
-
-const LogoArea = styled.img`
-  margin: 10px;
+const LogoArea = styled.div`
+  height: 100%;
+  width: 60px;
+  float: left;
 `;
 
 const Logo = styled.img`
   width: 100%;
   height: auto;
+  padding: 10px;
 `;
 
-const NavLi = styled.li`
+const Nav = styled.div`
+  width: 100%;
+  height: 60px;
+`;
+
+const ToTopPage = styled(Link)`
+  ${title};
+  color: ${chkColors.blue};
+  vertical-align: middle;
+  line-height: 60px;
+  margin-left: 15px;
+`;
+
+const LinksWrapper = styled.ul`
+  float: right;
+`;
+
+const LinkWrapper = styled.li`
   list-style: none;
   float: left;
-  /* padding: 10px 50px; */
-
-  a:hover {
-    background-color: white;
-    color: #f38d00;
-  }
+  font-size: 18px;
+  line-height: 18px;
+  vertical-align: middle;
+  margin: 0 50px;
 `;
 
-const NavUl = styled.ul`
-  float: right;
+const PageLink = styled(Link)`
+  &:visited {
+    color: ${chkColors.blue};
+  }
+
+  &:hover {
+    color: #f38d00;
+  }
 `;
