@@ -29,6 +29,7 @@
     "babel-polyfill": "^6.26.0",
     "file-loader": "^1.1.11",
     "normalize.css": "^8.0.0",
+    "prettier": "^1.15.3",
     "react": "^16.4.0",
     "react-dom": "^16.4.0",
     "react-router-dom": "^4.3.1",
@@ -36,6 +37,9 @@
     "react-twitter-widgets": "^1.7.1",
     "slick-carousel": "^1.8.1",
     "styled-components": "^3.3.2",
+    "tslint": "^5.11.0",
+    "tslint-config-prettier": "^1.17.0",
+    "tslint-plugin-prettier": "^2.0.1",
     "url-loader": "^1.0.1"
   }
 }
