@@ -15,6 +15,6 @@ module ApplicationHelper
     return path if ENV["USE_WEBPACK_DEV_SERVER"].to_b
 
     manifest = Rails.application.config.assets_manifest
-    manifest && manifest[path].present? ? manifest[path] : path
+    (manifest && manifest[path].present?) ? manifest[path] : path
   end
 end
