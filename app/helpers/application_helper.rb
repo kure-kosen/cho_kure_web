@@ -12,6 +12,6 @@ module ApplicationHelper
 
   def find_hash_name(path)
     manifest = Rails.application.config.assets_manifest
-    (manifest && manifest[path].present?) ? manifest[path] : path
+    manifest[path] if (manifest && manifest[path].present?)
   end
 end

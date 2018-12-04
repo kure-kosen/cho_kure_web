@@ -16,7 +16,7 @@ module.exports = {
 
   module: {
     rules: [
-      { test: /\.tsx?$/, loader: 'awesome-typescript-loader' },
+      { test: /\.(ts|tsx)?$/, loader: 'awesome-typescript-loader' },
       {
         test: /\.(js|jsx)$/,
         loader: 'babel-loader',
@@ -28,19 +28,6 @@ module.exports = {
       {
         test: /\.css$/,
         use: ['style-loader', 'css-loader'],
-      },
-      {
-        test: /\.(jpg|png|gif|woff|woff2|eot|ttf|svg)$/,
-        use: [
-          {
-            loader: 'file-loader',
-            options: {
-              name: '[path][name].[ext]',
-              outputPath: '/',
-              publicPath: '../assets/build',
-            },
-          },
-        ],
       },
     ],
   }

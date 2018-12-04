@@ -15,9 +15,7 @@ module.exports = merge(common, {
 
     disableHostCheck: true,
 
-    contentBase: path.resolve(__dirname, '../'),
-
-    publicPath: 'http://localhost:5000/',
+    contentBase: path.resolve(path.join(__dirname, '../')),
 
     watchContentBase: true,
     historyApiFallback: true,
@@ -25,5 +23,37 @@ module.exports = merge(common, {
     historyApiFallback: true,
     overlay: true,
     inline: true
+  },
+
+  module: {
+    rules: [
+      {
+        test: /\.(jpg|png|gif|eot|ttf|svg)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[path][name].[ext]',
+              outputPath: '/',
+              publicPath: 'http://localhost:5000/'
+            }
+          }
+        ]
+      },
+      {
+        test: /\.(woff|woff2)$/,
+        use: [
+          {
+            loader: 'url-loader?mimetype=application/font-woff',
+            options: {
+              name: "[path][name].[ext]",
+              outputPath: "/",
+              mimetype: 'application/font-woff',
+              publicPath: "http://localhost:5000/"
+            }
+          }
+        ]
+      }
+    ]
   }
 });

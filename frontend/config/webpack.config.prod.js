@@ -16,8 +16,26 @@ module.exports = merge(common, {
 
   plugins: [
     new CleanWebpackPlugin(['build'], {
-      root: path.join(__dirname, '../../public/assets/')
-    }),
+        root: path.join(__dirname, '../../public/assets/')
+      }),
     new ManifestPlugin()
-  ]
+  ],
+
+  module: {
+    rules: [
+      {
+        test: /\.(jpg|png|gif|woff|woff2|eot|ttf|svg)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[path][name]-[hash].[ext]',
+              outputPath: '/',
+              publicPath: '../assets/build',
+            },
+          },
+        ],
+      },
+    ],
+  }
 });
