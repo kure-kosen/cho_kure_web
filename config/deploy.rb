@@ -38,7 +38,7 @@ set :keep_releases, 5
 # set :ssh_options, verify_host_key: :secure
 
 set :yarn_target_path, -> { release_path.join("frontend/") }
-set :yarn_flags, ''
+set :yarn_flags, ""
 
 set :rbenv_ruby, "2.4.2"
 
