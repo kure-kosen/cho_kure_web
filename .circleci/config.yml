@@ -41,15 +41,17 @@ jobs:
             - ./vendor/bundle
           key: v1-dependencies-{{ checksum "Gemfile.lock" }}
 
-      # Database setup
-      - run: mv config/database.yml.ci config/database.yml
-      - run: bundle exec rake db:create db:schema:load RAILS_ENV=test --trace
-
+      # Frontend setup
       - run:
           name: build frontend
           working_directory: frontend
           command: |
+            yarn install
             yarn build
+
+      # Database setup
+      - run: mv config/database.yml.ci config/database.yml
+      - run: bundle exec rake db:create db:schema:load RAILS_ENV=test --trace
 
       # run tests!
       - run:
