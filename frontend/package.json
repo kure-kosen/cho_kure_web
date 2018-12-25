@@ -7,8 +7,8 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "build": "webpack --config ./config/webpack.config.prod.js",
-    "start": "webpack-dev-server --hot --config ./config/webpack.config.dev.js",
+    "build": "npx webpack --config ./config/webpack.config.prod.js",
+    "start": "npx webpack-dev-server --hot --config ./config/webpack.config.dev.js",
     "lint": "npx tslint --fix -c ./tslint.json 'src/**/*{.ts,.tsx}'"
   },
   "devDependencies": {
