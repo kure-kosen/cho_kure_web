@@ -41,6 +41,14 @@ jobs:
             - ./vendor/bundle
           key: v1-dependencies-{{ checksum "Gemfile.lock" }}
 
+      # Frontend setup
+      - run:
+          name: build frontend
+          working_directory: frontend
+          command: |
+            yarn install
+            yarn build
+
       # Database setup
       - run: mv config/database.yml.ci config/database.yml
       - run: bundle exec rake db:create db:schema:load RAILS_ENV=test --trace
@@ -52,7 +60,7 @@ jobs:
             mkdir /tmp/test-results
 
             bundle exec rspec spec/ --format progress \
-                            --out /tmp/test-results/rspec.xml \
+                            --out ./tmp/test-results/rspec.xml \
                             --format progress \
 
       # collect reports
