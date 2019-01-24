@@ -10,7 +10,8 @@ export const FeaturedPersonality = () => (
   <FeaturedPersonalityStyle>
     <PictureArea />
     <ModalIntroduction>
-      こんにちは。ちゃんゆーだよ！<br />
+      こんにちは。ちゃんゆーだよ！
+      <br />
       フロントエンド開発やTwitter解析とかをしてるよ！ わーい！
       <SNSArea>
         <Circle>
@@ -28,7 +29,8 @@ export const FeaturedPersonality = () => (
       <Name>中村 優</Name>
       <NickName>ちゃんゆー</NickName>
       <Affiliation>
-        呉高専工業高等専門学校専攻科<br />
+        呉高専工業高等専門学校専攻科
+        <br />
         プロジェクトデザイン工学専攻
       </Affiliation>
       <FeaturedPersonalityListenToRadioButton />

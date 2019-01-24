@@ -26,18 +26,10 @@ export const Contact = () => (
             <ContactFormInputHalf name="grade" type="text" placeholder="学年" />
           </ContactFormInputWrapper>
           <ContactFormInputWrapper>
-            <ContactFormInput
-              name="email"
-              type="text"
-              placeholder="メールアドレス"
-            />
+            <ContactFormInput name="email" type="text" placeholder="メールアドレス" />
           </ContactFormInputWrapper>
           <ContactFormInputWrapper>
-            <ContactFormInput
-              name="nickname"
-              type="text"
-              placeholder="ラジオネーム"
-            />
+            <ContactFormInput name="nickname" type="text" placeholder="ラジオネーム" />
           </ContactFormInputWrapper>
           <ContactFormInputWrapper>
             <ContactFormInput name="content" type="text" placeholder="内容" />
