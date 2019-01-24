@@ -38,7 +38,7 @@ const Contrainer = styled.div`
 `;
 
 const Sidebar = styled.nav`
-  flex: 0 0 20%;
+  flex: 0 0 25%;
 
   @media ${media.mobile} {
     flex: 0 0 0%;
@@ -47,7 +47,7 @@ const Sidebar = styled.nav`
 `;
 
 const MainContentWrapper = styled.div`
-  flex: 0 0 80%;
+  flex: 0 0 75%;
 
   @media ${media.mobile} {
     flex: 0 0 100%;
