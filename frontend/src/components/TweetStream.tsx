@@ -8,13 +8,13 @@ export const TweetStream = () => (
   <TweetStreamStyle>
     <Title>Twitter</Title>
     <Timeline
-      dataSource = {{
-        sourceType: 'profile',
-        screenName: 'cho_kure'
+      dataSource={{
+        sourceType: "profile",
+        screenName: "cho_kure"
       }}
-      options = {{
-        height: '600',
-        chrome: 'noheader nofooter'
+      options={{
+        height: "600",
+        chrome: "noheader nofooter"
       }}
     />
   </TweetStreamStyle>

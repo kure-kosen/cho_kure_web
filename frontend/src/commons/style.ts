@@ -7,9 +7,7 @@ const breakpoints = {
 
 export const media = {
   mobile: `screen and (max-width: ${breakpoints.mobile})`,
-  tablet: `screen and (min-width: ${breakpoints.mobile}) and (max-width: ${
-    breakpoints.tablet
-  })`
+  tablet: `screen and (min-width: ${breakpoints.mobile}) and (max-width: ${breakpoints.tablet})`
 };
 
 export const title = `
@@ -40,5 +38,12 @@ injectGlobal`
          -o-box-sizing: border-box;
         -ms-box-sizing: border-box;
             box-sizing: border-box;
+  }
+  a {
+    text-decoration: none;
+  }
+
+  nav {
+    display: inline;
   }
 `;
