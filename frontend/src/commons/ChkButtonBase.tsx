@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import { chkColors } from "./color";
-import { media } from "./../commons/style";
 
 export const ChkButtonBase = styled.div`
   display: block;
@@ -15,8 +14,4 @@ export const ChkButtonBase = styled.div`
   line-height: 1.5rem;
   border-radius: 1.5rem;
   background-color: ${chkColors.orange};
-
-  // @media ${media.mobile} {
-  //   width: 50%;
-  // }
 `;
