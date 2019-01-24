@@ -1,11 +1,12 @@
 import * as React from "react";
 import styled from "styled-components";
-import * as img from "./../../images/bg.jpg";
 
 import { Link } from "react-router-dom";
 import { media } from "./../commons/style";
 import { ChkButtonBase } from "./../commons/ChkButtonBase";
 import { chkColors } from "./../commons/color";
+
+import * as img from "./../../images/bg.jpg";
 
 export const AboutBottom = () => (
   <AboutBottomStyle>
@@ -61,4 +62,7 @@ const ParagraphStyle = styled.p`
   line-height: 1.42em;
 `;
 
-const ButtonStyle = ChkButtonBase.extend``;
+const ButtonStyle = ChkButtonBase.extend`
+  margin: 100px auto 0;
+  width: 40%;
+`;
