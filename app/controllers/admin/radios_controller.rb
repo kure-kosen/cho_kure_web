@@ -91,6 +91,7 @@ class Admin::RadiosController < Admin::BaseController
         :digest_mp3,
         community_ids: [],
         personality_ids: [],
+        comic_attributes: :image,
       )
     end
 
