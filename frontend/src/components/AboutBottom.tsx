@@ -16,9 +16,9 @@ export const AboutBottom = () => (
         <ParagraphStyle>
           インキュベーションワークが始まった2015年頃から、呉高専の学生は縦のつながりと横のつながりが広がっていきました。しかし、まだ多くの学生は同じクラス、部活動の友だちなどのコミュニティで完結してしまっています。私たちはこれまで多様な人とつながったことで、将来の選択肢が増えていきました。後輩たちにも同じようにもっとたくさんの人とつながりを作って、多くの経験をしてほしいという想いから、この活動を開始しました。
         </ParagraphStyle>
-        <Link to="/contact" style={{ textDecoration: "none" }}>
+        <ToContact to="/contact">
           <ButtonStyle>contact</ButtonStyle>
-        </Link>
+        </ToContact>
       </ContentStyle>
     </MaskStyle>
   </AboutBottomStyle>
@@ -52,7 +52,7 @@ const ContentStyle = styled.div`
   }
 `;
 
-const TitleStyle = styled.h3`
+const TitleStyle = styled.h2`
   color: ${chkColors.orange};
   text-align: center;
 `;
@@ -63,6 +63,10 @@ const ParagraphStyle = styled.p`
 `;
 
 const ButtonStyle = ChkButtonBase.extend`
-  margin: 100px auto 0;
+  margin: 80px auto 0;
   width: 40%;
+`;
+
+const ToContact = styled(Link)`
+  text-decoration: "none";
 `;
