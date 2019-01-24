@@ -71,6 +71,7 @@ gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem "active_model_serializers"
 gem "acts-as-taggable-on"
+gem "aws-sdk"
 gem "bootstrap"
 gem "carrierwave"
 gem "devise"

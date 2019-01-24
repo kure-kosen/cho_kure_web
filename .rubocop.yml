@@ -42,6 +42,10 @@ Naming/AccessorMethodName:
   Exclude:
     - "app/services/podcast/feed.rb"
 
+Style/ClassVars:
+  Exclude:
+    - "app/services/s3_uploader.rb"
+
 Rails:
   Exclude:
     - "config/sitemap.rb"
