@@ -38,6 +38,7 @@ set :keep_releases, 5
 # set :ssh_options, verify_host_key: :secure
 
 set :yarn_target_path, -> { release_path.join("frontend/") }
+set :yarn_flags, ""
 
 set :rbenv_ruby, "2.4.2"
 
@@ -90,6 +91,16 @@ namespace :deploy do
           }\" \
         https://hooks.slack.com/services/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
       COMMAND
+    end
+  end
+end
+
+namespace :webpack do
+  desc "Build Frontend"
+  after "yarn:install", "webpack:build"
+  task :build do
+    on roles(:app) do
+      execute "cd #{fetch :yarn_target_path} && yarn build"
     end
   end
 end

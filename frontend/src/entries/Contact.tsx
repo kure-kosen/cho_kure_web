@@ -9,15 +9,15 @@ import { inject } from "../../node_modules/mobx-react";
 import RootStore from "../stores/RootStore";
 import ContactForm from "../components/ContactForm";
 
-type Prop = {
+interface Prop {
   rootStore?: RootStore;
-};
-type State = {
+}
+interface State {
   alert: {
     message: string;
     status?: string;
   };
-};
+}
 
 @inject("rootStore")
 export default class Contact extends React.Component<Prop, State> {
@@ -26,15 +26,15 @@ export default class Contact extends React.Component<Prop, State> {
     this.state = {
       alert: {
         message: "",
-        status: undefined,
-      },
+        status: undefined
+      }
     };
 
     this.successSendContact = this.successSendContact.bind(this);
     this.failSendContact = this.failSendContact.bind(this);
   }
 
-  render() {
+  public render() {
     const rootStore = this.props.rootStore!;
 
     // TODO(euglena1215): requiredの*をべた書きで書かなくてもいいようにする
@@ -56,11 +56,11 @@ export default class Contact extends React.Component<Prop, State> {
     );
   }
 
-  successSendContact(_: object) {
+  public successSendContact(_: object) {
     this.setState({ alert: { status: "successed", message: "おたよりを送信しました。" } });
   }
 
-  failSendContact(_: object) {
+  public failSendContact(_: object) {
     this.setState({ alert: { status: "failed", message: "おたよりの送信に失敗しました。" } });
   }
 }

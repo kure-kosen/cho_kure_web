@@ -9,12 +9,8 @@ export const RadioHistoryFeature = () => (
       <Box>
         <TitleWrapper>
           <RadioHistoryTitleFixed>Department of</RadioHistoryTitleFixed>
-          <RadioHistoryTitleDepartment>
-            Architecture
-          </RadioHistoryTitleDepartment>
-          <RadioHistoryTitleDepartmentJa>
-            建築学科特集
-          </RadioHistoryTitleDepartmentJa>
+          <RadioHistoryTitleDepartment>Architecture</RadioHistoryTitleDepartment>
+          <RadioHistoryTitleDepartmentJa>建築学科特集</RadioHistoryTitleDepartmentJa>
         </TitleWrapper>
       </Box>
     </Frame>

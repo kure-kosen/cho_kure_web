@@ -28,5 +28,5 @@ const settings = {
   slidesToScroll: 1,
   adaptiveHeight: true,
   nextArrow: <ChkNextArrow />,
-  prevArrow: <ChkPrevArrow />,
+  prevArrow: <ChkPrevArrow />
 };
