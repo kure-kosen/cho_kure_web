@@ -10,4 +10,5 @@ export const ChkButtonBase = styled.button`
   outline: none;
   border-style: none;
   box-shadow: 4px 3px 10px 0px ${chkColors.shadow};
+  border-radius: 20px;
 `;
