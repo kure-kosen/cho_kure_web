@@ -4,15 +4,28 @@ import styled from "styled-components";
 import { title } from "./../commons/style";
 import { chkColors } from "./../commons/color";
 
+import * as sidebarRadioImg from "./../../images/sidebar-radio-img.png";
 import { PopularRadioCard } from "./PopularRadioCard";
 
 export const PopularRadioWrapper = () => (
   <PopularRadioWrapperStyle>
     <Title>popular radio</Title>
     <PopularRadioCardWrapper>
-      <PopularRadioCard />
-      <PopularRadioCard />
-      <PopularRadioCard />
+      <PopularRadioCard
+        title="#50 ヤマトーーク!"
+        img={sidebarRadioImg}
+        description="エナジードリンク、お年玉の使い道、登山、Advent Calendar、エディタ、LTalksなどの話をしました。"
+      />
+      <PopularRadioCard
+        title="#50 ヤマトーーク!"
+        img={sidebarRadioImg}
+        description="エナジードリンク、お年玉の使い道、登山、Advent Calendar、エディタ、LTalksなどの話をしました。"
+      />
+      <PopularRadioCard
+        title="#50 ヤマトーーク!"
+        img={sidebarRadioImg}
+        description="エナジードリンク、お年玉の使い道、登山、Advent Calendar、エディタ、LTalksなどの話をしました。"
+      />
     </PopularRadioCardWrapper>
   </PopularRadioWrapperStyle>
 );

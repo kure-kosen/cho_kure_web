@@ -3,16 +3,18 @@ import styled from "styled-components";
 
 import { chkColors } from "./../commons/color";
 
-import * as sidebarRadioImg from "./../../images/sidebar-radio-img.png";
+interface IProps {
+  title: string;
+  img: string;
+  description: string;
+}
 
-export const PopularRadioCard = () => (
+export const PopularRadioCard = (props: IProps) => (
   <Wrapper>
-    <RadioImg src={sidebarRadioImg} />
+    <RadioImg src={props.img} />
     <RadioProperties>
-      <RadioTitle>#50 ヤマトーーク!</RadioTitle>
-      <RadioDescript>
-        エナジードリンク、お年玉の使い道、登山、Advent Calendar、エディタ、LTalksなどの話をしました。
-      </RadioDescript>
+      <RadioTitle>{props.title}</RadioTitle>
+      <RadioDescription>{props.description}</RadioDescription>
     </RadioProperties>
   </Wrapper>
 );
@@ -39,7 +41,7 @@ const RadioTitle = styled.div`
   font-size: 1rem;
 `;
 
-const RadioDescript = styled.p`
+const RadioDescription = styled.p`
   color: ${chkColors.gray};
   font-size: 0.9rem;
   margin-top: 6px;
