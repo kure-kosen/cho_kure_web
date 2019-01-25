@@ -1,5 +1,5 @@
-require("normalize.css");
-require("./commons/font");
+import "./commons/font";
+import "normalize.css";
 
 import * as React from "react";
 import * as ReactDOM from "react-dom";
