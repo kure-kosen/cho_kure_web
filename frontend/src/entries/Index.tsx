@@ -39,6 +39,7 @@ const Contrainer = styled.div`
 
 const Sidebar = styled.nav`
   flex: 0 0 25%;
+  padding: 0 20px;
 
   @media ${media.mobile} {
     flex: 0 0 0%;
