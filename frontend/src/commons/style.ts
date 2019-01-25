@@ -1,4 +1,4 @@
-import { injectGlobal } from "styled-components";
+import { injectGlobal, css } from "styled-components";
 
 const breakpoints = {
   mobile: "40.0rem",
@@ -10,7 +10,7 @@ export const media = {
   tablet: `screen and (min-width: ${breakpoints.mobile}) and (max-width: ${breakpoints.tablet})`
 };
 
-export const title = `
+export const title = css`
   padding-top: 2rem;
   padding-bottom: 1rem;
   font-size: 1.5rem;
@@ -18,19 +18,20 @@ export const title = `
   color: #00afec;
 `;
 
-export const goodSpace = `
-display: box;
-display: -webkit-box;
-display: -moz-box;
-display: -o-box;
-display: -ms-box;
-box-pack: justify;
--moz-box-pack: justify;
--webkit-box-pack: justify;
--o-box-pack: justify;
--ms-box-pack: justify;
+export const goodSpace = css`
+  display: box;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -o-box;
+  display: -ms-box;
+  box-pack: justify;
+  -moz-box-pack: justify;
+  -webkit-box-pack: justify;
+  -o-box-pack: justify;
+  -ms-box-pack: justify;
 `;
 
+// tslint:disable-next-line
 injectGlobal`
   *, *:before, *:after {
     -webkit-box-sizing: border-box;

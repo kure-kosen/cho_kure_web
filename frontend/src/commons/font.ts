@@ -8,6 +8,7 @@ import * as Quicksand700Woff2 from "./../../fonts/quicksand-v7-latin/quicksand-v
 import * as QuicksandRegularWoff from "./../../fonts/quicksand-v7-latin/quicksand-v7-latin-regular.woff";
 import * as QuicksandRegularWoff2 from "./../../fonts/quicksand-v7-latin/quicksand-v7-latin-regular.woff2";
 
+// tslint:disable-next-line
 injectGlobal`
   /* quicksand-300 - latin */
   @font-face {
