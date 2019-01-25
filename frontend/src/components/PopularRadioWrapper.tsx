@@ -21,7 +21,7 @@ const PopularRadioWrapperStyle = styled.div`
   width: 100%;
   color: white;
   background-color: ${chkColors.white};
-  height: 400px;
+  height: auto;
 `;
 
 const Title = styled.div`
