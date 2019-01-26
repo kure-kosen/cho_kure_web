@@ -1,4 +1,5 @@
-import { injectGlobal, css } from "styled-components";
+import { createGlobalStyle, css } from "styled-components";
+import { GlobalFonts } from "./font";
 
 const breakpoints = {
   mobile: "40.0rem",
@@ -31,15 +32,19 @@ export const goodSpace = css`
   -ms-box-pack: justify;
 `;
 
-// tslint:disable-next-line
-injectGlobal`
-  *, *:before, *:after {
+export const GlobalStyle = createGlobalStyle`
+  ${GlobalFonts}
+
+  *,
+  *:before,
+  *:after {
     -webkit-box-sizing: border-box;
-       -moz-box-sizing: border-box;
-         -o-box-sizing: border-box;
-        -ms-box-sizing: border-box;
-            box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
   }
+
   a {
     text-decoration: none;
   }
