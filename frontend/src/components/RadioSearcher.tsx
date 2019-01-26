@@ -2,7 +2,7 @@ import * as React from "react";
 import styled from "styled-components";
 
 import { title } from "./../commons/style";
-import { ChkButtonBase } from "./../commons/ChkButtonBase";
+import { Button } from "./../commons/Button";
 import { chkColors } from "./../commons/color";
 
 export const RadioSearcher = () => (
@@ -40,7 +40,7 @@ export const RadioSearcher = () => (
           tag6
         </RadioSearchTagButton>
       </RadioSearchTagButtonWrapper>
-      <RadioSearchButton type="submit">Search</RadioSearchButton>
+      <RadioSearchButton text="Search" />
     </form>
   </Wrapper>
 );
@@ -54,7 +54,7 @@ const Wrapper = styled.div`
 `;
 
 const RadioSearcherTitle = styled.div`
-  ${title};
+  ${title}
   color: ${chkColors.blue};
 `;
 
@@ -106,11 +106,9 @@ const RadioSearchTagButton = styled.button`
   outline: none;
 `;
 
-const RadioSearchButton = ChkButtonBase.extend`
+const RadioSearchButton = styled(Button)`
   margin: 20px auto 0 auto;
   padding: 5px 1rem;
   width: 50%;
   line-height: 1.5rem;
-  border-radius: 1.5rem;
-  background-color: ${chkColors.orange};
 `;

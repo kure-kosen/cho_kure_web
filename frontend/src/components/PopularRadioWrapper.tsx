@@ -3,6 +3,7 @@ import styled from "styled-components";
 
 import { title } from "./../commons/style";
 import { chkColors } from "./../commons/color";
+import { MoreButtonLink } from "./../components/MoreButtonLink";
 
 import * as sidebarRadioImg from "./../../images/sidebar-radio-img.png";
 import { PopularRadioCard } from "./PopularRadioCard";
@@ -27,6 +28,7 @@ export const PopularRadioWrapper = () => (
         description="エナジードリンク、お年玉の使い道、登山、Advent Calendar、エディタ、LTalksなどの話をしました。"
       />
     </PopularRadioCardWrapper>
+    <MoreButtonLink to="/radios" />
   </PopularRadioWrapperStyle>
 );
 
@@ -38,7 +40,7 @@ const PopularRadioWrapperStyle = styled.div`
 `;
 
 const Title = styled.div`
-  ${title};
+  ${title}
   color: ${chkColors.blue};
   padding: 10px 20px;
 `;

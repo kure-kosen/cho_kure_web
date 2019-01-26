@@ -1,14 +1,13 @@
 import * as React from "react";
+import styled from "styled-components";
 
-import { ChkButtonBase } from "./../commons/ChkButtonBase";
 import { chkColors } from "./../commons/color";
+import { ButtonLink } from "./../commons/ButtonLink";
 
-export const FeaturedPersonalityListenToRadioButton = () => <ListenToButton>listen to radio</ListenToButton>;
+export const FeaturedPersonalityListenToRadioButton = () => <ListenToButton to="" text="listen to radio" />;
 
-const ListenToButton = ChkButtonBase.extend`
+const ListenToButton = styled(ButtonLink)`
   background-color: ${chkColors.blue};
   height: 35px;
   width: 60%;
-  margin: 0 auto;
-  border-radius: 20px;
 `;
