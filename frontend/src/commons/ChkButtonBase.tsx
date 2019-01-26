@@ -1,7 +1,7 @@
-import styled from "styled-components";
+import { css } from "styled-components";
 import { chkColors } from "./color";
 
-export const ChkButtonBase = styled.button`
+export const ChkButtonBase = css`
   display: block;
   width: 100%;
   margin: 0;
@@ -11,4 +11,6 @@ export const ChkButtonBase = styled.button`
   border-style: none;
   box-shadow: 4px 3px 10px 0px ${chkColors.shadow};
   border-radius: 20px;
+  background-color: ${chkColors.orange};
+  text-align: center;
 `;
