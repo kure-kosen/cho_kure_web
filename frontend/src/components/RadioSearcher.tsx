@@ -19,26 +19,14 @@ export const RadioSearcher = () => (
         <RadioSearchInput name="what" type="text" placeholder="どんなこと" />
       </RadioSearchInputWrapper>
       <RadioSearchTagButtonWrapper>
-        <RadioSearchTagButton name="tag1" type="button">
-          tag1
-        </RadioSearchTagButton>
-        <RadioSearchTagButton name="tag2" type="button">
-          tag2
-        </RadioSearchTagButton>
-        <RadioSearchTagButton name="tag3" type="button">
-          tag3
-        </RadioSearchTagButton>
+        <RadioSearchTagButton name="tag1" text="tag1" color="blue" bgcolor="white" border="blue" />
+        <RadioSearchTagButton name="tag2" text="tag2" color="blue" bgcolor="white" border="blue" />
+        <RadioSearchTagButton name="tag3" text="tag3" color="blue" bgcolor="white" border="blue" />
       </RadioSearchTagButtonWrapper>
       <RadioSearchTagButtonWrapper>
-        <RadioSearchTagButton name="tag4" type="button">
-          tag4
-        </RadioSearchTagButton>
-        <RadioSearchTagButton name="tag5" type="button">
-          tag5
-        </RadioSearchTagButton>
-        <RadioSearchTagButton name="tag6" type="button">
-          tag6
-        </RadioSearchTagButton>
+        <RadioSearchTagButton name="tag4" text="tag4" color="blue" bgcolor="white" border="blue" />
+        <RadioSearchTagButton name="tag5" text="tag5" color="blue" bgcolor="white" border="blue" />
+        <RadioSearchTagButton name="tag6" text="tag6" color="blue" bgcolor="white" border="blue" />
       </RadioSearchTagButtonWrapper>
       <RadioSearchButtonWrapper>
         <RadioSearchButton text="Search" />
@@ -83,30 +71,11 @@ const RadioSearchInput = styled.input`
 `;
 
 const RadioSearchTagButtonWrapper = styled.div`
-  width: 100%;
-  margin: 0 auto 10px auto;
-  display: box;
-  display: -webkit-box;
-  display: -moz-box;
-  display: -o-box;
-  display: -ms-box;
-  box-pack: justify;
-  -moz-box-pack: justify;
-  -webkit-box-pack: justify;
-  -o-box-pack: justify;
-  -ms-box-pack: justify;
+  display: flex;
+  margin-bottom: 10px;
 `;
 
-const RadioSearchTagButton = styled.button`
-  display: block;
-  padding: 5px 1rem;
-  line-height: 1.5rem;
-  color: ${chkColors.blue};
-  border: 2px solid ${chkColors.blue};
-  background-color: #fff;
-  border-radius: 1.5rem;
-  outline: none;
-`;
+const RadioSearchTagButton = styled(ChkButtonBase)``;
 
 const RadioSearchButtonWrapper = styled.div`
   margin-top: 20px;
