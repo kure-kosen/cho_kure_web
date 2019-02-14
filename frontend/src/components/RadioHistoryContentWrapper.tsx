@@ -3,8 +3,7 @@ import styled from "styled-components";
 
 import { title, goodSpace } from "./../commons/style";
 import { chkColors } from "./../commons/color";
-import { MoreButtonLink } from "./../components/MoreButtonLink";
-
+import ChkButtonBase from "../commons/ChkButtonBase";
 import { RadioCardWrapper } from "./../components/RadioCardWrapper";
 import { RadioHistoryFeature } from "./../components/RadioHistoryFeature";
 
@@ -42,7 +41,7 @@ export const RadioHistoryContentWrapper = () => (
         <RadioCardWrapper />
         <RadioCardWrapper />
       </RadioCardsWrapper>
-      <MoreButton to="" />
+      <MoreButton to="" text="more" />
     </RadioHistoryContentArea>
   </Wrapper>
 );
@@ -85,7 +84,7 @@ const RadioCardsWrapper = styled.div`
   margin: 0 auto 20px auto;
 `;
 
-const MoreButton = styled(MoreButtonLink)`
+const MoreButton = styled(ChkButtonBase)`
   margin: 20px auto 0 auto;
   padding: 5px 1rem;
   width: 20%;

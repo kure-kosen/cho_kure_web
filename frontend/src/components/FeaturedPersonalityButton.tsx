@@ -1,13 +1,15 @@
 import * as React from "react";
 import styled from "styled-components";
 
-import { ButtonLink } from "../commons/ButtonLink";
+import ChkButtonBase from "../commons/ChkButtonBase";
 
-export const FeaturedPersonalityButton = () => <PersonalityButton to="/personality" text="personality list" />;
+export const FeaturedPersonalityButton = () => (
+  <Wrapper>
+    <ChkButtonBase to="/personality" text="personality list" />
+  </Wrapper>
+);
 
-const PersonalityButton = styled(ButtonLink)`
+const Wrapper = styled.div`
+  margin: 0 auto;
   width: 210px;
-  height: 48px;
-  margin-top: 40px;
-  border-radius: 20px;
 `;

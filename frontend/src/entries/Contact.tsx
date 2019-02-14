@@ -2,7 +2,7 @@ import * as React from "react";
 import styled from "styled-components";
 
 import { media } from "./../commons/style";
-import { Button } from "./../commons/Button";
+import ChkButtonBase from "../commons/ChkButtonBase";
 
 import { HeroArea } from "./../components/HeroArea";
 import { ContactHeroContent } from "./../components/ContactHeroContent";
@@ -93,7 +93,7 @@ const ContactFormInputHalf = styled(ContactFormInput)`
   width: 50%;
 `;
 
-const ContactFormSend = styled(Button)`
+const ContactFormSend = styled(ChkButtonBase)`
   margin-top: 40px;
   width: 30px;
 `;
