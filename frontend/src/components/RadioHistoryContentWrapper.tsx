@@ -41,7 +41,9 @@ export const RadioHistoryContentWrapper = () => (
         <RadioCardWrapper />
         <RadioCardWrapper />
       </RadioCardsWrapper>
-      <MoreButton to="" text="more" />
+      <MoreButtonWrapper>
+        <MoreButton to="" text="more" />
+      </MoreButtonWrapper>
     </RadioHistoryContentArea>
   </Wrapper>
 );
@@ -84,9 +86,10 @@ const RadioCardsWrapper = styled.div`
   margin: 0 auto 20px auto;
 `;
 
-const MoreButton = styled(ChkButtonBase)`
-  margin: 20px auto 0 auto;
-  padding: 5px 1rem;
+const MoreButtonWrapper = styled.div`
+  margin-top: 20px;
+  margin: 0 auto;
   width: 20%;
-  line-height: 1.5rem;
 `;
+
+const MoreButton = styled(ChkButtonBase)``;

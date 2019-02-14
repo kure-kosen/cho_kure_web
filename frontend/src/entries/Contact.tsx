@@ -33,7 +33,9 @@ export const Contact = () => (
           <ContactFormInputWrapper>
             <ContactFormInput name="content" type="text" placeholder="内容" />
           </ContactFormInputWrapper>
-          <ContactFormSend text="送信" />
+          <ContactFormSendButtonWrapper>
+            <ContactFormSendButton text="送信" />
+          </ContactFormSendButtonWrapper>
         </form>
       </ContactForm>
     </ContactFormWrapper>
@@ -93,7 +95,10 @@ const ContactFormInputHalf = styled(ContactFormInput)`
   width: 50%;
 `;
 
-const ContactFormSend = styled(ChkButtonBase)`
+const ContactFormSendButtonWrapper = styled.div`
+  margin: 0 auto;
   margin-top: 40px;
-  width: 30px;
+  width: 30%;
 `;
+
+const ContactFormSendButton = styled(ChkButtonBase)``;

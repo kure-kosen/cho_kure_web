@@ -28,7 +28,9 @@ export const PopularRadioWrapper = () => (
         description="エナジードリンク、お年玉の使い道、登山、Advent Calendar、エディタ、LTalksなどの話をしました。"
       />
     </PopularRadioCardWrapper>
-    <MoreButtonLink to="/radios" text="more" />
+    <MoreButtonWrapper>
+      <MoreButton to="/radios" text="more" />
+    </MoreButtonWrapper>
   </PopularRadioWrapperStyle>
 );
 
@@ -50,4 +52,10 @@ const PopularRadioCardWrapper = styled.div`
   height: auto;
 `;
 
-const MoreButtonLink = styled(ChkButtonBase)``;
+const MoreButtonWrapper = styled.div`
+  margin: 0 auto;
+  margin-top: 20px;
+  width: 70%;
+`;
+
+const MoreButton = styled(ChkButtonBase)``;

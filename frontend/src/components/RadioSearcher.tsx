@@ -40,7 +40,9 @@ export const RadioSearcher = () => (
           tag6
         </RadioSearchTagButton>
       </RadioSearchTagButtonWrapper>
-      <RadioSearchButton text="Search" />
+      <RadioSearchButtonWrapper>
+        <RadioSearchButton text="Search" />
+      </RadioSearchButtonWrapper>
     </form>
   </Wrapper>
 );
@@ -106,9 +108,10 @@ const RadioSearchTagButton = styled.button`
   outline: none;
 `;
 
-const RadioSearchButton = styled(ChkButtonBase)`
-  margin: 20px auto 0 auto;
-  padding: 5px 1rem;
+const RadioSearchButtonWrapper = styled.div`
+  margin-top: 20px;
+  margin: 0 auto;
   width: 50%;
-  line-height: 1.5rem;
 `;
+
+const RadioSearchButton = styled(ChkButtonBase)``;
