@@ -42,7 +42,7 @@ export const RadioHistoryContentWrapper = () => (
         <RadioCardWrapper />
         <RadioCardWrapper />
       </RadioCardsWrapper>
-      <MoreButton type="button">more</MoreButton>
+      <MoreButton>more</MoreButton>
     </RadioHistoryContentArea>
   </Wrapper>
 );
