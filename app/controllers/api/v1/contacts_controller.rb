@@ -11,6 +11,7 @@ class Api::V1::ContactsController < Api::V1::BaseController
     @contact = Contact.new(contact_params)
 
     if @contact.save
+      ContactCreatedNotifyJob.perform_later(nickname: @contact.nickname, message: @contact.message)
       head :created
     else
       render :new

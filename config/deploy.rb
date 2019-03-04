@@ -43,6 +43,8 @@ set :rbenv_ruby, "2.4.2"
 
 set :log_level, :debug
 
+set :sidekiq_config, -> { File.join(fetch(:deploy_to), 'config', 'sidekiq.yml') }
+
 namespace :deploy do
   desc "Restart application"
   task :restart do
