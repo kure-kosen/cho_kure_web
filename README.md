@@ -22,3 +22,6 @@ bin/setup
 ## その他
 * 開発中にアプリケーションが送信したメールは `/letter_opener` で確認できます。
 * `bundle exec rubocop` でコードの静的チェックが走ります。指摘箇所を修正してPRを出してください。
+
+## License
+This software is released under the MIT License, see [LICENSE.txt](LICENSE.txt).
