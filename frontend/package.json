@@ -12,6 +12,12 @@
     "start": "webpack-dev-server --hot --config ./config/webpack.config.dev.js",
     "lint": "npx tslint --fix -c ./tslint.json 'src/**/*{.ts,.tsx}'"
   },
+  "lint-staged": {
+    "*.{js,ts,tsx}": [
+      "yarn lint",
+      "git add"
+    ]
+  },
   "devDependencies": {
     "@babel/preset-env": "^7.4.2",
     "@babel/preset-typescript": "^7.3.3",
