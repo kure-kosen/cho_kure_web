@@ -1,36 +1,25 @@
 FROM ruby:2.4.5
+LABEL maintainer="Kobatake Kazuhiro<@kobakazu0429>"
+
 ENV LANG C.UTF-8
+
+# noninteractive: インストール時にインタラクティブな入力待ちが発生しなくなる
+ENV DEBIAN_FRONTEND noninteractive
 
 RUN mkdir /code/
 
 WORKDIR /code
 
-ENV RUNTIME_PACKAGES="bash git perl libxml2-dev libxslt-dev libstdc++ tzdata mariadb-client"\
-    DEV_PACKAGES="mysql-client"
-
-RUN apt-get update -qq
-RUN DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends apt-utils
-RUN apt-get install -y libpq-dev graphviz imagemagick
-# RUN curl -sL https://deb.nodesource.com/setup_8.x | bash - && apt-get install -y nodejs build-essential
-# RUN npm install -g yarn
-
-RUN gem install bundler
-RUN gem update
+# apt-get [-qq]: エラー以外は表示しない
+RUN apt-get update -qq && \
+    apt-get install -y --no-install-recommends apt-utils && \
+    apt-get install -y libpq-dev graphviz imagemagick && \
+    curl -sL https://deb.nodesource.com/setup_10.x | bash - && \
+    apt-get install -y nodejs build-essential && \
+    gem install bundler --no-document --conservative && \
+    gem update
 
 ADD Gemfile* /code/
 ADD .env /code/
 
-RUN bundle install
-
-# ADD ./frontend/package.json /code/
-# ADD ./frontend/yarn.lock /code/
-# RUN yarn install
-
-# RUN apt-get update -qq &&\
-#     apt-get install -y $RUNTIME_PACKAGES &&\
-#     apt-get install -y $DEV_PACKAGES &&\
-#     gem install bundler --no-document &&\
-#     bundle config build.nokogiri --use-system-libraries &&\
-#     bundle install
-
-# CMD bundle exec rails s -p 3000 -b '0.0.0.0'
+RUN bundle install -j4
