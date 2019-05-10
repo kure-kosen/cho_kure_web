@@ -7,6 +7,7 @@
   "license": "MIT",
   "private": true,
   "scripts": {
+    "dev": "yarn start",
     "build": "webpack --config ./config/webpack.config.prod.js",
     "start": "webpack-dev-server --hot --config ./config/webpack.config.dev.js",
     "lint": "npx tslint --fix -c ./tslint.json 'src/**/*{.ts,.tsx}'"
