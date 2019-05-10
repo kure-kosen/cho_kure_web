@@ -11,21 +11,20 @@ ENV RUNTIME_PACKAGES="bash git perl libxml2-dev libxslt-dev libstdc++ tzdata mar
 RUN apt-get update -qq
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends apt-utils
 RUN apt-get install -y libpq-dev graphviz imagemagick
-RUN curl -sL https://deb.nodesource.com/setup_8.x | bash - && apt-get install -y nodejs build-essential
-RUN npm install -g yarn
+# RUN curl -sL https://deb.nodesource.com/setup_8.x | bash - && apt-get install -y nodejs build-essential
+# RUN npm install -g yarn
 
 RUN gem install bundler
 RUN gem update
 
 ADD Gemfile* /code/
+ADD .env /code/
 
 RUN bundle install
 
-ADD ./frontend/package.json /code/
-ADD ./frontend/yarn.lock /code/
-RUN yarn install
-
-RUN bundle exec rails assets:precompile
+# ADD ./frontend/package.json /code/
+# ADD ./frontend/yarn.lock /code/
+# RUN yarn install
 
 # RUN apt-get update -qq &&\
 #     apt-get install -y $RUNTIME_PACKAGES &&\
@@ -34,4 +33,4 @@ RUN bundle exec rails assets:precompile
 #     bundle config build.nokogiri --use-system-libraries &&\
 #     bundle install
 
-CMD bundle exec rails s -p 3000 -b '0.0.0.0'
+# CMD bundle exec rails s -p 3000 -b '0.0.0.0'
