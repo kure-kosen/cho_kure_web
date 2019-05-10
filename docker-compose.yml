@@ -5,7 +5,6 @@ services:
     image: mysql:5.7.25
     environment:
         MYSQL_DATABASE: cho_kure_web_development
-        MYSQL_USER: root
         MYSQL_ROOT_PASSWORD: root
         MYSQL_PASSWORD: root
         MYSQL_PORT: 3306
@@ -15,12 +14,14 @@ services:
     build:
       context: .
       dockerfile: ./docker/backend/Dockerfile.dev
-    command: rails s -p 3000 -b '0.0.0.0'
+    command: /bin/sh -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
     volumes:
       - ./:/code
     ports:
       - "3000:3000"
     links:
+      - "db"
+    depends_on:
       - "db"
     environment:
       DATABASE_PASSWORD: root
