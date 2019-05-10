@@ -1,7 +1,7 @@
 {
   "name": "cho_kure_web",
-  "version": "1.0.0",
-  "main": "src/index.js",
+  "version": "2.0.0",
+  "main": "src/index.tsx",
   "repository": "git@github.com:kure-kosen/cho_kure_web.git",
   "author": "Shintani Teppei <teppest1215@gmail.com>",
   "license": "MIT",
