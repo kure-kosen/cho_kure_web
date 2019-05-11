@@ -1,5 +1,5 @@
 import { createGlobalStyle, css } from "styled-components";
-import { GlobalFonts } from "./font";
+import GlobalFonts from "./font";
 
 const breakpoints = {
   mobile: "40.0rem",
@@ -32,7 +32,7 @@ export const goodSpace = css`
   -ms-box-pack: justify;
 `;
 
-export const GlobalStyle = createGlobalStyle`
+const GlobalStyle = createGlobalStyle`
   ${GlobalFonts}
 
   *,
@@ -53,3 +53,5 @@ export const GlobalStyle = createGlobalStyle`
     display: inline;
   }
 `;
+
+export default GlobalStyle;

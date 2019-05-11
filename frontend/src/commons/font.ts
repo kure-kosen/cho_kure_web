@@ -8,7 +8,7 @@ import * as Quicksand700Woff2 from "./../../fonts/quicksand-v7-latin/quicksand-v
 import * as QuicksandRegularWoff from "./../../fonts/quicksand-v7-latin/quicksand-v7-latin-regular.woff";
 import * as QuicksandRegularWoff2 from "./../../fonts/quicksand-v7-latin/quicksand-v7-latin-regular.woff2";
 
-export const GlobalFonts = css`
+const GlobalFonts = css`
   /* quicksand-300 - latin */
   @font-face {
     font-family: "Quicksand";
@@ -47,3 +47,5 @@ export const GlobalFonts = css`
     font-weight: 400;
   }
 `;
+
+export default GlobalFonts;
