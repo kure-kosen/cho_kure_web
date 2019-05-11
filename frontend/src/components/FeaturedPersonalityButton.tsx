@@ -1,11 +1,11 @@
-import * as React from "react";
-
+import React from "react";
+import styled from "styled-components";
 import { ChkButtonBase } from "./../commons/ChkButtonBase";
 import { chkColors } from "./../commons/color";
 
 export const FeaturedPersonalityButton = () => <PersonalityButton>personality list</PersonalityButton>;
 
-const PersonalityButton = ChkButtonBase.extend`
+const PersonalityButton = styled(ChkButtonBase)`
   background-color: ${chkColors.orange};
   width: 210px;
   height: 48px;

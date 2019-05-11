@@ -1,4 +1,4 @@
-import * as React from "react";
+import React from "react";
 import styled from "styled-components";
 
 import { media } from "./../commons/style";
@@ -90,11 +90,11 @@ const ContactFormInput = styled.input`
   }
 `;
 
-const ContactFormInputHalf = ContactFormInput.extend`
+const ContactFormInputHalf = styled(ContactFormInput)`
   width: 50%;
 `;
 
-const ContactFormButton = ChkButtonBase.extend`
+const ContactFormButton = styled(ChkButtonBase)`
   background-color: ${chkColors.orange};
   width: 30%;
   margin-top: 40px;

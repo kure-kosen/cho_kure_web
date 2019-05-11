@@ -1,4 +1,4 @@
-import * as React from "react";
+import React from "react";
 import styled from "styled-components";
 
 import { Link } from "react-router-dom";
@@ -62,7 +62,7 @@ const ParagraphStyle = styled.p`
   line-height: 1.42em;
 `;
 
-const ButtonStyle = ChkButtonBase.extend`
+const ButtonStyle = styled(ChkButtonBase)`
   margin: 80px auto 0;
   width: 40%;
 `;

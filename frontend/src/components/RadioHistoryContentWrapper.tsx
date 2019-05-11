@@ -1,4 +1,4 @@
-import * as React from "react";
+import React from "react";
 import styled from "styled-components";
 
 import { title, goodSpace } from "./../commons/style";
@@ -85,7 +85,7 @@ const RadioCardsWrapper = styled.div`
   ${goodSpace};
 `;
 
-const MoreButton = ChkButtonBase.extend`
+const MoreButton = styled(ChkButtonBase)`
   margin: 20px auto 0 auto;
   padding: 5px 1rem;
   width: 20%;

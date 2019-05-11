@@ -1,4 +1,4 @@
-import * as React from "react";
+import React from "react";
 import styled from "styled-components";
 
 import { title } from "./../commons/style";
@@ -106,7 +106,7 @@ const RadioSearchTagButton = styled.button`
   outline: none;
 `;
 
-const RadioSearchButton = ChkButtonBase.extend`
+const RadioSearchButton = styled(ChkButtonBase)`
   margin: 20px auto 0 auto;
   padding: 5px 1rem;
   width: 50%;

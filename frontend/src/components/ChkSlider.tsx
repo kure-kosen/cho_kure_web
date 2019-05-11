@@ -1,14 +1,14 @@
-import * as React from "react";
+import React from "react";
 
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "../../css/ChkSlider.css";
 
-export interface Props {
+export interface IProps {
   InnerComponent: any;
 }
 
-export const ChkSlider = (props: Props) => <Slider {...settings}>{props.InnerComponent}</Slider>;
+export const ChkSlider = (props: IProps) => <Slider {...settings}>{props.InnerComponent}</Slider>;
 
 const ChkNextArrow = (props: any) => {
   const { className, onClick } = props;
