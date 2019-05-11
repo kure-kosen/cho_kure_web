@@ -11,5 +11,6 @@ export const chkColors: IColor = {
   shadow: "#14141433",
   white: "#ffffff",
   placeholder: "#b0bec5",
-  aqua: "#b3dfe2"
+  aqua: "#b3dfe2",
+  darkenAqua: "#50AAB7"
 };
