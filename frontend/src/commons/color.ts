@@ -6,5 +6,6 @@ export const chkColors = {
   gray: "#7f8287",
   shadow: "#14141433",
   white: "#ffffff",
-  placeholder: "#b0bec5"
+  placeholder: "#b0bec5",
+  aqua: "#b3dfe2"
 };
