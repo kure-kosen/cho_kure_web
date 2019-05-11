@@ -1,6 +1,7 @@
 import * as React from "react";
 import { Link } from "react-router-dom";
 import styled, { css } from "styled-components";
+
 import { chkColors } from "./color";
 
 interface IPropsCss {
@@ -16,24 +17,27 @@ interface IPropsChkButtonBase extends IPropsCss {
 }
 
 const ChkButtonBase = (props: IPropsChkButtonBase) => {
-  if (props.to) {
-    if (props.to.startsWith("http")) {
+  const { to, text, name } = props;
+  const { color, bgcolor, border } = props;
+
+  if (to) {
+    if (to.startsWith("http")) {
       return (
-        <ATag color={props.color} bgcolor={props.bgcolor} border={props.border} href={props.to}>
-          {props.text}
+        <ATag color={color} bgcolor={bgcolor} border={border} href={to}>
+          {text}
         </ATag>
       );
     } else {
       return (
-        <LinkTag color={props.color} bgcolor={props.bgcolor} border={props.border} to={props.to}>
-          {props.text}
+        <LinkTag color={color} bgcolor={bgcolor} border={border} to={to}>
+          {text}
         </LinkTag>
       );
     }
   } else {
     return (
-      <ButtonTag name={props.name} color={props.color} bgcolor={props.bgcolor} border={props.border}>
-        {props.text}
+      <ButtonTag name={name} color={color} bgcolor={bgcolor} border={border}>
+        {text}
       </ButtonTag>
     );
   }
