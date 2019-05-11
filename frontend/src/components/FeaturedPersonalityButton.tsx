@@ -1,16 +1,15 @@
 import * as React from "react";
+import styled from "styled-components";
 
-import { ChkButtonBase } from "./../commons/ChkButtonBase";
-import { chkColors } from "./../commons/color";
+import ChkButtonBase from "../commons/ChkButtonBase";
 
-export const FeaturedPersonalityButton = () => <PersonalityButton>personality list</PersonalityButton>;
+export const FeaturedPersonalityButton = () => (
+  <Wrapper>
+    <ChkButtonBase to="/personality" text="personality list" />
+  </Wrapper>
+);
 
-const PersonalityButton = ChkButtonBase.extend`
-  background-color: ${chkColors.orange};
+const Wrapper = styled.div`
+  margin: 0 auto;
   width: 210px;
-  height: 48px;
-  margin-top: 40px;
-  margin-left: auto;
-  margin-right: auto;
-  border-radius: 20px;
 `;

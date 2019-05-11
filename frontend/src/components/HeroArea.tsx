@@ -3,11 +3,11 @@ import styled from "styled-components";
 
 import * as img from "./../../images/hero.jpg";
 
-export interface Props {
+export interface IProps {
   InnerComponent: string | React.ReactNode;
 }
 
-export const HeroArea = (props: Props) => <HeroAreaStyle>{props.InnerComponent}</HeroAreaStyle>;
+export const HeroArea = (props: IProps) => <HeroAreaStyle>{props.InnerComponent}</HeroAreaStyle>;
 
 const HeroAreaStyle = styled.div`
   width: 100%;
