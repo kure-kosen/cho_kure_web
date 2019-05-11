@@ -1,6 +1,7 @@
 'use strict'
 
 const path = require('path');
+const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin");
 
 module.exports = {
   entry: {
@@ -14,21 +15,46 @@ module.exports = {
     extensions: ['.ts', '.tsx', '.js', '.css', '.json'],
   },
 
+  plugins: [
+    new ForkTsCheckerWebpackPlugin({
+      tslint: true,
+      memoryLimit: 4096,
+      measureCompilationTime: true,
+      async: false,
+      useTypescriptIncrementalApi: true,
+    })
+  ],
+
   module: {
     rules: [
-      { test: /\.(ts|tsx)?$/, loader: 'awesome-typescript-loader' },
       {
-        test: /\.(js|jsx)$/,
-        loader: 'babel-loader',
+        enforce: "pre",
+        test: /\.(ts|tsx)?$/,
         exclude: /node_modules/,
-        query: {
-          presets: ['es2015', 'react', 'react-dom'],
-        },
+        use: [
+          {
+            loader: "tslint-loader",
+            options: {
+              typeCheck: true,
+              exclude: /node_modules/,
+              fix: true
+            }
+          }
+        ]
+      },
+      {
+        test: /\.(ts|tsx)?$/,
+        loader: "ts-loader",
+        exclude: /node_modules/,
+        options: { transpileOnly: true }
       },
       {
         test: /\.css$/,
-        use: ['style-loader', 'css-loader'],
-      },
+        loaders: [
+          "style-loader",
+          { loader: "css-loader", options: { url: false } }
+        ]
+      }
     ],
   }
 }
