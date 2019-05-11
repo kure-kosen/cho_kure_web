@@ -2,8 +2,7 @@ import * as React from "react";
 import styled from "styled-components";
 
 import { media } from "./../commons/style";
-import { ChkButtonBase } from "./../commons/ChkButtonBase";
-import { chkColors } from "./../commons/color";
+import ChkButtonBase from "../commons/ChkButtonBase";
 
 import { HeroArea } from "./../components/HeroArea";
 import { ContactHeroContent } from "./../components/ContactHeroContent";
@@ -34,7 +33,9 @@ export const Contact = () => (
           <ContactFormInputWrapper>
             <ContactFormInput name="content" type="text" placeholder="内容" />
           </ContactFormInputWrapper>
-          <ContactFormButton>送信</ContactFormButton>
+          <ContactFormSendButtonWrapper>
+            <ContactFormSendButton text="送信" />
+          </ContactFormSendButtonWrapper>
         </form>
       </ContactForm>
     </ContactFormWrapper>
@@ -90,15 +91,14 @@ const ContactFormInput = styled.input`
   }
 `;
 
-const ContactFormInputHalf = ContactFormInput.extend`
+const ContactFormInputHalf = styled(ContactFormInput)`
   width: 50%;
 `;
 
-const ContactFormButton = ChkButtonBase.extend`
-  background-color: ${chkColors.orange};
-  width: 30%;
+const ContactFormSendButtonWrapper = styled.div`
+  margin: 0 auto;
   margin-top: 40px;
-  margin-left: auto;
-  margin-right: auto;
-  border-radius: 20px;
+  width: 30%;
 `;
+
+const ContactFormSendButton = styled(ChkButtonBase)``;

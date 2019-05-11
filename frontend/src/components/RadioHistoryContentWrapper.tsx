@@ -2,9 +2,8 @@ import * as React from "react";
 import styled from "styled-components";
 
 import { title, goodSpace } from "./../commons/style";
-import { ChkButtonBase } from "./../commons/ChkButtonBase";
 import { chkColors } from "./../commons/color";
-
+import ChkButtonBase from "../commons/ChkButtonBase";
 import { RadioCardWrapper } from "./../components/RadioCardWrapper";
 import { RadioHistoryFeature } from "./../components/RadioHistoryFeature";
 
@@ -42,7 +41,9 @@ export const RadioHistoryContentWrapper = () => (
         <RadioCardWrapper />
         <RadioCardWrapper />
       </RadioCardsWrapper>
-      <MoreButton>more</MoreButton>
+      <MoreButtonWrapper>
+        <MoreButton to="" text="more" />
+      </MoreButtonWrapper>
     </RadioHistoryContentArea>
   </Wrapper>
 );
@@ -57,16 +58,16 @@ const RadioHistoryContentArea = styled.div`
 `;
 
 const Title = styled.div`
-  ${title};
+  ${title}
   color: ${chkColors.gray};
   text-align: center;
   margin-bottom: 20px;
 `;
 
 const RadioDateButtonWrapper = styled.div`
+  ${goodSpace}
   width: 45%;
   margin: 0 auto 20px auto;
-  ${goodSpace};
 `;
 
 const RadioDateButton = styled.button`
@@ -81,15 +82,14 @@ const RadioDateButton = styled.button`
 `;
 
 const RadioCardsWrapper = styled.div`
+  ${goodSpace}
   margin: 0 auto 20px auto;
-  ${goodSpace};
 `;
 
-const MoreButton = ChkButtonBase.extend`
-  margin: 20px auto 0 auto;
-  padding: 5px 1rem;
+const MoreButtonWrapper = styled.div`
+  margin-top: 20px;
+  margin: 0 auto;
   width: 20%;
-  line-height: 1.5rem;
-  border-radius: 1.5rem;
-  background-color: ${chkColors.orange};
 `;
+
+const MoreButton = styled(ChkButtonBase)``;
