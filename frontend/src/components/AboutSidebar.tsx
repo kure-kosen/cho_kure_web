@@ -16,7 +16,6 @@ export const AboutSidebar = () => (
 
 const AboutSidebarStyle = styled.div`
   width: 100%;
-  padding: 0 20px;
   height: 400px;
 `;
 
