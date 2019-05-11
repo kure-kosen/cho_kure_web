@@ -1,79 +1,95 @@
 import * as React from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-import * as img from "./../../images/1d4633a2034e71e3992efe6776fcce91-1.png";
 import { chkColors } from "./../commons/color";
 
-export interface IProps {
-  Title: string;
-  Date: string;
-  Article: string;
-  Author: string;
-}
-export const FeaturedBlog = (props: IProps) => (
-  <BlogPartsWrapper>
-    <Picture src={img} />
-    <Sentence>
-      <NewsTitle>{props.Title}</NewsTitle>
-      <Article>
-        {props.Article}
-        <NameDates>
-          {props.Date}
-          <Icon src={img} />
-          {props.Author}
-        </NameDates>
-      </Article>
-    </Sentence>
-  </BlogPartsWrapper>
-);
+import * as img from "./../../images/apple-2385198_1280-1.jpg";
+import * as chanyou from "./../../images/chanyou.jpg";
 
-const BlogPartsWrapper = styled.div`
-  margin: 20px 0px;
-  overflow: hidden;
-  display: block;
+export interface IProps {
+  title: string;
+  date: string;
+  summary: string;
+  author: string;
+  to: string;
+}
+export const FeaturedBlog = (props: IProps) => {
+  const { title, date, summary, author, to } = props;
+
+  return (
+    <Link to={to}>
+      <Wrapper>
+        <PictureWrapper>
+          <Picture src={img} />
+        </PictureWrapper>
+        <Article>
+          <Title>{title}</Title>
+          <Contents>
+            <p>{summary}</p>
+            <Meta>
+              <span>{date}</span>
+              <Icon src={chanyou} />
+              <span>{author}</span>
+            </Meta>
+          </Contents>
+        </Article>
+      </Wrapper>
+    </Link>
+  );
+};
+
+const Wrapper = styled.div`
+  display: flex;
+  width: 100%;
+  margin: 20px 0;
+`;
+
+const PictureWrapper = styled.div`
+  width: 230px;
 `;
 
 const Picture = styled.img`
-  height: 120px;
-  width: 120px;
+  width: 200px;
+  height: 100%;
+  object-fit: cover;
   border-radius: 10px;
-  border: solid thin ${chkColors.orange};
-  float: left;
+  border: solid 1px ${chkColors.orange};
 `;
 
-const Sentence = styled.div`
-  margin-top: 10px;
-  margin-left: 30px;
-  float: left;
+const Article = styled.div`
+  flex: 1;
 `;
 
-const NewsTitle = styled.h3`
-  padding: 0px;
-  margin: 0px 0px 10px 0px;
-  font-size: 1.3em;
+const Title = styled.h3`
+  margin: 0;
+  margin-bottom: 20px;
+  font-size: 1.3rem;
   color: ${chkColors.white};
 `;
 
-const Article = styled.p`
-  padding: 0px 30px 0px 0px;
-  margin: 0px;
+const Contents = styled.div`
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: left;
+
   color: ${chkColors.white};
   word-break: break-all;
-  position: absolute;
 `;
 
-const NameDates = styled.p`
-  padding: 5px 0px 0px 0px;
-  margin: 0px;
-  color: ${chkColors.white};
+const Meta = styled.div`
+  color: ${chkColors.darkenAqua};
+  font-weight: bold;
 `;
 
 const Icon = styled.img`
-  height: 30px;
-  width: 30px;
+  height: 35px;
+  width: 35px;
   border-radius: 50%;
-  border: solid thin ${chkColors.orange};
-  display: box;
-  vertical-align: -4px;
-  margin: 0px 10px 0px 10px;
+  border: solid 1px ${chkColors.orange};
+  object-fit: cover;
+  margin: 0 10px;
+  vertical-align: middle;
 `;

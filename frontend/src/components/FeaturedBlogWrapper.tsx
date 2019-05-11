@@ -2,79 +2,61 @@ import * as React from "react";
 import styled from "styled-components";
 
 import { chkColors } from "./../commons/color";
-import { ChkButtonBase } from "./../commons/ChkButtonBase";
+
+import MoreButton from "./MoreButton";
 
 import { FeaturedBlog } from "./FeaturedBlog";
 
 export const FeaturedBlogWrapper = () => (
-  <FeaturedBlogWrapperStyle>
-    <TitleWrapper>
-      <Title>BLOG</Title>
-    </TitleWrapper>
+  <Wrapper>
+    <Title>BLOG</Title>
     <BlogWrapper>
       <FeaturedBlog
-        Title="newstitle"
-        Date="YYYY/MM/DD"
-        Article="人の世界は住みにくい人の世界は住みにくい人の世界は住みにくい。
+        title="news title"
+        date="YYYY/MM/DD"
+        summary="人の世界は住みにくい人の世界は住みにくい人の世界は住みにくい。
         人の世界は住みにくい人の世界は住みにくい人の世界は住みにくい。"
-        Author="だれかさん"
+        author="だれかさん"
+        to="/blog"
       />
       <FeaturedBlog
-        Title="newstitle"
-        Date="YYYY/MM/DD"
-        Article="人の世界は住みにくい人の世界は住みにくい人の世界は住みにくい。
+        title="news title"
+        date="YYYY/MM/DD"
+        summary="人の世界は住みにくい人の世界は住みにくい人の世界は住みにくい。
         人の世界は住みにくい人の世界は住みにくい人の世界は住みにくい。"
-        Author="だれかさん"
+        author="だれかさん"
+        to="/blog"
       />
       <FeaturedBlog
-        Title="newstitle"
-        Date="YYYY/MM/DD"
-        Article="人の世界は住みにくい人の世界は住みにくい人の世界は住みにくい。
+        title="news title"
+        date="YYYY/MM/DD"
+        summary="人の世界は住みにくい人の世界は住みにくい人の世界は住みにくい。
         人の世界は住みにくい人の世界は住みにくい人の世界は住みにくい。"
-        Author="だれかさん"
+        author="だれかさん"
+        to="/blog"
       />
     </BlogWrapper>
-    <Container>
-      <Button>more</Button>
-    </Container>
-  </FeaturedBlogWrapperStyle>
+    <MoreButton to="/blog" />
+  </Wrapper>
 );
 
-const FeaturedBlogWrapperStyle = styled.div`
-  color: white;
+const Wrapper = styled.div`
   background-color: ${chkColors.aqua};
-  height: 600px;
-  margin: 8px;
-  border-radius: 5px;
-  box-shadow: 2px 2px 2px gray;
+  margin: 10px;
+  padding: 50px 40px;
+  border-radius: 8px;
 `;
 
 const Title = styled.h1`
-  font-size: 1.5em;
+  font-size: 1.5rem;
   text-align: center;
   color: ${chkColors.white};
-`;
-
-// Create a Wrapper component that'll render a <section> tag with some styles
-const TitleWrapper = styled.div`
-  padding-top: 10px;
 `;
 
 const BlogWrapper = styled.div`
-  padding: 5px 20px;
-`;
-
-const Button = styled(ChkButtonBase)`
-  text-align: center;
-  display: inline-block;
-  width: 20%;
-  padding: 10px 35px;
-  border-radius: 25px;
-  text-decoration: none;
-  color: ${chkColors.white};
-  background: ${chkColors.orange};
-`;
-
-const Container = styled.div`
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
 `;
