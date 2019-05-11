@@ -40,7 +40,7 @@ export const RadioSearcher = () => (
           tag6
         </RadioSearchTagButton>
       </RadioSearchTagButtonWrapper>
-      <RadioSearchButton type="submit">Search</RadioSearchButton>
+      <RadioSearchButton>Search</RadioSearchButton>
     </form>
   </Wrapper>
 );
