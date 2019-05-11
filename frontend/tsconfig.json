@@ -1,16 +1,19 @@
 {
   "compilerOptions": {
     "sourceMap": true,
-    "noImplicitAny": true,
-    "module": "commonjs",
-    "target": "es2017",
+    "module": "esnext",
+    "target": "es2015",
     "jsx": "react",
     "typeRoots": ["node_modules/@types", "src/typings"],
     "strict": true,
+    "strictNullChecks": true,
+    "noImplicitAny": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
     "forceConsistentCasingInFileNames": true,
     "newLine": "LF"
   },
