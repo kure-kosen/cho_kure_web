@@ -36,6 +36,14 @@ module.exports = merge(common, {
           },
         ],
       },
+      {
+        test: /\.(js|jsx)$/,
+        loader: 'babel-loader',
+        exclude: /node_modules/,
+        options: {
+          cacheDirectory: true,
+        }
+      },
     ],
   }
 });
