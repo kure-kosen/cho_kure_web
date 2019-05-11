@@ -1,0 +1,52 @@
+{
+  "name": "cho_kure_web",
+  "version": "1.0.0",
+  "main": "src/index.js",
+  "repository": "git@github.com:kure-kosen/cho_kure_web.git",
+  "author": "Shintani Teppei <teppest1215@gmail.com>",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "build": "webpack --config ./config/webpack.config.prod.js",
+    "start": "webpack-dev-server --hot --config ./config/webpack.config.dev.js",
+    "lint": "npx tslint --fix -c ./tslint.json 'src/**/*{.ts,.tsx}'"
+  },
+  "devDependencies": {
+    "awesome-typescript-loader": "^5.0.0",
+    "babel-loader": "^7.1.4",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "css-loader": "^0.28.11",
+    "source-map-loader": "^0.2.3",
+    "style-loader": "^0.21.0",
+    "typescript": "^3.4.5",
+    "webpack": "^4.10.2",
+    "webpack-cli": "^2.1.4"
+  },
+  "dependencies": {
+    "@types/react": "^16.3.16",
+    "@types/react-dom": "^16.0.5",
+    "@types/react-router-dom": "^4.2.7",
+    "@types/react-slick": "^0.23.4",
+    "@types/styled-components": "^4.1.6",
+    "babel-polyfill": "^6.26.0",
+    "clean-webpack-plugin": "^1.0.0",
+    "file-loader": "^1.1.11",
+    "normalize.css": "^8.0.0",
+    "prettier": "^1.15.3",
+    "react": "^16.4.0",
+    "react-dom": "^16.4.0",
+    "react-router-dom": "^4.3.1",
+    "react-slick": "^0.24.0",
+    "react-twitter-widgets": "^1.7.1",
+    "slick-carousel": "^1.8.1",
+    "styled-components": "^4.1.3",
+    "tslint": "^5.11.0",
+    "tslint-config-prettier": "^1.17.0",
+    "tslint-plugin-prettier": "^2.0.1",
+    "url-loader": "^1.0.1",
+    "webpack-dev-server": "^3.1.10",
+    "webpack-manifest-plugin": "^2.0.4",
+    "webpack-merge": "^4.1.4"
+  }
+}
