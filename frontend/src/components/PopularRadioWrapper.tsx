@@ -3,9 +3,9 @@ import styled from "styled-components";
 
 import { title } from "./../commons/style";
 import { chkColors } from "./../commons/color";
-import ChkButtonBase from "../commons/ChkButtonBase";
 
 import * as sidebarRadioImg from "./../../images/sidebar-radio-img.png";
+import MoreButton from "./MoreButton";
 import { PopularRadioCard } from "./PopularRadioCard";
 
 export const PopularRadioWrapper = () => (
@@ -28,9 +28,7 @@ export const PopularRadioWrapper = () => (
         description="エナジードリンク、お年玉の使い道、登山、Advent Calendar、エディタ、LTalksなどの話をしました。"
       />
     </PopularRadioCardWrapper>
-    <MoreButtonWrapper>
-      <MoreButton to="/radios" text="more" />
-    </MoreButtonWrapper>
+    <MoreButton to="/radios" />
   </PopularRadioWrapperStyle>
 );
 
@@ -51,11 +49,3 @@ const PopularRadioCardWrapper = styled.div`
   width: auto;
   height: auto;
 `;
-
-const MoreButtonWrapper = styled.div`
-  margin: 0 auto;
-  margin-top: 20px;
-  width: 70%;
-`;
-
-const MoreButton = styled(ChkButtonBase)``;
