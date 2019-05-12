@@ -31,7 +31,13 @@
     ],
     "prettier": true
   },
-  "jsRules": {
-    "object-literal-sort-keys": false
+  "jsRules": true,
+  "linterOptions": {
+    "exclude": [
+      "node_modules/",
+      "./css",
+      "./fonts",
+      "./images"
+    ]
   }
 }
