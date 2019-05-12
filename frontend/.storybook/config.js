@@ -1,5 +1,5 @@
 import {setConsoleOptions} from '@storybook/addon-console';
-import {} from '@storybook/react';
+import {withKnobs} from '@storybook/addon-knobs/react';
 import {addDecorator, addParameters, configure} from '@storybook/react';
 import React from 'react';
 
@@ -29,6 +29,7 @@ function withGlobalStyles(storyFn) {
 }
 
 addDecorator(withGlobalStyles);
+addDecorator(withKnobs);
 
 function loadStories() {
   const req = require.context('../src/stories/', true, /\.stories\.(tsx|js)$/);
