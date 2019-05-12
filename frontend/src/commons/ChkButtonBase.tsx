@@ -14,29 +14,29 @@ interface IPropsChkButtonBase extends IPropsCss {
   to?: string;
   text: string | React.ReactNode;
   name?: string;
+  onClick?: (e: any) => any;
 }
 
 const ChkButtonBase = (props: IPropsChkButtonBase) => {
-  const { to, text, name } = props;
-  const { color, bgcolor, border } = props;
+  const { to, text, name, color, bgcolor, border, onClick, ...otherProps } = props;
 
   if (to) {
     if (to.startsWith("http")) {
       return (
-        <ATag color={color} bgcolor={bgcolor} border={border} href={to}>
+        <ATag color={color} bgcolor={bgcolor} border={border} href={to} {...otherProps}>
           {text}
         </ATag>
       );
     } else {
       return (
-        <LinkTag color={color} bgcolor={bgcolor} border={border} to={to}>
+        <LinkTag color={color} bgcolor={bgcolor} border={border} to={to} {...otherProps}>
           {text}
         </LinkTag>
       );
     }
   } else {
     return (
-      <ButtonTag name={name} color={color} bgcolor={bgcolor} border={border}>
+      <ButtonTag name={name} color={color} bgcolor={bgcolor} border={border} onClick={onClick} {...otherProps}>
         {text}
       </ButtonTag>
     );
