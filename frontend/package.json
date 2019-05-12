@@ -9,11 +9,14 @@
   "scripts": {
     "build": "webpack --config ./config/webpack.config.prod.js",
     "start": "webpack-dev-server --hot --config ./config/webpack.config.dev.js",
-    "lint": "npx tslint --fix -c ./tslint.json 'src/**/*{.ts,.tsx}'"
+    "lint": "npx tslint --fix -c ./tslint.json 'src/**/*{.ts,.tsx}'",
+    "storybook": "start-storybook"
   },
   "devDependencies": {
+    "@babel/core": "^7.4.4",
+    "@storybook/react": "^5.0.11",
     "awesome-typescript-loader": "^5.0.0",
-    "babel-loader": "^7.1.4",
+    "babel-loader": "^8.0.5",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
     "css-loader": "^0.28.11",
