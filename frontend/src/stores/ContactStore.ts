@@ -2,13 +2,13 @@ import ContactApi from "../api/ContactApi";
 import ContactModel from "../models/ContactModel";
 
 export default class ContactStore {
-  transportLayer: ContactApi;
+  public transportLayer: ContactApi;
 
   constructor(transportLayer: ContactApi) {
     this.transportLayer = transportLayer;
   }
 
-  createContact(json: object) {
+  public createContact(json: object) {
     return new ContactModel(this, json);
   }
 }

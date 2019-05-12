@@ -2,17 +2,17 @@ import { computed } from "mobx";
 import ContactStore from "../stores/ContactStore";
 
 export default class ContactModel {
-  store: ContactStore;
+  public store: ContactStore;
 
-  id: number;
-  readable: boolean;
-  corner: number;
-  message: string;
-  nickname?: string;
-  name?: string;
-  email: string;
-  department: number;
-  grade: number;
+  public id: number;
+  public readable: boolean;
+  public corner: number;
+  public message: string;
+  public nickname?: string;
+  public name?: string;
+  public email: string;
+  public department: number;
+  public grade: number;
 
   constructor(store: ContactStore, json: any) {
     this.store = store;
@@ -29,23 +29,24 @@ export default class ContactModel {
     this.grade = grade;
   }
 
-  save(successed: (res: object) => void, failed: (res: object) => void) {
+  public save(successed: (res: object) => void, failed: (res: object) => void) {
     console.log(this.toJson);
     return this.store.transportLayer.saveContact(this.toJson, successed, failed);
   }
 
   @computed
   get toJson() {
+    const { id, readable, corner, message, nickname, name, email, department, grade } = this;
     return {
-      id: this.id,
-      readable: this.readable,
-      corner: this.corner,
-      message: this.message,
-      nickname: this.nickname,
-      name: this.name,
-      email: this.email,
-      department: this.department,
-      grade: this.grade,
+      id,
+      readable,
+      corner,
+      message,
+      nickname,
+      name,
+      email,
+      department,
+      grade
     };
   }
 }
