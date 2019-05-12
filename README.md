@@ -24,7 +24,7 @@ bin/setup
 
 ### StorybookによるUIテスト
 
-`cho-kure-web-storybook.netlify.com` から確認できます。
+[cho-kure-web-storybook.netlify.com](cho-kure-web-storybook.netlify.com) から確認できます。
 
 ## その他
 * 開発中にアプリケーションが送信したメールは `/letter_opener` で確認できます。
