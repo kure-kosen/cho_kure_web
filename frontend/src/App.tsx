@@ -5,9 +5,9 @@ import { Main } from "./layouts/Main";
 import { Footer } from "./layouts/Footer";
 
 export const App = () => (
-  <div>
+  <React.Fragment>
     <Header />
     <Main />
     <Footer />
-  </div>
+  </React.Fragment>
 );

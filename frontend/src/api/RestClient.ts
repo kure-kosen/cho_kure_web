@@ -1,21 +1,21 @@
 export default class RestClient {
-  axios: any;
+  public axios: any;
 
   constructor(baseUrl: string) {
     const axiosBase = require("axios");
-    const csrfToken = (<HTMLMetaElement>document.querySelector("meta[name=csrf-token]")).content;
+    const csrfToken = (document.querySelector("meta[name=csrf-token]") as HTMLMetaElement).content;
 
     this.axios = axiosBase.create({
       baseURL: baseUrl,
       timeout: 1000,
       headers: {
         "Content-Type": "application/json",
-        "X-CSRF-TOKEN": csrfToken,
-      },
+        "X-CSRF-TOKEN": csrfToken
+      }
     });
   }
 
-  get(
+  public get(
     path: string,
     params: object,
     successed: (res: object) => void,
@@ -23,7 +23,7 @@ export default class RestClient {
     always = () => {}
   ) {
     return this.axios
-      .get(path, { params: params })
+      .get(path, { params })
       .then((result: object) => {
         console.log(`GET ${this.axios.baseURL}/${path}`);
         console.log(`result: ${JSON.stringify(result)}`);
@@ -37,7 +37,7 @@ export default class RestClient {
       .then(always());
   }
 
-  post(
+  public post(
     path: string,
     params: object,
     successed: (res: object) => void,
@@ -59,7 +59,7 @@ export default class RestClient {
       .then(always());
   }
 
-  delete(
+  public delete(
     path: string,
     params: object,
     successed: (res: object) => void,

@@ -2,6 +2,7 @@ import * as React from "react";
 import styled from "styled-components";
 
 import { media } from "../commons/style";
+import ChkButtonBase from "../commons/ChkButtonBase";
 
 import { HeroArea } from "../components/HeroArea";
 import { ContactHeroContent } from "../components/ContactHeroContent";

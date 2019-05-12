@@ -4,13 +4,13 @@ import { ChkButtonBase } from "../commons/ChkButtonBase";
 import { chkColors } from "../commons/color";
 import ContactStore from "../stores/ContactStore";
 
-type Prop = {
+interface Prop {
   contactStore: ContactStore;
   successed: (res: object) => void;
   failed: (res: object) => void;
-};
+}
 
-type State = {
+interface State {
   name: string;
   corner?: number;
   department?: number;
@@ -19,7 +19,7 @@ type State = {
   nickname: string;
   message: string;
   readable: boolean;
-};
+}
 
 export default class ContactForm extends React.Component<Prop, State> {
   constructor(props: Prop) {
@@ -32,13 +32,13 @@ export default class ContactForm extends React.Component<Prop, State> {
       email: "",
       nickname: "",
       message: "",
-      readable: false,
+      readable: false
     };
 
     this.createContact = this.createContact.bind(this);
   }
 
-  render() {
+  public render() {
     return (
       <form onSubmit={this.createContact}>
         <ContactFormInputWrapper>
@@ -141,7 +141,7 @@ export default class ContactForm extends React.Component<Prop, State> {
     );
   }
 
-  createContact(e: any) {
+  public createContact(e: any) {
     e.preventDefault();
 
     const { contactStore } = this.props;
