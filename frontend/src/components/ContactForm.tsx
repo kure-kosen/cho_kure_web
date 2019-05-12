@@ -1,16 +1,15 @@
 import * as React from "react";
 import styled from "styled-components";
-import { ChkButtonBase } from "../commons/ChkButtonBase";
-import { chkColors } from "../commons/color";
 import ContactStore from "../stores/ContactStore";
+import ChkButtonBase from "../commons/ChkButtonBase";
 
-type Prop = {
+interface IProp {
   contactStore: ContactStore;
   successed: (res: object) => void;
   failed: (res: object) => void;
-};
+}
 
-type State = {
+interface IState {
   name: string;
   corner?: number;
   department?: number;
@@ -19,10 +18,10 @@ type State = {
   nickname: string;
   message: string;
   readable: boolean;
-};
+}
 
-export default class ContactForm extends React.Component<Prop, State> {
-  constructor(props: Prop) {
+export default class ContactForm extends React.Component<IProp, IState> {
+  constructor(props: IProp) {
     super(props);
     this.state = {
       name: "",
@@ -32,15 +31,15 @@ export default class ContactForm extends React.Component<Prop, State> {
       email: "",
       nickname: "",
       message: "",
-      readable: false,
+      readable: false
     };
 
     this.createContact = this.createContact.bind(this);
   }
 
-  render() {
+  public render() {
     return (
-      <form onSubmit={this.createContact}>
+      <form>
         <ContactFormInputWrapper>
           <ContactFormInput
             name="name"
@@ -54,7 +53,11 @@ export default class ContactForm extends React.Component<Prop, State> {
           <ContactFormSelect
             name="corner"
             value={this.state.corner}
-            onChange={(e: any) => this.setState({ corner: e.target.value })}
+            onChange={(e: any) =>
+              this.setState({
+                corner: e.target.value
+              })
+            }
             required
           >
             <option value="">題名*</option>
@@ -82,7 +85,11 @@ export default class ContactForm extends React.Component<Prop, State> {
           <ContactFormSelectHalf
             name="grade"
             value={this.state.grade}
-            onChange={(e: any) => this.setState({ grade: e.target.value })}
+            onChange={(e: any) =>
+              this.setState({
+                grade: e.target.value
+              })
+            }
             required
           >
             <option value="">学年*</option>
@@ -136,12 +143,12 @@ export default class ContactForm extends React.Component<Prop, State> {
             ラジオ内でメッセージを読み上げてもいい場合はチェックをつけてください
           </label>
         </ContactFormInputWrapper>
-        <ContactFormButton>送信</ContactFormButton>
+        <ContactFormButton text="送信" onClick={this.createContact} />
       </form>
     );
   }
 
-  createContact(e: any) {
+  public createContact(e: any) {
     e.preventDefault();
 
     const { contactStore } = this.props;
@@ -190,7 +197,7 @@ const ContactFormSelect = styled.select`
   color: #00afec;
 `;
 
-const ContactFormSelectHalf = ContactFormSelect.extend`
+const ContactFormSelectHalf = styled(ContactFormSelect)`
   width: 50%;
 `;
 
@@ -219,11 +226,4 @@ const ContactFormCheckbox = styled.input`
   margin-right: 10px;
 `;
 
-const ContactFormButton = ChkButtonBase.extend`
-  background-color: ${chkColors.orange};
-  width: 30%;
-  margin-top: 40px;
-  margin-left: auto;
-  margin-right: auto;
-  border-radius: 20px;
-`;
+const ContactFormButton = styled(ChkButtonBase)``;
