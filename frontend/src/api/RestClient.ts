@@ -1,80 +1,87 @@
+import axios, { AxiosInstance, AxiosResponse, AxiosError } from "axios";
+
 export default class RestClient {
-  axios: any;
+  public axios: AxiosInstance;
 
   constructor(baseUrl: string) {
-    const axiosBase = require("axios");
-    const csrfToken = (<HTMLMetaElement>document.querySelector("meta[name=csrf-token]")).content;
+    const csrfToken = (document.querySelector("meta[name=csrf-token]") as HTMLMetaElement).content;
 
-    this.axios = axiosBase.create({
+    this.axios = axios.create({
       baseURL: baseUrl,
       timeout: 1000,
       headers: {
         "Content-Type": "application/json",
-        "X-CSRF-TOKEN": csrfToken,
-      },
+        "X-CSRF-TOKEN": csrfToken
+      }
     });
   }
 
-  get(
+  public get(
     path: string,
     params: object,
     successed: (res: object) => void,
     errored: (res: object) => void,
-    always = () => {}
+    always: () => any = () => {}
   ) {
     return this.axios
-      .get(path, { params: params })
-      .then((result: object) => {
-        console.log(`GET ${this.axios.baseURL}/${path}`);
+      .get(path, { params })
+      .then((result: AxiosResponse) => {
+        console.log(`GET ${result.config.url}`);
+        if (params) console.log(`Params: ${JSON.stringify(params)}`);
         console.log(`result: ${JSON.stringify(result)}`);
         successed(result);
       })
-      .catch((error: object) => {
-        console.log(`ERROR! GET ${this.axios.baseURL}/${path}`);
+      .catch((error: AxiosError) => {
+        console.log(`ERROR! GET ${error.config.url}`);
+        if (params) console.log(`ERROR! Params: ${JSON.stringify(params)}`);
         console.log(`error: ${JSON.stringify(error)}`);
         errored(error);
       })
       .then(always());
   }
 
-  post(
+  public post(
     path: string,
     params: object,
     successed: (res: object) => void,
     errored: (res: object) => void,
-    always = () => {}
+    always: () => any = () => {}
   ) {
     return this.axios
       .post(path, params)
-      .then((result: object) => {
-        console.log(`POST ${this.axios.baseURL}/${path}`);
+      .then((result: AxiosResponse) => {
+        console.log(`POST ${result.config.url}`);
+        if (params) console.log(`Params: ${JSON.stringify(params)}`);
         console.log(`result: ${result}`);
         successed(result);
       })
-      .catch((error: object) => {
-        console.log(`ERROR! POST ${this.axios.baseURL}/${path}`);
+      .catch((error: AxiosError) => {
+        console.log(`ERROR! POST ${error.config.url}`);
+        if (params) console.log(`ERROR! Params: ${JSON.stringify(params)}`);
         console.log(`error: ${error}`);
         errored(error);
       })
       .then(always());
   }
 
-  delete(
+  public delete(
     path: string,
     params: object,
     successed: (res: object) => void,
     errored: (res: object) => void,
-    always = () => {}
+    always: () => any = () => {}
   ) {
     return this.axios
       .delete(path, { data: { params } })
-      .then((result: object) => {
-        console.log(`DELETE ${this.axios.baseURL}/${path}`);
+      .then((result: AxiosResponse) => {
+        console.log(`DELETE ${result.config.url}`);
+        if (params) console.log(`Params: ${JSON.stringify(params)}`);
         console.log(`result: ${result}`);
         successed(result);
       })
-      .catch((error: object) => {
-        console.log(`ERROR! DELETE ${this.axios.baseURL}/${path}`);
+      .catch((error: AxiosError) => {
+        console.log(`ERROR! DELETE ${error.config.url}`);
+        if (params) console.log(`ERROR! Params: ${JSON.stringify(params)}`);
         console.log(`error: ${error}`);
         errored(error);
       })
