@@ -1,7 +1,4 @@
 import * as React from "react";
-import { MemoryRouter } from "react-router";
-
-import { withInfo } from "@storybook/addon-info";
 import { storiesOf } from "@storybook/react";
 
 import { text10, text30, text100, text200 } from "./fakers/text";
@@ -9,8 +6,6 @@ import { text10, text30, text100, text200 } from "./fakers/text";
 import { FeaturedBlog } from "../components/FeaturedBlog";
 
 storiesOf("FeaturedBlog", module)
-  .addDecorator(withInfo({ inline: true }))
-  .addDecorator(story => <MemoryRouter initialEntries={["/", "posts"]}>{story()}</MemoryRouter>)
   .add("default", () => (
     <FeaturedBlog
       title="news title"
