@@ -10,7 +10,8 @@
     "build": "webpack --config ./config/webpack.config.prod.js",
     "start": "webpack-dev-server --hot --config ./config/webpack.config.dev.js",
     "lint": "npx tslint --fix -c ./tslint.json 'src/**/*{.ts,.tsx}'",
-    "storybook": "start-storybook -p 9001 -c .storybook"
+    "storybook": "start-storybook -p 9001 -c .storybook",
+    "build-storybook": "build-storybook -c .storybook"
   },
   "devDependencies": {
     "@babel/core": "^7.4.4",
