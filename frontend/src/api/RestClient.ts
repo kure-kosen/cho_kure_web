@@ -27,13 +27,13 @@ export default class RestClient {
       .get(path, { params })
       .then((result: AxiosResponse) => {
         console.log(`GET ${result.config.url}`);
-        if (params) console.log(`Params: ${JSON.stringify(params)}`);
-        console.log(`result: ${JSON.stringify(result)}`);
+        if (params) console.table(params);
+        console.log(`status: ${result.status}, statusText: ${result.statusText}`);
         successed(result);
       })
       .catch((error: AxiosError) => {
         console.log(`ERROR! GET ${error.config.url}`);
-        if (params) console.log(`ERROR! Params: ${JSON.stringify(params)}`);
+        if (params) console.table(params);
         console.log(`error: ${JSON.stringify(error)}`);
         errored(error);
       })
@@ -51,13 +51,13 @@ export default class RestClient {
       .post(path, params)
       .then((result: AxiosResponse) => {
         console.log(`POST ${result.config.url}`);
-        if (params) console.log(`Params: ${JSON.stringify(params)}`);
-        console.log(`result: ${result}`);
+        if (params) console.table(params);
+        console.log(`status: ${result.status}, statusText: ${result.statusText}`);
         successed(result);
       })
       .catch((error: AxiosError) => {
         console.log(`ERROR! POST ${error.config.url}`);
-        if (params) console.log(`ERROR! Params: ${JSON.stringify(params)}`);
+        if (params) console.table(params);
         console.log(`error: ${error}`);
         errored(error);
       })
@@ -75,13 +75,13 @@ export default class RestClient {
       .delete(path, { data: { params } })
       .then((result: AxiosResponse) => {
         console.log(`DELETE ${result.config.url}`);
-        if (params) console.log(`Params: ${JSON.stringify(params)}`);
-        console.log(`result: ${result}`);
+        if (params) console.table(params);
+        console.log(`status: ${result.status}, statusText: ${result.statusText}`);
         successed(result);
       })
       .catch((error: AxiosError) => {
         console.log(`ERROR! DELETE ${error.config.url}`);
-        if (params) console.log(`ERROR! Params: ${JSON.stringify(params)}`);
+        if (params) console.table(params);
         console.log(`error: ${error}`);
         errored(error);
       })
