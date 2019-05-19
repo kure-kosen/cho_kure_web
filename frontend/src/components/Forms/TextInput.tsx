@@ -55,7 +55,7 @@ export default ({ value, name, placeholder, multiLine, onChange, type = "text" }
     styledFocus: inFocus ? true : false
   };
 
-  return multiLine ? <StyledTextarea {...props} /> : <StyledInput {...props} />;
+  return multiLine ? <StyledTextarea {...props} rows={4} /> : <StyledInput {...props} />;
 };
 
 // TODO: focus時とそうでない時で背景かアウトラインのデザインを変える
