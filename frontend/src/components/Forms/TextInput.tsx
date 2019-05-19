@@ -19,7 +19,6 @@ export default ({ value, name, placeholder, multiLine, onChange, type = "text" }
   const handleChange = React.useCallback((e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const data = e.target.value;
     setCurrentInputValue(data);
-    console.log(data);
 
     if (onChange) {
       onChange(data);
