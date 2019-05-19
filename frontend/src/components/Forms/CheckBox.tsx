@@ -1,22 +1,20 @@
 import * as React from "react";
 import styled from "styled-components";
 
-// TODO: childrenの型が分からない
 export interface ITextInputProps {
-  children: any;
-  value?: string;
+  children: string;
+  checked: boolean;
   name?: string;
-  onChange?(value: string): void;
+  onChange?(value: boolean): void;
 }
 
-export default ({ value, name, onChange, children }: ITextInputProps) => {
-  const [currentValue, setCurrentValue] = React.useState(value);
+export default ({ checked, name, onChange, children }: ITextInputProps) => {
+  const [currentChecked, setCurrentChecked] = React.useState(checked);
   const [inFocus, setInFocus] = React.useState(false);
 
-  const handleChange = React.useCallback((e: React.ChangeEvent<HTMLSelectElement>) => {
-    const data = e.target.value;
-    setCurrentValue(data);
-    console.log(data);
+  const handleChange = React.useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
+    const data = e.target.checked;
+    setCurrentChecked(data);
 
     if (onChange) {
       onChange(data);
@@ -34,37 +32,32 @@ export default ({ value, name, onChange, children }: ITextInputProps) => {
 
   React.useEffect(
     () => {
-      if (value != null) {
-        setCurrentValue(value);
+      if (checked !== null) {
+        setCurrentChecked(checked);
       }
     },
-    [value]
+    [checked]
   );
 
   const props = {
     onFocus: handleFocus,
     onBlur: handleBlur,
     id: name,
-    value: currentValue,
+    checked: currentChecked,
     onChange: handleChange,
     styledFocus: inFocus ? true : false
   };
 
-  return <StyledSelect {...props}>{children}</StyledSelect>;
+  return (
+    <label>
+      <StyledCheckBox {...props} type="checkbox" />
+      {children}
+    </label>
+  );
 };
 
 // TODO: focus時とそうでない時で背景かアウトラインのデザインを変える
-const StyledSelect = styled.select`
-  -moz-appearance: none;
-  -webkit-appearance: none;
-  appearance: none;
-  width: 100%;
-  line-height: 1.5rem;
-  padding: 5px;
-  padding-left: 30px;
-  border: 2px solid #00afec;
-  border-radius: 1.5rem;
-  background: none transparent;
-  vertical-align: middle;
-  color: #00afec;
+const StyledCheckBox = styled.input`
+  margin-left: 20px;
+  margin-right: 10px;
 `;
