@@ -10,14 +10,12 @@ export interface ITextInputProps {
 }
 
 export default ({ value, name, onChange, children }: ITextInputProps) => {
-  console.log(typeof children);
   const [currentValue, setCurrentValue] = React.useState(value);
   const [inFocus, setInFocus] = React.useState(false);
 
   const handleChange = React.useCallback((e: React.ChangeEvent<HTMLSelectElement>) => {
     const data = e.target.value;
     setCurrentValue(data);
-    console.log(data);
 
     if (onChange) {
       onChange(data);
