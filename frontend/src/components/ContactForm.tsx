@@ -13,6 +13,10 @@ interface IProp {
   contactStore: ContactStore;
   successed: (res: object) => void;
   failed: (res: object) => void;
+  alert: {
+    message: string;
+    status?: string;
+  };
 }
 
 export default (props: IProp) => {
@@ -46,67 +50,80 @@ export default (props: IProp) => {
 
   // TODO(euglena1215): requiredの*をべた書きで書かなくてもいいようにする
   return (
-    <form>
-      <InlineWrapper>
-        <TextInput name="name" placeholder="名前" onChange={setName} value={name} />
-      </InlineWrapper>
+    <>
+      {props.alert.status === "successed" && (
+        <SuccessedAlertBar>
+          <p>{props.alert.message}</p>
+        </SuccessedAlertBar>
+      )}
+      {props.alert.status === "failed" && (
+        <FailedAlertBar>
+          <p>{props.alert.message}</p>
+        </FailedAlertBar>
+      )}
 
-      <InlineWrapper>
-        <Select name="corner" onChange={setCorner} value={corner}>
-          <option value="">題名*</option>
-          <option value="0">ふつうのお便り</option>
-          <option value="10">ラジオへの感想・意見</option>
-          <option value="20">ラジオ出演</option>
-          <option value="30">バグ報告</option>
-        </Select>
-      </InlineWrapper>
+      <form>
+        <InlineWrapper>
+          <TextInput name="name" placeholder="名前" onChange={setName} value={name} />
+        </InlineWrapper>
 
-      <InlineWrapper>
-        <InlineHalfWrapper>
-          <Select name="department" onChange={setDepartment} value={department}>
-            <option value="">所属*</option>
-            <option value="10">機械工科</option>
-            <option value="20">電気情報工学科</option>
-            <option value="30">環境都市工学科</option>
-            <option value="40">建築学科</option>
-            <option value="50">専攻科</option>
-            <option value="60">卒業生</option>
+        <InlineWrapper>
+          <Select name="corner" onChange={setCorner} value={corner}>
+            <option value="">題名*</option>
+            <option value="0">ふつうのお便り</option>
+            <option value="10">ラジオへの感想・意見</option>
+            <option value="20">ラジオ出演</option>
+            <option value="30">バグ報告</option>
           </Select>
-        </InlineHalfWrapper>
-        <InlineHalfWrapper>
-          <Select name="grade" onChange={setGrade} value={grade}>
-            <option value="">学年*</option>
-            <option value="10">1年生</option>
-            <option value="20">2年生</option>
-            <option value="30">3年生</option>
-            <option value="40">4年生</option>
-            <option value="50">5年生</option>
-            <option value="60">OGOB</option>
-            <option value="70">その他</option>
-          </Select>
-        </InlineHalfWrapper>
-      </InlineWrapper>
+        </InlineWrapper>
 
-      <InlineWrapper>
-        <TextInput name="email" placeholder="メールアドレス" onChange={setEmail} value={email} />
-      </InlineWrapper>
+        <InlineWrapper>
+          <InlineHalfWrapper>
+            <Select name="department" onChange={setDepartment} value={department}>
+              <option value="">所属*</option>
+              <option value="10">機械工科</option>
+              <option value="20">電気情報工学科</option>
+              <option value="30">環境都市工学科</option>
+              <option value="40">建築学科</option>
+              <option value="50">専攻科</option>
+              <option value="60">卒業生</option>
+            </Select>
+          </InlineHalfWrapper>
+          <InlineHalfWrapper>
+            <Select name="grade" onChange={setGrade} value={grade}>
+              <option value="">学年*</option>
+              <option value="10">1年生</option>
+              <option value="20">2年生</option>
+              <option value="30">3年生</option>
+              <option value="40">4年生</option>
+              <option value="50">5年生</option>
+              <option value="60">OGOB</option>
+              <option value="70">その他</option>
+            </Select>
+          </InlineHalfWrapper>
+        </InlineWrapper>
 
-      <InlineWrapper>
-        <TextInput name="nickname" placeholder="ラジオネーム" onChange={setNickname} value={nickname} />
-      </InlineWrapper>
+        <InlineWrapper>
+          <TextInput name="email" placeholder="メールアドレス" onChange={setEmail} value={email} />
+        </InlineWrapper>
 
-      <InlineWrapper>
-        <TextInput name="message" placeholder="メッセージ" onChange={setMessage} value={message} multiLine={true} />
-      </InlineWrapper>
+        <InlineWrapper>
+          <TextInput name="nickname" placeholder="ラジオネーム" onChange={setNickname} value={nickname} />
+        </InlineWrapper>
 
-      <InlineWrapper>
-        <CheckBox name="readable" onChange={setReadable} checked={readable}>
-          ラジオ内でメッセージを読み上げてもいい場合はチェックをつけてください
-        </CheckBox>
-      </InlineWrapper>
+        <InlineWrapper>
+          <TextInput name="message" placeholder="メッセージ" onChange={setMessage} value={message} multiLine={true} />
+        </InlineWrapper>
 
-      <ContactFormButton text="送信" onClick={createContact} />
-    </form>
+        <InlineWrapper>
+          <CheckBox name="readable" onChange={setReadable} checked={readable}>
+            ラジオ内でメッセージを読み上げてもいい場合はチェックをつけてください
+          </CheckBox>
+        </InlineWrapper>
+
+        <ContactFormButton text="送信" onClick={createContact} />
+      </form>
+    </>
   );
 };
 
@@ -120,3 +137,21 @@ const InlineHalfWrapper = styled.div`
 `;
 
 const ContactFormButton = styled(ChkButtonBase)``;
+
+const AlertBar = styled.div`
+  width: 80%;
+  margin: 10px auto;
+  line-height: 1.5rem;
+  padding: 5px;
+  border-radius: 1.5rem;
+  vertical-align: middle;
+  text-align: center;
+`;
+
+const SuccessedAlertBar = styled(AlertBar)`
+  background-color: #c9ecd4;
+`;
+
+const FailedAlertBar = styled(AlertBar)`
+  background-color: #ff9494;
+`;

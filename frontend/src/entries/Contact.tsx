@@ -1,5 +1,6 @@
 import * as React from "react";
 import styled from "styled-components";
+import { withRouter, RouteComponentProps } from "react-router-dom";
 import { inject } from "mobx-react";
 
 import RootStore from "../stores/RootStore";
@@ -22,7 +23,7 @@ interface IState {
 }
 
 @inject("rootStore")
-export default class Contact extends React.Component<IProp, IState> {
+class Contact extends React.Component<IProp & RouteComponentProps, IState> {
   constructor(props: any) {
     super(props);
     this.state = {
@@ -50,6 +51,7 @@ export default class Contact extends React.Component<IProp, IState> {
               contactStore={rootStore.contactStore}
               successed={this.successSendContact}
               failed={this.failSendContact}
+              alert={this.state.alert}
             />
           </div>
         </ContactFormWrapper>
@@ -59,8 +61,9 @@ export default class Contact extends React.Component<IProp, IState> {
 
   public successSendContact(_: object) {
     this.setState({
-      alert: { status: "successed", message: "おたよりを送信しました。" }
+      alert: { status: "successed", message: "おたよりを送信しました。 5秒後に自動でトップページに戻ります。" }
     });
+    setTimeout(() => console.log(this.props.history.push("/")), 5000);
   }
 
   public failSendContact(_: object) {
@@ -94,3 +97,5 @@ const ContactFormTitle = styled.div`
   text-align: center;
   color: #00afec;
 `;
+
+export default withRouter(Contact);
