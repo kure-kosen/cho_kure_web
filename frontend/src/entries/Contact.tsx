@@ -7,12 +7,13 @@ import { HeroArea } from "../components/HeroArea";
 import { ContactHeroContent } from "../components/ContactHeroContent";
 import { inject } from "../../node_modules/mobx-react";
 import RootStore from "../stores/RootStore";
-import ContactForm from "../components/ContactForm";
+import ContactForm from "../components/ContactForm2";
 
-interface Prop {
+interface IProp {
   rootStore?: RootStore;
 }
-interface State {
+
+interface IState {
   alert: {
     message: string;
     status?: string;
@@ -20,8 +21,8 @@ interface State {
 }
 
 @inject("rootStore")
-export default class Contact extends React.Component<Prop, State> {
-  constructor(props: Prop) {
+export default class Contact extends React.Component<IProp, IState> {
+  constructor(props: any) {
     super(props);
     this.state = {
       alert: {
@@ -57,11 +58,15 @@ export default class Contact extends React.Component<Prop, State> {
   }
 
   public successSendContact(_: object) {
-    this.setState({ alert: { status: "successed", message: "おたよりを送信しました。" } });
+    this.setState({
+      alert: { status: "successed", message: "おたよりを送信しました。" }
+    });
   }
 
   public failSendContact(_: object) {
-    this.setState({ alert: { status: "failed", message: "おたよりの送信に失敗しました。" } });
+    this.setState({
+      alert: { status: "failed", message: "おたよりの送信に失敗しました。" }
+    });
   }
 }
 
