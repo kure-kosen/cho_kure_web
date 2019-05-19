@@ -1,13 +1,14 @@
 import * as React from "react";
 import styled from "styled-components";
+import { inject } from "mobx-react";
+
+import RootStore from "../stores/RootStore";
 
 import { media } from "../commons/style";
 
 import { HeroArea } from "../components/HeroArea";
 import { ContactHeroContent } from "../components/ContactHeroContent";
-import { inject } from "../../node_modules/mobx-react";
-import RootStore from "../stores/RootStore";
-import ContactForm from "../components/ContactForm2";
+import ContactForm from "../components/ContactForm";
 
 interface IProp {
   rootStore?: RootStore;
@@ -38,7 +39,6 @@ export default class Contact extends React.Component<IProp, IState> {
   public render() {
     const rootStore = this.props.rootStore!;
 
-    // TODO(euglena1215): requiredの*をべた書きで書かなくてもいいようにする
     return (
       <div>
         <HeroArea InnerComponent={<ContactHeroContent />} />

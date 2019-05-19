@@ -44,6 +44,7 @@ export default (props: IProp) => {
     contact.save(props.successed, props.failed);
   };
 
+  // TODO(euglena1215): requiredの*をべた書きで書かなくてもいいようにする
   return (
     <form>
       <InlineWrapper>
