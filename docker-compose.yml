@@ -5,7 +5,6 @@ services:
     image: mysql:5.7.25
     environment:
         MYSQL_DATABASE: cho_kure_web_development
-        MYSQL_USER: root
         MYSQL_ROOT_PASSWORD: root
         MYSQL_PASSWORD: root
         MYSQL_PORT: 3306
@@ -15,38 +14,16 @@ services:
     build:
       context: .
       dockerfile: ./docker/backend/Dockerfile.dev
-    command: rails s -p 3000 -b '0.0.0.0'
+    command: /bin/sh -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
     volumes:
       - ./:/code
     ports:
       - "3000:3000"
     links:
       - "db"
+    env_file: .env
     environment:
       DATABASE_PASSWORD: root
       DATABASE_USER: root
       DATABASE_HOST: db
-      # DATABASE_PASSWORD: homepage
-      # DATABASE_USER: homepage
-      # DATABASE_HOST: db
       DATABASE_SOCKET: /tmp/mysql.sock
-      EC2_PRODUCTION_HOST: 52.199.95.54
-      EC2_PRODUCTION_PROTOCOL: http
-  # frontend:
-  #   build:
-  #     context: .
-  #     dockerfile: ./docker/frontend/Dockerfile.local
-  #   command: echo "frontend command"
-  #   volumes:
-  #     - ./:/code
-  #   ports:
-  #     - "3000:3000"
-  #   links:
-  #     - "db"
-  #   environment:
-  #     DATABASE_PASSWORD: homepage
-  #     DATABASE_USER: homepage
-  #     DATABASE_HOST: db
-  #     DATABASE_SOCKET: /tmp/mysql.sock
-  #     EC2_PRODUCTION_HOST: 52.199.95.54
-  #     EC2_PRODUCTION_PROTOCOL: http
