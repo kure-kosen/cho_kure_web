@@ -32,7 +32,6 @@ export default ({ value, name, placeholder, multiLine, onChange, type = "text" }
 
   // call: did handleFoucus
   const handleBlur = React.useCallback(() => {
-    console.log(inFocus);
     setInFocus(false);
   }, []);
 
