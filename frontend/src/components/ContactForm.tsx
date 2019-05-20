@@ -136,22 +136,28 @@ const InlineHalfWrapper = styled.div`
   display: inline-block;
 `;
 
-const ContactFormButton = styled(ChkButtonBase)``;
+const ContactFormButton = styled(ChkButtonBase)`
+  width: 40%;
+  margin: 0 auto;
+`;
 
 const AlertBar = styled.div`
-  width: 80%;
+  width: 100%;
   margin: 10px auto;
-  line-height: 1.5rem;
+  line-height: 1rem;
   padding: 5px;
-  border-radius: 1.5rem;
   vertical-align: middle;
+  border: 3px solid #000;
+  color: #000;
   text-align: center;
 `;
 
 const SuccessedAlertBar = styled(AlertBar)`
-  background-color: #c9ecd4;
+  border: 3px solid #3ed986;
+  color: #000;
 `;
 
 const FailedAlertBar = styled(AlertBar)`
-  background-color: #ff9494;
+  border: 3px solid #d95f3f;
+  color: #d95f3f;
 `;

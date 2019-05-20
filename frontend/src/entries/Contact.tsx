@@ -68,7 +68,10 @@ class Contact extends React.Component<IProp & RouteComponentProps, IState> {
 
   public failSendContact(_: object) {
     this.setState({
-      alert: { status: "failed", message: "おたよりの送信に失敗しました。" }
+      alert: {
+        status: "failed",
+        message: "おたよりの送信に失敗しました。 * がついている項目は全て記入して再送信してください。"
+      }
     });
   }
 }
