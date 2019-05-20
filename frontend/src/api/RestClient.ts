@@ -14,9 +14,27 @@ export default class RestClient {
         "X-CSRF-TOKEN": csrfToken
       }
     });
+
+    this.axios.interceptors.response.use(
+      response => {
+        const { config, data, status } = response;
+        const { method, params, url } = config;
+
+        console.group(`${method ? method.toUpperCase() : "undefined method"}:${status} - ${url}`);
+        if (params) console.table(params);
+        console.log(data);
+        console.groupEnd();
+
+        return response;
+      },
+      error => {
+        console.log(error);
+        return Promise.reject(error);
+      }
+    );
   }
 
-  public get(
+  public get<T>(
     path: string,
     params?: object,
     successed?: (res: object) => void,
@@ -25,19 +43,18 @@ export default class RestClient {
   ) {
     return this.axios
       .get(path, { params })
-      .then((result: AxiosResponse) => {
-        console.log(`GET ${result.config.url}`);
-        if (params) console.table(params);
-        console.log(`status: ${result.status}, statusText: ${result.statusText}`);
+      .then((result: AxiosResponse<T>) => {
         if (successed) successed(result);
+        return result;
       })
       .catch((error: AxiosError) => {
-        console.log(`ERROR! GET ${error.config.url}`);
-        if (params) console.table(params);
-        console.log(`error: ${JSON.stringify(error)}`);
         if (errored) errored(error);
       })
-      .then(always());
+      .then(result => {
+        always();
+        if (result) return result.data;
+        return result;
+      });
   }
 
   public post(
@@ -50,15 +67,9 @@ export default class RestClient {
     return this.axios
       .post(path, params)
       .then((result: AxiosResponse) => {
-        console.log(`POST ${result.config.url}`);
-        if (params) console.table(params);
-        console.log(`status: ${result.status}, statusText: ${result.statusText}`);
         successed(result);
       })
       .catch((error: AxiosError) => {
-        console.log(`ERROR! POST ${error.config.url}`);
-        if (params) console.table(params);
-        console.log(`error: ${error}`);
         errored(error);
       })
       .then(always());
@@ -74,15 +85,9 @@ export default class RestClient {
     return this.axios
       .delete(path, { data: { params } })
       .then((result: AxiosResponse) => {
-        console.log(`DELETE ${result.config.url}`);
-        if (params) console.table(params);
-        console.log(`status: ${result.status}, statusText: ${result.statusText}`);
         successed(result);
       })
       .catch((error: AxiosError) => {
-        console.log(`ERROR! DELETE ${error.config.url}`);
-        if (params) console.table(params);
-        console.log(`error: ${error}`);
         errored(error);
       })
       .then(always());
