@@ -15,4 +15,8 @@ export default class ContactApi {
   ) {
     return this.restClient.post("/api/v1/contacts", json, succussed, errored, always);
   }
+
+  public fetchContactEnum() {
+    return this.restClient.get("/api/v1/contacts/enum");
+  }
 }
