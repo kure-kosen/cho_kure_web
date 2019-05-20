@@ -18,9 +18,9 @@ export default class RestClient {
 
   public get(
     path: string,
-    params: object,
-    successed: (res: object) => void,
-    errored: (res: object) => void,
+    params?: object,
+    successed?: (res: object) => void,
+    errored?: (res: object) => void,
     always: () => any = () => {}
   ) {
     return this.axios
@@ -29,13 +29,13 @@ export default class RestClient {
         console.log(`GET ${result.config.url}`);
         if (params) console.table(params);
         console.log(`status: ${result.status}, statusText: ${result.statusText}`);
-        successed(result);
+        if (successed) successed(result);
       })
       .catch((error: AxiosError) => {
         console.log(`ERROR! GET ${error.config.url}`);
         if (params) console.table(params);
         console.log(`error: ${JSON.stringify(error)}`);
-        errored(error);
+        if (errored) errored(error);
       })
       .then(always());
   }
