@@ -53,7 +53,12 @@ export default ({ value, name, optionElements, onChange, children }: ITextInputP
   return (
     <StyledSelect {...props}>
       {children && children}
-      {optionElements && Object.keys(optionElements).map(v => <option value={optionElements[v]}>{v}</option>)}
+      {optionElements &&
+        Object.keys(optionElements).map(v => (
+          <option key={optionElements[v]} value={optionElements[v]}>
+            {v}
+          </option>
+        ))}
     </StyledSelect>
   );
 };
