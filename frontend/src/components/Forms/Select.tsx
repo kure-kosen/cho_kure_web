@@ -3,13 +3,14 @@ import styled from "styled-components";
 
 // TODO: childrenの型が分からない
 export interface ITextInputProps {
-  children: any;
+  children?: any;
   value?: string;
   name?: string;
+  optionElements?: { [key: string]: string | number };
   onChange?(value: string): void;
 }
 
-export default ({ value, name, onChange, children }: ITextInputProps) => {
+export default ({ value, name, optionElements, onChange, children }: ITextInputProps) => {
   const [currentValue, setCurrentValue] = React.useState(value);
   const [inFocus, setInFocus] = React.useState(false);
 
@@ -49,7 +50,12 @@ export default ({ value, name, onChange, children }: ITextInputProps) => {
     styledFocus: inFocus ? true : false
   };
 
-  return <StyledSelect {...props}>{children}</StyledSelect>;
+  return (
+    <StyledSelect {...props}>
+      {children && children}
+      {optionElements && Object.keys(optionElements).map(v => <option value={optionElements[v]}>{v}</option>)}
+    </StyledSelect>
+  );
 };
 
 // TODO: focus時とそうでない時で背景かアウトラインのデザインを変える
