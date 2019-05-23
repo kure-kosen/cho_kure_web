@@ -1,4 +1,4 @@
-import axios, { AxiosInstance, AxiosResponse, AxiosError } from "axios";
+import axios, { AxiosInstance } from "axios";
 
 export default class RestClient {
   public axios: AxiosInstance;
@@ -15,6 +15,7 @@ export default class RestClient {
       }
     });
 
+    // TODO: Productionではログを流さないようにする
     this.axios.interceptors.response.use(
       response => {
         const { config, data, status } = response;
@@ -34,62 +35,60 @@ export default class RestClient {
     );
   }
 
-  public get<T>(
+  public async get<T>(
     path: string,
     params?: object,
     successed?: (res: object) => void,
     errored?: (res: object) => void,
     always: () => any = () => {}
   ) {
-    return this.axios
-      .get(path, { params })
-      .then((result: AxiosResponse<T>) => {
-        if (successed) successed(result);
-        return result;
-      })
-      .catch((error: AxiosError) => {
-        if (errored) errored(error);
-      })
-      .then(result => {
-        always();
-        if (result) return result.data;
-        return result;
-      });
+    try {
+      const response = await this.axios.get<T>(path, { params });
+      if (successed) successed(response);
+      return response;
+    } catch (error) {
+      if (errored) errored(error);
+      throw error;
+    } finally {
+      always();
+    }
   }
 
-  public post(
+  public async post<T>(
     path: string,
-    params: object,
-    successed: (res: object) => void,
-    errored: (res: object) => void,
+    params?: object,
+    successed?: (res: object) => void,
+    errored?: (res: object) => void,
     always: () => any = () => {}
   ) {
-    return this.axios
-      .post(path, params)
-      .then((result: AxiosResponse) => {
-        successed(result);
-      })
-      .catch((error: AxiosError) => {
-        errored(error);
-      })
-      .then(always());
+    try {
+      const response = await this.axios.post<T>(path, params);
+      if (successed) successed(response);
+      return response;
+    } catch (error) {
+      if (errored) errored(error);
+      throw error;
+    } finally {
+      always();
+    }
   }
 
-  public delete(
+  public async delete<T>(
     path: string,
-    params: object,
-    successed: (res: object) => void,
-    errored: (res: object) => void,
+    params?: object,
+    successed?: (res: object) => void,
+    errored?: (res: object) => void,
     always: () => any = () => {}
   ) {
-    return this.axios
-      .delete(path, { data: { params } })
-      .then((result: AxiosResponse) => {
-        successed(result);
-      })
-      .catch((error: AxiosError) => {
-        errored(error);
-      })
-      .then(always());
+    try {
+      const response = await this.axios.delete<T>(path, { data: { params } });
+      if (successed) successed(response);
+      return response;
+    } catch (error) {
+      if (errored) errored(error);
+      throw error;
+    } finally {
+      always();
+    }
   }
 }
