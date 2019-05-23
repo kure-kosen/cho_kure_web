@@ -57,7 +57,7 @@ export default observer((props: IProp) => {
     contact.save(props.successed, props.failed);
   };
 
-  // TODO(euglena1215): requiredの*をべた書きで書かなくてもいいようにする
+  // TODO(euglena1215): validationをつける
   return contactEnum ? (
     <>
       {props.alert.status === "successed" && (
