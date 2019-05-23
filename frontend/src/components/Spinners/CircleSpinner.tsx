@@ -10,9 +10,6 @@ interface IProps {
 }
 
 export default ({ size = 35, color = chkColors.blue, isLoading = true }: IProps) => {
-  console.log(size);
-  console.log(color);
-
   return isLoading ? (
     <Wrapper>
       <StyledSpinner size={size} color={color} />
