@@ -1,5 +1,6 @@
 import * as React from "react";
 import styled from "styled-components";
+import { observer } from "mobx-react-lite";
 
 import ContactStore from "../stores/ContactStore";
 
@@ -8,6 +9,8 @@ import ChkButtonBase from "../commons/ChkButtonBase";
 import TextInput from "./Forms/TextInput";
 import Select from "./Forms/Select";
 import CheckBox from "./Forms/CheckBox";
+
+import CircleSpinner from "./Spinners/CircleSpinner";
 
 interface IProp {
   contactStore: ContactStore;
@@ -19,7 +22,14 @@ interface IProp {
   };
 }
 
-export default (props: IProp) => {
+export default observer((props: IProp) => {
+  const { contactStore } = props;
+  const { contactEnum } = contactStore;
+
+  React.useEffect(() => {
+    contactStore.fetchContactEnum();
+  }, []);
+
   const [name, setName] = React.useState("");
   const [corner, setCorner] = React.useState("");
   const [department, setDepartment] = React.useState("");
@@ -33,7 +43,6 @@ export default (props: IProp) => {
   const createContact = (e: any) => {
     e.preventDefault();
 
-    const { contactStore } = props;
     const contact = contactStore.createContact({
       name,
       corner,
@@ -49,7 +58,7 @@ export default (props: IProp) => {
   };
 
   // TODO(euglena1215): requiredの*をべた書きで書かなくてもいいようにする
-  return (
+  return contactEnum ? (
     <>
       {props.alert.status === "successed" && (
         <SuccessedAlertBar>
@@ -68,37 +77,25 @@ export default (props: IProp) => {
         </InlineWrapper>
 
         <InlineWrapper>
-          <Select name="corner" onChange={setCorner} value={corner}>
+          <Select name="corner" onChange={setCorner} value={corner} optionElements={contactEnum.corners}>
             <option value="">題名*</option>
-            <option value="0">ふつうのお便り</option>
-            <option value="10">ラジオへの感想・意見</option>
-            <option value="20">ラジオ出演</option>
-            <option value="30">バグ報告</option>
           </Select>
         </InlineWrapper>
 
         <InlineWrapper>
           <InlineHalfWrapper>
-            <Select name="department" onChange={setDepartment} value={department}>
+            <Select
+              name="department"
+              onChange={setDepartment}
+              value={department}
+              optionElements={contactEnum.departments}
+            >
               <option value="">所属*</option>
-              <option value="10">機械工科</option>
-              <option value="20">電気情報工学科</option>
-              <option value="30">環境都市工学科</option>
-              <option value="40">建築学科</option>
-              <option value="50">専攻科</option>
-              <option value="60">卒業生</option>
             </Select>
           </InlineHalfWrapper>
           <InlineHalfWrapper>
-            <Select name="grade" onChange={setGrade} value={grade}>
+            <Select name="grade" onChange={setGrade} value={grade} optionElements={contactEnum.grades}>
               <option value="">学年*</option>
-              <option value="10">1年生</option>
-              <option value="20">2年生</option>
-              <option value="30">3年生</option>
-              <option value="40">4年生</option>
-              <option value="50">5年生</option>
-              <option value="60">OGOB</option>
-              <option value="70">その他</option>
             </Select>
           </InlineHalfWrapper>
         </InlineWrapper>
@@ -112,7 +109,13 @@ export default (props: IProp) => {
         </InlineWrapper>
 
         <InlineWrapper>
-          <TextInput name="message" placeholder="メッセージ" onChange={setMessage} value={message} multiLine={true} />
+          <TextInput
+            name="message"
+            placeholder="内容・メッセージ*"
+            onChange={setMessage}
+            value={message}
+            multiLine={true}
+          />
         </InlineWrapper>
 
         <InlineWrapper>
@@ -124,8 +127,10 @@ export default (props: IProp) => {
         <ContactFormButton text="送信" onClick={createContact} />
       </form>
     </>
+  ) : (
+    <CircleSpinner />
   );
-};
+});
 
 const InlineWrapper = styled.div`
   margin: 20px;
