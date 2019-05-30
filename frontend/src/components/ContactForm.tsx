@@ -42,10 +42,23 @@ export default observer((props: IProp) => {
   const [message, setMessage] = React.useState("");
   const [readable, setReadable] = React.useState(false);
 
+  const [sendable, setSendable] = React.useState(false);
+
+  React.useEffect(
+    () => {
+      if (corner && department && grade && validateEmail(email).validity) {
+        setSendable(true);
+      } else {
+        setSendable(false);
+      }
+    },
+    [corner, department, grade, email]
+  );
+
   const createContact = (e: any) => {
     e.preventDefault();
 
-    if (!(corner && department && grade && validateEmail(email).validity)) return;
+    if (!sendable) return;
 
     const contact = contactStore.createContact({
       name,
@@ -140,7 +153,12 @@ export default observer((props: IProp) => {
           </CheckBox>
         </InlineWrapper>
 
-        <ContactFormButton text="送信" onClick={createContact} />
+        <ContactFormButton
+          text="送信"
+          onClick={createContact}
+          bgcolor={sendable ? "" : "disabled"}
+          sendable={sendable}
+        />
       </form>
     </>
   ) : (
@@ -160,6 +178,7 @@ const InlineHalfWrapper = styled.div`
 const ContactFormButton = styled(ChkButtonBase)`
   width: 40%;
   margin: 0 auto;
+  cursor: ${(props: { sendable: boolean }) => (props.sendable ? "pointer" : "default")};
 `;
 
 const AlertBar = styled.div`
