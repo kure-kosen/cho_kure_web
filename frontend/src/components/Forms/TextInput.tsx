@@ -45,7 +45,7 @@ export default ({
         setValidationResult(validation(currentInputValue));
       }
     },
-    [currentInputValue]
+    [currentInputValue, inFocus]
   );
 
   const handleFocus = React.useCallback(() => {
