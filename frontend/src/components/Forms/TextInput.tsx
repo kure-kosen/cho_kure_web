@@ -1,6 +1,9 @@
 import * as React from "react";
 import styled, { css } from "styled-components";
 
+import { chkColors } from "../../commons/color";
+import { IValidationResult, ValidationMethods, notValidate } from "../../utils/validation";
+
 type TextInputType = "text" | "password" | "email";
 
 export interface ITextInputProps {
@@ -9,11 +12,21 @@ export interface ITextInputProps {
   placeholder?: string;
   type?: TextInputType;
   multiLine?: boolean;
+  validation?: ValidationMethods;
   onChange?(value: string): void;
 }
 
-export default ({ value, name, placeholder, multiLine, onChange, type = "text" }: ITextInputProps) => {
+export default ({
+  value,
+  name,
+  placeholder,
+  multiLine,
+  onChange,
+  validation = notValidate,
+  type = "text"
+}: ITextInputProps) => {
   const [currentInputValue, setCurrentInputValue] = React.useState("");
+  const [validationResult, setValidationResult] = React.useState({ validity: true } as IValidationResult);
   const [inFocus, setInFocus] = React.useState(false);
 
   const handleChange = React.useCallback((e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -24,6 +37,16 @@ export default ({ value, name, placeholder, multiLine, onChange, type = "text" }
       onChange(data);
     }
   }, []);
+
+  React.useEffect(
+    () => {
+      if (validation) {
+        if (!currentInputValue) return;
+        setValidationResult(validation(currentInputValue));
+      }
+    },
+    [currentInputValue]
+  );
 
   const handleFocus = React.useCallback(() => {
     setInFocus(true);
@@ -51,10 +74,25 @@ export default ({ value, name, placeholder, multiLine, onChange, type = "text" }
     id: name,
     value: currentInputValue,
     onChange: handleChange,
-    styledFocus: inFocus ? true : false
+    styledFocus: inFocus ? true : false,
+    validationResult: validationResult.validity
   };
 
-  return multiLine ? <StyledTextarea {...props} rows={4} /> : <StyledInput {...props} />;
+  return (
+    <div>
+      {multiLine ? (
+        <>
+          <StyledTextarea {...props} rows={4} />
+          {validationResult && validationResult.validity ? null : <span>{validationResult.errorMessage}</span>}
+        </>
+      ) : (
+        <>
+          <StyledInput {...props} />
+          {validationResult && validationResult.validity ? null : <span>{validationResult.errorMessage}</span>}
+        </>
+      )}
+    </div>
+  );
 };
 
 // TODO: focus時とそうでない時で背景かアウトラインのデザインを変える
@@ -66,7 +104,7 @@ const style = css`
   padding-left: 30px;
   line-height: 1.5rem;
   width: 100%;
-  border: 2px solid #00afec;
+  border: 2px solid ${(props: any) => (props.validationResult ? "#00afec" : chkColors.error)};
   border-radius: 1.5rem;
 
   ::placeholder {
@@ -75,6 +113,10 @@ const style = css`
   }
   ::-ms-input-placeholder {
     color: #00afec;
+  }
+
+  &:-webkit-autofill {
+    box-shadow: 0 0 0 1000px #fff inset;
   }
 `;
 

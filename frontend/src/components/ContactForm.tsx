@@ -6,6 +6,8 @@ import ContactStore from "../stores/ContactStore";
 
 import ChkButtonBase from "../commons/ChkButtonBase";
 
+import { validateEmail } from "../utils/validation";
+
 import TextInput from "./Forms/TextInput";
 import Select from "./Forms/Select";
 import CheckBox from "./Forms/CheckBox";
@@ -101,7 +103,13 @@ export default observer((props: IProp) => {
         </InlineWrapper>
 
         <InlineWrapper>
-          <TextInput name="email" placeholder="メールアドレス" onChange={setEmail} value={email} />
+          <TextInput
+            name="email"
+            placeholder="メールアドレス"
+            onChange={setEmail}
+            value={email}
+            validation={validateEmail}
+          />
         </InlineWrapper>
 
         <InlineWrapper>
