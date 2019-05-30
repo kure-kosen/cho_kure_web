@@ -45,6 +45,8 @@ export default observer((props: IProp) => {
   const createContact = (e: any) => {
     e.preventDefault();
 
+    if (!(corner && department && grade && validateEmail(email).validity)) return;
+
     const contact = contactStore.createContact({
       name,
       corner,
@@ -80,7 +82,7 @@ export default observer((props: IProp) => {
 
         <InlineWrapper>
           <Select name="corner" onChange={setCorner} value={corner} optionElements={contactEnum.corners}>
-            <option value="" disabled selected style={{ display: "none" }}>
+            <option value="" disabled style={{ display: "none" }}>
               題名*
             </option>
           </Select>
@@ -94,14 +96,14 @@ export default observer((props: IProp) => {
               value={department}
               optionElements={contactEnum.departments}
             >
-              <option value="" disabled selected style={{ display: "none" }}>
+              <option value="" disabled style={{ display: "none" }}>
                 所属*
               </option>
             </Select>
           </InlineHalfWrapper>
           <InlineHalfWrapper>
             <Select name="grade" onChange={setGrade} value={grade} optionElements={contactEnum.grades}>
-              <option value="" disabled selected style={{ display: "none" }}>
+              <option value="" disabled style={{ display: "none" }}>
                 学年*
               </option>
             </Select>
