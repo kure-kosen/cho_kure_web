@@ -80,7 +80,9 @@ export default observer((props: IProp) => {
 
         <InlineWrapper>
           <Select name="corner" onChange={setCorner} value={corner} optionElements={contactEnum.corners}>
-            <option value="">題名*</option>
+            <option value="" disabled selected style={{ display: "none" }}>
+              題名*
+            </option>
           </Select>
         </InlineWrapper>
 
@@ -92,12 +94,16 @@ export default observer((props: IProp) => {
               value={department}
               optionElements={contactEnum.departments}
             >
-              <option value="">所属*</option>
+              <option value="" disabled selected style={{ display: "none" }}>
+                所属*
+              </option>
             </Select>
           </InlineHalfWrapper>
           <InlineHalfWrapper>
             <Select name="grade" onChange={setGrade} value={grade} optionElements={contactEnum.grades}>
-              <option value="">学年*</option>
+              <option value="" disabled selected style={{ display: "none" }}>
+                学年*
+              </option>
             </Select>
           </InlineHalfWrapper>
         </InlineWrapper>
