@@ -5,7 +5,7 @@ export interface IValidationResult {
   errorMessage?: string;
 }
 
-export const notValidate = (_?: any) => {
+export const notValidate = (_: any) => {
   return {
     isValid: true
   };
