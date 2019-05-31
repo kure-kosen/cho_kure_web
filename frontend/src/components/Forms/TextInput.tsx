@@ -26,7 +26,7 @@ export default ({
   type = "text"
 }: ITextInputProps) => {
   const [currentInputValue, setCurrentInputValue] = React.useState("");
-  const [validationResult, setValidationResult] = React.useState({ isValid: true } as IValidationResult);
+  const [validationResult, setValidationResult] = React.useState({} as IValidationResult);
   const [inFocus, setInFocus] = React.useState(false);
 
   const handleChange = React.useCallback((e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -75,7 +75,7 @@ export default ({
     value: currentInputValue,
     onChange: handleChange,
     styledFocus: inFocus ? true : false,
-    validationResult: validationResult.isValid
+    validationResult: validationResult.isValid || !validationResult.errorMessage
   };
 
   return (
@@ -83,12 +83,12 @@ export default ({
       {multiLine ? (
         <>
           <StyledTextarea {...props} rows={4} />
-          {validationResult && validationResult.isValid ? null : <span>{validationResult.errorMessage}</span>}
+          {validationResult && !validationResult.errorMessage ? null : <span>{validationResult.errorMessage}</span>}
         </>
       ) : (
         <>
           <StyledInput {...props} />
-          {validationResult && validationResult.isValid ? null : <span>{validationResult.errorMessage}</span>}
+          {validationResult && !validationResult.errorMessage ? null : <span>{validationResult.errorMessage}</span>}
         </>
       )}
     </div>
