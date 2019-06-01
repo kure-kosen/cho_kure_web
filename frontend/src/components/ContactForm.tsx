@@ -46,13 +46,13 @@ export default observer((props: IProp) => {
 
   React.useEffect(
     () => {
-      if (corner && department && grade && !validateEmail(email).errorMessage) {
+      if (corner && department && grade && !validateEmail(email).errorMessage && message) {
         setSendable(true);
       } else {
         setSendable(false);
       }
     },
-    [corner, department, grade, email]
+    [corner, department, grade, email, message]
   );
 
   const createContact = (e: any) => {
@@ -96,7 +96,7 @@ export default observer((props: IProp) => {
         <InlineWrapper>
           <Select name="corner" onChange={setCorner} value={corner} optionElements={contactEnum.corners}>
             <option value="" disabled style={{ display: "none" }}>
-              題名*
+              題名（必須）
             </option>
           </Select>
         </InlineWrapper>
@@ -110,14 +110,14 @@ export default observer((props: IProp) => {
               optionElements={contactEnum.departments}
             >
               <option value="" disabled style={{ display: "none" }}>
-                所属*
+                所属（必須）
               </option>
             </Select>
           </InlineHalfWrapper>
           <InlineHalfWrapper>
             <Select name="grade" onChange={setGrade} value={grade} optionElements={contactEnum.grades}>
               <option value="" disabled style={{ display: "none" }}>
-                学年*
+                学年（必須）
               </option>
             </Select>
           </InlineHalfWrapper>
@@ -126,7 +126,7 @@ export default observer((props: IProp) => {
         <InlineWrapper>
           <TextInput
             name="email"
-            placeholder="メールアドレス"
+            placeholder="メールアドレス（必須）"
             onChange={setEmail}
             value={email}
             validation={validateEmail}
@@ -140,7 +140,7 @@ export default observer((props: IProp) => {
         <InlineWrapper>
           <TextInput
             name="message"
-            placeholder="内容・メッセージ*"
+            placeholder="内容・メッセージ（必須）"
             onChange={setMessage}
             value={message}
             multiLine={true}
