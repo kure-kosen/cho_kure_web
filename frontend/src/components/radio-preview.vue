@@ -21,8 +21,8 @@
       </div>
       <div class="mp3">
         <div class="ui label">
-          <p>本編はこちら！</p>
-          <audio controls="controls" v-bind:src="mp3Url" preload="metadata"></audio>
+          <p>本編はこちら！({{ playTime }})</p>
+          <audio controls="controls" v-bind:src="mp3Url" preload="none"></audio>
         </div>
       </div>
       <div class="meta">
@@ -78,8 +78,13 @@ module.exports = {
     },
     date: {
       type: String,
-      default: '2017/12/03 1:08',
-      required: true
+      default: "2017/12/03 1:08",
+      required: true,
+    },
+    playTime: {
+      type: String,
+      default: "--:--",
+      required: true,
     },
   }
 }

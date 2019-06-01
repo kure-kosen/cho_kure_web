@@ -96,6 +96,16 @@ RSpec.describe Personality, type: :model do
     end
   end
 
+  describe "#change_role_to_reviewer!" do
+    let(:guest) { create(:personality, :guest) }
+
+    it "change role to reviewer" do
+      expect(guest.reviewer?).to be false
+      guest.change_role_to_reviewer!
+      expect(guest.reviewer?).to be true
+    end
+  end
+
   describe "#change_role_to_editor!" do
     let(:guest) { create(:personality, :guest) }
 

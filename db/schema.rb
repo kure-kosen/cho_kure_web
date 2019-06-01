@@ -10,7 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180326022726) do
+ActiveRecord::Schema.define(version: 20180814052753) do
+  create_table "comics", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "image", null: false
+    t.bigint "radio_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["radio_id"], name: "index_comics_on_radio_id"
+  end
 
   create_table "communities", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name", null: false
@@ -145,6 +152,7 @@ ActiveRecord::Schema.define(version: 20180326022726) do
     t.index ["name"], name: "index_tags_on_name", unique: true
   end
 
+  add_foreign_key "comics", "radios"
   add_foreign_key "community_radios", "communities"
   add_foreign_key "community_radios", "radios"
   add_foreign_key "host_events", "communities", column: "host_id"
