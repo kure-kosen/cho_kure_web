@@ -46,7 +46,7 @@ export default observer((props: IProp) => {
 
   React.useEffect(
     () => {
-      if (corner && department && grade && validateEmail(email).errorMessage) {
+      if (corner && department && grade && !validateEmail(email).errorMessage) {
         setSendable(true);
       } else {
         setSendable(false);

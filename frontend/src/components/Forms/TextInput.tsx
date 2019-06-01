@@ -26,7 +26,7 @@ export default ({
   type = "text"
 }: ITextInputProps) => {
   const [currentInputValue, setCurrentInputValue] = React.useState("");
-  const [validationResult, setValidationResult] = React.useState({} as IValidationResult);
+  const [validationError, setValidationError] = React.useState({} as IValidationResult);
   const [inFocus, setInFocus] = React.useState(false);
 
   const handleChange = React.useCallback((e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -42,7 +42,7 @@ export default ({
     () => {
       if (validation) {
         if (!currentInputValue) return;
-        setValidationResult(validation(currentInputValue));
+        setValidationError(validation(currentInputValue));
       }
     },
     [currentInputValue, inFocus]
@@ -75,7 +75,7 @@ export default ({
     value: currentInputValue,
     onChange: handleChange,
     styledFocus: inFocus ? true : false,
-    validationResult: !validationResult.errorMessage
+    validationError: !validationError.errorMessage
   };
 
   return (
@@ -83,12 +83,12 @@ export default ({
       {multiLine ? (
         <>
           <StyledTextarea {...props} rows={4} />
-          {validationResult && !validationResult.errorMessage ? null : <span>{validationResult.errorMessage}</span>}
+          {validationError && !validationError.errorMessage ? null : <span>{validationError.errorMessage}</span>}
         </>
       ) : (
         <>
           <StyledInput {...props} />
-          {validationResult && !validationResult.errorMessage ? null : <span>{validationResult.errorMessage}</span>}
+          {validationError && !validationError.errorMessage ? null : <span>{validationError.errorMessage}</span>}
         </>
       )}
     </div>
@@ -104,7 +104,7 @@ const style = css`
   padding-left: 30px;
   line-height: 1.5rem;
   width: 100%;
-  border: 2px solid ${(props: any) => (props.validationResult ? "#00afec" : chkColors.error)};
+  border: 2px solid ${(props: any) => (props.validationError ? "#00afec" : chkColors.error)};
   border-radius: 1.5rem;
 
   ::placeholder {
