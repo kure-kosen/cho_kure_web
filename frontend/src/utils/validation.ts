@@ -24,4 +24,4 @@ export const validateEmail = (email: string): IValidationResult => {
   return { errorMessage: "" };
 };
 
-export type ValidationMethods = typeof validateEmail | typeof notValidate;
+export type ValidationMethod = typeof validateEmail | typeof notValidate;

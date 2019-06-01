@@ -74,7 +74,6 @@ export default observer((props: IProp) => {
     contact.save(props.successed, props.failed);
   };
 
-  // TODO(euglena1215): validationをつける
   return contactEnum ? (
     <>
       {props.alert.status === "successed" && (
@@ -129,7 +128,7 @@ export default observer((props: IProp) => {
             placeholder="メールアドレス（必須）"
             onChange={setEmail}
             value={email}
-            validation={validateEmail}
+            validations={[validateEmail]}
           />
         </InlineWrapper>
 

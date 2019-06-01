@@ -2,7 +2,7 @@ import * as React from "react";
 import styled, { css } from "styled-components";
 
 import { chkColors } from "../../commons/color";
-import { IValidationResult, ValidationMethods, notValidate } from "../../utils/validation";
+import { IValidationResult, ValidationMethod } from "../../utils/validation";
 
 type TextInputType = "text" | "password" | "email";
 
@@ -12,21 +12,13 @@ export interface ITextInputProps {
   placeholder?: string;
   type?: TextInputType;
   multiLine?: boolean;
-  validation?: ValidationMethods;
+  validations?: ValidationMethod[];
   onChange?(value: string): void;
 }
 
-export default ({
-  value,
-  name,
-  placeholder,
-  multiLine,
-  onChange,
-  validation = notValidate,
-  type = "text"
-}: ITextInputProps) => {
+export default ({ value, name, placeholder, multiLine, onChange, validations, type = "text" }: ITextInputProps) => {
   const [currentInputValue, setCurrentInputValue] = React.useState("");
-  const [validationError, setValidationError] = React.useState({} as IValidationResult);
+  const [validationErrors, setValidationErrors] = React.useState([] as IValidationResult[]);
   const [inFocus, setInFocus] = React.useState(false);
 
   const handleChange = React.useCallback((e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -40,9 +32,14 @@ export default ({
 
   React.useEffect(
     () => {
-      if (validation) {
+      if (validations) {
         if (!currentInputValue) return;
-        setValidationError(validation(currentInputValue));
+
+        const newErrors: IValidationResult[] = [];
+        validations.forEach(validation => {
+          newErrors.push(validation(currentInputValue));
+        });
+        setValidationErrors(newErrors);
       }
     },
     [currentInputValue, inFocus]
@@ -75,7 +72,7 @@ export default ({
     value: currentInputValue,
     onChange: handleChange,
     styledFocus: inFocus ? true : false,
-    validationError: !validationError.errorMessage
+    validationError: validationErrors.filter(v => v.errorMessage).length > 0 ? true : false
   };
 
   return (
@@ -83,19 +80,18 @@ export default ({
       {multiLine ? (
         <>
           <StyledTextarea {...props} rows={4} />
-          {validationError && !validationError.errorMessage ? null : <span>{validationError.errorMessage}</span>}
+          {validationErrors.length > 0 ? validationErrors.map((v, i) => <span key={i}>{v.errorMessage}</span>) : null}
         </>
       ) : (
         <>
           <StyledInput {...props} />
-          {validationError && !validationError.errorMessage ? null : <span>{validationError.errorMessage}</span>}
+          {validationErrors.length > 0 ? validationErrors.map((v, i) => <span key={i}>{v.errorMessage}</span>) : null}
         </>
       )}
     </div>
   );
 };
 
-// TODO: focus時とそうでない時で背景かアウトラインのデザインを変える
 const style = css`
   margin: 5px;
   margin-left: 0;
@@ -104,7 +100,7 @@ const style = css`
   padding-left: 30px;
   line-height: 1.5rem;
   width: 100%;
-  border: 2px solid ${(props: any) => (props.validationError ? "#00afec" : chkColors.error)};
+  border: 2px solid ${(props: any) => (props.validationError ? chkColors.error : "#00afec")};
   border-radius: 1.5rem;
 
   ::placeholder {
