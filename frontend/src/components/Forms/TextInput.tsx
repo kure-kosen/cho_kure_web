@@ -75,7 +75,7 @@ export default ({
     value: currentInputValue,
     onChange: handleChange,
     styledFocus: inFocus ? true : false,
-    validationResult: validationResult.isValid || !validationResult.errorMessage
+    validationResult: !validationResult.errorMessage
   };
 
   return (
