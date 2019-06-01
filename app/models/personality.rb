@@ -20,6 +20,9 @@
 #  role                   :integer          default(0), not null
 #  image                  :string(255)
 #  nickname               :string(255)
+#  twitter_id             :string(255)
+#  facebook_id            :string(255)
+#  instagram_id           :string(255)
 #
 # Indexes
 #
