@@ -55,7 +55,7 @@ class Admin::JargonsController < Admin::BaseController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def jargon_params
-      params.require(:jargon).permit(:name, :description, :radio_id, :major)
+      params.require(:jargon).permit(:name, :description, :radio_id, :major, :image)
     end
 
     def check_authorize

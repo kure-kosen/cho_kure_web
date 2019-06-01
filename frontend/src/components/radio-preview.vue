@@ -7,18 +7,22 @@
       <router-link class="header" v-bind:to="{ name: 'radios', params: { id: itemId }}">{{ title }}</router-link>
       <div v-html="description" class="description"></div>
       <div class="personality-icons">
-        <img v-bind:src="personality.image" class="personality-icon" v-for="personality in personalities">
+        <router-link v-for="personality in personalities" :key="personality.id" :to="{ name: 'personality', params: { id: personality.id }}">
+          <span :data-tooltip="personality.name">
+            <img :src="personality.image" class="personality-icon">
+          </span>
+        </router-link>
       </div>
       <div class="mp3" v-if="digestMp3Url">
         <div class="ui label">
           <p>ダイジェスト版:</p>
-          <audio controls="controls" v-bind:src="digestMp3Url"></audio>
+          <audio controls="controls" v-bind:src="digestMp3Url" preload="metadata"></audio>
         </div>
       </div>
       <div class="mp3">
         <div class="ui label">
-          <p>本編はこちら！</p>
-          <audio controls="controls" v-bind:src="mp3Url"></audio>
+          <p>本編はこちら！({{ playTime }})</p>
+          <audio controls="controls" v-bind:src="mp3Url" preload="none"></audio>
         </div>
       </div>
       <div class="meta">
@@ -74,8 +78,13 @@ module.exports = {
     },
     date: {
       type: String,
-      default: '2017/12/03 1:08',
-      required: true
+      default: "2017/12/03 1:08",
+      required: true,
+    },
+    playTime: {
+      type: String,
+      default: "--:--",
+      required: true,
     },
   }
 }

@@ -45,6 +45,7 @@ Rails.application.routes.draw do
       member do
         patch :change_role_to_guest
         patch :change_role_to_editor
+        patch :change_role_to_reviewer
         patch :change_role_to_secret
         patch :change_role_to_admin
       end

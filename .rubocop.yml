@@ -49,3 +49,6 @@ Rails:
 Rails/OutputSafety:
   Exclude:
     - "app/helpers/markdown_helper.rb" # markdownをparseした結果を返すのにhtml_safeは必須
+
+RSpec/ExampleLength:
+  Max: 20

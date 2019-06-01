@@ -1,10 +1,11 @@
 <template>
-  <div class="ui cards">
-    <div class="card">
-      <div class="content">
-        <div class="header">{{ name }}</div>
-        <div class="description">{{ description }}</div>
-      </div>
+  <div class="ui card">
+    <div class="image">
+      <img v-bind:src="imagePath">
+    </div>
+    <div class="content">
+      <div class="header">{{ name }}</div>
+      <div class="description" v-html="description"></div>
     </div>
   </div>
 </template>
@@ -31,6 +32,11 @@ module.exports = {
       type: String,
       default: 'M',
       required: true
+    },
+    imagePath: {
+      type: String,
+      default: 'https://placehold.jp/200x200.png',
+      required: true,
     },
   }
 } 

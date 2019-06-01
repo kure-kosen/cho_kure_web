@@ -3,10 +3,14 @@
   <dd><%= @jargon.name %></dd>
 </dl>
 
+<dl class="dl-horizontal">
+  <dt><strong><%= Jargon.human_attribute_name('image') %> :</strong></dt> 
+  <dd><%= image_tag @jargon.image_url, :size =>'300x400'  %></dd>
+</dl>
 
 <dl class="dl-horizontal">
   <dt><strong><%= Jargon.human_attribute_name('description') %> :</strong></dt>
   <dd><%= simple_format(@jargon.description) %></dd>
 </dl>
 
-<%= link_to '編集', edit_admin_jargon_path(@jargon) %>
+<%= Admin::JargonViewObject.link_to_edit(current_personality, @jargon) %>

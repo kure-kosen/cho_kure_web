@@ -1,4 +1,9 @@
 .ui-menu-item {
-    list-style: none;
-    margin-left: -30px;
+  list-style: none;
+  margin-left: -30px;
+}
+
+#comic img {
+  width: 20%;
+  height: auto;
 }

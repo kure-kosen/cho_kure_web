@@ -31,6 +31,10 @@ class Radio < ApplicationRecord
   has_many :community_radios, dependent: :destroy
   has_many :communities, through: :community_radios
 
+  has_one :comic, dependent: :destroy
+
+  accepts_nested_attributes_for :comic
+
   before_save :extract_meta_mp3
 
   validates :title,
@@ -67,5 +71,9 @@ class Radio < ApplicationRecord
 
   def draft?
     published_at.nil?
+  end
+
+  def play_time
+    Time.at(duration).utc.strftime((duration < 3600) ? "%-M:%S" : "%-H:%M:%S")
   end
 end

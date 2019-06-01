@@ -1,13 +1,14 @@
 <template>
   <div class="pusher">
     <div>
-      <h2 class="ui header">投稿フォーム・お問い合わせ</h2>
+      <h2 class="ui header">高専のススメ一覧</h2>
        <jargon-card v-for="jargon in jargons"
         :key="jargon.id"
         :id="jargon.id"
         :name="jargon.name"
         :description="jargon.description"
-        :major="jargon.major.label">
+        :major="jargon.major.label"
+        :image-path="jargon.image">
       </jargon-card>
     </div>
   </div>

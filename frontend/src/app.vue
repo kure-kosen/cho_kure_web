@@ -3,7 +3,7 @@
     <div class="wrapper">
       <app-header></app-header>
       <main class="main">
-      <router-view></router-view>
+      <router-view :key="$route.fullPath"></router-view>
       </main>
       <app-footer></app-footer>
     </div>
