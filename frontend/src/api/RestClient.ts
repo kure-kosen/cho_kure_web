@@ -1,11 +1,12 @@
+import axios, { AxiosInstance } from "axios";
+
 export default class RestClient {
-  public axios: any;
+  public axios: AxiosInstance;
 
   constructor(baseUrl: string) {
-    const axiosBase = require("axios");
     const csrfToken = (document.querySelector("meta[name=csrf-token]") as HTMLMetaElement).content;
 
-    this.axios = axiosBase.create({
+    this.axios = axios.create({
       baseURL: baseUrl,
       timeout: 1000,
       headers: {
@@ -13,71 +14,81 @@ export default class RestClient {
         "X-CSRF-TOKEN": csrfToken
       }
     });
+
+    // TODO: Productionではログを流さないようにする
+    this.axios.interceptors.response.use(
+      response => {
+        const { config, data, status } = response;
+        const { method, params, url } = config;
+
+        console.group(`${method ? method.toUpperCase() : "undefined method"}:${status} - ${url}`);
+        if (params) console.table(params);
+        console.log(data);
+        console.groupEnd();
+
+        return response;
+      },
+      error => {
+        console.log(error);
+        return Promise.reject(error);
+      }
+    );
   }
 
-  public get(
+  public async get<T>(
     path: string,
-    params: object,
-    successed: (res: object) => void,
-    errored: (res: object) => void,
-    always = () => {}
+    params?: object,
+    successed?: (res: object) => void,
+    errored?: (res: object) => void,
+    always: () => any = () => {}
   ) {
-    return this.axios
-      .get(path, { params })
-      .then((result: object) => {
-        console.log(`GET ${this.axios.baseURL}/${path}`);
-        console.log(`result: ${JSON.stringify(result)}`);
-        successed(result);
-      })
-      .catch((error: object) => {
-        console.log(`ERROR! GET ${this.axios.baseURL}/${path}`);
-        console.log(`error: ${JSON.stringify(error)}`);
-        errored(error);
-      })
-      .then(always());
+    try {
+      const response = await this.axios.get<T>(path, { params });
+      if (successed) successed(response);
+      return response;
+    } catch (error) {
+      if (errored) errored(error);
+      throw error;
+    } finally {
+      always();
+    }
   }
 
-  public post(
+  public async post<T>(
     path: string,
-    params: object,
-    successed: (res: object) => void,
-    errored: (res: object) => void,
-    always = () => {}
+    params?: object,
+    successed?: (res: object) => void,
+    errored?: (res: object) => void,
+    always: () => any = () => {}
   ) {
-    return this.axios
-      .post(path, params)
-      .then((result: object) => {
-        console.log(`POST ${this.axios.baseURL}/${path}`);
-        console.log(`result: ${result}`);
-        successed(result);
-      })
-      .catch((error: object) => {
-        console.log(`ERROR! POST ${this.axios.baseURL}/${path}`);
-        console.log(`error: ${error}`);
-        errored(error);
-      })
-      .then(always());
+    try {
+      const response = await this.axios.post<T>(path, params);
+      if (successed) successed(response);
+      return response;
+    } catch (error) {
+      if (errored) errored(error);
+      throw error;
+    } finally {
+      always();
+    }
   }
 
-  public delete(
+  public async delete<T>(
     path: string,
-    params: object,
-    successed: (res: object) => void,
-    errored: (res: object) => void,
-    always = () => {}
+    params?: object,
+    successed?: (res: object) => void,
+    errored?: (res: object) => void,
+    always: () => any = () => {}
   ) {
-    return this.axios
-      .delete(path, { data: { params } })
-      .then((result: object) => {
-        console.log(`DELETE ${this.axios.baseURL}/${path}`);
-        console.log(`result: ${result}`);
-        successed(result);
-      })
-      .catch((error: object) => {
-        console.log(`ERROR! DELETE ${this.axios.baseURL}/${path}`);
-        console.log(`error: ${error}`);
-        errored(error);
-      })
-      .then(always());
+    try {
+      const response = await this.axios.delete<T>(path, { data: { params } });
+      if (successed) successed(response);
+      return response;
+    } catch (error) {
+      if (errored) errored(error);
+      throw error;
+    } finally {
+      always();
+    }
   }
 }

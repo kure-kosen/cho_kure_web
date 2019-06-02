@@ -4,7 +4,6 @@ import ContactStore from "../stores/ContactStore";
 export default class ContactModel {
   public store: ContactStore;
 
-  public id: number;
   public readable: boolean;
   public corner: number;
   public message: string;
@@ -17,8 +16,7 @@ export default class ContactModel {
   constructor(store: ContactStore, json: any) {
     this.store = store;
 
-    const { id, readable, corner, message, nickname, name, email, department, grade } = json;
-    this.id = id;
+    const { readable, corner, message, nickname, name, email, department, grade } = json;
     this.readable = readable;
     this.corner = corner;
     this.message = message;
@@ -36,16 +34,16 @@ export default class ContactModel {
 
   @computed
   get toJson() {
+    const { readable, corner, message, nickname, name, email, department, grade } = this;
     return {
-      id: this.id,
-      readable: this.readable,
-      corner: this.corner,
-      message: this.message,
-      nickname: this.nickname,
-      name: this.name,
-      email: this.email,
-      department: this.department,
-      grade: this.grade
+      readable,
+      corner,
+      message,
+      nickname,
+      name,
+      email,
+      department,
+      grade
     };
   }
 }

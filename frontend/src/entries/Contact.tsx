@@ -1,19 +1,21 @@
 import * as React from "react";
 import styled from "styled-components";
+import { withRouter, RouteComponentProps } from "react-router-dom";
+import { inject } from "mobx-react";
+
+import RootStore from "../stores/RootStore";
 
 import { media } from "../commons/style";
-import ChkButtonBase from "../commons/ChkButtonBase";
 
 import { HeroArea } from "../components/HeroArea";
 import { ContactHeroContent } from "../components/ContactHeroContent";
-import { inject } from "../../node_modules/mobx-react";
-import RootStore from "../stores/RootStore";
 import ContactForm from "../components/ContactForm";
 
-interface Prop {
+interface IProp {
   rootStore?: RootStore;
 }
-interface State {
+
+interface IState {
   alert: {
     message: string;
     status?: string;
@@ -21,8 +23,8 @@ interface State {
 }
 
 @inject("rootStore")
-export default class Contact extends React.Component<Prop, State> {
-  constructor(props: Prop) {
+class Contact extends React.Component<IProp & RouteComponentProps, IState> {
+  constructor(props: any) {
     super(props);
     this.state = {
       alert: {
@@ -38,7 +40,6 @@ export default class Contact extends React.Component<Prop, State> {
   public render() {
     const rootStore = this.props.rootStore!;
 
-    // TODO(euglena1215): requiredの*をべた書きで書かなくてもいいようにする
     return (
       <div>
         <HeroArea InnerComponent={<ContactHeroContent />} />
@@ -50,6 +51,7 @@ export default class Contact extends React.Component<Prop, State> {
               contactStore={rootStore.contactStore}
               successed={this.successSendContact}
               failed={this.failSendContact}
+              alert={this.state.alert}
             />
           </div>
         </ContactFormWrapper>
@@ -58,11 +60,19 @@ export default class Contact extends React.Component<Prop, State> {
   }
 
   public successSendContact(_: object) {
-    this.setState({ alert: { status: "successed", message: "おたよりを送信しました。" } });
+    this.setState({
+      alert: { status: "successed", message: "おたよりを送信しました。 5秒後に自動でトップページに戻ります。" }
+    });
+    setTimeout(() => console.log(this.props.history.push("/")), 5000);
   }
 
   public failSendContact(_: object) {
-    this.setState({ alert: { status: "failed", message: "おたよりの送信に失敗しました。" } });
+    this.setState({
+      alert: {
+        status: "failed",
+        message: "おたよりの送信に失敗しました。 * がついている項目は全て記入して再送信してください。"
+      }
+    });
   }
 }
 
@@ -90,3 +100,5 @@ const ContactFormTitle = styled.div`
   text-align: center;
   color: #00afec;
 `;
+
+export default withRouter(Contact);
