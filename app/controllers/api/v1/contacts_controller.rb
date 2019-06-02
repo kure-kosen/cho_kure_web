@@ -8,20 +8,15 @@ class Api::V1::ContactsController < Api::V1::BaseController
   end
 
   def create
-    @contact = Contact.new(contact_params)
-
-    if @contact.save
-      head :created
-    else
-      render :new
-    end
+    Contact.create!(contact_params)
+    head :created
   end
 
   private
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def contact_params
-      params.require(:contact).permit(
+      params.permit(
         :corner,
         :message,
         :nickname,
