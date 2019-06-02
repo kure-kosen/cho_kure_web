@@ -31,6 +31,9 @@ class PersonalitySerializer < ActiveModel::Serializer
   attributes :id, :name, :nickname, :description, :role, :image, :tag_list
 
   has_many :radios
+  has_many :published_radios do
+    object.radios.published
+  end
 
   def image
     ActionController::Base.helpers.image_url(object.image_url(:thumb))
