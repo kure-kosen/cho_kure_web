@@ -49,11 +49,28 @@ class Personality < ApplicationRecord
     where.not(role: [PersonalityRoles::SECRET, PersonalityRoles::REVIEWER])
   }
 
+  # appeared = new_face + regular
   scope :appeared, -> {
     where(
       id: RadioPersonality.where(
         radio_id: Radio.published.select(:id),
       ).select(:personality_id),
+    )
+  }
+
+  scope :new_face, -> {
+    where(
+      id: RadioPersonality.where(
+        radio_id: Radio.published.select(:id),
+      ).group(:personality_id).having("COUNT(*) = ?", 1).select(:personality_id),
+    )
+  }
+
+  scope :regular, -> {
+    where(
+      id: RadioPersonality.where(
+        radio_id: Radio.published.select(:id),
+      ).group(:personality_id).having("COUNT(*) > ?", 1).select(:personality_id),
     )
   }
 
