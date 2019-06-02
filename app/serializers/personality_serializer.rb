@@ -33,7 +33,6 @@
 class PersonalitySerializer < ActiveModel::Serializer
   attributes :id, :name, :nickname, :description, :image, :tag_list, :twitter_id, :facebook_id, :instagram_id
 
-  has_many :radios
   has_many :published_radios do
     object.radios.published
   end
