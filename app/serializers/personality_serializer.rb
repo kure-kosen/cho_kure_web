@@ -28,7 +28,7 @@
 #
 
 class PersonalitySerializer < ActiveModel::Serializer
-  attributes :id, :name, :nickname, :description, :role, :image, :tag_list
+  attributes :id, :name, :nickname, :description, :image, :tag_list
 
   has_many :radios
   has_many :published_radios do
