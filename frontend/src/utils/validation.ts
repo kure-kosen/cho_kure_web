@@ -4,12 +4,6 @@ export interface IValidationResult {
   errorMessage: string;
 }
 
-export const notValidate = (_: any): IValidationResult => {
-  return {
-    errorMessage: ""
-  };
-};
-
 export const validateEmail = (email: string): IValidationResult => {
   if (!email) {
     return {
@@ -24,4 +18,4 @@ export const validateEmail = (email: string): IValidationResult => {
   return { errorMessage: "" };
 };
 
-export type ValidationMethod = typeof validateEmail | typeof notValidate;
+export type ValidationMethod = typeof validateEmail;
