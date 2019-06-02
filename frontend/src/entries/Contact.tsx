@@ -1,52 +1,95 @@
 import * as React from "react";
 import styled from "styled-components";
+import { withRouter, RouteComponentProps } from "react-router-dom";
+import { inject } from "mobx-react";
 
-import { media } from "./../commons/style";
-import ChkButtonBase from "../commons/ChkButtonBase";
+import RootStore from "../stores/RootStore";
 
-import { HeroArea } from "./../components/HeroArea";
-import { ContactHeroContent } from "./../components/ContactHeroContent";
+import { media } from "../commons/style";
 
-export const Contact = () => (
-  <div>
-    <HeroArea InnerComponent={<ContactHeroContent />} />
-    <ContactFormWrapper>
-      <ContactForm>
-        <ContactFormTitle>お問い合わせフォーム</ContactFormTitle>
-        <form action="">
-          <ContactFormInputWrapper>
-            <ContactFormInput name="name" type="text" placeholder="名前" />
-          </ContactFormInputWrapper>
-          <ContactFormInputWrapper>
-            <ContactFormInput name="corner" type="text" placeholder="題名" />
-          </ContactFormInputWrapper>
-          <ContactFormInputWrapper>
-            <ContactFormInputHalf name="department" type="text" placeholder="所属" />
-            <ContactFormInputHalf name="grade" type="text" placeholder="学年" />
-          </ContactFormInputWrapper>
-          <ContactFormInputWrapper>
-            <ContactFormInput name="email" type="text" placeholder="メールアドレス" />
-          </ContactFormInputWrapper>
-          <ContactFormInputWrapper>
-            <ContactFormInput name="nickname" type="text" placeholder="ラジオネーム" />
-          </ContactFormInputWrapper>
-          <ContactFormInputWrapper>
-            <ContactFormInput name="content" type="text" placeholder="内容" />
-          </ContactFormInputWrapper>
-          <ContactFormSendButtonWrapper>
-            <ContactFormSendButton text="送信" />
-          </ContactFormSendButtonWrapper>
-        </form>
-      </ContactForm>
-    </ContactFormWrapper>
-  </div>
-);
+import { HeroArea } from "../components/HeroArea";
+import { ContactHeroContent } from "../components/ContactHeroContent";
+import ContactForm from "../components/ContactForm";
+
+interface IProp {
+  rootStore?: RootStore;
+}
+
+interface IState {
+  alert: {
+    message: string;
+    status?: string;
+  };
+}
+
+@inject("rootStore")
+class Contact extends React.Component<IProp & RouteComponentProps, IState> {
+  constructor(props: any) {
+    super(props);
+    this.state = {
+      alert: {
+        message: "",
+        status: undefined
+      }
+    };
+
+    this.successSendContact = this.successSendContact.bind(this);
+    this.failSendContact = this.failSendContact.bind(this);
+  }
+
+  public render() {
+    const rootStore = this.props.rootStore!;
+
+    return (
+      <div>
+        <HeroArea InnerComponent={<ContactHeroContent />} />
+        <ContactFormWrapper>
+          <div>
+            <ContactFormTitle>お問い合わせフォーム</ContactFormTitle>
+
+            <ContactForm
+              contactStore={rootStore.contactStore}
+              successed={this.successSendContact}
+              failed={this.failSendContact}
+              alert={this.state.alert}
+            />
+          </div>
+        </ContactFormWrapper>
+      </div>
+    );
+  }
+
+  public successSendContact(_: object) {
+    this.setState({
+      alert: { status: "successed", message: "おたよりを送信しました。 5秒後に自動でトップページに戻ります。" }
+    });
+    setTimeout(() => console.log(this.props.history.push("/")), 5000);
+  }
+
+  public failSendContact(_: object) {
+    this.setState({
+      alert: {
+        status: "failed",
+        message: "おたよりの送信に失敗しました。 * がついている項目は全て記入して再送信してください。"
+      }
+    });
+  }
+}
 
 const ContactFormWrapper = styled.div`
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+
+  > div {
+    width: 50%;
+    margin-bottom: 100px;
+
+    @media ${media.mobile} {
+      width: 90%;
+    }
+  }
 `;
 
 const ContactFormTitle = styled.div`
@@ -58,47 +101,4 @@ const ContactFormTitle = styled.div`
   color: #00afec;
 `;
 
-const ContactForm = styled.div`
-  width: 50%;
-  margin-bottom: 100px;
-
-  @media ${media.mobile} {
-    width: 90%;
-  }
-`;
-
-const ContactFormInputWrapper = styled.div`
-  margin: 20px;
-`;
-
-const ContactFormInput = styled.input`
-  margin: 5px;
-  margin-left: 0;
-  margin-right: 0;
-  padding: 5px;
-  padding-left: 30px;
-  line-height: 1.5rem;
-  width: 100%;
-  border: 2px solid #00afec;
-  border-radius: 1.5rem;
-
-  ::placeholder {
-    color: #00afec;
-    opacity: 1;
-  }
-  ::-ms-input-placeholder {
-    color: #00afec;
-  }
-`;
-
-const ContactFormInputHalf = styled(ContactFormInput)`
-  width: 50%;
-`;
-
-const ContactFormSendButtonWrapper = styled.div`
-  margin: 0 auto;
-  margin-top: 40px;
-  width: 30%;
-`;
-
-const ContactFormSendButton = styled(ChkButtonBase)``;
+export default withRouter(Contact);

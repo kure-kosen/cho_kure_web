@@ -12,6 +12,8 @@
       true,
       "ignore-same-line"
     ],
+    "no-console": false,
+    "no-empty": false,
     "no-unused-expression": [
       true,
       "allow-fast-null-checks"
@@ -29,6 +31,7 @@
       true,
       "double"
     ],
+    "interface-name": false,
     "prettier": true
   },
   "jsRules": {

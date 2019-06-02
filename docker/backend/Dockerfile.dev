@@ -1,0 +1,25 @@
+FROM ruby:2.4.5
+LABEL maintainer="Kobatake Kazuhiro<@kobakazu0429>"
+
+ENV LANG C.UTF-8
+
+# noninteractive: インストール時にインタラクティブな入力待ちが発生しなくなる
+ENV DEBIAN_FRONTEND noninteractive
+
+RUN mkdir /code/
+
+WORKDIR /code
+
+# apt-get [-qq]: エラー以外は表示しない
+RUN apt-get update -qq && \
+    apt-get install -y --no-install-recommends apt-utils && \
+    apt-get install -y libpq-dev graphviz imagemagick && \
+    curl -sL https://deb.nodesource.com/setup_10.x | bash - && \
+    apt-get install -y nodejs build-essential && \
+    gem install bundler --no-document --conservative && \
+    gem update
+
+ADD Gemfile* /code/
+ADD .env /code/
+
+RUN bundle install -j4

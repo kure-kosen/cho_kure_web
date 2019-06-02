@@ -98,7 +98,7 @@ class Admin::PersonalitiesController < Admin::BaseController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def personality_params
-      params.require(:personality).permit(:name, :nickname, :image, :description, :tag_list)
+      params.require(:personality).permit(:name, :nickname, :image, :description, :tag_list, :twitter_id, :facebook_id, :instagram_id)
     end
 
     def provisional_personality_params

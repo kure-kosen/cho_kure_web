@@ -20,6 +20,9 @@
 #  role                   :integer          default(0), not null
 #  image                  :string(255)
 #  nickname               :string(255)
+#  twitter_id             :string(255)
+#  facebook_id            :string(255)
+#  instagram_id           :string(255)
 #
 # Indexes
 #
@@ -28,7 +31,7 @@
 #
 
 class PersonalitySerializer < ActiveModel::Serializer
-  attributes :id, :name, :nickname, :description, :image, :tag_list
+  attributes :id, :name, :nickname, :description, :image, :tag_list, :twitter_id, :facebook_id, :instagram_id
 
   has_many :radios
   has_many :published_radios do
