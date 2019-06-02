@@ -45,6 +45,21 @@
 </dl>
 
 <dl class="dl-horizontal">
+  <dt><strong><%= Personality.human_attribute_name('twitter_id') %> :</strong></dt>
+  <dd><%= link_to @personality.twitter_id, "https://twitter.com/#{@personality.twitter_id}" %></dd>
+</dl>
+
+<dl class="dl-horizontal">
+  <dt><strong><%= Personality.human_attribute_name('facebook_id') %> :</strong></dt>
+  <dd><%= link_to @personality.facebook_id, "https://www.facebook.com/#{@personality.facebook_id}" %></dd>
+</dl>
+
+<dl class="dl-horizontal">
+  <dt><strong><%= Personality.human_attribute_name('instagram_id') %> :</strong></dt>
+  <dd><%= link_to @personality.instagram_id, "https://www.instagram.com/#{@personality.instagram_id}" %></dd>
+</dl>
+
+<dl class="dl-horizontal">
   <dt><strong><%= Personality.human_attribute_name('radios') %> :</strong></dt>
   <dd>
     <% @personality.radios.each do |radio| %>
