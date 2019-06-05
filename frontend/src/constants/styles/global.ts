@@ -1,9 +1,9 @@
 import { createGlobalStyle } from "styled-components";
 
-import fonts from "@/constants/styles/fonts";
+import fontsFamily from "@/constants/styles/fontsFamily";
 
 export default createGlobalStyle`
-  ${fonts}
+  ${fontsFamily}
 
   *,
   *:before,
