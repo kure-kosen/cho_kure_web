@@ -2,9 +2,10 @@ import React from "react";
 import styled from "styled-components";
 
 import { color } from "@/constants/styles";
-import FeaturedPersonalityListenToRadioButton from "@/components/FeaturedPersonalityListenToRadioButton";
 
-import chanyou from "./../../images/chanyou.jpg";
+import PersonalityListenToRadioButton from "@/components/atoms/FeaturedPersonality/PersonalityListenToRadioButton";
+
+import chanyou from "./chanyou.jpg";
 
 export default () => (
   <FeaturedPersonalityStyle>
@@ -33,7 +34,7 @@ export default () => (
         <br />
         プロジェクトデザイン工学専攻
       </Affiliation>
-      <FeaturedPersonalityListenToRadioButton />
+      <PersonalityListenToRadioButton />
     </DescriptionArea>
   </FeaturedPersonalityStyle>
 );

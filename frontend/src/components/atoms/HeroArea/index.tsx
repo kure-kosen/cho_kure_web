@@ -1,14 +1,14 @@
 import React from "react";
 import styled from "styled-components";
 
-import img from "./../../images/hero.jpg";
+import img from "./hero.jpg";
 
 export interface IProps {
-  InnerComponent: string | React.ReactNode;
+  children: string | React.ReactNode;
 }
 
 export default (props: IProps) => (
-  <HeroAreaStyle>{props.InnerComponent}</HeroAreaStyle>
+  <HeroAreaStyle>{props.children}</HeroAreaStyle>
 );
 
 const HeroAreaStyle = styled.div`

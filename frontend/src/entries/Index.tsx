@@ -3,20 +3,21 @@ import styled from "styled-components";
 
 import { device } from "@/constants/styles";
 
-import HeroArea from "@/components/HeroArea";
-import FeaturedPersonalitiesWrapper from "@/components/FeaturedPersonalitiesWrapper";
-import AboutSidebar from "@/components/AboutSidebar";
-import PopularRadioWrapper from "@/components/PopularRadioWrapper";
-import WeeklyComic from "@/components/WeeklyComic";
-import TweetStream from "@/components/TweetStream";
-import RadioCardWrapper from "@/components/RadioCardWrapper";
-import FeaturedBlogWrapper from "@/components/FeaturedBlogWrapper";
-import AboutBottom from "@/components/AboutBottom";
+import HeroArea from "@/components/atoms/HeroArea";
+import AboutBottom from "@/components/atoms/AboutBottom";
+import AboutSidebar from "@/components/atoms/AboutSidebar";
+import WeeklyComic from "@/components/atoms/WeeklyComic";
+import TweetStream from "@/components/atoms/TweetStream";
+
+import PersonalitiesWrapper from "@/components/molecules/Personalities/PersonalitiesWrapper";
+import PopularRadioWrapper from "@/components/molecules/PopularRadio/PopularRadioWrapper";
+import RadioCardWrapper from "@/components/molecules/RadioCard/RadioCardWrapper";
+import BlogWrapper from "@/components/molecules/Blogs/BlogWrapper";
 
 export default () => (
   <div>
-    <HeroArea InnerComponent="検索バー" />
-    <FeaturedPersonalitiesWrapper />
+    <HeroArea>検索バー</HeroArea>
+    <PersonalitiesWrapper />
     <Contrainer>
       <Sidebar>
         <AboutSidebar />
@@ -26,7 +27,7 @@ export default () => (
       </Sidebar>
       <MainContentWrapper>
         <RadioCardWrapper />
-        <FeaturedBlogWrapper />
+        <BlogWrapper />
       </MainContentWrapper>
     </Contrainer>
     <AboutBottom />

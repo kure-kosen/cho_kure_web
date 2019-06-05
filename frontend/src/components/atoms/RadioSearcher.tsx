@@ -1,9 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 
-import { title } from "./../commons/style";
+import { title } from "../../commons/style";
 import { color } from "@/constants/styles";
-import ChkButtonBase from "@/commons/ChkButtonBase";
+import ChkButtonBase from "@/components/atoms/Buttons/ChkButtonBase";
 
 export default () => (
   <Wrapper>

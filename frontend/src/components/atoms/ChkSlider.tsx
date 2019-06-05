@@ -2,7 +2,7 @@ import React from "react";
 
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
-import "../../css/ChkSlider.css";
+import "../../../css/ChkSlider.css";
 
 export interface IProps {
   InnerComponent: any;

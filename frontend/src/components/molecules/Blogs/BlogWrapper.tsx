@@ -3,9 +3,8 @@ import styled from "styled-components";
 
 import { color } from "@/constants/styles";
 
-import MoreButton from "@/components/MoreButton";
-
-import FeaturedBlog from "@/components/FeaturedBlog";
+import MoreButton from "@/components/atoms/Buttons/MoreButton";
+import FeaturedBlog from "@/components/atoms/Blog/FeaturedBlog";
 
 export default () => (
   <Wrapper>

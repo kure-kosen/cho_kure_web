@@ -3,16 +3,13 @@ import styled from "styled-components";
 import { observer } from "mobx-react-lite";
 
 import ContactStore from "@/stores/ContactStore";
-
-import ChkButtonBase from "@/commons/ChkButtonBase";
-
 import { validateEmail } from "@/utils/validation";
 
-import TextInput from "@/components/Forms/TextInput";
-import Select from "@/components/Forms/Select";
-import CheckBox from "@/components/Forms/CheckBox";
-
-import CircleSpinner from "@/components/Spinners/CircleSpinner";
+import ChkButtonBase from "@/components/atoms/Buttons/ChkButtonBase";
+import TextInput from "@/components/atoms/Forms/TextInput";
+import Select from "@/components/atoms/Forms/Select";
+import CheckBox from "@/components/atoms/Forms/CheckBox";
+import CircleSpinner from "@/components/atoms/Spinners/CircleSpinner";
 
 interface IProp {
   contactStore: ContactStore;

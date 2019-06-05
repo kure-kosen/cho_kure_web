@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-import ChkButtonBase from "@/commons/ChkButtonBase";
+import ChkButtonBase from "@/components/atoms/Buttons/ChkButtonBase";
 
 interface IProps {
   to: string;

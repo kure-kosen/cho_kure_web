@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-import { title } from "./../commons/style";
+import { title } from "../../commons/style";
 import { color } from "@/constants/styles";
 
 export default () => (

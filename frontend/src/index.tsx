@@ -6,7 +6,7 @@ import { BrowserRouter } from "react-router-dom";
 import { Provider } from "mobx-react";
 import GlobalStyle from "@/constants/styles/global";
 
-import App from "@/App";
+import App from "@/components/App";
 import RootStore from "@/stores/RootStore";
 
 // TODO(euglena1215): URLのproductionとの切り替え方法を考える

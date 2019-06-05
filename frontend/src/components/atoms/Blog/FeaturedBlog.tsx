@@ -4,8 +4,8 @@ import styled from "styled-components";
 
 import { color } from "@/constants/styles";
 
-import img from "./../../images/apple-2385198_1280-1.jpg";
-import chanyou from "./../../images/chanyou.jpg";
+import img from "./blogThum.jpg";
+import chanyou from "./chanyou.jpg";
 
 export interface IProps {
   title: string;

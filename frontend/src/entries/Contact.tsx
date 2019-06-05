@@ -5,11 +5,10 @@ import { inject } from "mobx-react";
 
 import RootStore from "@/stores/RootStore";
 
-import { device } from "@/constants/styles";
+import { color, device } from "@/constants/styles";
 
-import HeroArea from "@/components/HeroArea";
-import ContactHeroContent from "@/components/ContactHeroContent";
-import ContactForm from "@/components/ContactForm";
+import HeroArea from "@/components/atoms/HeroArea";
+import ContactForm from "@/components/molecules/Contact/Form";
 
 interface IProp {
   rootStore?: RootStore;
@@ -42,7 +41,13 @@ class Contact extends React.Component<IProp & RouteComponentProps, IState> {
 
     return (
       <div>
-        <HeroArea InnerComponent={<ContactHeroContent />} />
+        <HeroArea>
+          <HeroContentWrapper>
+            Contact
+            <HeroContentBar />
+            ご意見ご感想お待ちしております
+          </HeroContentWrapper>
+        </HeroArea>
         <ContactFormWrapper>
           <div>
             <ContactFormTitle>お問い合わせフォーム</ContactFormTitle>
@@ -95,6 +100,25 @@ const ContactFormWrapper = styled.div`
       width: 90%;
     }
   }
+`;
+
+const HeroContentWrapper = styled.div`
+  width: 60%;
+  font-size: 2rem;
+  text-align: center;
+  color: ${color.WHITE};
+
+  @media ${device.mobile} {
+    width: 90%;
+  }
+`;
+
+const HeroContentBar = styled.hr`
+  display: box;
+  width: 50%;
+  height: 2px;
+  background-color: ${color.ORANGE};
+  border: 0;
 `;
 
 const ContactFormTitle = styled.div`

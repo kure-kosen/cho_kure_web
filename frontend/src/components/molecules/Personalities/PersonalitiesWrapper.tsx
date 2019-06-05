@@ -3,22 +3,22 @@ import styled from "styled-components";
 
 import { color } from "@/constants/styles";
 
-import ChkSlider from "@/components/ChkSlider";
+import ChkSlider from "@/components/atoms/ChkSlider";
 
-import FeaturedPersonality from "@/components/FeaturedPersonality";
-import FeaturedPersonalityButton from "@/components/FeaturedPersonalityButton";
+import PersonalityCard from "@/components/atoms/FeaturedPersonality/Card";
+import FeaturedPersonalityButton from "@/components/atoms/FeaturedPersonality/PersonalityListButton";
 
 export default () => (
   <FeaturedPersonalitiesWrapperStyle>
     <SliderWrapper>
       <ChkSlider
         InnerComponent={[
-          <FeaturedPersonality />,
-          <FeaturedPersonality />,
-          <FeaturedPersonality />,
-          <FeaturedPersonality />,
-          <FeaturedPersonality />,
-          <FeaturedPersonality />
+          <PersonalityCard />,
+          <PersonalityCard />,
+          <PersonalityCard />,
+          <PersonalityCard />,
+          <PersonalityCard />,
+          <PersonalityCard />
         ]}
       />
     </SliderWrapper>

@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-import card from "../../images/radio-card.png";
+import card from "./radio-card.png";
 
 export default () => <RadioCardWrapperStyle />;
 

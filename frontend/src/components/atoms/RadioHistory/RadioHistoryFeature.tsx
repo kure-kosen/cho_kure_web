@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-import feature from "../../images/radio-history-feature.jpg";
+import feature from "./radio-history-feature.jpg";
 
 export default () => (
   <Wrapper>

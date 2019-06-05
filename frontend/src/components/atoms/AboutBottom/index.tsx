@@ -2,9 +2,9 @@ import React from "react";
 import styled from "styled-components";
 
 import { color, device } from "@/constants/styles";
-import ChkButtonBase from "@/commons/ChkButtonBase";
+import ChkButtonBase from "@/components/atoms/Buttons/ChkButtonBase";
 
-import img from "./../../images/bg.jpg";
+import img from "./bg.jpg";
 
 export default () => (
   <AboutBottomStyle>

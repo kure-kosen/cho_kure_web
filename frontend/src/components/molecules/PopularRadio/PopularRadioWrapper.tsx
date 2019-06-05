@@ -1,28 +1,29 @@
 import React from "react";
 import styled from "styled-components";
 
-import { title } from "./../commons/style";
+import { title } from "../../../commons/style";
 import { color } from "@/constants/styles";
 
-import sidebarRadioImg from "./../../images/sidebar-radio-img.png";
-import MoreButton from "@/components/MoreButton";
-import PopularRadioCard from "@/components/PopularRadioCard";
+import sidebarRadioImg from "./sidebar-radio-img.png";
+
+import MoreButton from "@/components/atoms/Buttons/MoreButton";
+import Card from "@/components/atoms/PopularRadio/Card";
 
 export default () => (
   <PopularRadioWrapperStyle>
     <Title>popular radio</Title>
     <PopularRadioCardWrapper>
-      <PopularRadioCard
+      <Card
         title="#50 ヤマトーーク!"
         img={sidebarRadioImg}
         description="エナジードリンク、お年玉の使い道、登山、Advent Calendar、エディタ、LTalksなどの話をしました。"
       />
-      <PopularRadioCard
+      <Card
         title="#50 ヤマトーーク!"
         img={sidebarRadioImg}
         description="エナジードリンク、お年玉の使い道、登山、Advent Calendar、エディタ、LTalksなどの話をしました。"
       />
-      <PopularRadioCard
+      <Card
         title="#50 ヤマトーーク!"
         img={sidebarRadioImg}
         description="エナジードリンク、お年玉の使い道、登山、Advent Calendar、エディタ、LTalksなどの話をしました。"

@@ -1,12 +1,13 @@
 import React from "react";
 import styled from "styled-components";
 
-import { title, goodSpace } from "./../commons/style";
+import { title, goodSpace } from "../../../commons/style";
 import { color } from "@/constants/styles";
 
-import MoreButton from "@/components/MoreButton";
-import RadioCardWrapper from "@/components/RadioCardWrapper";
-import RadioHistoryFeature from "@/components/RadioHistoryFeature";
+import MoreButton from "@/components/atoms/Buttons/MoreButton";
+import RadioHistoryFeature from "@/components/atoms/RadioHistory/RadioHistoryFeature";
+
+import RadioCardWrapper from "@/components/molecules/RadioCard/RadioCardWrapper";
 
 export default () => (
   <Wrapper>

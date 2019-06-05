@@ -3,17 +3,18 @@ import styled from "styled-components";
 
 import { device } from "@/constants/styles";
 
-import HeroArea from "@/components/HeroArea";
-import RadioSearcher from "@/components/RadioSearcher";
-import AboutSidebar from "@/components/AboutSidebar";
-import PopularRadioWrapper from "@/components/PopularRadioWrapper";
-import TweetStream from "@/components/TweetStream";
-import RadioHistoryContentWrapper from "@/components/RadioHistoryContentWrapper";
-import FeaturedBlogWrapper from "@/components/FeaturedBlogWrapper";
+import HeroArea from "@/components/atoms/HeroArea";
+import RadioSearcher from "@/components/atoms/RadioSearcher";
+import AboutSidebar from "@/components/atoms/AboutSidebar";
+import TweetStream from "@/components/atoms/TweetStream";
+
+import PopularRadioWrapper from "@/components/molecules/PopularRadio/PopularRadioWrapper";
+import RadioHistoryWrapper from "@/components/molecules/RadioHistory/RadioHistoryWrapper";
+import BlogWrapper from "@/components/molecules/Blogs/BlogWrapper";
 
 export default () => (
   <div>
-    <HeroArea InnerComponent="Radio History" />
+    <HeroArea>Radio History</HeroArea>
     <Container>
       <Sidebar>
         <RadioSearcher />
@@ -22,8 +23,8 @@ export default () => (
         <TweetStream />
       </Sidebar>
       <MainContentWrapper>
-        <RadioHistoryContentWrapper />
-        <FeaturedBlogWrapper />
+        <RadioHistoryWrapper />
+        <BlogWrapper />
       </MainContentWrapper>
     </Container>
   </div>
