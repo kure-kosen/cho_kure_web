@@ -1,8 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-import { title } from "../../../commons/style";
-import { color } from "@/constants/styles";
+import { color, heading } from "@/constants/styles";
 
 import comic from "./WeeklyComic.jpg";
 
@@ -21,7 +20,7 @@ const WeeklyComicStyle = styled.div`
 `;
 
 const Title = styled.div`
-  ${title};
+  ${heading};
   color: ${color.BLUE};
   padding: 0 20px;
 `;

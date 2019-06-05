@@ -1,8 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-import { title } from "../../commons/style";
-import { color } from "@/constants/styles";
+import { color, heading } from "@/constants/styles";
 
 export default () => (
   <AboutSidebarStyle>
@@ -20,7 +19,7 @@ const AboutSidebarStyle = styled.div`
 `;
 
 const Title = styled.div`
-  ${title};
+  ${heading};
   color: ${color.BLUE};
 `;
 

@@ -1,8 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-import { title } from "../../commons/style";
-import { color } from "@/constants/styles";
+import { color, heading } from "@/constants/styles";
 import ChkButtonBase from "@/components/atoms/Buttons/ChkButtonBase";
 
 export default () => (
@@ -80,7 +79,7 @@ const Wrapper = styled.div`
 `;
 
 const RadioSearcherTitle = styled.div`
-  ${title}
+  ${heading}
   color: ${color.BLUE};
 `;
 

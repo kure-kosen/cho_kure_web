@@ -1,8 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-import { title } from "../../../commons/style";
-import { color } from "@/constants/styles";
+import { color, heading } from "@/constants/styles";
 
 import sidebarRadioImg from "./sidebar-radio-img.png";
 
@@ -41,7 +40,7 @@ const PopularRadioWrapperStyle = styled.div`
 `;
 
 const Title = styled.div`
-  ${title}
+  ${heading}
   color: ${color.BLUE};
   padding: 10px 20px;
 `;

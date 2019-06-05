@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 
-import { title, goodSpace } from "../../../commons/style";
-import { color } from "@/constants/styles";
+import { goodSpace } from "../../../commons/style";
+import { color, heading } from "@/constants/styles";
 
 import MoreButton from "@/components/atoms/Buttons/MoreButton";
 import RadioHistoryFeature from "@/components/atoms/RadioHistory/RadioHistoryFeature";
@@ -58,7 +58,7 @@ const RadioHistoryContentArea = styled.div`
 `;
 
 const Title = styled.div`
-  ${title}
+  ${heading}
   color: ${color.GRAY};
   text-align: center;
   margin-bottom: 20px;

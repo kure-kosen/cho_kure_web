@@ -3,8 +3,7 @@ import styled from "styled-components";
 
 import { Link } from "react-router-dom";
 
-import { title } from "./../commons/style";
-import { color } from "@/constants/styles";
+import { color, heading } from "@/constants/styles";
 
 import logo from "./../../images/chkLogo.jpg";
 
@@ -56,7 +55,7 @@ const Nav = styled.div`
 `;
 
 const ToTopPage = styled(Link)`
-  ${title};
+  ${heading};
   color: ${color.BLUE};
   vertical-align: middle;
   line-height: 60px;
