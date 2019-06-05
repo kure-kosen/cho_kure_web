@@ -1,11 +1,11 @@
-import * as React from "react";
+import React from "react";
 import styled from "styled-components";
 
 import { media } from "./../commons/style";
 import { chkColors } from "./../commons/color";
 import ChkButtonBase from "./../commons/ChkButtonBase";
 
-import * as img from "./../../images/bg.jpg";
+import img from "./../../images/bg.jpg";
 
 export const AboutBottom = () => (
   <AboutBottomStyle>

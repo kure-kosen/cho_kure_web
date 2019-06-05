@@ -1,4 +1,4 @@
-import * as React from "react";
+import React from "react";
 import styled from "styled-components";
 
 // TODO: childrenの型が分からない
@@ -10,18 +10,27 @@ export interface ITextInputProps {
   onChange?(value: string): void;
 }
 
-export default ({ value, name, optionElements, onChange, children }: ITextInputProps) => {
+export default ({
+  value,
+  name,
+  optionElements,
+  onChange,
+  children
+}: ITextInputProps) => {
   const [currentValue, setCurrentValue] = React.useState(value);
   const [inFocus, setInFocus] = React.useState(false);
 
-  const handleChange = React.useCallback((e: React.ChangeEvent<HTMLSelectElement>) => {
-    const data = e.target.value;
-    setCurrentValue(data);
+  const handleChange = React.useCallback(
+    (e: React.ChangeEvent<HTMLSelectElement>) => {
+      const data = e.target.value;
+      setCurrentValue(data);
 
-    if (onChange) {
-      onChange(data);
-    }
-  }, []);
+      if (onChange) {
+        onChange(data);
+      }
+    },
+    []
+  );
 
   const handleFocus = React.useCallback(() => {
     setInFocus(true);
@@ -32,14 +41,11 @@ export default ({ value, name, optionElements, onChange, children }: ITextInputP
     setInFocus(false);
   }, []);
 
-  React.useEffect(
-    () => {
-      if (value != null) {
-        setCurrentValue(value);
-      }
-    },
-    [value]
-  );
+  React.useEffect(() => {
+    if (value != null) {
+      setCurrentValue(value);
+    }
+  }, [value]);
 
   const props = {
     onFocus: handleFocus,

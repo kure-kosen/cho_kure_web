@@ -1,4 +1,4 @@
-import * as React from "react";
+import React from "react";
 import styled from "styled-components";
 
 import { chkColors } from "./../commons/color";
@@ -31,7 +31,11 @@ const FeaturedPersonalitiesWrapperStyle = styled.div`
   color: white;
   height: 750px;
   background: -moz-linear-gradient(top, ${chkColors.skyblue} 0%, #ffffff 100%);
-  background: -webkit-linear-gradient(top, ${chkColors.skyblue} 0%, #ffffff 100%);
+  background: -webkit-linear-gradient(
+    top,
+    ${chkColors.skyblue} 0%,
+    #ffffff 100%
+  );
   background: linear-gradient(to bottom, ${chkColors.skyblue} 0%, #ffffff 100%);
 `;
 

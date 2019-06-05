@@ -1,4 +1,4 @@
-import * as React from "react";
+import React from "react";
 import styled from "styled-components";
 
 import { Link } from "react-router-dom";
@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import { title } from "./../commons/style";
 import { chkColors } from "./../commons/color";
 
-import * as logo from "./../../images/chkLogo.jpg";
+import logo from "./../../images/chkLogo.jpg";
 
 export const Header = () => (
   <HeaderStyle>

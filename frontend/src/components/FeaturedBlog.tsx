@@ -1,11 +1,11 @@
-import * as React from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 import { chkColors } from "./../commons/color";
 
-import * as img from "./../../images/apple-2385198_1280-1.jpg";
-import * as chanyou from "./../../images/chanyou.jpg";
+import img from "./../../images/apple-2385198_1280-1.jpg";
+import chanyou from "./../../images/chanyou.jpg";
 
 export interface IProps {
   title: string;

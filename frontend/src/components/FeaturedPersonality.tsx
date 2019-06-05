@@ -1,10 +1,10 @@
-import * as React from "react";
+import React from "react";
 import styled from "styled-components";
 
 import { chkColors } from "./../commons/color";
 import { FeaturedPersonalityListenToRadioButton } from "./../components/FeaturedPersonalityListenToRadioButton";
 
-import * as chanyou from "./../../images/chanyou.jpg";
+import chanyou from "./../../images/chanyou.jpg";
 
 export const FeaturedPersonality = () => (
   <FeaturedPersonalityStyle>

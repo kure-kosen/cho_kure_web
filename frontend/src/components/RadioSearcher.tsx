@@ -1,4 +1,4 @@
-import * as React from "react";
+import React from "react";
 import styled from "styled-components";
 
 import { title } from "./../commons/style";
@@ -19,14 +19,50 @@ export const RadioSearcher = () => (
         <RadioSearchInput name="what" type="text" placeholder="どんなこと" />
       </RadioSearchInputWrapper>
       <RadioSearchTagButtonWrapper>
-        <RadioSearchTagButton name="tag1" text="tag1" color="blue" bgcolor="white" border="blue" />
-        <RadioSearchTagButton name="tag2" text="tag2" color="blue" bgcolor="white" border="blue" />
-        <RadioSearchTagButton name="tag3" text="tag3" color="blue" bgcolor="white" border="blue" />
+        <RadioSearchTagButton
+          name="tag1"
+          text="tag1"
+          color="blue"
+          bgcolor="white"
+          border="blue"
+        />
+        <RadioSearchTagButton
+          name="tag2"
+          text="tag2"
+          color="blue"
+          bgcolor="white"
+          border="blue"
+        />
+        <RadioSearchTagButton
+          name="tag3"
+          text="tag3"
+          color="blue"
+          bgcolor="white"
+          border="blue"
+        />
       </RadioSearchTagButtonWrapper>
       <RadioSearchTagButtonWrapper>
-        <RadioSearchTagButton name="tag4" text="tag4" color="blue" bgcolor="white" border="blue" />
-        <RadioSearchTagButton name="tag5" text="tag5" color="blue" bgcolor="white" border="blue" />
-        <RadioSearchTagButton name="tag6" text="tag6" color="blue" bgcolor="white" border="blue" />
+        <RadioSearchTagButton
+          name="tag4"
+          text="tag4"
+          color="blue"
+          bgcolor="white"
+          border="blue"
+        />
+        <RadioSearchTagButton
+          name="tag5"
+          text="tag5"
+          color="blue"
+          bgcolor="white"
+          border="blue"
+        />
+        <RadioSearchTagButton
+          name="tag6"
+          text="tag6"
+          color="blue"
+          bgcolor="white"
+          border="blue"
+        />
       </RadioSearchTagButtonWrapper>
       <RadioSearchButtonWrapper>
         <RadioSearchButton text="Search" />

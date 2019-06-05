@@ -1,4 +1,4 @@
-import * as React from "react";
+import React from "react";
 import styled from "styled-components";
 import { withRouter, RouteComponentProps } from "react-router-dom";
 import { inject } from "mobx-react";
@@ -61,7 +61,11 @@ class Contact extends React.Component<IProp & RouteComponentProps, IState> {
 
   public successSendContact(_: object) {
     this.setState({
-      alert: { status: "successed", message: "おたよりを送信しました。 5秒後に自動でトップページに戻ります。" }
+      alert: {
+        status: "successed",
+        message:
+          "おたよりを送信しました。 5秒後に自動でトップページに戻ります。"
+      }
     });
     setTimeout(() => console.log(this.props.history.push("/")), 5000);
   }
@@ -70,7 +74,8 @@ class Contact extends React.Component<IProp & RouteComponentProps, IState> {
     this.setState({
       alert: {
         status: "failed",
-        message: "おたよりの送信に失敗しました。 * がついている項目は全て記入して再送信してください。"
+        message:
+          "おたよりの送信に失敗しました。 * がついている項目は全て記入して再送信してください。"
       }
     });
   }

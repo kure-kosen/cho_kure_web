@@ -1,10 +1,10 @@
-import * as React from "react";
+import React from "react";
 import styled from "styled-components";
 
 import { title } from "./../commons/style";
 import { chkColors } from "./../commons/color";
 
-import * as comic from "./../../images/WeeklyComic.jpg";
+import comic from "./../../images/WeeklyComic.jpg";
 
 export const WeeklyComic = () => (
   <WeeklyComicStyle>

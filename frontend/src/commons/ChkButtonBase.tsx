@@ -1,4 +1,4 @@
-import * as React from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import styled, { css } from "styled-components";
 
@@ -18,25 +18,53 @@ interface IPropsChkButtonBase extends IPropsCss {
 }
 
 const ChkButtonBase = (props: IPropsChkButtonBase) => {
-  const { to, text, name, color, bgcolor, border, onClick, ...otherProps } = props;
+  const {
+    to,
+    text,
+    name,
+    color,
+    bgcolor,
+    border,
+    onClick,
+    ...otherProps
+  } = props;
 
   if (to) {
     if (to.startsWith("http")) {
       return (
-        <ATag color={color} bgcolor={bgcolor} border={border} href={to} {...otherProps}>
+        <ATag
+          color={color}
+          bgcolor={bgcolor}
+          border={border}
+          href={to}
+          {...otherProps}
+        >
           {text}
         </ATag>
       );
     } else {
       return (
-        <LinkTag color={color} bgcolor={bgcolor} border={border} to={to} {...otherProps}>
+        <LinkTag
+          color={color}
+          bgcolor={bgcolor}
+          border={border}
+          to={to}
+          {...otherProps}
+        >
           {text}
         </LinkTag>
       );
     }
   } else {
     return (
-      <ButtonTag name={name} color={color} bgcolor={bgcolor} border={border} onClick={onClick} {...otherProps}>
+      <ButtonTag
+        name={name}
+        color={color}
+        bgcolor={bgcolor}
+        border={border}
+        onClick={onClick}
+        {...otherProps}
+      >
         {text}
       </ButtonTag>
     );
@@ -52,9 +80,12 @@ const ButtonStyle = css`
   box-shadow: 4px 3px 10px 0px ${chkColors.shadow};
   border-radius: 20px;
   text-align: center;
-  color: ${(props: IPropsCss) => (props.color ? chkColors[props.color] : chkColors.white)};
-  border: ${(props: IPropsCss) => (props.border ? `2px solid ${chkColors[props.border]}` : "none")};
-  background-color: ${(props: IPropsCss) => (props.bgcolor ? chkColors[props.bgcolor] : chkColors.orange)};
+  color: ${(props: IPropsCss) =>
+    props.color ? chkColors[props.color] : chkColors.white};
+  border: ${(props: IPropsCss) =>
+    props.border ? `2px solid ${chkColors[props.border]}` : "none"};
+  background-color: ${(props: IPropsCss) =>
+    props.bgcolor ? chkColors[props.bgcolor] : chkColors.orange};
 `;
 
 const ButtonTag = styled.button`

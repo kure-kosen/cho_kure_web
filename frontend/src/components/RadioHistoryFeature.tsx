@@ -1,7 +1,7 @@
-import * as React from "react";
+import React from "react";
 import styled from "styled-components";
 
-import * as feature from "../../images/radio-history-feature.jpg";
+import feature from "../../images/radio-history-feature.jpg";
 
 export const RadioHistoryFeature = () => (
   <Wrapper>
@@ -9,8 +9,12 @@ export const RadioHistoryFeature = () => (
       <Box>
         <TitleWrapper>
           <RadioHistoryTitleFixed>Department of</RadioHistoryTitleFixed>
-          <RadioHistoryTitleDepartment>Architecture</RadioHistoryTitleDepartment>
-          <RadioHistoryTitleDepartmentJa>建築学科特集</RadioHistoryTitleDepartmentJa>
+          <RadioHistoryTitleDepartment>
+            Architecture
+          </RadioHistoryTitleDepartment>
+          <RadioHistoryTitleDepartmentJa>
+            建築学科特集
+          </RadioHistoryTitleDepartmentJa>
         </TitleWrapper>
       </Box>
     </Frame>

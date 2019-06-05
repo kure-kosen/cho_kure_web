@@ -1,7 +1,7 @@
-import * as React from "react";
+import React from "react";
 import styled from "styled-components";
 
-import * as card from "../../images/radio-card.png";
+import card from "../../images/radio-card.png";
 
 export const RadioCardWrapper = () => <RadioCardWrapperStyle />;
 

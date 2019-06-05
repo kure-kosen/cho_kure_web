@@ -1,10 +1,10 @@
-import * as React from "react";
+import React from "react";
 import styled from "styled-components";
 
 import { title } from "./../commons/style";
 import { chkColors } from "./../commons/color";
 
-import * as sidebarRadioImg from "./../../images/sidebar-radio-img.png";
+import sidebarRadioImg from "./../../images/sidebar-radio-img.png";
 import MoreButton from "./MoreButton";
 import { PopularRadioCard } from "./PopularRadioCard";
 

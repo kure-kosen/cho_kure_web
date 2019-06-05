@@ -1,4 +1,4 @@
-import * as React from "react";
+import React from "react";
 import styled, { keyframes } from "styled-components";
 
 import { chkColors } from "../../commons/color";
@@ -9,7 +9,11 @@ interface IProps {
   isLoading?: boolean;
 }
 
-export default ({ size = 35, color = chkColors.blue, isLoading = true }: IProps) => {
+export default ({
+  size = 35,
+  color = chkColors.blue,
+  isLoading = true
+}: IProps) => {
   return isLoading ? (
     <Wrapper>
       <StyledSpinner size={size} color={color} />

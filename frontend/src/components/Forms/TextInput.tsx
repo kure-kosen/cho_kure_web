@@ -1,4 +1,4 @@
-import * as React from "react";
+import React from "react";
 import styled, { css } from "styled-components";
 
 import { chkColors } from "../../commons/color";
@@ -16,34 +16,44 @@ export interface ITextInputProps {
   onChange?(value: string): void;
 }
 
-export default ({ value, name, placeholder, multiLine, onChange, validations, type = "text" }: ITextInputProps) => {
+export default ({
+  value,
+  name,
+  placeholder,
+  multiLine,
+  onChange,
+  validations,
+  type = "text"
+}: ITextInputProps) => {
   const [currentInputValue, setCurrentInputValue] = React.useState("");
-  const [validationErrors, setValidationErrors] = React.useState([] as IValidationResult[]);
+  const [validationErrors, setValidationErrors] = React.useState(
+    [] as IValidationResult[]
+  );
   const [inFocus, setInFocus] = React.useState(false);
 
-  const handleChange = React.useCallback((e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const data = e.target.value;
-    setCurrentInputValue(data);
+  const handleChange = React.useCallback(
+    (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+      const data = e.target.value;
+      setCurrentInputValue(data);
 
-    if (onChange) {
-      onChange(data);
-    }
-  }, []);
-
-  React.useEffect(
-    () => {
-      if (validations) {
-        if (!currentInputValue) return;
-
-        const newErrors: IValidationResult[] = [];
-        validations.forEach(validation => {
-          newErrors.push(validation(currentInputValue));
-        });
-        setValidationErrors(newErrors);
+      if (onChange) {
+        onChange(data);
       }
     },
-    [currentInputValue, inFocus]
+    []
   );
+
+  React.useEffect(() => {
+    if (validations) {
+      if (!currentInputValue) return;
+
+      const newErrors: IValidationResult[] = [];
+      validations.forEach(validation => {
+        newErrors.push(validation(currentInputValue));
+      });
+      setValidationErrors(newErrors);
+    }
+  }, [currentInputValue, inFocus]);
 
   const handleFocus = React.useCallback(() => {
     setInFocus(true);
@@ -54,14 +64,11 @@ export default ({ value, name, placeholder, multiLine, onChange, validations, ty
     setInFocus(false);
   }, []);
 
-  React.useEffect(
-    () => {
-      if (value != null) {
-        setCurrentInputValue(value);
-      }
-    },
-    [value]
-  );
+  React.useEffect(() => {
+    if (value != null) {
+      setCurrentInputValue(value);
+    }
+  }, [value]);
 
   const props = {
     type,
@@ -72,7 +79,8 @@ export default ({ value, name, placeholder, multiLine, onChange, validations, ty
     value: currentInputValue,
     onChange: handleChange,
     styledFocus: inFocus ? true : false,
-    validationError: validationErrors.filter(v => v.errorMessage).length > 0 ? true : false
+    validationError:
+      validationErrors.filter(v => v.errorMessage).length > 0 ? true : false
   };
 
   return (
@@ -80,12 +88,20 @@ export default ({ value, name, placeholder, multiLine, onChange, validations, ty
       {multiLine ? (
         <>
           <StyledTextarea {...props} rows={4} />
-          {validationErrors.length > 0 ? validationErrors.map((v, i) => <span key={i}>{v.errorMessage}</span>) : null}
+          {validationErrors.length > 0
+            ? validationErrors.map((v, i) => (
+                <span key={i}>{v.errorMessage}</span>
+              ))
+            : null}
         </>
       ) : (
         <>
           <StyledInput {...props} />
-          {validationErrors.length > 0 ? validationErrors.map((v, i) => <span key={i}>{v.errorMessage}</span>) : null}
+          {validationErrors.length > 0
+            ? validationErrors.map((v, i) => (
+                <span key={i}>{v.errorMessage}</span>
+              ))
+            : null}
         </>
       )}
     </div>
@@ -100,7 +116,8 @@ const style = css`
   padding-left: 30px;
   line-height: 1.5rem;
   width: 100%;
-  border: 2px solid ${(props: any) => (props.validationError ? chkColors.error : "#00afec")};
+  border: 2px solid
+    ${(props: any) => (props.validationError ? chkColors.error : "#00afec")};
   border-radius: 1.5rem;
 
   ::placeholder {

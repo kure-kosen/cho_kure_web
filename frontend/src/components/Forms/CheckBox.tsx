@@ -1,4 +1,4 @@
-import * as React from "react";
+import React from "react";
 import styled from "styled-components";
 
 export interface ITextInputProps {
@@ -12,14 +12,17 @@ export default ({ checked, name, onChange, children }: ITextInputProps) => {
   const [currentChecked, setCurrentChecked] = React.useState(checked);
   const [inFocus, setInFocus] = React.useState(false);
 
-  const handleChange = React.useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
-    const data = e.target.checked;
-    setCurrentChecked(data);
+  const handleChange = React.useCallback(
+    (e: React.ChangeEvent<HTMLInputElement>) => {
+      const data = e.target.checked;
+      setCurrentChecked(data);
 
-    if (onChange) {
-      onChange(data);
-    }
-  }, []);
+      if (onChange) {
+        onChange(data);
+      }
+    },
+    []
+  );
 
   const handleFocus = React.useCallback(() => {
     setInFocus(true);
@@ -30,14 +33,11 @@ export default ({ checked, name, onChange, children }: ITextInputProps) => {
     setInFocus(false);
   }, []);
 
-  React.useEffect(
-    () => {
-      if (checked !== null) {
-        setCurrentChecked(checked);
-      }
-    },
-    [checked]
-  );
+  React.useEffect(() => {
+    if (checked !== null) {
+      setCurrentChecked(checked);
+    }
+  }, [checked]);
 
   const props = {
     onFocus: handleFocus,

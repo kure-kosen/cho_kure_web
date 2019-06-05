@@ -19,7 +19,13 @@ export default class ContactApi {
     errored: (err: object) => void,
     always = () => {}
   ) {
-    return this.restClient.post("/api/v1/contacts", json, succussed, errored, always);
+    return this.restClient.post(
+      "/api/v1/contacts",
+      json,
+      succussed,
+      errored,
+      always
+    );
   }
 
   public fetchContactEnum() {

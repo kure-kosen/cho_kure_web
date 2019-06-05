@@ -16,7 +16,16 @@ export default class ContactModel {
   constructor(store: ContactStore, json: any) {
     this.store = store;
 
-    const { readable, corner, message, nickname, name, email, department, grade } = json;
+    const {
+      readable,
+      corner,
+      message,
+      nickname,
+      name,
+      email,
+      department,
+      grade
+    } = json;
     this.readable = readable;
     this.corner = corner;
     this.message = message;
@@ -29,12 +38,25 @@ export default class ContactModel {
 
   public save(successed: (res: object) => void, failed: (res: object) => void) {
     console.log(this.toJson);
-    return this.store.transportLayer.saveContact(this.toJson, successed, failed);
+    return this.store.transportLayer.saveContact(
+      this.toJson,
+      successed,
+      failed
+    );
   }
 
   @computed
   get toJson() {
-    const { readable, corner, message, nickname, name, email, department, grade } = this;
+    const {
+      readable,
+      corner,
+      message,
+      nickname,
+      name,
+      email,
+      department,
+      grade
+    } = this;
     return {
       readable,
       corner,

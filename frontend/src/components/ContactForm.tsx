@@ -1,4 +1,4 @@
-import * as React from "react";
+import React from "react";
 import styled from "styled-components";
 import { observer } from "mobx-react-lite";
 
@@ -44,16 +44,19 @@ export default observer((props: IProp) => {
 
   const [sendable, setSendable] = React.useState(false);
 
-  React.useEffect(
-    () => {
-      if (corner && department && grade && !validateEmail(email).errorMessage && message) {
-        setSendable(true);
-      } else {
-        setSendable(false);
-      }
-    },
-    [corner, department, grade, email, message]
-  );
+  React.useEffect(() => {
+    if (
+      corner &&
+      department &&
+      grade &&
+      !validateEmail(email).errorMessage &&
+      message
+    ) {
+      setSendable(true);
+    } else {
+      setSendable(false);
+    }
+  }, [corner, department, grade, email, message]);
 
   const createContact = (e: any) => {
     e.preventDefault();
@@ -89,11 +92,21 @@ export default observer((props: IProp) => {
 
       <form>
         <InlineWrapper>
-          <TextInput name="name" placeholder="名前" onChange={setName} value={name} />
+          <TextInput
+            name="name"
+            placeholder="名前"
+            onChange={setName}
+            value={name}
+          />
         </InlineWrapper>
 
         <InlineWrapper>
-          <Select name="corner" onChange={setCorner} value={corner} optionElements={contactEnum.corners}>
+          <Select
+            name="corner"
+            onChange={setCorner}
+            value={corner}
+            optionElements={contactEnum.corners}
+          >
             <option value="" disabled style={{ display: "none" }}>
               題名（必須）
             </option>
@@ -114,7 +127,12 @@ export default observer((props: IProp) => {
             </Select>
           </InlineHalfWrapper>
           <InlineHalfWrapper>
-            <Select name="grade" onChange={setGrade} value={grade} optionElements={contactEnum.grades}>
+            <Select
+              name="grade"
+              onChange={setGrade}
+              value={grade}
+              optionElements={contactEnum.grades}
+            >
               <option value="" disabled style={{ display: "none" }}>
                 学年（必須）
               </option>
@@ -133,7 +151,12 @@ export default observer((props: IProp) => {
         </InlineWrapper>
 
         <InlineWrapper>
-          <TextInput name="nickname" placeholder="ラジオネーム" onChange={setNickname} value={nickname} />
+          <TextInput
+            name="nickname"
+            placeholder="ラジオネーム"
+            onChange={setNickname}
+            value={nickname}
+          />
         </InlineWrapper>
 
         <InlineWrapper>
@@ -177,7 +200,8 @@ const InlineHalfWrapper = styled.div`
 const ContactFormButton = styled(ChkButtonBase)`
   width: 40%;
   margin: 0 auto;
-  cursor: ${(props: { sendable: boolean }) => (props.sendable ? "pointer" : "default")};
+  cursor: ${(props: { sendable: boolean }) =>
+    props.sendable ? "pointer" : "default"};
 `;
 
 const AlertBar = styled.div`
