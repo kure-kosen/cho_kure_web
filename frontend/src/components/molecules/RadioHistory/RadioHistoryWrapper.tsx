@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 
-import { goodSpace } from "../../../commons/style";
 import { color, heading } from "@/constants/styles";
 
 import MoreButton from "@/components/atoms/Buttons/MoreButton";
@@ -65,7 +64,8 @@ const Title = styled.div`
 `;
 
 const RadioDateButtonWrapper = styled.div`
-  ${goodSpace}
+  display: flex;
+  justify-content: space-between;
   width: 45%;
   margin: 0 auto 20px auto;
 `;
@@ -82,6 +82,7 @@ const RadioDateButton = styled.button`
 `;
 
 const RadioCardsWrapper = styled.div`
-  ${goodSpace}
+  display: flex;
+  justify-content: space-between;
   margin: 0 auto 20px auto;
 `;
