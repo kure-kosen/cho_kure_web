@@ -17,8 +17,7 @@ module.exports = merge(common, {
   },
 
   plugins: [
-    new CleanWebpackPlugin(
-        ['build'], {root: path.join(__dirname, '../../public/assets/')}),
+    new CleanWebpackPlugin(),
     new ManifestPlugin()
   ],
 
