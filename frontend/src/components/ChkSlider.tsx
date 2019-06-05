@@ -12,15 +12,9 @@ export const ChkSlider = (props: IProps) => (
   <Slider {...settings}>{props.InnerComponent}</Slider>
 );
 
-const ChkNextArrow = (props: any) => {
-  const { className, onClick } = props;
-  return <div className={className} onClick={onClick} />;
-};
+const ChkNextArrow = (props: any) => <div onClick={props.onClick} />;
 
-const ChkPrevArrow = (props: any) => {
-  const { className, onClick } = props;
-  return <div className={className} onClick={onClick} />;
-};
+const ChkPrevArrow = (props: any) => <div onClick={props.onClick} />;
 
 const settings = {
   dots: false,

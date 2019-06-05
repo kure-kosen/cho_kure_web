@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-import { chkColors } from "./../commons/color";
+import { color } from "@/constants/styles";
 
 import img from "./../../images/apple-2385198_1280-1.jpg";
 import chanyou from "./../../images/chanyou.jpg";
@@ -54,7 +54,7 @@ const Picture = styled.img`
   height: 100%;
   object-fit: cover;
   border-radius: 10px;
-  border: solid 1px ${chkColors.orange};
+  border: solid 1px ${color.ORANGE};
 `;
 
 const Article = styled.div`
@@ -65,7 +65,7 @@ const Title = styled.h3`
   margin: 0;
   margin-bottom: 20px;
   font-size: 1.3rem;
-  color: ${chkColors.white};
+  color: ${color.WHITE};
 `;
 
 const Contents = styled.div`
@@ -75,12 +75,12 @@ const Contents = styled.div`
   justify-content: center;
   align-items: left;
 
-  color: ${chkColors.white};
+  color: ${color.WHITE};
   word-break: break-all;
 `;
 
 const Meta = styled.div`
-  color: ${chkColors.darkenAqua};
+  color: ${color.DARK_AQUA};
   font-weight: bold;
 `;
 
@@ -88,7 +88,7 @@ const Icon = styled.img`
   height: 35px;
   width: 35px;
   border-radius: 50%;
-  border: solid 1px ${chkColors.orange};
+  border: solid 1px ${color.ORANGE};
   object-fit: cover;
   margin: 0 10px;
   vertical-align: middle;

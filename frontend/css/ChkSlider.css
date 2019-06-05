@@ -1,19 +1,19 @@
 .slick-prev,
 .slick-next {
-  font-size: 60px;
-  font-weight: bold;
   position: absolute;
   top: 50%;
   display: block;
   padding: 0;
+  outline: none;
+  border: none;
+  background: transparent;
+  color: white;
+  font-weight: bold;
+  font-size: 60px;
+  cursor: pointer;
   -webkit-transform: translate(0, -50%);
   -ms-transform: translate(0, -50%);
   transform: translate(0, -50%);
-  cursor: pointer;
-  color: white;
-  border: none;
-  outline: none;
-  background: transparent;
 }
 
 .slick-prev {
@@ -32,11 +32,11 @@
 }
 
 .slick-prev:before {
-  opacity: 0.5;
   content: "<";
+  opacity: 0.5;
 }
 
 .slick-next:before {
-  opacity: 0.5;
   content: ">";
+  opacity: 0.5;
 }

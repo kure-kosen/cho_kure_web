@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-import { chkColors } from "./../commons/color";
+import { color } from "@/constants/styles";
 
 import { ChkSlider } from "./ChkSlider";
 
@@ -28,15 +28,11 @@ export const FeaturedPersonalitiesWrapper = () => (
 
 const FeaturedPersonalitiesWrapperStyle = styled.div`
   width: 100%;
-  color: white;
+  color: ${color.WHITE};
   height: 750px;
-  background: -moz-linear-gradient(top, ${chkColors.skyblue} 0%, #ffffff 100%);
-  background: -webkit-linear-gradient(
-    top,
-    ${chkColors.skyblue} 0%,
-    #ffffff 100%
-  );
-  background: linear-gradient(to bottom, ${chkColors.skyblue} 0%, #ffffff 100%);
+  background: -moz-linear-gradient(top, ${color.SKY_BLUE} 0%, #ffffff 100%);
+  background: -webkit-linear-gradient(top, ${color.SKY_BLUE} 0%, #ffffff 100%);
+  background: linear-gradient(to bottom, ${color.SKY_BLUE} 0%, #ffffff 100%);
 `;
 
 const SliderWrapper = styled.div`

@@ -2,11 +2,11 @@ import React from "react";
 import styled from "styled-components";
 import { observer } from "mobx-react-lite";
 
-import ContactStore from "../stores/ContactStore";
+import ContactStore from "@/stores/ContactStore";
 
-import ChkButtonBase from "../commons/ChkButtonBase";
+import ChkButtonBase from "@/commons/ChkButtonBase";
 
-import { validateEmail } from "../utils/validation";
+import { validateEmail } from "@/utils/validation";
 
 import TextInput from "./Forms/TextInput";
 import Select from "./Forms/Select";
@@ -178,7 +178,7 @@ export default observer((props: IProp) => {
         <ContactFormButton
           text="送信"
           onClick={createContact}
-          bgcolor={sendable ? "" : "disabled"}
+          bgcolor={sendable ? "" : "DISABLED"}
           sendable={sendable}
         />
       </form>

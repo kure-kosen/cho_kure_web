@@ -1,7 +1,7 @@
 import React from "react";
 import styled, { keyframes } from "styled-components";
 
-import { chkColors } from "../../commons/color";
+import { color as colors } from "@/constants/styles";
 
 interface IProps {
   size?: number;
@@ -11,7 +11,7 @@ interface IProps {
 
 export default ({
   size = 35,
-  color = chkColors.blue,
+  color = colors.BLUE,
   isLoading = true
 }: IProps) => {
   return isLoading ? (
@@ -33,13 +33,13 @@ const clip = keyframes`
   100% {transform: rotate(360deg) scale(1)}
 `;
 
-const StyledSpinner = styled.div`
+const StyledSpinner = styled.div<IProps>`
   background: transparent !important;
-  width: ${(props: IProps) => `${props.size}px`};
-  height: ${(props: IProps) => `${props.size}px`};
+  width: ${props => `${props.size}px`};
+  height: ${props => `${props.size}px`};
   border-radius: 100%;
   border: 2px solid;
-  border-color: ${(props: IProps) => props.color};
+  border-color: ${props => props.color};
   border-bottom-color: transparent;
   display: inline-block;
   animation: ${clip} 1.3s 0s infinite linear;

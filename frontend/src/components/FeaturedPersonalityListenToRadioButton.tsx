@@ -5,7 +5,7 @@ import ChkButtonBase from "../commons/ChkButtonBase";
 
 export const FeaturedPersonalityListenToRadioButton = () => (
   <Wrapper>
-    <ChkButtonBase to="/" text="listen to radio" bgcolor="blue" />
+    <ChkButtonBase to="/" text="listen to radio" bgcolor="BLUE" />
   </Wrapper>
 );
 

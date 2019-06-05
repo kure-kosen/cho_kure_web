@@ -4,7 +4,7 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 
 import { title } from "./../commons/style";
-import { chkColors } from "./../commons/color";
+import { color } from "@/constants/styles";
 
 import logo from "./../../images/chkLogo.jpg";
 
@@ -57,7 +57,7 @@ const Nav = styled.div`
 
 const ToTopPage = styled(Link)`
   ${title};
-  color: ${chkColors.blue};
+  color: ${color.BLUE};
   vertical-align: middle;
   line-height: 60px;
   margin-left: 15px;
@@ -78,7 +78,7 @@ const LinkWrapper = styled.li`
 
 const PageLink = styled(Link)`
   &:visited {
-    color: ${chkColors.blue};
+    color: ${color.BLUE};
   }
 
   &:hover {

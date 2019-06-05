@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-import { chkColors } from "./../commons/color";
+import { color } from "@/constants/styles";
 
 interface IProps {
   title: string;
@@ -37,12 +37,12 @@ const RadioProperties = styled.div`
 `;
 
 const RadioTitle = styled.div`
-  color: ${chkColors.orange};
+  color: ${color.ORANGE};
   font-size: 1rem;
 `;
 
 const RadioDescription = styled.p`
-  color: ${chkColors.gray};
+  color: ${color.GRAY};
   font-size: 0.9rem;
   margin-top: 6px;
   text-indent: 0.9rem;

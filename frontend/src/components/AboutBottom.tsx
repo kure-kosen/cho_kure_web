@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 import { media } from "./../commons/style";
-import { chkColors } from "./../commons/color";
+import { color } from "@/constants/styles";
 import ChkButtonBase from "./../commons/ChkButtonBase";
 
 import img from "./../../images/bg.jpg";
@@ -52,12 +52,12 @@ const ContentStyle = styled.div`
 `;
 
 const TitleStyle = styled.h2`
-  color: ${chkColors.orange};
+  color: ${color.ORANGE};
   text-align: center;
 `;
 
 const ParagraphStyle = styled.p`
-  color: ${chkColors.white};
+  color: ${color.WHITE};
   line-height: 1.42em;
 `;
 

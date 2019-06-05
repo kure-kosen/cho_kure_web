@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { Timeline } from "react-twitter-widgets";
 import { title } from "./../commons/style";
-import { chkColors } from "./../commons/color";
+import { color } from "@/constants/styles";
 
 export const TweetStream = () => (
   <TweetStreamStyle>
@@ -27,5 +27,5 @@ const TweetStreamStyle = styled.div`
 
 const Title = styled.div`
   ${title};
-  color: ${chkColors.blue};
+  color: ${color.BLUE};
 `;

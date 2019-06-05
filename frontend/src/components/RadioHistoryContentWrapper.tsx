@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 import { title, goodSpace } from "./../commons/style";
-import { chkColors } from "./../commons/color";
+import { color } from "@/constants/styles";
 
 import MoreButton from "./MoreButton";
 import { RadioCardWrapper } from "./../components/RadioCardWrapper";
@@ -58,7 +58,7 @@ const RadioHistoryContentArea = styled.div`
 
 const Title = styled.div`
   ${title}
-  color: ${chkColors.gray};
+  color: ${color.GRAY};
   text-align: center;
   margin-bottom: 20px;
 `;
@@ -73,9 +73,9 @@ const RadioDateButton = styled.button`
   display: block;
   padding: 5px 1rem;
   line-height: 1.5rem;
-  color: ${chkColors.gray};
+  color: ${color.GRAY};
   background-color: #fff;
-  border: 2px solid ${chkColors.blue};
+  border: 2px solid ${color.BLUE};
   border-radius: 1.5rem;
   outline: none;
 `;

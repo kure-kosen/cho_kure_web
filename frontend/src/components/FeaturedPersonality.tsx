@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-import { chkColors } from "./../commons/color";
+import { color } from "@/constants/styles";
 import { FeaturedPersonalityListenToRadioButton } from "./../components/FeaturedPersonalityListenToRadioButton";
 
 import chanyou from "./../../images/chanyou.jpg";
@@ -43,11 +43,11 @@ const FeaturedPersonalityStyle = styled.div`
   height: 500px;
   margin: 0 auto 15px auto;
   border-radius: 8px;
-  color: ${chkColors.black};
+  color: ${color.BLACK};
   font-weight: bold;
-  border: 3px solid ${chkColors.skyblue};
-  background-color: ${chkColors.white};
-  box-shadow: 4px 3px 10px 0px ${chkColors.shadow};
+  border: 3px solid ${color.SKY_BLUE};
+  background-color: ${color.WHITE};
+  box-shadow: 4px 3px 10px 0px ${color.SHADOW};
   position: relative;
 `;
 
@@ -90,7 +90,7 @@ const Circle = styled.div`
   vertical-align: middle;
   margin-right: 10px;
   border-radius: 50%;
-  background-color: ${chkColors.orange};
+  background-color: ${color.ORANGE};
   color: rgba(255, 255, 255, 0.8);
 `;
 
@@ -100,28 +100,28 @@ const PictureArea = styled.div`
   margin-top: -3px;
   margin-left: -3px;
   background-image: url(${chanyou});
-  background-color: ${chkColors.skyblue};
+  background-color: ${color.SKY_BLUE};
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
-  border-top: 3px solid ${chkColors.skyblue};
-  border-left: 3px solid ${chkColors.skyblue};
-  border-right: 3px solid ${chkColors.skyblue};
+  border-top: 3px solid ${color.SKY_BLUE};
+  border-left: 3px solid ${color.SKY_BLUE};
+  border-right: 3px solid ${color.SKY_BLUE};
 `;
 
 const DescriptionArea = styled.div`
   height: auto;
   padding: 20px 30px;
-  border-top: 3px solid ${chkColors.skyblue};
+  border-top: 3px solid ${color.SKY_BLUE};
 `;
 
 const Name = styled.span`
   font-size: 1.2rem;
-  color: ${chkColors.black};
+  color: ${color.BLACK};
 `;
 
 const NickName = styled.span`
   margin-left: 20px;
-  color: ${chkColors.blue};
+  color: ${color.BLUE};
   font-size: 0.8rem;
   line-height: 1.25rem;
   vertical-align: bottom;

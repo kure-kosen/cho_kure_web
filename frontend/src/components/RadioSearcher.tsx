@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 import { title } from "./../commons/style";
-import { chkColors } from "./../commons/color";
+import { color } from "@/constants/styles";
 import ChkButtonBase from "../commons/ChkButtonBase";
 
 export const RadioSearcher = () => (
@@ -22,46 +22,46 @@ export const RadioSearcher = () => (
         <RadioSearchTagButton
           name="tag1"
           text="tag1"
-          color="blue"
-          bgcolor="white"
-          border="blue"
+          textcolor="BLUE"
+          bgcolor="WHITE"
+          border="BLUE"
         />
         <RadioSearchTagButton
           name="tag2"
           text="tag2"
-          color="blue"
-          bgcolor="white"
-          border="blue"
+          textcolor="BLUE"
+          bgcolor="WHITE"
+          border="BLUE"
         />
         <RadioSearchTagButton
           name="tag3"
           text="tag3"
-          color="blue"
-          bgcolor="white"
-          border="blue"
+          textcolor="BLUE"
+          bgcolor="WHITE"
+          border="BLUE"
         />
       </RadioSearchTagButtonWrapper>
       <RadioSearchTagButtonWrapper>
         <RadioSearchTagButton
           name="tag4"
           text="tag4"
-          color="blue"
-          bgcolor="white"
-          border="blue"
+          textcolor="BLUE"
+          bgcolor="WHITE"
+          border="BLUE"
         />
         <RadioSearchTagButton
           name="tag5"
           text="tag5"
-          color="blue"
-          bgcolor="white"
-          border="blue"
+          textcolor="BLUE"
+          bgcolor="WHITE"
+          border="BLUE"
         />
         <RadioSearchTagButton
           name="tag6"
           text="tag6"
-          color="blue"
-          bgcolor="white"
-          border="blue"
+          textcolor="BLUE"
+          bgcolor="WHITE"
+          border="BLUE"
         />
       </RadioSearchTagButtonWrapper>
       <RadioSearchButtonWrapper>
@@ -74,14 +74,14 @@ export const RadioSearcher = () => (
 const Wrapper = styled.div`
   width: 100%;
   height: 400px;
-  color: white;
+  color: ${color.WHITE};
   padding: 0 20px;
   background-color: #fff;
 `;
 
 const RadioSearcherTitle = styled.div`
   ${title}
-  color: ${chkColors.blue};
+  color: ${color.BLUE};
 `;
 
 const RadioSearchInputWrapper = styled.div`
@@ -93,16 +93,16 @@ const RadioSearchInput = styled.input`
   padding-left: 30px;
   line-height: 1.5rem;
   width: 100%;
-  border: 2px solid ${chkColors.blue};
+  border: 2px solid ${color.BLUE};
   border-radius: 1.5rem;
   outline: none;
 
   ::placeholder {
-    color: ${chkColors.placeholder};
+    color: ${color.PLACEHOLDER};
     opacity: 1;
   }
   ::-ms-input-placeholder {
-    color: ${chkColors.placeholder};
+    color: ${color.PLACEHOLDER};
   }
 `;
 

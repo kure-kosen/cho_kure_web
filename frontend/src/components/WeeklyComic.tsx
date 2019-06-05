@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 import { title } from "./../commons/style";
-import { chkColors } from "./../commons/color";
+import { color } from "@/constants/styles";
 
 import comic from "./../../images/WeeklyComic.jpg";
 
@@ -15,14 +15,14 @@ export const WeeklyComic = () => (
 
 const WeeklyComicStyle = styled.div`
   width: 100%;
-  color: white;
-  background-color: ${chkColors.white};
+  color: ${color.WHITE};
+  background-color: ${color.WHITE};
   height: auto;
 `;
 
 const Title = styled.div`
   ${title};
-  color: ${chkColors.blue};
+  color: ${color.BLUE};
   padding: 0 20px;
 `;
 

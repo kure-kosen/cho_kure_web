@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-import { chkColors } from "./../commons/color";
+import { color } from "@/constants/styles";
 
 import MoreButton from "./MoreButton";
 
@@ -41,7 +41,7 @@ export const FeaturedBlogWrapper = () => (
 );
 
 const Wrapper = styled.div`
-  background-color: ${chkColors.aqua};
+  background-color: ${color.AQUA};
   margin: 10px;
   padding: 50px 40px;
   border-radius: 8px;
@@ -50,7 +50,7 @@ const Wrapper = styled.div`
 const Title = styled.h1`
   font-size: 1.5rem;
   text-align: center;
-  color: ${chkColors.white};
+  color: ${color.WHITE};
 `;
 
 const BlogWrapper = styled.div`

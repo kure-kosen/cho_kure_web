@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 import { media } from "./../commons/style";
-import { chkColors } from "./../commons/color";
+import { color } from "@/constants/styles";
 
 export const ContactHeroContent = () => (
   <Wrapper>
@@ -16,7 +16,7 @@ const Wrapper = styled.div`
   width: 60%;
   font-size: 2rem;
   text-align: center;
-  color: white;
+  color: ${color.WHITE};
 
   @media ${media.mobile} {
     width: 90%;
@@ -27,6 +27,6 @@ const HeroContentBar = styled.hr`
   display: box;
   width: 50%;
   height: 2px;
-  background-color: ${chkColors.orange};
+  background-color: ${color.ORANGE};
   border: 0;
 `;

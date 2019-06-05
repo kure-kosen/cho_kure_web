@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 import { title } from "./../commons/style";
-import { chkColors } from "./../commons/color";
+import { color } from "@/constants/styles";
 
 export const AboutSidebar = () => (
   <AboutSidebarStyle>
@@ -21,9 +21,9 @@ const AboutSidebarStyle = styled.div`
 
 const Title = styled.div`
   ${title};
-  color: ${chkColors.blue};
+  color: ${color.BLUE};
 `;
 
 const Description = styled.div`
-  color: ${chkColors.gray};
+  color: ${color.GRAY};
 `;
