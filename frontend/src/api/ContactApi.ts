@@ -1,4 +1,4 @@
-import RestClient from "./RestClient";
+import RestClient from "@/api/RestClient";
 
 export interface IContactEnum {
   corners: { [key: string]: number };

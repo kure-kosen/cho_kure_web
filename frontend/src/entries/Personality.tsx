@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 import { color } from "@/constants/styles";
 
-export const Personality = () => <Wrapper>RadioPersonality</Wrapper>;
+export default () => <Wrapper>RadioPersonality</Wrapper>;
 
 const Wrapper = styled.div`
   width: 100%;

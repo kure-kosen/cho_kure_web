@@ -6,7 +6,7 @@ import { color } from "@/constants/styles";
 
 import comic from "./../../images/WeeklyComic.jpg";
 
-export const WeeklyComic = () => (
+export default () => (
   <WeeklyComicStyle>
     <Title>this week</Title>
     <PictureArea src={comic} />

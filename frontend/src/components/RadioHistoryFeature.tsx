@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 import feature from "../../images/radio-history-feature.jpg";
 
-export const RadioHistoryFeature = () => (
+export default () => (
   <Wrapper>
     <Frame>
       <Box>

@@ -5,10 +5,10 @@ import { title } from "./../commons/style";
 import { color } from "@/constants/styles";
 
 import sidebarRadioImg from "./../../images/sidebar-radio-img.png";
-import MoreButton from "./MoreButton";
-import { PopularRadioCard } from "./PopularRadioCard";
+import MoreButton from "@/components/MoreButton";
+import PopularRadioCard from "@/components/PopularRadioCard";
 
-export const PopularRadioWrapper = () => (
+export default () => (
   <PopularRadioWrapperStyle>
     <Title>popular radio</Title>
     <PopularRadioCardWrapper>

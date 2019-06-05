@@ -8,7 +8,7 @@ import { color } from "@/constants/styles";
 
 import logo from "./../../images/chkLogo.jpg";
 
-export const Header = () => (
+export default () => (
   <HeaderStyle>
     <LogoArea>
       <Logo src={logo} />

@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 import card from "../../images/radio-card.png";
 
-export const RadioCardWrapper = () => <RadioCardWrapperStyle />;
+export default () => <RadioCardWrapperStyle />;
 
 const RadioCardWrapperStyle = styled.div`
   width: 282px;

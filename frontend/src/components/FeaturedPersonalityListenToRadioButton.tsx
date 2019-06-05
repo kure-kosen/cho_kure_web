@@ -1,9 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 
-import ChkButtonBase from "../commons/ChkButtonBase";
+import ChkButtonBase from "@/commons/ChkButtonBase";
 
-export const FeaturedPersonalityListenToRadioButton = () => (
+export default () => (
   <Wrapper>
     <ChkButtonBase to="/" text="listen to radio" bgcolor="BLUE" />
   </Wrapper>

@@ -1,8 +1,8 @@
 import React from "react";
 import styled, { css } from "styled-components";
 
-import { chkColors } from "../../commons/color";
-import { IValidationResult, ValidationMethod } from "../../utils/validation";
+import { color } from "@/constants/styles";
+import { IValidationResult, ValidationMethod } from "@/utils/validation";
 
 type TextInputType = "text" | "password" | "email";
 
@@ -117,7 +117,7 @@ const style = css`
   line-height: 1.5rem;
   width: 100%;
   border: 2px solid
-    ${(props: any) => (props.validationError ? chkColors.error : "#00afec")};
+    ${(props: any) => (props.validationError ? color.ERROR : "#00afec")};
   border-radius: 1.5rem;
 
   ::placeholder {

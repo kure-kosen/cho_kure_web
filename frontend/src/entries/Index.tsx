@@ -1,19 +1,19 @@
 import React from "react";
 import styled from "styled-components";
 
-import { media } from "./../commons/style";
+import { device } from "@/constants/styles";
 
-import { HeroArea } from "./../components/HeroArea";
-import { FeaturedPersonalitiesWrapper } from "./../components/FeaturedPersonalitiesWrapper";
-import { AboutSidebar } from "./../components/AboutSidebar";
-import { PopularRadioWrapper } from "./../components/PopularRadioWrapper";
-import { WeeklyComic } from "./../components/WeeklyComic";
-import { TweetStream } from "./../components/TweetStream";
-import { RadioCardWrapper } from "./../components/RadioCardWrapper";
-import { FeaturedBlogWrapper } from "./../components/FeaturedBlogWrapper";
-import { AboutBottom } from "./../components/AboutBottom";
+import HeroArea from "@/components/HeroArea";
+import FeaturedPersonalitiesWrapper from "@/components/FeaturedPersonalitiesWrapper";
+import AboutSidebar from "@/components/AboutSidebar";
+import PopularRadioWrapper from "@/components/PopularRadioWrapper";
+import WeeklyComic from "@/components/WeeklyComic";
+import TweetStream from "@/components/TweetStream";
+import RadioCardWrapper from "@/components/RadioCardWrapper";
+import FeaturedBlogWrapper from "@/components/FeaturedBlogWrapper";
+import AboutBottom from "@/components/AboutBottom";
 
-export const Index = () => (
+export default () => (
   <div>
     <HeroArea InnerComponent="検索バー" />
     <FeaturedPersonalitiesWrapper />
@@ -41,7 +41,7 @@ const Sidebar = styled.nav`
   flex: 0 0 25%;
   padding: 0 20px;
 
-  @media ${media.mobile} {
+  @media ${device.mobile} {
     flex: 0 0 0%;
     display: none;
   }
@@ -50,7 +50,7 @@ const Sidebar = styled.nav`
 const MainContentWrapper = styled.div`
   flex: 0 0 75%;
 
-  @media ${media.mobile} {
+  @media ${device.mobile} {
     flex: 0 0 100%;
   }
 `;

@@ -1,5 +1,5 @@
 import { computed } from "mobx";
-import ContactStore from "../stores/ContactStore";
+import ContactStore from "@/stores/ContactStore";
 
 export default class ContactModel {
   public store: ContactStore;

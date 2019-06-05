@@ -3,9 +3,9 @@ import styled from "styled-components";
 
 import { title } from "./../commons/style";
 import { color } from "@/constants/styles";
-import ChkButtonBase from "../commons/ChkButtonBase";
+import ChkButtonBase from "@/commons/ChkButtonBase";
 
-export const RadioSearcher = () => (
+export default () => (
   <Wrapper>
     <RadioSearcherTitle>Search</RadioSearcherTitle>
     <form action="">

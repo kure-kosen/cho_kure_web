@@ -1,10 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 
-import { media } from "./../commons/style";
-import { color } from "@/constants/styles";
+import { color, device } from "@/constants/styles";
 
-export const ContactHeroContent = () => (
+export default () => (
   <Wrapper>
     Contact
     <HeroContentBar />
@@ -18,7 +17,7 @@ const Wrapper = styled.div`
   text-align: center;
   color: ${color.WHITE};
 
-  @media ${media.mobile} {
+  @media ${device.mobile} {
     width: 90%;
   }
 `;

@@ -1,6 +1,6 @@
-import ContactStore from "./ContactStore";
-import ContactApi from "../api/ContactApi";
-import RestClient from "../api/RestClient";
+import ContactStore from "@/stores/ContactStore";
+import ContactApi from "@/api/ContactApi";
+import RestClient from "@/api/RestClient";
 
 export default class RootStore {
   public contactStore: ContactStore;

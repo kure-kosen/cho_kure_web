@@ -1,13 +1,12 @@
 import React from "react";
 import styled from "styled-components";
 
-import { media } from "./../commons/style";
-import { color } from "@/constants/styles";
-import ChkButtonBase from "./../commons/ChkButtonBase";
+import { color, device } from "@/constants/styles";
+import ChkButtonBase from "@/commons/ChkButtonBase";
 
 import img from "./../../images/bg.jpg";
 
-export const AboutBottom = () => (
+export default () => (
   <AboutBottomStyle>
     <MaskStyle>
       <ContentStyle>
@@ -46,7 +45,7 @@ const ContentStyle = styled.div`
   width: 50vw;
   height: auto;
 
-  @media ${media.mobile} {
+  @media ${device.mobile} {
     width: 90vw;
   }
 `;

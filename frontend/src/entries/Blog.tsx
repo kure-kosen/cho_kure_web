@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 import { color } from "@/constants/styles";
 
-export const Blog = () => <Wrapper>RadioBlog</Wrapper>;
+export default () => <Wrapper>RadioBlog</Wrapper>;
 
 const Wrapper = styled.div`
   width: 100%;

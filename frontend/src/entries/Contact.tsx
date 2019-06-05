@@ -3,13 +3,13 @@ import styled from "styled-components";
 import { withRouter, RouteComponentProps } from "react-router-dom";
 import { inject } from "mobx-react";
 
-import RootStore from "../stores/RootStore";
+import RootStore from "@/stores/RootStore";
 
-import { media } from "../commons/style";
+import { device } from "@/constants/styles";
 
-import { HeroArea } from "../components/HeroArea";
-import { ContactHeroContent } from "../components/ContactHeroContent";
-import ContactForm from "../components/ContactForm";
+import HeroArea from "@/components/HeroArea";
+import ContactHeroContent from "@/components/ContactHeroContent";
+import ContactForm from "@/components/ContactForm";
 
 interface IProp {
   rootStore?: RootStore;
@@ -91,7 +91,7 @@ const ContactFormWrapper = styled.div`
     width: 50%;
     margin-bottom: 100px;
 
-    @media ${media.mobile} {
+    @media ${device.mobile} {
       width: 90%;
     }
   }

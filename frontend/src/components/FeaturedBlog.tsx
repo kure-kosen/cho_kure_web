@@ -14,30 +14,26 @@ export interface IProps {
   author: string;
   to: string;
 }
-export const FeaturedBlog = (props: IProps) => {
-  const { title, date, summary, author, to } = props;
-
-  return (
-    <Link to={to}>
-      <Wrapper>
-        <PictureWrapper>
-          <Picture src={img} />
-        </PictureWrapper>
-        <Article>
-          <Title>{title}</Title>
-          <Contents>
-            <p>{summary}</p>
-            <Meta>
-              <span>{date}</span>
-              <Icon src={chanyou} />
-              <span>{author}</span>
-            </Meta>
-          </Contents>
-        </Article>
-      </Wrapper>
-    </Link>
-  );
-};
+export default ({ title, date, summary, author, to }: IProps) => (
+  <Link to={to}>
+    <Wrapper>
+      <PictureWrapper>
+        <Picture src={img} />
+      </PictureWrapper>
+      <Article>
+        <Title>{title}</Title>
+        <Contents>
+          <p>{summary}</p>
+          <Meta>
+            <span>{date}</span>
+            <Icon src={chanyou} />
+            <span>{author}</span>
+          </Meta>
+        </Contents>
+      </Article>
+    </Wrapper>
+  </Link>
+);
 
 const Wrapper = styled.div`
   display: flex;

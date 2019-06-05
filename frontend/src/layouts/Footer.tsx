@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 import { color } from "@/constants/styles";
 
-export const Footer = () => <FooterStyle>&copy;2018 milme</FooterStyle>;
+export default () => <FooterStyle>&copy;2018 milme</FooterStyle>;
 
 const FooterStyle = styled.footer`
   width: 100%;

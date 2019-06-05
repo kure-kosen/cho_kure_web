@@ -8,11 +8,11 @@ import ChkButtonBase from "@/commons/ChkButtonBase";
 
 import { validateEmail } from "@/utils/validation";
 
-import TextInput from "./Forms/TextInput";
-import Select from "./Forms/Select";
-import CheckBox from "./Forms/CheckBox";
+import TextInput from "@/components/Forms/TextInput";
+import Select from "@/components/Forms/Select";
+import CheckBox from "@/components/Forms/CheckBox";
 
-import CircleSpinner from "./Spinners/CircleSpinner";
+import CircleSpinner from "@/components/Spinners/CircleSpinner";
 
 interface IProp {
   contactStore: ContactStore;

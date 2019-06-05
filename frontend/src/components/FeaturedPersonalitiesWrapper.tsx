@@ -3,12 +3,12 @@ import styled from "styled-components";
 
 import { color } from "@/constants/styles";
 
-import { ChkSlider } from "./ChkSlider";
+import ChkSlider from "@/components/ChkSlider";
 
-import { FeaturedPersonality } from "./../components/FeaturedPersonality";
-import { FeaturedPersonalityButton } from "./../components/FeaturedPersonalityButton";
+import FeaturedPersonality from "@/components/FeaturedPersonality";
+import FeaturedPersonalityButton from "@/components/FeaturedPersonalityButton";
 
-export const FeaturedPersonalitiesWrapper = () => (
+export default () => (
   <FeaturedPersonalitiesWrapperStyle>
     <SliderWrapper>
       <ChkSlider

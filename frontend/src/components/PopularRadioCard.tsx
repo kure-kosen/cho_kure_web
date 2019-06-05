@@ -9,7 +9,7 @@ interface IProps {
   description: string;
 }
 
-export const PopularRadioCard = (props: IProps) => (
+export default (props: IProps) => (
   <Wrapper>
     <RadioImg src={props.img} />
     <RadioProperties>

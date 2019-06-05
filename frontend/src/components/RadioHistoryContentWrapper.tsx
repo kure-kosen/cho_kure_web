@@ -4,11 +4,11 @@ import styled from "styled-components";
 import { title, goodSpace } from "./../commons/style";
 import { color } from "@/constants/styles";
 
-import MoreButton from "./MoreButton";
-import { RadioCardWrapper } from "./../components/RadioCardWrapper";
-import { RadioHistoryFeature } from "./../components/RadioHistoryFeature";
+import MoreButton from "@/components/MoreButton";
+import RadioCardWrapper from "@/components/RadioCardWrapper";
+import RadioHistoryFeature from "@/components/RadioHistoryFeature";
 
-export const RadioHistoryContentWrapper = () => (
+export default () => (
   <Wrapper>
     <RadioHistoryFeature />
     <RadioHistoryContentArea>

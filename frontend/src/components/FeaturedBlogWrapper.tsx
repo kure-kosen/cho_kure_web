@@ -3,11 +3,11 @@ import styled from "styled-components";
 
 import { color } from "@/constants/styles";
 
-import MoreButton from "./MoreButton";
+import MoreButton from "@/components/MoreButton";
 
-import { FeaturedBlog } from "./FeaturedBlog";
+import FeaturedBlog from "@/components/FeaturedBlog";
 
-export const FeaturedBlogWrapper = () => (
+export default () => (
   <Wrapper>
     <Title>BLOG</Title>
     <BlogWrapper>

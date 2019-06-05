@@ -1,17 +1,17 @@
 import React from "react";
 import styled from "styled-components";
 
-import { media } from "./../commons/style";
+import { device } from "@/constants/styles";
 
-import { HeroArea } from "./../components/HeroArea";
-import { RadioSearcher } from "./../components/RadioSearcher";
-import { AboutSidebar } from "./../components/AboutSidebar";
-import { PopularRadioWrapper } from "./../components/PopularRadioWrapper";
-import { TweetStream } from "./../components/TweetStream";
-import { RadioHistoryContentWrapper } from "./../components/RadioHistoryContentWrapper";
-import { FeaturedBlogWrapper } from "./../components/FeaturedBlogWrapper";
+import HeroArea from "@/components/HeroArea";
+import RadioSearcher from "@/components/RadioSearcher";
+import AboutSidebar from "@/components/AboutSidebar";
+import PopularRadioWrapper from "@/components/PopularRadioWrapper";
+import TweetStream from "@/components/TweetStream";
+import RadioHistoryContentWrapper from "@/components/RadioHistoryContentWrapper";
+import FeaturedBlogWrapper from "@/components/FeaturedBlogWrapper";
 
-export const RadioHistory = () => (
+export default () => (
   <div>
     <HeroArea InnerComponent="Radio History" />
     <Container>
@@ -36,7 +36,7 @@ const Container = styled.div`
 const Sidebar = styled.nav`
   flex: 0 0 20%;
 
-  @media ${media.mobile} {
+  @media ${device.mobile} {
     flex: 0 0 0%;
     display: none;
   }
@@ -45,7 +45,7 @@ const Sidebar = styled.nav`
 const MainContentWrapper = styled.div`
   flex: 0 0 80%;
 
-  @media ${media.mobile} {
+  @media ${device.mobile} {
     flex: 0 0 100%;
   }
 `;

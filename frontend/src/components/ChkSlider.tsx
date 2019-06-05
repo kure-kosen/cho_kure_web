@@ -8,7 +8,7 @@ export interface IProps {
   InnerComponent: any;
 }
 
-export const ChkSlider = (props: IProps) => (
+export default (props: IProps) => (
   <Slider {...settings}>{props.InnerComponent}</Slider>
 );
 

@@ -2,11 +2,11 @@ import React from "react";
 import styled from "styled-components";
 
 import { color } from "@/constants/styles";
-import { FeaturedPersonalityListenToRadioButton } from "./../components/FeaturedPersonalityListenToRadioButton";
+import FeaturedPersonalityListenToRadioButton from "@/components/FeaturedPersonalityListenToRadioButton";
 
 import chanyou from "./../../images/chanyou.jpg";
 
-export const FeaturedPersonality = () => (
+export default () => (
   <FeaturedPersonalityStyle>
     <PictureArea />
     <ModalIntroduction>

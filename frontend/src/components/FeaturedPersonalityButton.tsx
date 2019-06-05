@@ -1,9 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 
-import ChkButtonBase from "../commons/ChkButtonBase";
+import ChkButtonBase from "@/commons/ChkButtonBase";
 
-export const FeaturedPersonalityButton = () => (
+export default () => (
   <Wrapper>
     <ChkButtonBase to="/personality" text="personality list" />
   </Wrapper>

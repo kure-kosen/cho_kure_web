@@ -1,7 +1,7 @@
 import { action, observable } from "mobx";
 
-import ContactApi, { IContactEnum } from "../api/ContactApi";
-import ContactModel from "../models/ContactModel";
+import ContactApi, { IContactEnum } from "@/api/ContactApi";
+import ContactModel from "@/models/ContactModel";
 
 export default class ContactStore {
   @observable public contactEnum?: IContactEnum;

@@ -7,7 +7,7 @@ export interface IProps {
   InnerComponent: string | React.ReactNode;
 }
 
-export const HeroArea = (props: IProps) => (
+export default (props: IProps) => (
   <HeroAreaStyle>{props.InnerComponent}</HeroAreaStyle>
 );
 

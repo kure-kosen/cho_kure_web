@@ -1,17 +1,4 @@
-import { createGlobalStyle, css } from "styled-components";
-import GlobalFonts from "./font";
-
-const breakpoints = {
-  mobile: "40.0rem",
-  tablet: "80.0rem"
-};
-
-export const media = {
-  mobile: `screen and (max-width: ${breakpoints.mobile})`,
-  tablet: `screen and (min-width: ${breakpoints.mobile}) and (max-width: ${
-    breakpoints.tablet
-  })`
-};
+import { css } from "styled-components";
 
 export const title = css`
   padding-top: 2rem;
@@ -33,27 +20,3 @@ export const goodSpace = css`
   -o-box-pack: justify;
   -ms-box-pack: justify;
 `;
-
-const GlobalStyle = createGlobalStyle`
-  ${GlobalFonts}
-
-  *,
-  *:before,
-  *:after {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    -o-box-sizing: border-box;
-    -ms-box-sizing: border-box;
-    box-sizing: border-box;
-  }
-
-  a {
-    text-decoration: none;
-  }
-
-  nav {
-    display: inline;
-  }
-`;
-
-export default GlobalStyle;
