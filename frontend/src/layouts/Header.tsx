@@ -71,9 +71,10 @@ const LinkWrapper = styled.li`
   list-style: none;
   float: left;
   font-size: 18px;
-  line-height: 18px;
+  line-height: 60px;
   vertical-align: middle;
   margin: 0 50px;
+  height: 60px;
 `;
 
 const PageLink = styled(Link)`
