@@ -5,8 +5,8 @@ import { device } from "@/constants/styles";
 
 import HeroArea from "@/components/atoms/HeroArea";
 import RadioSearcher from "@/components/atoms/RadioSearcher";
-import AboutSidebar from "@/components/atoms/AboutSidebar";
-import TweetStream from "@/components/atoms/TweetStream";
+import AboutSidebar from "@/components/atoms/Features/AboutSidebar";
+import TweetStream from "@/components/atoms/Features/TweetStream";
 
 import PopularRadioWrapper from "@/components/molecules/PopularRadio/PopularRadioWrapper";
 import RadioHistoryWrapper from "@/components/molecules/RadioHistory/RadioHistoryWrapper";

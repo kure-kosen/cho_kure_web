@@ -5,9 +5,9 @@ import { device } from "@/constants/styles";
 
 import HeroArea from "@/components/atoms/HeroArea";
 import AboutBottom from "@/components/atoms/AboutBottom";
-import AboutSidebar from "@/components/atoms/AboutSidebar";
+import AboutSidebar from "@/components/atoms/Features/AboutSidebar";
 import WeeklyComic from "@/components/atoms/WeeklyComic";
-import TweetStream from "@/components/atoms/TweetStream";
+import TweetStream from "@/components/atoms/Features/TweetStream";
 
 import PersonalitiesWrapper from "@/components/molecules/Personalities/PersonalitiesWrapper";
 import PopularRadioWrapper from "@/components/molecules/PopularRadio/PopularRadioWrapper";
