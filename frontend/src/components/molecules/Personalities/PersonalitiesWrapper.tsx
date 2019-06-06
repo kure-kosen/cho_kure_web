@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 import { color } from "@/constants/styles";
 
-import ChkSlider from "@/components/atoms/ChkSlider";
+import Slider from "@/components/atoms/Slider";
 
 import PersonalityCard from "@/components/atoms/FeaturedPersonality/Card";
 import FeaturedPersonalityButton from "@/components/atoms/FeaturedPersonality/PersonalityListButton";
@@ -11,7 +11,7 @@ import FeaturedPersonalityButton from "@/components/atoms/FeaturedPersonality/Pe
 export default () => (
   <FeaturedPersonalitiesWrapperStyle>
     <SliderWrapper>
-      <ChkSlider
+      <Slider
         InnerComponent={[
           <PersonalityCard />,
           <PersonalityCard />,
