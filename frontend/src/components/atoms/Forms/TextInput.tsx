@@ -117,15 +117,15 @@ const style = css`
   line-height: 1.5rem;
   width: 100%;
   border: 2px solid
-    ${(props: any) => (props.validationError ? color.ERROR : "#00afec")};
+    ${(props: any) => (props.validationError ? color.ERROR : color.BLUE)};
   border-radius: 1.5rem;
 
   ::placeholder {
-    color: #00afec;
+    color: ${color.placeholder};
     opacity: 1;
   }
   ::-ms-input-placeholder {
-    color: #00afec;
+    color: ${color.placeholder};
   }
 
   &:-webkit-autofill {

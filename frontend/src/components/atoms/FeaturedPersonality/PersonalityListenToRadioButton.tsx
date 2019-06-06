@@ -5,7 +5,7 @@ import ChkButtonBase from "@/components/atoms/Buttons/ChkButtonBase";
 
 export default () => (
   <Wrapper>
-    <ChkButtonBase to="/" text="listen to radio" bgcolor="BLUE" />
+    <ChkButtonBase to="/" text="listen to radio" bgcolor="SKY_BLUE" />
   </Wrapper>
 );
 
