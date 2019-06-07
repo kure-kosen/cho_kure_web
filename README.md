@@ -43,15 +43,7 @@ $ docker-compose run backend bin/rails db:create db:schema:load db:seed_fu
 
 ### Frontend
 
-```bash
-$ cd ./frontend
-$ yarn install
-
-# Commands
-$ yarn start  # Start webpack-dev-server
-$ yarn build  # Build to dist/
-$ yarn lint   # Check type and syntax, auto fix
-```
+refer to [/frontend/README.md](/frontend/README.md)
 
 ## その他
 
