@@ -1,13 +1,13 @@
 import "normalize.css";
 
-import * as React from "react";
-import * as ReactDOM from "react-dom";
+import React from "react";
+import ReactDOM from "react-dom";
 import { BrowserRouter } from "react-router-dom";
 import { Provider } from "mobx-react";
-import GlobalStyle from "./commons/style";
+import GlobalStyle from "@/constants/styles/global";
 
-import { App } from "./App";
-import RootStore from "./stores/RootStore";
+import App from "@/components/App";
+import RootStore from "@/stores/RootStore";
 
 // TODO(euglena1215): URLのproductionとの切り替え方法を考える
 ReactDOM.render(

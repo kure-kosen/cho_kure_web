@@ -4,7 +4,9 @@ export default class RestClient {
   public axios: AxiosInstance;
 
   constructor(baseUrl: string) {
-    const csrfToken = (document.querySelector("meta[name=csrf-token]") as HTMLMetaElement).content;
+    const csrfToken = (document.querySelector(
+      "meta[name=csrf-token]"
+    ) as HTMLMetaElement).content;
 
     this.axios = axios.create({
       baseURL: baseUrl,
@@ -21,7 +23,11 @@ export default class RestClient {
         const { config, data, status } = response;
         const { method, params, url } = config;
 
-        console.group(`${method ? method.toUpperCase() : "undefined method"}:${status} - ${url}`);
+        console.group(
+          `${
+            method ? method.toUpperCase() : "undefined method"
+          }:${status} - ${url}`
+        );
         if (params) console.table(params);
         console.log(data);
         console.groupEnd();

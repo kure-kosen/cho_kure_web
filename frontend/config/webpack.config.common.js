@@ -2,33 +2,35 @@
 
 const path = require('path');
 
-module.exports = {
-  entry: {
-    app: ['babel-polyfill', path.resolve(__dirname, '../src/index.tsx')],
-  },
+const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 
-  mode: 'development',
-  devtool: 'source-map',
+module.exports = {
+  entry: {app: path.resolve(__dirname, '../src/index.tsx')},
 
   resolve: {
-    extensions: ['.ts', '.tsx', '.js', '.css', '.json'],
+    extensions: ['.ts', '.tsx', '.js', '.jsx'],
+    alias: {'@': path.resolve(__dirname, '../src')}
   },
+
+  plugins: [new ForkTsCheckerWebpackPlugin({workers: 1, tslint: true})],
 
   module: {
     rules: [
-      { test: /\.(ts|tsx)?$/, loader: 'awesome-typescript-loader' },
       {
-        test: /\.(js|jsx)$/,
-        loader: 'babel-loader',
+        enforce: 'pre',
+        test: /\.(ts|tsx)?$/,
+        use: [{loader: 'tslint-loader', options: {typeCheck: true, fix: true}}]
+      },
+      {
+        test: /\.(ts|tsx)?$/,
+        loader: 'ts-loader',
         exclude: /node_modules/,
-        query: {
-          presets: ['es2015', 'react', 'react-dom'],
-        },
+        options: {transpileOnly: true}
       },
       {
         test: /\.css$/,
-        use: ['style-loader', 'css-loader'],
-      },
-    ],
+        loaders: ['style-loader', {loader: 'css-loader', options: {url: false}}]
+      }
+    ]
   }
 }

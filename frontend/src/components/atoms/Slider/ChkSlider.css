@@ -1,0 +1,42 @@
+.slick-prev,
+.slick-next {
+  position: absolute;
+  top: 50%;
+  display: block;
+  padding: 0;
+  outline: none;
+  border: none;
+  background: transparent;
+  color: white;
+  font-weight: bold;
+  font-size: 60px;
+  cursor: pointer;
+  -webkit-transform: translate(0, -50%);
+  -ms-transform: translate(0, -50%);
+  transform: translate(0, -50%);
+}
+
+.slick-prev {
+  left: -25px;
+}
+
+.slick-next {
+  right: -25px;
+}
+
+.slick-prev:hover:before,
+.slick-prev:focus:before,
+.slick-next:hover:before,
+.slick-next:focus:before {
+  opacity: 1;
+}
+
+.slick-prev:before {
+  content: "<";
+  opacity: 0.5;
+}
+
+.slick-next:before {
+  content: ">";
+  opacity: 0.5;
+}

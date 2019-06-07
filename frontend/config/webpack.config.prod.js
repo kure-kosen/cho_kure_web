@@ -2,12 +2,14 @@
 
 const path = require("path");
 const merge = require("webpack-merge");
-const CleanWebpackPlugin = require("clean-webpack-plugin");
-const ManifestPlugin = require("webpack-manifest-plugin");
 const common = require("./webpack.config.common.js");
+
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+const ManifestPlugin = require("webpack-manifest-plugin");
 
 module.exports = merge(common, {
   mode: 'production',
+  devtool: 'source-map',
 
   output: {
     path: path.resolve(__dirname, '../../public/assets/build'),
@@ -15,9 +17,7 @@ module.exports = merge(common, {
   },
 
   plugins: [
-    new CleanWebpackPlugin(['build'], {
-        root: path.join(__dirname, '../../public/assets/')
-      }),
+    new CleanWebpackPlugin(),
     new ManifestPlugin()
   ],
 

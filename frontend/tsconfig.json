@@ -1,12 +1,23 @@
 {
   "compilerOptions": {
+    "baseUrl": "./src",
+    "paths": {
+      "@/*": ["*"]
+    },
     "sourceMap": true,
     "noImplicitAny": true,
-    "module": "commonjs",
+    "module": "es2015",
     "target": "es2018",
     "jsx": "react",
+    "lib": [
+      "esnext",
+      "dom"
+    ],
     "typeRoots": ["node_modules/@types", "src/typings"],
     "strict": true,
+    "strictNullChecks": true,
+    "allowSyntheticDefaultImports": true,
+    "moduleResolution": "node",
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noImplicitReturns": true,

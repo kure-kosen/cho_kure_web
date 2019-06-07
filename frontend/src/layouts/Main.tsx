@@ -1,14 +1,13 @@
-import * as React from "react";
+import React from "react";
 import { Switch, Route } from "react-router-dom";
 
-import { Index } from "./../entries/Index";
-import { RadioHistory } from "./../entries/RadioHistory";
+import Index from "@/pages/Index";
+import RadioHistory from "@/pages/RadioHistory";
+import Contact from "@/pages/Contact";
+import Blog from "@/pages/Blog";
+import Personality from "@/pages/Personality";
 
-import Contact from "./../entries/Contact";
-import { Blog } from "./../entries/Blog";
-import { Personality } from "./../entries/Personality";
-
-export const Main = () => (
+export default () => (
   <main>
     <Switch>
       <Route exact path="/" component={Index} />

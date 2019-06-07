@@ -1,14 +1,13 @@
-import * as React from "react";
+import React from "react";
 import styled from "styled-components";
 
 import { Link } from "react-router-dom";
 
-import { title } from "./../commons/style";
-import { chkColors } from "./../commons/color";
+import { color, heading } from "@/constants/styles";
 
-import * as logo from "./../../images/chkLogo.jpg";
+import logo from "./../../images/chkLogo.jpg";
 
-export const Header = () => (
+export default () => (
   <HeaderStyle>
     <LogoArea>
       <Logo src={logo} />
@@ -56,8 +55,8 @@ const Nav = styled.div`
 `;
 
 const ToTopPage = styled(Link)`
-  ${title};
-  color: ${chkColors.blue};
+  ${heading};
+  color: ${color.BLUE};
   vertical-align: middle;
   line-height: 60px;
   margin-left: 15px;
@@ -71,14 +70,15 @@ const LinkWrapper = styled.li`
   list-style: none;
   float: left;
   font-size: 18px;
-  line-height: 18px;
+  line-height: 60px;
   vertical-align: middle;
   margin: 0 50px;
+  height: 60px;
 `;
 
 const PageLink = styled(Link)`
   &:visited {
-    color: ${chkColors.blue};
+    color: ${color.BLUE};
   }
 
   &:hover {
