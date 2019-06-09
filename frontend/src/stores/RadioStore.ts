@@ -1,9 +1,9 @@
 import { action, observable } from "mobx";
 
-import RadioApi, { IRadioResponse } from "@/api/RadioApi";
+import RadioApi, { IRadio } from "@/api/RadioApi";
 
 export default class RadioStore {
-  @observable public radios?: IRadioResponse[];
+  @observable public radios?: IRadio[];
 
   public transportLayer: RadioApi;
 
