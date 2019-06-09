@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
+import { observer } from "mobx-react-lite";
 import { withRouter, RouteComponentProps } from "react-router-dom";
-import { inject } from "mobx-react";
 
 import RootStore from "@/stores/RootStore";
 
@@ -10,81 +10,63 @@ import { color, device } from "@/constants/styles";
 import HeroArea from "@/components/atoms/HeroArea";
 import ContactForm from "@/components/molecules/Contact/Form";
 
-interface IProp {
+interface IProps {
   rootStore?: RootStore;
 }
 
-interface IState {
-  alert: {
-    message: string;
-    status?: string;
+interface IAlert {
+  message: string;
+  status?: string;
+}
+
+const Contact = observer((props: IProps & RouteComponentProps) => {
+  const [alert, setAlert] = React.useState<IAlert>({
+    message: "",
+    status: undefined
+  });
+
+  const rootStore = props.rootStore!;
+
+  const successSendContact = () => {
+    setAlert({
+      status: "successed",
+      message: "おたよりを送信しました。 5秒後に自動でトップページに戻ります。"
+    });
+    setTimeout(() => props.history.push("/"), 5000);
   };
-}
 
-@inject("rootStore")
-class Contact extends React.Component<IProp & RouteComponentProps, IState> {
-  constructor(props: any) {
-    super(props);
-    this.state = {
-      alert: {
-        message: "",
-        status: undefined
-      }
-    };
-
-    this.successSendContact = this.successSendContact.bind(this);
-    this.failSendContact = this.failSendContact.bind(this);
-  }
-
-  public render() {
-    const rootStore = this.props.rootStore!;
-
-    return (
-      <div>
-        <HeroArea>
-          <HeroContentWrapper>
-            Contact
-            <HeroContentBar />
-            ご意見ご感想お待ちしております
-          </HeroContentWrapper>
-        </HeroArea>
-        <ContactFormWrapper>
-          <div>
-            <ContactFormTitle>お問い合わせフォーム</ContactFormTitle>
-
-            <ContactForm
-              contactStore={rootStore.contactStore}
-              successed={this.successSendContact}
-              failed={this.failSendContact}
-              alert={this.state.alert}
-            />
-          </div>
-        </ContactFormWrapper>
-      </div>
-    );
-  }
-
-  public successSendContact(_: object) {
-    this.setState({
-      alert: {
-        status: "successed",
-        message:
-          "おたよりを送信しました。 5秒後に自動でトップページに戻ります。"
-      }
+  const failSendContact = () => {
+    setAlert({
+      status: "failed",
+      message:
+        "おたよりの送信に失敗しました。 * がついている項目は全て記入して再送信してください。"
     });
-    setTimeout(() => console.log(this.props.history.push("/")), 5000);
-  }
+  };
 
-  public failSendContact(_: object) {
-    this.setState({
-      alert: {
-        status: "failed",
-        message:
-          "おたよりの送信に失敗しました。 * がついている項目は全て記入して再送信してください。"
-      }
-    });
-  }
-}
+  return (
+    <div>
+      <HeroArea>
+        <HeroContentWrapper>
+          Contact
+          <HeroContentBar />
+          ご意見ご感想お待ちしております
+        </HeroContentWrapper>
+      </HeroArea>
+      <ContactFormWrapper>
+        <div>
+          <ContactFormTitle>お問い合わせフォーム</ContactFormTitle>
+
+          <ContactForm
+            contactStore={rootStore.contactStore}
+            successed={successSendContact}
+            failed={failSendContact}
+            alert={alert}
+          />
+        </div>
+      </ContactFormWrapper>
+    </div>
+  );
+});
 
 const ContactFormWrapper = styled.div`
   width: 100%;
