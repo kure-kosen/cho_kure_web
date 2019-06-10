@@ -22,6 +22,8 @@ Rails.application.routes.draw do
       resources :personalities, only: [:index, :show] do
         collection do
           get :appeared
+          get :regular
+          get :new_face
         end
         member do
           get :new_radios
