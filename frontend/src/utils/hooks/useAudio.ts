@@ -25,7 +25,7 @@ export default (url: string) => {
   const jump = (value: number) => (audio.currentTime = value);
 
   return {
-    isPlay: audio.paused,
+    isPlay: !audio.paused,
     play,
     pause,
     jump,
