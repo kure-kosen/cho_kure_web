@@ -4,20 +4,28 @@ import styled from "styled-components";
 import { IRadio } from "@/api/RadioApi";
 import { color } from "@/constants/styles";
 
-export default (props: Pick<IRadio, "mp3" | "play_time">) => {
-  const { mp3, play_time } = props;
+import useAudio from "@/utils/hooks/useAudio";
+import PlayButtonProgress from "@/components/atoms/RadioCard/RadioCardPlayButtonProgress";
 
-  const isPlay = !false;
+export default (props: Pick<IRadio, "mp3">) => {
+  const { mp3 } = props;
+  const { isPlay, play, pause, jump, times } = useAudio(mp3.url!);
 
   return (
     <Wrapper>
-      <ButtonWrapper>
-        {isPlay ? (
-          <PlayButton className="fas fa-play" />
-        ) : (
-          <PauseButton className="fas fa-pause" />
-        )}
-      </ButtonWrapper>
+      <PlayButtonProgressWrapper>
+        <ButtonWrapper>
+          {isPlay ? (
+            <PlayButton className="fas fa-play" onClick={play} />
+          ) : (
+            <PauseButton className="fas fa-pause" onClick={pause} />
+          )}
+        </ButtonWrapper>
+        <PlayButtonProgress
+          progress={(times.currentTime / times.duration) * 100}
+        />
+        {/* <p onClick={() => jump(2)}>jump</p> */}
+      </PlayButtonProgressWrapper>
     </Wrapper>
   );
 };
@@ -28,22 +36,26 @@ const Wrapper = styled.div`
   left: 0;
   right: 0;
   margin: 0 auto;
-  width: 32px;
-  height: 32px;
-  background-color: ${color.ORANGE};
-  border: 3px solid ${color.VIVID_ORANGE};
-  border-radius: 50%;
+  width: 38px;
+  height: 38px;
 `;
 
 const ButtonWrapper = styled.div`
   text-align: center;
-  margin-top: -2px;
+  z-index: 10;
+  position: relative;
 `;
 
 const ButtonBase = styled.i`
   line-height: 32px;
   font-size: 0.7rem;
   color: ${color.WHITE};
+  position: absolute;
+  top: 2px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  cursor: pointer;
 `;
 
 const PlayButton = styled(ButtonBase)`
@@ -51,3 +63,5 @@ const PlayButton = styled(ButtonBase)`
 `;
 
 const PauseButton = styled(ButtonBase)``;
+
+const PlayButtonProgressWrapper = styled.div``;
