@@ -21,9 +21,10 @@ const calcParams = ({
 
 interface IProps {
   progress?: number;
+  currentTime: number;
 }
 
-export default ({ progress = 100 }: IProps) => {
+export default ({ progress = 100, currentTime }: IProps) => {
   const params = calcParams({ radius: 16, strokeWidth: 4 });
 
   return (
@@ -34,6 +35,7 @@ export default ({ progress = 100 }: IProps) => {
         progress={progress}
         circumference={params.circumference}
         strokeWidth={params.strokeWidth}
+        currentTime={currentTime}
       >
         <circle
           className="back"
@@ -50,7 +52,7 @@ export default ({ progress = 100 }: IProps) => {
           r={params.radius - 2.5}
         />
         <circle
-          className="rogress"
+          className="progress"
           cx={params.width / 2}
           cy={params.height / 2}
           r={params.radius - 2}
@@ -67,6 +69,7 @@ const Wrapper = styled.div<{ width: number; height: number }>`
 `;
 
 interface IProgress {
+  currentTime: number;
   progress: number;
   circumference: number;
   strokeWidth: number;
@@ -75,9 +78,10 @@ interface IProgress {
 const Progress = styled.svg<IProgress>`
   transform: rotate(-90deg);
 
-  & .rogress {
+  & .progress {
     fill: transparent;
-    stroke: ${color.VIVID_ORANGE};
+    stroke: ${props =>
+      props.currentTime > 0 ? color.VIVID_ORANGE : color.ORANGE};
     stroke-width: ${props => props.strokeWidth};
     stroke-dasharray: ${props =>
       `${(props.progress / 100) * props.circumference} ${props.circumference}`};
@@ -86,7 +90,7 @@ const Progress = styled.svg<IProgress>`
   & .white-bar {
     fill: transparent;
     stroke: ${color.WHITE};
-    stroke-width: 3;
+    stroke-width: ${props => (props.currentTime > 0 ? 3 : 0)};
   }
 
   & .back {
