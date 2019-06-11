@@ -9,12 +9,12 @@ import CardContent from "@/components/atoms/RadioCard/RadioCardContent";
 import PlayButton from "@/components/atoms/RadioCard/RadioCardPlayButton";
 
 export default (props: IRadio) => {
-  const { title, description, mp3, image, play_time } = props;
+  const { title, description, mp3, image } = props;
 
   return (
     <RadioCardWrapperStyle>
       <CardImage image={image} />
-      <PlayButton mp3={mp3} play_time={play_time} />
+      <PlayButton mp3={mp3} />
       <CardContent title={title} description={description} />
     </RadioCardWrapperStyle>
   );
