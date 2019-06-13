@@ -7,11 +7,11 @@ import { color } from "@/constants/styles";
 import useAudio from "@/utils/hooks/useAudio";
 import PlayButtonProgress from "@/components/atoms/RadioCard/RadioCardPlayButtonProgress";
 
-export default (props: Pick<IRadio, "mp3" | "play_time">) => {
-  const { mp3, play_time } = props;
+export default (props: Pick<IRadio, "mp3" | "duration">) => {
+  const { mp3, duration } = props;
   const { isPlay, play, pause, jump, times } = useAudio({
     url: mp3.url!,
-    play_time
+    duration
   });
   const [currentTime, setCurrentTime] = React.useState(0);
   const seekBarRef = React.useRef<HTMLDivElement>(null);
