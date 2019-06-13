@@ -16,17 +16,20 @@ export default (props: Pick<IRadio, "mp3" | "duration">) => {
 
   const seekBarRef = React.useRef<HTMLDivElement>(null);
 
-  const hoge = React.useCallback((e: React.MouseEvent<HTMLDivElement>) => {
-    const mouse = e.pageX;
-    const element = seekBarRef.current;
+  const handleSeekBar = React.useCallback(
+    (e: React.MouseEvent<HTMLDivElement>) => {
+      const mouse = e.pageX;
+      const element = seekBarRef.current;
 
-    if (!element) return;
-    const rect = element.getBoundingClientRect();
-    const position = rect.left + window.pageXOffset;
-    const offset = mouse - position;
-    const width = rect.right - rect.left;
-    jump(times.duration * (offset / width));
-  }, []);
+      if (!element) return;
+      const rect = element.getBoundingClientRect();
+      const position = rect.left + window.pageXOffset;
+      const offset = mouse - position;
+      const width = rect.right - rect.left;
+      jump(times.duration * (offset / width));
+    },
+    []
+  );
 
   return (
     <Wrapper>
@@ -47,7 +50,7 @@ export default (props: Pick<IRadio, "mp3" | "duration">) => {
           currentTime={times.currentTime}
         />
       </PlayButtonProgressWrapper>
-      <SeekBar ref={seekBarRef} onClick={hoge} />
+      <SeekBar ref={seekBarRef} onClick={handleSeekBar} />
     </Wrapper>
   );
 };
