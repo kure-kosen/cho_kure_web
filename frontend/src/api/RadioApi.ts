@@ -13,6 +13,7 @@ export interface IRadio {
   youtube_url: string;
   podcast_url: string;
   image: string;
+  duration: number;
   play_time: string;
   published_at: string;
   created_at: string;

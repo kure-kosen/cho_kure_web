@@ -1,6 +1,6 @@
 import React from "react";
 
-export default ({ url, play_time }: { url: string; play_time: string }) => {
+export default ({ url, duration }: { url: string; duration: number }) => {
   const [audio] = React.useState(new Audio());
   const [, _forceUpdate] = React.useState(false);
   const forceUpdate = () => _forceUpdate(prevState => !prevState);
@@ -33,7 +33,7 @@ export default ({ url, play_time }: { url: string; play_time: string }) => {
     jump,
     times: {
       currentTime: audio.currentTime,
-      duration: audio.duration || play_time
+      duration: audio.duration || duration
     }
   };
 };
