@@ -15,6 +15,14 @@ class Api::V1::PersonalitiesController < Api::V1::BaseController
     render json: Personality.appeared.includes(:radios, :taggings)
   end
 
+  def regular
+    render json: Personality.regular.includes(:radios, :taggings)
+  end
+
+  def new_face
+    render json: Personality.new_face.includes(:radios, :taggings)
+  end
+
   def show
     render json: @personality
   end
