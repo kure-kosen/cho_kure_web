@@ -1,12 +1,14 @@
 import React from "react";
-// import console = require("console");
 
-export default (url: string) => {
-  const [audio] = React.useState(new Audio(url));
+export default ({ url, play_time }: { url: string; play_time: string }) => {
+  const [audio] = React.useState(new Audio());
   const [, _forceUpdate] = React.useState(false);
   const forceUpdate = () => _forceUpdate(prevState => !prevState);
 
   React.useEffect(() => {
+    audio.preload = "none";
+    audio.src = url;
+
     audio.addEventListener("play", forceUpdate);
     audio.addEventListener("pause", forceUpdate);
     audio.addEventListener("ended", forceUpdate);
@@ -29,6 +31,9 @@ export default (url: string) => {
     play,
     pause,
     jump,
-    times: { currentTime: audio.currentTime, duration: audio.duration }
+    times: {
+      currentTime: audio.currentTime,
+      duration: audio.duration || play_time
+    }
   };
 };
