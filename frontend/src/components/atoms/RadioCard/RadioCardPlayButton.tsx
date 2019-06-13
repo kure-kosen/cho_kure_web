@@ -13,7 +13,7 @@ export default (props: Pick<IRadio, "mp3" | "duration">) => {
     url: mp3.url!,
     duration
   });
-  const [currentTime, setCurrentTime] = React.useState(0);
+
   const seekBarRef = React.useRef<HTMLDivElement>(null);
 
   const hoge = React.useCallback((e: React.MouseEvent<HTMLDivElement>) => {
@@ -21,11 +21,11 @@ export default (props: Pick<IRadio, "mp3" | "duration">) => {
     const element = seekBarRef.current;
 
     if (!element) return;
-
     const rect = element.getBoundingClientRect();
     const position = rect.left + window.pageXOffset;
     const offset = mouse - position;
     const width = rect.right - rect.left;
+    jump(times.duration * (offset / width));
   }, []);
 
   return (
@@ -46,7 +46,6 @@ export default (props: Pick<IRadio, "mp3" | "duration">) => {
           })()}
           currentTime={times.currentTime}
         />
-        {/* <p onClick={() => jump(2)}>jump</p> */}
       </PlayButtonProgressWrapper>
       <SeekBar ref={seekBarRef} onClick={hoge} />
     </Wrapper>
