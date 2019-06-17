@@ -12,6 +12,7 @@ export default class RadioStore {
   }
 
   public async fetchRadios() {
+    if (this.radios && this.radios.length > 0) return;
     const enums = await this.transportLayer.fetchRadios();
     this.setRadios(enums.data);
   }
