@@ -6,8 +6,7 @@ import { useResizeEvent } from "@/utils/hooks/window-events";
 
 import MoreButton from "@/components/atoms/Buttons/MoreButton";
 import RadioHistoryFeature from "@/components/atoms/RadioHistory/RadioHistoryFeature";
-
-import RadioCardWrapper from "@/components/molecules/RadioCard/RadioCardWrapper";
+import RadioCard from "@/components/molecules/RadioCard/RadioCard";
 import RadioCardSpacer from "@/components/molecules/RadioCard/RadioCardSpacer";
 
 import CircleSpinner from "@/components/atoms/Spinners/CircleSpinner";
@@ -55,10 +54,11 @@ export default (props: IProps) => {
             2018/01
           </RadioDateButton>
         </RadioDateButtonWrapper>
+
         {radios ? (
           <RadioCardsWrapper ref={radioCardsRef}>
             {radios.map(radio => (
-              <RadioCardWrapper key={radio.id} {...radio} />
+              <RadioCard key={radio.id} {...radio} />
             ))}
             {[...Array(radioCardRow - (radios.length % radioCardRow) || 0)].map(
               (_, i) => (
