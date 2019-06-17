@@ -20,7 +20,11 @@ export default (props: Pick<IRadio, "mp3" | "duration">) => {
       <PlayButtonProgressWrapper>
         <ButtonWrapper>
           {!isPlay ? (
-            <PlayButton className="fas fa-play" onClick={play} />
+            times.currentTime === times.duration ? (
+              <RePlayButton className="fas fa-redo-alt" onClick={play} />
+            ) : (
+              <PlayButton className="fas fa-play" onClick={play} />
+            )
           ) : (
             <PauseButton className="fas fa-pause" onClick={pause} />
           )}
@@ -76,5 +80,10 @@ const PlayButton = styled(ButtonBase)`
 `;
 
 const PauseButton = styled(ButtonBase)``;
+
+const RePlayButton = styled(ButtonBase)`
+  font-size: 0.8rem;
+  padding-top: 1px;
+`;
 
 const PlayButtonProgressWrapper = styled.div``;
