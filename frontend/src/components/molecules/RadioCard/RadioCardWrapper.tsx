@@ -30,6 +30,8 @@ const RadioCardWrapperStyle = styled.div`
 
 const Title = styled.h3`
   font-size: 1.2rem;
+  margin: 0;
+  margin-top: 5px;
   color: ${color.BLUE};
   text-align: center;
 `;
