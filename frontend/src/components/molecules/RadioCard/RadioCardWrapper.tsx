@@ -26,6 +26,10 @@ const RadioCardWrapperStyle = styled.div`
   border-radius: 8px;
   border: 3px solid ${color.SKY_BLUE};
   position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 30px;
+  overflow: hidden;
 `;
 
 const Title = styled.h3`
