@@ -2,42 +2,41 @@ import React from "react";
 import styled from "styled-components";
 
 import { IRadio } from "@/api/RadioApi";
-import { color } from "@/constants/styles";
 
-import CardImage from "@/components/atoms/RadioCard/RadioCardImage";
-import PlayButton from "@/components/atoms/RadioCard/RadioCardPlayButton";
+import RadioCard from "@/components/molecules/RadioCard/RadioCard";
 
-export default (props: IRadio) => {
-  const { title, description, mp3, duration, image } = props;
+import CircleSpinner from "@/components/atoms/Spinners/CircleSpinner";
+
+interface IProps {
+  radios: IRadio[];
+}
+
+export default (props: IProps) => {
+  const { radios } = props;
 
   return (
-    <RadioCardWrapperStyle>
-      <CardImage image={image} />
-      <Title>{title}</Title>
-      <PlayButton mp3={mp3} duration={duration} />
-      <Description dangerouslySetInnerHTML={{ __html: description }} />
-    </RadioCardWrapperStyle>
+    <Wrapper>
+      {radios ? (
+        <RadioCardsWrapper>
+          {radios.slice(0, 8).map(radio => (
+            <RadioCard key={radio.id} {...radio} />
+          ))}
+        </RadioCardsWrapper>
+      ) : (
+        <CircleSpinner />
+      )}
+    </Wrapper>
   );
 };
 
-const RadioCardWrapperStyle = styled.div`
-  width: 280px;
-  height: 445px;
-  border-radius: 8px;
-  border: 3px solid ${color.SKY_BLUE};
-  position: relative;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 30px;
-  overflow: hidden;
+const Wrapper = styled.div`
+  width: 100%;
+  height: auto;
 `;
 
-const Title = styled.h3`
-  font-size: 1.2rem;
-  margin: 0;
-  margin-top: 5px;
-  color: ${color.BLUE};
-  text-align: center;
+const RadioCardsWrapper = styled.div`
+  padding: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
 `;
-
-const Description = styled.p``;
