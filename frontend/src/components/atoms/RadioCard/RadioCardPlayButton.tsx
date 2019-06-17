@@ -6,6 +6,7 @@ import { color } from "@/constants/styles";
 
 import useAudio from "@/utils/hooks/useAudio";
 import PlayButtonProgress from "@/components/atoms/RadioCard/RadioCardPlayButtonProgress";
+import SeekBar from "@/components/atoms/RadioCard/RadioCardSeekBar";
 
 export default (props: Pick<IRadio, "mp3" | "duration">) => {
   const { mp3, duration } = props;
@@ -13,23 +14,6 @@ export default (props: Pick<IRadio, "mp3" | "duration">) => {
     url: mp3.url!,
     duration
   });
-
-  const seekBarRef = React.useRef<HTMLDivElement>(null);
-
-  const handleSeekBar = React.useCallback(
-    (e: React.MouseEvent<HTMLDivElement>) => {
-      const mouse = e.pageX;
-      const element = seekBarRef.current;
-
-      if (!element) return;
-      const rect = element.getBoundingClientRect();
-      const position = rect.left + window.pageXOffset;
-      const offset = mouse - position;
-      const width = rect.right - rect.left;
-      jump(times.duration * (offset / width));
-    },
-    []
-  );
 
   return (
     <Wrapper>
@@ -50,19 +34,23 @@ export default (props: Pick<IRadio, "mp3" | "duration">) => {
           currentTime={times.currentTime}
         />
       </PlayButtonProgressWrapper>
-      <SeekBar ref={seekBarRef} onClick={handleSeekBar} />
+      <SeekBar
+        currentTime={times.currentTime}
+        duration={times.duration}
+        jump={jump}
+      />
     </Wrapper>
   );
 };
 
 const Wrapper = styled.div`
-  position: absolute;
-  top: ${220 - 32 / 2}px;
-  left: 0;
-  right: 0;
+  display: flex;
+  align-content: center;
   margin: 0 auto;
+  padding: 0 20px;
   width: 100%;
   height: 38px;
+  display: flex;
 `;
 
 const ButtonWrapper = styled.div`
@@ -90,10 +78,3 @@ const PlayButton = styled(ButtonBase)`
 const PauseButton = styled(ButtonBase)``;
 
 const PlayButtonProgressWrapper = styled.div``;
-
-const SeekBar = styled.div`
-  width: 100%;
-  height: 10px;
-  border-radius: 5px;
-  background: linear-gradient(#ccc, #ccc) no-repeat #eee;
-`;
