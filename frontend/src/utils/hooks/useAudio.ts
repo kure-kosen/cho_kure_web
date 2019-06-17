@@ -1,6 +1,22 @@
 import React from "react";
 
-export default ({ url, duration }: { url: string; duration: number }) => {
+export interface IUseAudio {
+  isPlay: boolean;
+  play: () => void;
+  pause: () => void;
+  jump: (value: number) => void;
+  times: {
+    currentTime: number;
+    duration: number;
+  };
+}
+
+interface IProps {
+  url: string;
+  duration: number;
+}
+
+export default ({ url, duration }: IProps): IUseAudio => {
   const [audio] = React.useState(new Audio());
   const [, _forceUpdate] = React.useState(false);
   const forceUpdate = () => _forceUpdate(prevState => !prevState);
