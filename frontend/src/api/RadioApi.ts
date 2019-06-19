@@ -1,4 +1,5 @@
 import RestClient from "@/api/RestClient";
+import { IPersonality } from "@/api/PersonalityApi";
 
 export interface IRadio {
   id: number;
@@ -18,6 +19,7 @@ export interface IRadio {
   published_at: string;
   created_at: string;
   updated_at: string;
+  personalities: Exclude<IPersonality[], "radios">;
 }
 
 export default class RadioApi {
