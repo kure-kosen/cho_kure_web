@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 import { IRadio } from "@/api/RadioApi";
@@ -10,6 +11,7 @@ import PersonalityIcons from "@/components/molecules/RadioPersonalityIcons";
 
 export default (props: IRadio) => {
   const {
+    id,
     title,
     description,
     mp3,
@@ -21,17 +23,21 @@ export default (props: IRadio) => {
 
   return (
     <RadioCardWrapperStyle>
-      <CardImage image={image} />
-      <Title>{title}</Title>
+      <Link to={`/radios/${id}`}>
+        <CardImage image={image} />
+        <Title>{title}</Title>
+      </Link>
       <PlayButton mp3={mp3} duration={duration} play_time={play_time} />
-      <Container>
-        <DescriptionWrapper>
-          <Description dangerouslySetInnerHTML={{ __html: description }} />
-        </DescriptionWrapper>
-        <PersonalityIconsWrapper>
-          <PersonalityIcons personalities={personalities} />
-        </PersonalityIconsWrapper>
-      </Container>
+      <Link to={`/radios/${id}`}>
+        <Container>
+          <DescriptionWrapper>
+            <Description dangerouslySetInnerHTML={{ __html: description }} />
+          </DescriptionWrapper>
+          <PersonalityIconsWrapper>
+            <PersonalityIcons personalities={personalities} />
+          </PersonalityIconsWrapper>
+        </Container>
+      </Link>
     </RadioCardWrapperStyle>
   );
 };

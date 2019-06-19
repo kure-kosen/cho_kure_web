@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 import { IRadio } from "@/api/RadioApi";
@@ -8,7 +9,9 @@ import PersonalityIcon from "@/components/atoms/Features/PersonalityIcon";
 export default ({ personalities }: Pick<IRadio, "personalities">) => (
   <Wrapper>
     {personalities.map(personality => (
-      <PersonalityIcon image={personality.image} key={personality.id} />
+      <Link to={`/personality/${personality.id}`}>
+        <PersonalityIcon image={personality.image} key={personality.id} />
+      </Link>
     ))}
   </Wrapper>
 );
