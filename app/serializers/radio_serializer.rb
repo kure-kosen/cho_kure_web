@@ -30,10 +30,6 @@ class RadioSerializer < ActiveModel::Serializer
     ActionController::Base.helpers.image_url(object.image_url(:thumb))
   end
 
-  def description
-    MarkdownHelper.markdown(object.description)
-  end
-
   def published_at
     object.published_at&.to_s(:datetime)
   end
