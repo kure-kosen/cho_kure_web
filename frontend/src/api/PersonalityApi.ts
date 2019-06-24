@@ -4,11 +4,14 @@ import { IRadio } from "@/api/RadioApi";
 export interface IPersonality {
   id: number;
   name: string;
-  nickname: string;
+  nickname?: string | null;
   description: string;
   image: string;
   tag_list: string[];
-  radios: Exclude<IRadio, "personalities">;
+  radios: Exclude<IRadio, "personalities"> | string[];
+  facebook_id?: string | null;
+  instagram_id?: string | null;
+  twitter_id?: string | null;
 }
 
 export default class PersonalityApi {
