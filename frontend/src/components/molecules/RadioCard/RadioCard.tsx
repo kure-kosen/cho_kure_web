@@ -2,6 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
+import ReactMarkdown from "react-markdown";
+
 import { IRadio } from "@/api/RadioApi";
 import { color } from "@/constants/styles";
 
@@ -31,7 +33,7 @@ export default (props: IRadio) => {
       <Link to={`/radios/${id}`}>
         <Container>
           <DescriptionWrapper>
-            <Description dangerouslySetInnerHTML={{ __html: description }} />
+            <ReactMarkdown source={description} />
           </DescriptionWrapper>
           <PersonalityIconsWrapper>
             <PersonalityIcons personalities={personalities} />
@@ -74,8 +76,6 @@ const DescriptionWrapper = styled.div`
   height: calc(100% - (190px + (1.2rem + 5px) + (38px + 0.9rem) + 10px));
   overflow: hidden;
 `;
-
-const Description = styled.p``;
 
 const PersonalityIconsWrapper = styled.div`
   width: 100%;
