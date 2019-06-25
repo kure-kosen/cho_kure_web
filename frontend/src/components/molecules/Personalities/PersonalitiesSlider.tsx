@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
+import { IPersonality } from "@/api/PersonalityApi";
 import { color } from "@/constants/styles";
 
 import Slider from "@/components/atoms/Slider";
@@ -8,19 +9,18 @@ import Slider from "@/components/atoms/Slider";
 import PersonalityCard from "@/components/molecules/Personalities/Card";
 import FeaturedPersonalityButton from "@/components/atoms/FeaturedPersonality/PersonalityListButton";
 
-export default () => (
+interface IProps {
+  personalities: IPersonality[];
+}
+
+export default ({ personalities }: IProps) => (
   <FeaturedPersonalitiesWrapperStyle>
     <SliderWrapper>
-      <Slider
-        InnerComponent={[
-          <PersonalityCard />,
-          <PersonalityCard />,
-          <PersonalityCard />,
-          <PersonalityCard />,
-          <PersonalityCard />,
-          <PersonalityCard />
-        ]}
-      />
+      <Slider>
+        {personalities.map(personality => (
+          <PersonalityCard key={personality.id} {...personality} />
+        ))}
+      </Slider>
     </SliderWrapper>
     <FeaturedPersonalityButton />
   </FeaturedPersonalitiesWrapperStyle>
