@@ -41,7 +41,7 @@ export default (props: IPersonality) => {
 const Wrapper = styled.div`
   width: 350px;
   height: 500px;
-  margin: 0 auto 15px auto;
+  margin: 0 auto 30px auto;
   color: ${color.BLACK};
   border-radius: 8px;
   font-weight: bold;
