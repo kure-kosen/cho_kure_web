@@ -24,4 +24,8 @@ export default class PersonalityApi {
   public fetchPersonality() {
     return this.restClient.get<IPersonality[]>("/api/v1/personalities");
   }
+
+  public fetchRegularPersonality() {
+    return this.restClient.get<IPersonality[]>("/api/v1/personalities/regular");
+  }
 }
