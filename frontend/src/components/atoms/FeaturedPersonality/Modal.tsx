@@ -13,24 +13,33 @@ interface IProps
   visible: boolean;
 }
 
+const AdjustDescription = (description: string) =>
+  description
+    .replace(/(\*\*)+/g, "")
+    .replace(/( )+/g, "")
+    .replace(/(\n)+/g, "")
+    .slice(0, 14 * 6);
+
 export default ({
   visible,
   description,
   twitter_id,
   facebook_id,
   instagram_id
-}: IProps) => (
-  <Wrapper visible={visible}>
-    <ReactMarkdown source={description} />
-    {(twitter_id || facebook_id || instagram_id) && (
-      <SNS
-        twitter_id={twitter_id}
-        facebook_id={facebook_id}
-        instagram_id={instagram_id}
-      />
-    )}
-  </Wrapper>
-);
+}: IProps) => {
+  return (
+    <Wrapper visible={visible}>
+      <ReactMarkdown source={AdjustDescription(description)} />
+      {(twitter_id || facebook_id || instagram_id) && (
+        <SNS
+          twitter_id={twitter_id}
+          facebook_id={facebook_id}
+          instagram_id={instagram_id}
+        />
+      )}
+    </Wrapper>
+  );
+};
 
 const Wrapper = styled.div<{ visible: boolean }>`
   position: absolute;
@@ -46,4 +55,8 @@ const Wrapper = styled.div<{ visible: boolean }>`
   font-size: 1.1rem;
   line-height: 1.8rem;
   visibility: ${props => (props.visible ? "visible" : "hidden")};
+
+  p {
+    margin: 0;
+  }
 `;
