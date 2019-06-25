@@ -3,12 +3,13 @@ import { action, observable } from "mobx";
 import PersonalityApi, { IPersonality } from "@/api/PersonalityApi";
 
 export default class PersonalityStore {
-  @observable public personalities?: IPersonality[];
+  @observable public personalities: IPersonality[];
 
   public transportLayer: PersonalityApi;
 
   constructor(transportLayer: PersonalityApi) {
     this.transportLayer = transportLayer;
+    this.personalities = [];
   }
 
   public async fetchPersonalities() {
