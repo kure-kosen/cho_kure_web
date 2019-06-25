@@ -20,7 +20,7 @@ export default (props: IPersonality) => {
 
   return (
     <Wrapper onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-      <Picture image="/uploads/personality/image/2/thumb_IMG_9183.jpg" />
+      <Picture image={props.image} />
       <DescriptionArea name={props.name} nickname={props.nickname} />
       {(props.description ||
         props.twitter_id ||
