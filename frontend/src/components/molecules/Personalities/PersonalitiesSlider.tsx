@@ -5,7 +5,7 @@ import { color } from "@/constants/styles";
 
 import Slider from "@/components/atoms/Slider";
 
-import PersonalityCard from "@/components/atoms/FeaturedPersonality/Card";
+import PersonalityCard from "@/components/molecules/Personalities/Card";
 import FeaturedPersonalityButton from "@/components/atoms/FeaturedPersonality/PersonalityListButton";
 
 export default () => (

@@ -12,7 +12,7 @@ import AboutSidebar from "@/components/atoms/Features/AboutSidebar";
 import WeeklyComic from "@/components/atoms/WeeklyComic";
 import TweetStream from "@/components/atoms/Features/TweetStream";
 
-import PersonalitiesWrapper from "@/components/molecules/Personalities/PersonalitiesWrapper";
+import PersonalitiesSlider from "@/components/molecules/Personalities/PersonalitiesSlider";
 import PopularRadioWrapper from "@/components/molecules/PopularRadio/PopularRadioWrapper";
 import RadioCardWrapper from "@/components/molecules/RadioCard/RadioCardWrapper";
 import BlogWrapper from "@/components/molecules/Blogs/BlogWrapper";
@@ -32,7 +32,7 @@ export default observer((props: IProps) => {
   return (
     <div>
       <HeroArea>検索バー</HeroArea>
-      <PersonalitiesWrapper />
+      <PersonalitiesSlider />
       <Contrainer>
         <Sidebar>
           <AboutSidebar />
