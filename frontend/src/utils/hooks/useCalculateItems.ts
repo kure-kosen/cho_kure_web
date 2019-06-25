@@ -22,11 +22,11 @@ export default ({
     } else {
       setItems(column - rest);
     }
-  }, [ref]);
+  }, [ref, items, length]);
 
   React.useEffect(() => {
     calculate();
-  }, []);
+  }, [ref, items, length]);
 
   useResizeEvent(calculate);
 
