@@ -18,7 +18,7 @@ const AdjustDescription = (description: string) =>
     .replace(/(\*\*)+/g, "")
     .replace(/( )+/g, "")
     .replace(/(\n)+/g, "")
-    .slice(0, 14 * 6);
+    .slice(0, 14 * 6) + "...";
 
 export default ({
   visible,
