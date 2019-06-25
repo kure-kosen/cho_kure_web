@@ -9,14 +9,17 @@ import RootStore from "@/stores/RootStore";
 import AboutSidebar from "@/components/atoms/Features/AboutSidebar";
 import WeeklyComic from "@/components/atoms/WeeklyComic";
 import TweetStream from "@/components/atoms/Features/TweetStream";
-import PersonalityCard from "@/components/atoms/FeaturedPersonality/Card";
 
 import HeroArea from "@/components/molecules/HeroArea/PersonalityHeroArea";
 import PopularRadioWrapper from "@/components/molecules/PopularRadio/PopularRadioWrapper";
+import Personalities from "@/components/molecules/Personalities";
+
+import CircleSpinner from "@/components/atoms/Spinners/CircleSpinner";
 
 export default observer((props: { rootStore: RootStore }) => {
   const { rootStore } = props;
   const { personalityStore } = rootStore;
+  const { personalities } = personalityStore;
 
   React.useEffect(() => {
     personalityStore.fetchPersonalities();
@@ -33,7 +36,11 @@ export default observer((props: { rootStore: RootStore }) => {
           <TweetStream />
         </Sidebar>
         <MainContentWrapper>
-          <PersonalityCard />
+          {personalities ? (
+            <Personalities personalities={personalities} />
+          ) : (
+            <CircleSpinner />
+          )}
         </MainContentWrapper>
       </Contrainer>
     </div>

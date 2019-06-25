@@ -23,16 +23,19 @@ interface IProps {
 
 export default observer((props: IProps) => {
   const { rootStore } = props;
-  const { radioStore } = rootStore!;
+  const { radioStore, personalityStore } = rootStore!;
 
   React.useEffect(() => {
     radioStore.fetchRadios();
+    personalityStore.fetchRegularPersonality();
   }, []);
 
   return (
     <div>
       <HeroArea>検索バー</HeroArea>
-      <PersonalitiesSlider />
+      <PersonalitiesSlider
+        personalities={personalityStore.shuffledRegularPersonality}
+      />
       <Contrainer>
         <Sidebar>
           <AboutSidebar />
