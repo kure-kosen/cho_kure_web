@@ -17,11 +17,11 @@ export default class ContactStore {
   }
 
   public async fetchContactEnum() {
-    const enums = await this.transportLayer.fetchContactEnum();
-    this.setContactEnum(enums.data);
+    const res = await this.transportLayer.fetchContactEnum();
+    this.setContactEnum(res.data);
   }
 
-  @action public setContactEnum(enums: any) {
+  @action public setContactEnum(enums: IContactEnum) {
     this.contactEnum = enums;
   }
 }
