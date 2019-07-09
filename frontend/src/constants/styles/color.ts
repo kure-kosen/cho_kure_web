@@ -3,7 +3,8 @@ interface IColor {
 }
 
 export default {
-  ORANGE: "#edb600",
+  ORANGE: "#ECB73F",
+  VIVID_ORANGE: "#E59134",
   BLUE: "#00AFEC",
   SKY_BLUE: "#A8E1E3",
   BLACK: "#565A62",

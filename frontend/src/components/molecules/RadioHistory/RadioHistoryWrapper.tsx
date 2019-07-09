@@ -8,44 +8,50 @@ import RadioHistoryFeature from "@/components/atoms/RadioHistory/RadioHistoryFea
 
 import RadioCardWrapper from "@/components/molecules/RadioCard/RadioCardWrapper";
 
-export default () => (
-  <Wrapper>
-    <RadioHistoryFeature />
-    <RadioHistoryContentArea>
-      <Title>category</Title>
-      <RadioDateButtonWrapper>
-        <RadioDateButton name="201804" type="button">
-          2018/04
-        </RadioDateButton>
-        <RadioDateButton name="201803" type="button">
-          2018/03
-        </RadioDateButton>
-        <RadioDateButton name="201802" type="button">
-          2018/02
-        </RadioDateButton>
-        <RadioDateButton name="201801" type="button">
-          2018/01
-        </RadioDateButton>
-      </RadioDateButtonWrapper>
-      <RadioCardsWrapper>
-        <RadioCardWrapper />
-        <RadioCardWrapper />
-        <RadioCardWrapper />
-      </RadioCardsWrapper>
-      <RadioCardsWrapper>
-        <RadioCardWrapper />
-        <RadioCardWrapper />
-        <RadioCardWrapper />
-      </RadioCardsWrapper>
-      <RadioCardsWrapper>
-        <RadioCardWrapper />
-        <RadioCardWrapper />
-        <RadioCardWrapper />
-      </RadioCardsWrapper>
-      <MoreButton to="" />
-    </RadioHistoryContentArea>
-  </Wrapper>
-);
+import CircleSpinner from "@/components/atoms/Spinners/CircleSpinner";
+
+import { IRadio } from "@/api/RadioApi";
+
+interface IProps {
+  radios: IRadio[];
+}
+
+export default (props: IProps) => {
+  const { radios } = props;
+
+  return (
+    <Wrapper>
+      <RadioHistoryFeature />
+      <RadioHistoryContentArea>
+        <Title>category</Title>
+        <RadioDateButtonWrapper>
+          <RadioDateButton name="201804" type="button">
+            2018/04
+          </RadioDateButton>
+          <RadioDateButton name="201803" type="button">
+            2018/03
+          </RadioDateButton>
+          <RadioDateButton name="201802" type="button">
+            2018/02
+          </RadioDateButton>
+          <RadioDateButton name="201801" type="button">
+            2018/01
+          </RadioDateButton>
+        </RadioDateButtonWrapper>
+        {radios ? (
+          <RadioCardsWrapper>
+            {radios.map(radio => (
+              <RadioCardWrapper key={radio.id} {...radio} />
+            ))}
+          </RadioCardsWrapper>
+        ) : (
+          <CircleSpinner />
+        )}
+        <MoreButton to="" />
+      </RadioHistoryContentArea>
+    </Wrapper>
+  );
+};
 
 const Wrapper = styled.div`
   width: 100%;
