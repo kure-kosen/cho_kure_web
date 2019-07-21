@@ -15,7 +15,7 @@ export default () => {
   return (
     <main>
       <Switch>
-        <Route exact path="/" component={Index} />
+        <Route exact path="/" render={() => <Index rootStore={rootStore} />} />
         <Route
           path="/radios"
           render={() => <RadioHistory rootStore={rootStore} />}

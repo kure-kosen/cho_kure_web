@@ -2,11 +2,12 @@ import React from "react";
 import styled from "styled-components";
 
 import { color, heading } from "@/constants/styles";
+import { useResizeEvent } from "@/utils/hooks/window-events";
 
 import MoreButton from "@/components/atoms/Buttons/MoreButton";
 import RadioHistoryFeature from "@/components/atoms/RadioHistory/RadioHistoryFeature";
-
-import RadioCardWrapper from "@/components/molecules/RadioCard/RadioCardWrapper";
+import RadioCard from "@/components/molecules/RadioCard/RadioCard";
+import RadioCardSpacer from "@/components/molecules/RadioCard/RadioCardSpacer";
 
 import CircleSpinner from "@/components/atoms/Spinners/CircleSpinner";
 
@@ -18,6 +19,21 @@ interface IProps {
 
 export default (props: IProps) => {
   const { radios } = props;
+
+  const radioCardsRef = React.useRef<HTMLDivElement>(null);
+  const [radioCardRow, setRadioCardRow] = React.useState(0);
+
+  const updateRadioCardsRow = React.useCallback(() => {
+    if (!radioCardsRef.current) return;
+    const rowElements = Math.floor(radioCardsRef.current.clientWidth / 280);
+    setRadioCardRow(rowElements);
+  }, [radioCardsRef]);
+
+  React.useEffect(() => {
+    updateRadioCardsRow();
+  }, []);
+
+  useResizeEvent(updateRadioCardsRow);
 
   return (
     <Wrapper>
@@ -38,11 +54,17 @@ export default (props: IProps) => {
             2018/01
           </RadioDateButton>
         </RadioDateButtonWrapper>
+
         {radios ? (
-          <RadioCardsWrapper>
+          <RadioCardsWrapper ref={radioCardsRef}>
             {radios.map(radio => (
-              <RadioCardWrapper key={radio.id} {...radio} />
+              <RadioCard key={radio.id} {...radio} />
             ))}
+            {[...Array(radioCardRow - (radios.length % radioCardRow) || 0)].map(
+              (_, i) => (
+                <RadioCardSpacer key={i} />
+              )
+            )}
           </RadioCardsWrapper>
         ) : (
           <CircleSpinner />
@@ -88,7 +110,8 @@ const RadioDateButton = styled.button`
 `;
 
 const RadioCardsWrapper = styled.div`
+  padding: 10px;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
-  margin: 0 auto 20px auto;
 `;
