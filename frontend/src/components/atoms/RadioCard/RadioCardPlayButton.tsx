@@ -11,25 +11,25 @@ import SeekBar from "@/components/atoms/RadioCard/RadioCardSeekBar";
 const paddingTime = (time: number, maxLength: number) =>
   `${String(time).padStart(maxLength, "0")}`;
 
-const parsePlayTime = (time: number, timeSeparatedByColon: string) => {
+// TODO: テストを書く
+const parsePlayTime = (time: number) => {
   const seconds = Math.floor(time);
   const hh = Math.floor(seconds / 3600);
   const mm = Math.floor((seconds % 3600) / 60);
   const ss = seconds % 60;
 
-  const timeType = timeSeparatedByColon.split(":").length;
-
-  if (timeType === 3) {
+  if (hh) {
     return `${paddingTime(hh, 2)}:${paddingTime(mm, 2)}:${paddingTime(ss, 2)}`;
-  } else if (timeType === 2) {
-    return `${paddingTime(mm, 1)}:${paddingTime(ss, 2)}`;
-  } else if (timeType === 1) {
+  }
+  if (hh === 0 && mm) return `${paddingTime(mm, 1)}:${paddingTime(ss, 2)}`;
+  if (hh === 0 && mm === 0 && ss) {
     return `${paddingTime(mm, 1)}:${paddingTime(ss, 2)}`;
   }
 
   return `${paddingTime(mm, 2)}:${paddingTime(ss, 2)}`;
 };
 
+// TODO: テストを書く
 const calcProgress = (times: { currentTime: number; duration: number }) => {
   const percent = Math.round((times.currentTime / times.duration) * 1000) / 10;
   if (times.duration === 0) return 0;
@@ -71,7 +71,7 @@ export default (props: Pick<IRadio, "mp3" | "duration" | "play_time">) => {
         />
       </Controller>
       <PlayTimes>
-        {parsePlayTime(times.currentTime, play_time)} / {play_time}
+        {parsePlayTime(times.currentTime)} / {play_time}
       </PlayTimes>
     </Wrapper>
   );
