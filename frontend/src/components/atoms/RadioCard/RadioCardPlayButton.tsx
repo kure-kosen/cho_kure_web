@@ -30,6 +30,13 @@ const parsePlayTime = (time: number, playTime: string) => {
   return `${paddingTime(mm, 2)}:${paddingTime(ss, 2)}`;
 };
 
+const calcProgress = (times: { currentTime: number; duration: number }) => {
+  const percent = Math.round((times.currentTime / times.duration) * 1000) / 10;
+  if (times.duration === 0) return 0;
+  if (isNaN(percent)) return 0;
+  return percent;
+};
+
 export default (props: Pick<IRadio, "mp3" | "duration" | "play_time">) => {
   const { mp3, duration, play_time } = props;
   const { isPlay, play, pause, jump, times } = useAudio({
@@ -53,13 +60,7 @@ export default (props: Pick<IRadio, "mp3" | "duration" | "play_time">) => {
             )}
           </ButtonWrapper>
           <PlayButtonProgress
-            progress={(() => {
-              const percent =
-                Math.round((times.currentTime / times.duration) * 1000) / 10;
-              if (times.duration === 0) return 0;
-              if (isNaN(percent)) return 0;
-              return percent;
-            })()}
+            progress={calcProgress(times)}
             currentTime={times.currentTime}
           />
         </PlayButtonProgressWrapper>
