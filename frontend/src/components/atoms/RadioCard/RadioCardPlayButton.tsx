@@ -11,13 +11,13 @@ import SeekBar from "@/components/atoms/RadioCard/RadioCardSeekBar";
 const paddingTime = (time: number, maxLength: number) =>
   `${String(time).padStart(maxLength, "0")}`;
 
-const parsePlayTime = (time: number, playTime: string) => {
+const parsePlayTime = (time: number, timeSeparatedByColon: string) => {
   const seconds = Math.floor(time);
   const hh = Math.floor(seconds / 3600);
   const mm = Math.floor((seconds % 3600) / 60);
   const ss = seconds % 60;
 
-  const timeType = playTime.split(":").length;
+  const timeType = timeSeparatedByColon.split(":").length;
 
   if (timeType === 3) {
     return `${paddingTime(hh, 2)}:${paddingTime(mm, 2)}:${paddingTime(ss, 2)}`;
