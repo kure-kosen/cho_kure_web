@@ -56,7 +56,9 @@ export default (props: Pick<IRadio, "mp3" | "duration" | "play_time">) => {
             progress={(() => {
               const percent =
                 Math.round((times.currentTime / times.duration) * 1000) / 10;
-              return isNaN(percent) ? 0 : percent;
+              if (times.duration === 0) return 0;
+              if (isNaN(percent)) return 0;
+              return percent;
             })()}
             currentTime={times.currentTime}
           />
