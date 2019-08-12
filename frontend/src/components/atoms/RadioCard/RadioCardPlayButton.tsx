@@ -30,10 +30,12 @@ const parsePlayTime = (time: number) => {
 };
 
 // TODO: テストを書く
-const calcProgress = (times: { currentTime: number; duration: number }) => {
-  const percent = Math.round((times.currentTime / times.duration) * 1000) / 10;
+const calcProgress = (times: {
+  currentTime: number;
+  duration: number;
+}): number => {
   if (times.duration === 0) return 0;
-  if (isNaN(percent)) return 0;
+  const percent = Math.round((times.currentTime / times.duration) * 1000) / 10;
   return percent;
 };
 
