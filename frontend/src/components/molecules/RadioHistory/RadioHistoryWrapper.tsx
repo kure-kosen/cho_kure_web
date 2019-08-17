@@ -2,50 +2,78 @@ import React from "react";
 import styled from "styled-components";
 
 import { color, heading } from "@/constants/styles";
+import { useResizeEvent } from "@/utils/hooks/window-events";
 
 import MoreButton from "@/components/atoms/Buttons/MoreButton";
 import RadioHistoryFeature from "@/components/atoms/RadioHistory/RadioHistoryFeature";
+import RadioCard from "@/components/molecules/RadioCard/RadioCard";
+import RadioCardSpacer from "@/components/molecules/RadioCard/RadioCardSpacer";
 
-import RadioCardWrapper from "@/components/molecules/RadioCard/RadioCardWrapper";
+import CircleSpinner from "@/components/atoms/Spinners/CircleSpinner";
 
-export default () => (
-  <Wrapper>
-    <RadioHistoryFeature />
-    <RadioHistoryContentArea>
-      <Title>category</Title>
-      <RadioDateButtonWrapper>
-        <RadioDateButton name="201804" type="button">
-          2018/04
-        </RadioDateButton>
-        <RadioDateButton name="201803" type="button">
-          2018/03
-        </RadioDateButton>
-        <RadioDateButton name="201802" type="button">
-          2018/02
-        </RadioDateButton>
-        <RadioDateButton name="201801" type="button">
-          2018/01
-        </RadioDateButton>
-      </RadioDateButtonWrapper>
-      <RadioCardsWrapper>
-        <RadioCardWrapper />
-        <RadioCardWrapper />
-        <RadioCardWrapper />
-      </RadioCardsWrapper>
-      <RadioCardsWrapper>
-        <RadioCardWrapper />
-        <RadioCardWrapper />
-        <RadioCardWrapper />
-      </RadioCardsWrapper>
-      <RadioCardsWrapper>
-        <RadioCardWrapper />
-        <RadioCardWrapper />
-        <RadioCardWrapper />
-      </RadioCardsWrapper>
-      <MoreButton to="" />
-    </RadioHistoryContentArea>
-  </Wrapper>
-);
+import { IRadio } from "@/api/RadioApi";
+
+interface IProps {
+  radios: IRadio[];
+}
+
+export default (props: IProps) => {
+  const { radios } = props;
+
+  const radioCardsRef = React.useRef<HTMLDivElement>(null);
+  const [radioCardRow, setRadioCardRow] = React.useState(0);
+
+  const updateRadioCardsRow = React.useCallback(() => {
+    if (!radioCardsRef.current) return;
+    const rowElements = Math.floor(radioCardsRef.current.clientWidth / 280);
+    setRadioCardRow(rowElements);
+  }, [radioCardsRef]);
+
+  React.useEffect(() => {
+    updateRadioCardsRow();
+  }, []);
+
+  useResizeEvent(updateRadioCardsRow);
+
+  return (
+    <Wrapper>
+      <RadioHistoryFeature />
+      <RadioHistoryContentArea>
+        <Title>category</Title>
+        <RadioDateButtonWrapper>
+          <RadioDateButton name="201804" type="button">
+            2018/04
+          </RadioDateButton>
+          <RadioDateButton name="201803" type="button">
+            2018/03
+          </RadioDateButton>
+          <RadioDateButton name="201802" type="button">
+            2018/02
+          </RadioDateButton>
+          <RadioDateButton name="201801" type="button">
+            2018/01
+          </RadioDateButton>
+        </RadioDateButtonWrapper>
+
+        {radios ? (
+          <RadioCardsWrapper ref={radioCardsRef}>
+            {radios.map(radio => (
+              <RadioCard key={radio.id} {...radio} />
+            ))}
+            {[...Array(radioCardRow - (radios.length % radioCardRow) || 0)].map(
+              (_, i) => (
+                <RadioCardSpacer key={i} />
+              )
+            )}
+          </RadioCardsWrapper>
+        ) : (
+          <CircleSpinner />
+        )}
+        <MoreButton to="" />
+      </RadioHistoryContentArea>
+    </Wrapper>
+  );
+};
 
 const Wrapper = styled.div`
   width: 100%;
@@ -82,7 +110,8 @@ const RadioDateButton = styled.button`
 `;
 
 const RadioCardsWrapper = styled.div`
+  padding: 10px;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
-  margin: 0 auto 20px auto;
 `;

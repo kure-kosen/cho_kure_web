@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { observer } from "mobx-react-lite";
 
 import { device } from "@/constants/styles";
 
@@ -12,23 +13,38 @@ import RadioHistoryWrapper from "@/components/molecules/RadioHistory/RadioHistor
 import RadioSearcher from "@/components/molecules/RadioSearcher";
 import BlogWrapper from "@/components/molecules/Blogs/BlogWrapper";
 
-export default () => (
-  <div>
-    <HeroArea>Radio History</HeroArea>
-    <Container>
-      <Sidebar>
-        <RadioSearcher />
-        <AboutSidebar />
-        <PopularRadioWrapper />
-        <TweetStream />
-      </Sidebar>
-      <MainContentWrapper>
-        <RadioHistoryWrapper />
-        <BlogWrapper />
-      </MainContentWrapper>
-    </Container>
-  </div>
-);
+import RootStore from "@/stores/RootStore";
+
+interface IProps {
+  rootStore?: RootStore;
+}
+
+export default observer((props: IProps) => {
+  const { rootStore } = props;
+  const { radioStore } = rootStore!;
+
+  React.useEffect(() => {
+    radioStore.fetchRadios();
+  }, []);
+
+  return (
+    <div>
+      <HeroArea>Radio History</HeroArea>
+      <Container>
+        <Sidebar>
+          <RadioSearcher />
+          <AboutSidebar />
+          <PopularRadioWrapper />
+          <TweetStream />
+        </Sidebar>
+        <MainContentWrapper>
+          <RadioHistoryWrapper radios={radioStore.radios!} />
+          <BlogWrapper />
+        </MainContentWrapper>
+      </Container>
+    </div>
+  );
+});
 
 const Container = styled.div`
   display: flex;

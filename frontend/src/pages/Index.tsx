@@ -1,7 +1,10 @@
 import React from "react";
 import styled from "styled-components";
+import { observer } from "mobx-react-lite";
 
 import { device } from "@/constants/styles";
+
+import RootStore from "@/stores/RootStore";
 
 import HeroArea from "@/components/atoms/HeroArea";
 import AboutBottom from "@/components/atoms/AboutBottom";
@@ -14,25 +17,38 @@ import PopularRadioWrapper from "@/components/molecules/PopularRadio/PopularRadi
 import RadioCardWrapper from "@/components/molecules/RadioCard/RadioCardWrapper";
 import BlogWrapper from "@/components/molecules/Blogs/BlogWrapper";
 
-export default () => (
-  <div>
-    <HeroArea>検索バー</HeroArea>
-    <PersonalitiesWrapper />
-    <Contrainer>
-      <Sidebar>
-        <AboutSidebar />
-        <WeeklyComic />
-        <PopularRadioWrapper />
-        <TweetStream />
-      </Sidebar>
-      <MainContentWrapper>
-        <RadioCardWrapper />
-        <BlogWrapper />
-      </MainContentWrapper>
-    </Contrainer>
-    <AboutBottom />
-  </div>
-);
+interface IProps {
+  rootStore?: RootStore;
+}
+
+export default observer((props: IProps) => {
+  const { rootStore } = props;
+  const { radioStore } = rootStore!;
+
+  React.useEffect(() => {
+    radioStore.fetchRadios();
+  }, []);
+
+  return (
+    <div>
+      <HeroArea>検索バー</HeroArea>
+      <PersonalitiesWrapper />
+      <Contrainer>
+        <Sidebar>
+          <AboutSidebar />
+          <WeeklyComic />
+          <PopularRadioWrapper />
+          <TweetStream />
+        </Sidebar>
+        <MainContentWrapper>
+          <RadioCardWrapper radios={radioStore.radios!} />
+          <BlogWrapper />
+        </MainContentWrapper>
+      </Contrainer>
+      <AboutBottom />
+    </div>
+  );
+});
 
 const Contrainer = styled.div`
   display: flex;
