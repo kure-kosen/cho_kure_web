@@ -86,6 +86,7 @@ const Wrapper = styled.div`
   margin: 0 auto;
   padding: 0 5px;
   width: 100%;
+  height: calc(38px + 0.9rem);
 `;
 
 const Row = styled.div`

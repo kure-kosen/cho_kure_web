@@ -16,11 +16,13 @@ export default (props: Pick<IRadio, "image">) => {
 
 const Wrapper = styled.div`
   width: 100%;
+  height: 190px;
 `;
 
 const Image = styled.img`
-  object-fit: cover;
+  object-fit: contain;
   width: calc(100% + 6px);
+  height: 100%;
   margin-top: -3px;
   margin-left: -3px;
   border-top-left-radius: 8px;
