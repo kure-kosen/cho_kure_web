@@ -34,7 +34,7 @@ export default ({ url, duration }: IProps): IUseAudio => {
       audio.removeEventListener("play", forceUpdate);
       audio.removeEventListener("pause", forceUpdate);
       audio.removeEventListener("ended", forceUpdate);
-      audio.addEventListener("timeupdate", forceUpdate);
+      audio.removeEventListener("timeupdate", forceUpdate);
     };
   }, []);
 
