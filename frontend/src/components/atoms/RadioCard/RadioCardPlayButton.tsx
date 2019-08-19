@@ -11,8 +11,7 @@ import SeekBar from "@/components/atoms/RadioCard/RadioCardSeekBar";
 const paddingTime = (time: number, maxLength: number) =>
   `${String(time).padStart(maxLength, "0")}`;
 
-// TODO: テストを書く
-const parsePlayTime = (time: number) => {
+export const parsePlayTime = (time: number) => {
   const seconds = Math.floor(time);
   const hh = Math.floor(seconds / 3600);
   const mm = Math.floor((seconds % 3600) / 60);
@@ -29,8 +28,7 @@ const parsePlayTime = (time: number) => {
   return `${paddingTime(mm, 2)}:${paddingTime(ss, 2)}`;
 };
 
-// TODO: テストを書く
-const calcProgress = (times: {
+export const calcProgress = (times: {
   currentTime: number;
   duration: number;
 }): number => {

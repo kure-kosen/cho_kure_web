@@ -69,3 +69,27 @@ jobs:
       - store_artifacts:
           path: /tmp/test-results
           destination: test-results
+
+  frontend-test:
+    working_directory: ~/repo
+    docker:
+      - image: circleci/node:12.8.1-browsers
+    steps:
+      - checkout
+      - run:
+          name: Install test dependencies
+          command: |
+            cd frontend
+            yarn --frozen-lockfile --prefer-offline
+      - run:
+          name: yarn test
+          command: |
+            cd frontend
+            yarn test
+
+workflows:
+  version: 2
+  main:
+    jobs:
+      - build
+      - frontend-test
