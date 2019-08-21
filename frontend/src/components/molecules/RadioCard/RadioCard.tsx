@@ -9,6 +9,8 @@ import CardImage from "@/components/atoms/RadioCard/RadioCardImage";
 import PlayButton from "@/components/atoms/RadioCard/RadioCardPlayButton";
 import PersonalityIcons from "@/components/molecules/RadioPersonalityIcons";
 
+export const RADIO_CARD_WIDTH = 280;
+
 export default (props: IRadio) => {
   const {
     id,
