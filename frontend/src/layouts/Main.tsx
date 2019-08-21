@@ -25,7 +25,10 @@ export default () => {
           render={() => <Contact rootStore={rootStore} />}
         />
         <Route path="/blog" component={Blog} />
-        <Route path="/personality" component={Personality} />
+        <Route
+          path="/personality"
+          render={() => <Personality rootStore={rootStore} />}
+        />
       </Switch>
     </main>
   );
