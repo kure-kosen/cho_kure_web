@@ -2,11 +2,13 @@ import React from "react";
 import styled from "styled-components";
 
 import { color, heading } from "@/constants/styles";
-import { useResizeEvent } from "@/utils/hooks/window-events";
+import { useCalculateItems } from "@/utils/hooks/useCalculateItems";
 
 import MoreButton from "@/components/atoms/Buttons/MoreButton";
 import RadioHistoryFeature from "@/components/atoms/RadioHistory/RadioHistoryFeature";
-import RadioCard from "@/components/molecules/RadioCard/RadioCard";
+import RadioCard, {
+  RADIO_CARD_WIDTH
+} from "@/components/molecules/RadioCard/RadioCard";
 import RadioCardSpacer from "@/components/molecules/RadioCard/RadioCardSpacer";
 
 import CircleSpinner from "@/components/atoms/Spinners/CircleSpinner";
@@ -20,20 +22,10 @@ interface IProps {
 export default (props: IProps) => {
   const { radios } = props;
 
-  const radioCardsRef = React.useRef<HTMLDivElement>(null);
-  const [radioCardRow, setRadioCardRow] = React.useState(0);
-
-  const updateRadioCardsRow = React.useCallback(() => {
-    if (!radioCardsRef.current) return;
-    const rowElements = Math.floor(radioCardsRef.current.clientWidth / 280);
-    setRadioCardRow(rowElements);
-  }, [radioCardsRef]);
-
-  React.useEffect(() => {
-    updateRadioCardsRow();
-  }, []);
-
-  useResizeEvent(updateRadioCardsRow);
+  const [radioCardsWrapperRef, cards] = useCalculateItems({
+    width: RADIO_CARD_WIDTH,
+    length: radios.length
+  });
 
   return (
     <Wrapper>
@@ -56,15 +48,13 @@ export default (props: IProps) => {
         </RadioDateButtonWrapper>
 
         {radios ? (
-          <RadioCardsWrapper ref={radioCardsRef}>
+          <RadioCardsWrapper ref={radioCardsWrapperRef}>
             {radios.map(radio => (
               <RadioCard key={radio.id} {...radio} />
             ))}
-            {[...Array(radioCardRow - (radios.length % radioCardRow) || 0)].map(
-              (_, i) => (
-                <RadioCardSpacer key={i} />
-              )
-            )}
+            {[...Array(cards).keys()].map(i => (
+              <RadioCardSpacer key={i} />
+            ))}
           </RadioCardsWrapper>
         ) : (
           <CircleSpinner />
