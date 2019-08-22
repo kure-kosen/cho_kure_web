@@ -16,11 +16,19 @@ import CircleSpinner from "@/components/atoms/Spinners/CircleSpinner";
 import { IRadio } from "@/api/RadioApi";
 
 interface IProps {
-  radios: IRadio[];
+  radios?: IRadio[];
 }
 
 export default (props: IProps) => {
   const { radios } = props;
+
+  if (!radios) {
+    return (
+      <Wrapper>
+        <CircleSpinner />
+      </Wrapper>
+    );
+  }
 
   const [radioCardsWrapperRef, cards] = useCalculateItems({
     width: RADIO_CARD_WIDTH,
@@ -46,19 +54,14 @@ export default (props: IProps) => {
             2018/01
           </RadioDateButton>
         </RadioDateButtonWrapper>
-
-        {radios ? (
-          <RadioCardsWrapper ref={radioCardsWrapperRef}>
-            {radios.map(radio => (
-              <RadioCard key={radio.id} {...radio} />
-            ))}
-            {[...Array(cards).keys()].map(i => (
-              <RadioCardSpacer key={i} />
-            ))}
-          </RadioCardsWrapper>
-        ) : (
-          <CircleSpinner />
-        )}
+        <RadioCardsWrapper ref={radioCardsWrapperRef}>
+          {radios.map(radio => (
+            <RadioCard key={radio.id} {...radio} />
+          ))}
+          {[...Array(cards).keys()].map(i => (
+            <RadioCardSpacer key={i} />
+          ))}
+        </RadioCardsWrapper>
         <MoreButton to="" />
       </RadioHistoryContentArea>
     </Wrapper>
