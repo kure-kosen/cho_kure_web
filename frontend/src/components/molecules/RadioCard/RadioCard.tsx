@@ -11,7 +11,11 @@ import PersonalityIcons from "@/components/molecules/RadioPersonalityIcons";
 
 export const RADIO_CARD_WIDTH = 280;
 
-export default (props: IRadio) => {
+interface IProps extends IRadio {
+  hidden?: boolean;
+}
+
+export default (props: IProps) => {
   const {
     id,
     title,
@@ -20,11 +24,12 @@ export default (props: IRadio) => {
     duration,
     play_time,
     image,
-    personalities
+    personalities,
+    hidden
   } = props;
 
   return (
-    <RadioCardWrapperStyle>
+    <RadioCardWrapperStyle isHidden={hidden}>
       <Link to={`/radios/${id}`}>
         <CardImage image={image} />
         <Title>{title}</Title>
@@ -44,7 +49,7 @@ export default (props: IRadio) => {
   );
 };
 
-const RadioCardWrapperStyle = styled.div`
+const RadioCardWrapperStyle = styled.div<{ isHidden?: boolean }>`
   width: 280px;
   height: 445px;
   border-radius: 8px;
@@ -55,6 +60,7 @@ const RadioCardWrapperStyle = styled.div`
   margin-bottom: 30px;
   overflow: hidden;
   padding-bottom: 50px;
+  visibility: ${props => (props.isHidden ? "hidden" : "none")};
 `;
 
 const Title = styled.h3`
