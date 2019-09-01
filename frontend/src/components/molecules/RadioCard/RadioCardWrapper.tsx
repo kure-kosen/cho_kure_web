@@ -3,11 +3,9 @@ import styled from "styled-components";
 
 import { IRadio } from "@/api/RadioApi";
 
-import RadioCard, {
-  RADIO_CARD_WIDTH
-} from "@/components/molecules/RadioCard/RadioCard";
+import RadioCard from "@/components/molecules/RadioCard/RadioCard";
 import CircleSpinner from "@/components/atoms/Spinners/CircleSpinner";
-import { CardsHOC } from "@/components/molecules/Cards/CardsHOC";
+import { AwesomeCardsWrapper } from "@/components/molecules/Cards/AwesomeCardsWrapper";
 
 interface IProps {
   radios?: IRadio[];
@@ -24,17 +22,13 @@ export default (props: IProps) => {
     );
   }
 
-  return CardsHOC({
-    CardComponent: RadioCard,
-    data: radios,
-    width: RADIO_CARD_WIDTH,
-    defaultProps: {
-      mp3: {
-        url: ""
-      },
-      personalities: []
-    }
-  });
+  return (
+    <AwesomeCardsWrapper>
+      {radios.map(radio => (
+        <RadioCard key={radio.id} {...radio} />
+      ))}
+    </AwesomeCardsWrapper>
+  );
 };
 
 const Wrapper = styled.div`
