@@ -14,7 +14,7 @@ interface IProps extends IRadio {
   setRef?: any;
 }
 
-export default (props: IProps) => {
+export const RadioCard = (props: IProps) => {
   const {
     id,
     title,

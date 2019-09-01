@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 import { IRadio } from "@/api/RadioApi";
 
-import RadioCard from "@/components/molecules/RadioCard/RadioCard";
+import { RadioCard } from "@/components/molecules/RadioCard/RadioCard";
 import CircleSpinner from "@/components/atoms/Spinners/CircleSpinner";
 import { TileCardsWrapper } from "@/components/molecules/Cards/TileCardsWrapper";
 

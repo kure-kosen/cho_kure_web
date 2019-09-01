@@ -5,7 +5,7 @@ import { color, heading } from "@/constants/styles";
 
 import MoreButton from "@/components/atoms/Buttons/MoreButton";
 import RadioHistoryFeature from "@/components/atoms/RadioHistory/RadioHistoryFeature";
-import RadioCard from "@/components/molecules/RadioCard/RadioCard";
+import { RadioCard } from "@/components/molecules/RadioCard/RadioCard";
 import { TileCardsWrapper } from "@/components/molecules/Cards/TileCardsWrapper";
 
 import CircleSpinner from "@/components/atoms/Spinners/CircleSpinner";
