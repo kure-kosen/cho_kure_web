@@ -13,6 +13,7 @@ export const RADIO_CARD_WIDTH = 280;
 
 interface IProps extends IRadio {
   hidden?: boolean;
+  setRef?: any;
 }
 
 export default (props: IProps) => {
@@ -25,11 +26,12 @@ export default (props: IProps) => {
     play_time,
     image,
     personalities,
-    hidden
+    hidden,
+    setRef
   } = props;
 
   return (
-    <RadioCardWrapperStyle isHidden={hidden}>
+    <RadioCardWrapperStyle isHidden={hidden} ref={setRef}>
       <Link to={`/radios/${id}`}>
         <CardImage image={image} />
         <Title>{title}</Title>
