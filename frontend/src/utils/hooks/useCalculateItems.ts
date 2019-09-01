@@ -17,16 +17,16 @@ export const useCalculateItems = ({
     if (!ref.current) return;
     const column = Math.floor(ref.current.clientWidth / width);
     const rest = length % column;
-    if (isNaN(rest) || rest === 0) {
+    if (isNaN(rest) || column === Infinity || rest === 0) {
       setItems(0);
     } else {
       setItems(column - rest);
     }
-  }, [ref]);
+  }, [ref, width, length]);
 
   React.useEffect(() => {
     calculate();
-  }, []);
+  }, [width, length]);
 
   useResizeEvent(calculate);
 
