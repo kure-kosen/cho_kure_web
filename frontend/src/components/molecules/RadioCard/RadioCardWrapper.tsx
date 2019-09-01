@@ -5,7 +5,7 @@ import { IRadio } from "@/api/RadioApi";
 
 import RadioCard from "@/components/molecules/RadioCard/RadioCard";
 import CircleSpinner from "@/components/atoms/Spinners/CircleSpinner";
-import { AwesomeCardsWrapper } from "@/components/molecules/Cards/AwesomeCardsWrapper";
+import { TileCardsWrapper } from "@/components/molecules/Cards/TileCardsWrapper";
 
 interface IProps {
   radios?: IRadio[];
@@ -23,11 +23,11 @@ export default (props: IProps) => {
   }
 
   return (
-    <AwesomeCardsWrapper>
+    <TileCardsWrapper>
       {radios.map(radio => (
         <RadioCard key={radio.id} {...radio} />
       ))}
-    </AwesomeCardsWrapper>
+    </TileCardsWrapper>
   );
 };
 

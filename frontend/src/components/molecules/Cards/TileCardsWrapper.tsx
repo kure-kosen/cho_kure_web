@@ -7,7 +7,7 @@ interface IProps {
   children: any[];
 }
 
-export const AwesomeCardsWrapper = ({ children }: IProps) => {
+export const TileCardsWrapper = ({ children }: IProps) => {
   const ref = useRef<HTMLElement>(null);
   const [width, setWidth] = useState(0);
 
