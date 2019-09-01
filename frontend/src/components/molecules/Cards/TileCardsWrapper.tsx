@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 
-import { useCalculateItems } from "@/utils/hooks/useCalculateItems";
+import { useResponsiveCard } from "@/utils/hooks/useResponsiveCard";
 
 interface IProps {
   children: any[];
@@ -16,7 +16,7 @@ export const TileCardsWrapper = ({ children }: IProps) => {
     setWidth(ref.current.offsetWidth);
   }, [ref, width]);
 
-  const [wrapperRef, cards] = useCalculateItems({
+  const [wrapperRef, cards] = useResponsiveCard({
     width,
     length: children.length
   });
