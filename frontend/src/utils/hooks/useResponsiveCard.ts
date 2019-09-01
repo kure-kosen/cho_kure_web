@@ -6,7 +6,7 @@ interface IProps {
   length: number;
 }
 
-export const useCalculateItems = ({
+export const useResponsiveCard = ({
   width,
   length
 }: IProps): [React.RefObject<HTMLDivElement>, number] => {
