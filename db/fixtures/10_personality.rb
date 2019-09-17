@@ -58,7 +58,7 @@ end
 
 Personality.seed do |p|
   p.id = 4
-  p.name = "ほげ　ほげ男"
+  p.name = "ほげ ほげ男"
   p.email = "hoge@example.com"
   p.tag_list = "ほげ,ふが"
   p.description = "ほげ" * 50
