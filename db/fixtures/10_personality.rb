@@ -13,6 +13,9 @@ Personality.seed do |p|
     [@euglena1215](https://twitter.com/euglena1215)
   TEXT
   p.role = PersonalityRoles::ADMIN
+  p.twitter_id = "euglena1215"
+  p.facebook_id = "shintani.teppei"
+  p.instagram_id = "s.teppei1215"
   p.password = "password"
   p.password_confirmation = "password"
 end
@@ -30,6 +33,8 @@ Personality.seed do |p|
     [@chanyou0311](https://twitter.com/chanyou0311)
   TEXT
   p.role = PersonalityRoles::ADMIN
+  p.twitter_id = "chanyou0311"
+  p.facebook_id = "chanyou0311"
   p.password = "password"
   p.password_confirmation = "password"
 end
@@ -46,6 +51,7 @@ Personality.seed do |p|
     [@Guri1999120](https://twitter.com/Guri1999120)
   TEXT
   p.role = PersonalityRoles::ADMIN
+  p.twitter_id = "Guri1999120"
   p.password = "password"
   p.password_confirmation = "password"
 end
@@ -57,6 +63,8 @@ Personality.seed do |p|
   p.tag_list = "ほげ,ふが"
   p.description = "ほげ" * 50
   p.role = PersonalityRoles::EDITOR
+  p.twitter_id = "kobakazu0429"
+  p.facebook_id = "kobakazu0429"
   p.password = "password"
   p.password_confirmation = "password"
 end
@@ -69,6 +77,8 @@ Personality.seed do |p|
   p.tag_list = "ほげ,ふが"
   p.description = "ふが" * 50
   p.role = PersonalityRoles::GUEST
+  p.twitter_id = "MinoBonKosen"
+  p.facebook_id = "MinoruBon"
   p.password = "password"
   p.password_confirmation = "password"
 end
