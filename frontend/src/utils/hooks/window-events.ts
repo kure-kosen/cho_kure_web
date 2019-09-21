@@ -13,6 +13,6 @@ const useWindowEvent = (callback: Callback, target: string): void => {
 };
 
 export const useResizeEvent = (callback: Callback, time: number): void => {
-  const [handler] = useDebouncedCallback(callback, time);
-  useWindowEvent(handler, "resize");
+  const [listener] = useDebouncedCallback(callback, time);
+  useWindowEvent(listener, "resize");
 };
