@@ -1,4 +1,4 @@
-import React from "react";
+import React, { RefObject } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
@@ -10,8 +10,7 @@ import PlayButton from "@/components/atoms/RadioCard/RadioCardPlayButton";
 import PersonalityIcons from "@/components/molecules/RadioPersonalityIcons";
 
 interface IProps extends IRadio {
-  hidden?: boolean;
-  setRef?: any;
+  forwardRef?: RefObject<HTMLDivElement>;
 }
 
 export const RadioCard = (props: IProps) => {
@@ -24,12 +23,11 @@ export const RadioCard = (props: IProps) => {
     play_time,
     image,
     personalities,
-    hidden,
-    setRef
+    forwardRef
   } = props;
 
   return (
-    <RadioCardWrapperStyle isHidden={hidden} ref={setRef}>
+    <RadioCardWrapperStyle ref={forwardRef}>
       <Link to={`/radios/${id}`}>
         <CardImage image={image} />
         <Title>{title}</Title>
@@ -49,7 +47,7 @@ export const RadioCard = (props: IProps) => {
   );
 };
 
-const RadioCardWrapperStyle = styled.div<{ isHidden?: boolean }>`
+const RadioCardWrapperStyle = styled.div`
   width: 280px;
   height: 445px;
   border-radius: 8px;
@@ -60,7 +58,6 @@ const RadioCardWrapperStyle = styled.div<{ isHidden?: boolean }>`
   margin-bottom: 30px;
   overflow: hidden;
   padding-bottom: 50px;
-  visibility: ${props => (props.isHidden ? "hidden" : "none")};
 `;
 
 const Title = styled.h3`
