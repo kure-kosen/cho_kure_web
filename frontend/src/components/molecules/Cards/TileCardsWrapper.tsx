@@ -1,40 +1,63 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, {
+  useState,
+  useCallback,
+  useEffect,
+  useRef,
+  useMemo
+} from "react";
 import styled from "styled-components";
+import { useResizeEvent } from "@/utils/hooks/window-events";
 
-import { useResponsiveCard } from "@/utils/hooks/useResponsiveCard";
+export const TileCardsWrapper = ({ children }: { children: any[] }) => {
+  const wrapperRef = useRef<HTMLDivElement>(null);
+  const cardRef = useRef<HTMLDivElement>(null);
+  const [wrapperWidth, setWrapperWidth] = useState(0);
+  const [cardWidth, setCardWidth] = useState(0);
+  const [length, setLength] = useState(0);
 
-interface IProps {
-  children: any[];
-}
-
-export const TileCardsWrapper = ({ children }: IProps) => {
-  const ref = useRef<HTMLElement>(null);
-  const [width, setWidth] = useState(0);
+  useEffect(() => setLength(children.length), [children.length]);
 
   useEffect(() => {
-    if (!ref.current) return;
-    setWidth(ref.current.offsetWidth);
-  }, [ref, width]);
+    if (!wrapperRef.current) return;
+    setWrapperWidth(wrapperRef.current.clientWidth);
+  }, [wrapperRef.current]);
 
-  const [wrapperRef, cards] = useResponsiveCard({
-    width,
-    length: children.length
-  });
+  useEffect(() => {
+    if (!cardRef.current) return;
+    setCardWidth(cardRef.current.offsetWidth);
+  }, [cardRef.current]);
 
-  const CardSpacer = React.cloneElement(children[0], {
-    hidden: true
-  });
+  const firstCard = React.cloneElement(children[0], { forwardRef: cardRef });
 
-  const childrenWithRef = React.Children.map(children, (child, i) => {
-    if (i === 0) {
-      return React.cloneElement(child, { setRef: ref, key: Math.random() });
-    } else return child;
-  });
+  const otherCards = useMemo(() => children.length > 1 && children.slice(1), [
+    length
+  ]);
+
+  const paddingItems = useMemo(() => {
+    if (!wrapperWidth || !cardWidth) return 0;
+    const column = Math.floor(wrapperWidth / cardWidth);
+    const rest = length % column;
+    if (isNaN(rest) || column === Infinity || rest === 0) {
+      return 0;
+    } else {
+      return column - rest;
+    }
+  }, [wrapperRef, cardRef, wrapperWidth, cardWidth, length]);
+
+  const resizeListener = useCallback(() => {
+    if (!wrapperRef.current) return;
+    setWrapperWidth(wrapperRef.current.clientWidth);
+  }, [wrapperWidth]);
+
+  useResizeEvent(resizeListener, 400);
 
   return (
     <Wrapper ref={wrapperRef}>
-      {childrenWithRef}
-      {[...Array(cards).keys()].map(_ => CardSpacer)}
+      {firstCard}
+      {otherCards}
+      {[...Array(paddingItems).keys()].map(i => (
+        <CardSpacer width={cardWidth} key={10000 + i} />
+      ))}
     </Wrapper>
   );
 };
@@ -46,4 +69,10 @@ const Wrapper = styled.div`
   flex-wrap: wrap;
   justify-content: space-between;
   padding: 10px;
+`;
+
+const CardSpacer = styled.div<{ width?: number }>`
+  height: 0;
+  width: ${props => props.width || 0}px;
+  margin: 0 auto;
 `;
