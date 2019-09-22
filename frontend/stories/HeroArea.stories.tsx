@@ -1,5 +1,5 @@
 import React from "react";
-import HeroArea from ".";
+import HeroArea from "@/components/atoms/HeroArea";
 
 export default {
   title: "HeroArea"

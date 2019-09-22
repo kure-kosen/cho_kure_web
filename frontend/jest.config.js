@@ -1,13 +1,10 @@
 module.exports = {
   verbose: true,
-  transform: {
-    ".*\\.(ts|tsx)$": "./node_modules/ts-jest"
-  },
+  setupFiles: ['<rootDir>/.jest/register-context.ts'],
+  testMatch: ['**/*.test.(ts|tsx)'],
   moduleNameMapper: {
-    "^@/(.*)$": '<rootDir>/src/$1',
-  },
-  testMatch: [
-    "**/*.spec.(ts|tsx)"
-  ],
-  moduleFileExtensions: ["js", "ts", "tsx"]
+    '^@/(.*)$': '<rootDir>/src/$1',
+    '\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$':
+        '<rootDir>/.jest/fileMock.js',
+  }
 };
