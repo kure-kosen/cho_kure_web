@@ -6,7 +6,14 @@ module.exports = ({ config }) => {
     loader: 'ts-loader',
     exclude: /node_modules/,
     options: { transpileOnly: true }
-  });
+  }
+    // {
+    //   test: /\.stories\.tsx?$/,
+    //   loader: require.resolve('@storybook/source-loader'),
+    //   options: { injectParameters: true },
+    //   enforce: 'pre',
+    // }
+  );
 
   config.resolve.extensions.push('.ts', '.tsx');
 
