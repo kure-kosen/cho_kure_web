@@ -7,3 +7,19 @@ exports[`Storyshots HeroArea Normal 1`] = `
   HeroArea
 </div>
 `;
+
+exports[`Storyshots HeroArea Personality Hero Area 1`] = `
+<div
+  className="sc-bdVaJa eoPsJS"
+>
+  <div
+    className="sc-bwzfXH cmXBzf"
+  >
+    personality list
+    <hr
+      className="sc-htpNat jVvlcI"
+    />
+    過去にラジオに出演したメンバーをご紹介します
+  </div>
+</div>
+`;
