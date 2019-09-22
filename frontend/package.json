@@ -15,7 +15,7 @@
     "test:console": "yarn test --silent=false --verbose false",
     "test:clean": "jest --clearCache",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "storybook:build": "build-storybook"
   },
   "lint-staged": {
     "*.{js,ts,tsx}": [

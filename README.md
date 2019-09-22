@@ -3,6 +3,7 @@
 [![CircleCI](https://circleci.com/gh/kure-kosen/cho_kure_web/tree/feature%2Fdev.svg?style=svg)](https://circleci.com/gh/kure-kosen/cho_kure_web/tree/feature%2Fdev)
 [![Maintainability](https://api.codeclimate.com/v1/badges/cef3c1298621fa26dd1c/maintainability)](https://codeclimate.com/github/kure-kosen/cho_kure_web/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/cef3c1298621fa26dd1c/test_coverage)](https://codeclimate.com/github/kure-kosen/cho_kure_web/test_coverage)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/52294771-4cc8-449a-9d67-3016d98b03b0/deploy-status)](https://app.netlify.com/sites/cho-kure-web-storybook/deploys)
 
 ## Ruby version
 
