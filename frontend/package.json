@@ -12,6 +12,8 @@
     "start": "yarn dev",
     "lint": "tslint --fix -c ./tslint.json 'src/**/*{.ts,.tsx}'",
     "test": "jest --colors",
+    "test:console": "yarn test --silent=false --verbose false",
+    "test:clean": "jest --clearCache",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
   },
