@@ -46,6 +46,28 @@ $ docker-compose run backend bin/rails db:create db:schema:load db:seed_fu
 
 refer to [/frontend/README.md](/frontend/README.md)
 
+## CircleCI
+
+[CircleCI Local CLI](https://circleci.com/docs/2.0/local-cli/#quick-installation)
+
+```bash
+... installed CircleCI Local CLI
+$ circleci local execute --job build
+$ circleci local execute --job frontend-build
+$ circleci local execute --job frontend-test
+```
+
+## SSL
+
+```bash
+... in production server
+certbot-auto certificates
+certbot-auto renew
+# certbot-auto renew --dry-run
+# certbot-auto renew --force-renew
+service nginx restart
+```
+
 ## その他
 
 - 開発中にアプリケーションが送信したメールは `/letter_opener` で確認できます。
