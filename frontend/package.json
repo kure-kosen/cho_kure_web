@@ -10,7 +10,7 @@
     "build": "webpack --color --progress --config ./config/webpack.config.prod.js",
     "dev": "webpack-dev-server --config ./config/webpack.config.dev.js",
     "start": "yarn dev",
-    "lint": "tslint --fix -c ./tslint.json 'src/**/*{.ts,.tsx}'",
+    "lint": "tslint --fix -c ./tslint.json '@(src|stories)/**/*.{ts,tsx}'",
     "test": "jest --colors",
     "test:console": "yarn test --silent=false --verbose false",
     "test:clean": "jest --clearCache",
