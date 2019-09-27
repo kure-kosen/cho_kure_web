@@ -5,7 +5,7 @@ import { color, device } from "@/constants/styles";
 
 import HeroArea from "@/components/atoms/HeroArea";
 
-export default () => (
+export const PersonalityHeroArea = () => (
   <HeroArea>
     <HeroContentWrapper>
       personality list

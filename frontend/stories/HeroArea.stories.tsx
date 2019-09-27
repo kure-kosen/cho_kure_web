@@ -1,6 +1,6 @@
 import React from "react";
 import HeroArea from "@/components/atoms/HeroArea";
-import PersonalityHeroArea from "@/components/molecules/HeroArea/PersonalityHeroArea";
+import { PersonalityHeroArea } from "@/components/molecules/HeroArea/PersonalityHeroArea";
 
 export default {
   title: "HeroArea"

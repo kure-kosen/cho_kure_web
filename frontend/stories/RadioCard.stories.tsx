@@ -1,5 +1,5 @@
 import React from "react";
-import RadioCard from "@/components/molecules/RadioCard/RadioCard";
+import { RadioCard } from "@/components/molecules/RadioCard/RadioCard";
 import { ck013 } from "./mocks/api/radio";
 
 export default {

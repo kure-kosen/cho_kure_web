@@ -11,7 +11,7 @@ import WeeklyComic from "@/components/atoms/WeeklyComic";
 import TweetStream from "@/components/atoms/Features/TweetStream";
 import PersonalityCard from "@/components/atoms/FeaturedPersonality/Card";
 
-import HeroArea from "@/components/molecules/HeroArea/PersonalityHeroArea";
+import { PersonalityHeroArea } from "@/components/molecules/HeroArea/PersonalityHeroArea";
 import PopularRadioWrapper from "@/components/molecules/PopularRadio/PopularRadioWrapper";
 
 export default observer((props: { rootStore: RootStore }) => {
@@ -24,7 +24,7 @@ export default observer((props: { rootStore: RootStore }) => {
 
   return (
     <div>
-      <HeroArea />
+      <PersonalityHeroArea />
       <Contrainer>
         <Sidebar>
           <AboutSidebar />
