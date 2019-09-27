@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 import { color, device } from "@/constants/styles";
 
-import HeroArea from "@/components/atoms/HeroArea";
+import { HeroArea } from "@/components/atoms/HeroArea";
 
 export const PersonalityHeroArea = () => (
   <HeroArea>

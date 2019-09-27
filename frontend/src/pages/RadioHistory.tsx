@@ -4,7 +4,7 @@ import { observer } from "mobx-react-lite";
 
 import { device } from "@/constants/styles";
 
-import HeroArea from "@/components/atoms/HeroArea";
+import { HeroArea } from "@/components/atoms/HeroArea";
 import AboutSidebar from "@/components/atoms/Features/AboutSidebar";
 import TweetStream from "@/components/atoms/Features/TweetStream";
 

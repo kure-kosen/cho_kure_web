@@ -1,5 +1,5 @@
 import React from "react";
-import HeroArea from "@/components/atoms/HeroArea";
+import { HeroArea } from "@/components/atoms/HeroArea";
 import { PersonalityHeroArea } from "@/components/molecules/HeroArea/PersonalityHeroArea";
 
 export default {

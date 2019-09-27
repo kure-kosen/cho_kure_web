@@ -7,7 +7,7 @@ export interface IProps {
   children: string | React.ReactNode;
 }
 
-export default (props: IProps) => (
+export const HeroArea = (props: IProps) => (
   <HeroAreaStyle>{props.children}</HeroAreaStyle>
 );
 
