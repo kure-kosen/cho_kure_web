@@ -2,38 +2,30 @@ import React from "react";
 import styled from "styled-components";
 
 import { color, heading } from "@/constants/styles";
-import { useResizeEvent } from "@/utils/hooks/window-events";
 
 import MoreButton from "@/components/atoms/Buttons/MoreButton";
 import RadioHistoryFeature from "@/components/atoms/RadioHistory/RadioHistoryFeature";
-import RadioCard from "@/components/molecules/RadioCard/RadioCard";
-import RadioCardSpacer from "@/components/molecules/RadioCard/RadioCardSpacer";
+import { RadioCard } from "@/components/molecules/RadioCard/RadioCard";
+import { TileCardsWrapper } from "@/components/molecules/Cards/TileCardsWrapper";
 
 import CircleSpinner from "@/components/atoms/Spinners/CircleSpinner";
 
 import { IRadio } from "@/api/RadioApi";
 
 interface IProps {
-  radios: IRadio[];
+  radios?: IRadio[];
 }
 
-export default (props: IProps) => {
+export const RadioHistoryWrapper = (props: IProps) => {
   const { radios } = props;
 
-  const radioCardsRef = React.useRef<HTMLDivElement>(null);
-  const [radioCardRow, setRadioCardRow] = React.useState(0);
-
-  const updateRadioCardsRow = React.useCallback(() => {
-    if (!radioCardsRef.current) return;
-    const rowElements = Math.floor(radioCardsRef.current.clientWidth / 280);
-    setRadioCardRow(rowElements);
-  }, [radioCardsRef]);
-
-  React.useEffect(() => {
-    updateRadioCardsRow();
-  }, []);
-
-  useResizeEvent(updateRadioCardsRow);
+  if (!radios) {
+    return (
+      <Wrapper>
+        <CircleSpinner />
+      </Wrapper>
+    );
+  }
 
   return (
     <Wrapper>
@@ -54,21 +46,11 @@ export default (props: IProps) => {
             2018/01
           </RadioDateButton>
         </RadioDateButtonWrapper>
-
-        {radios ? (
-          <RadioCardsWrapper ref={radioCardsRef}>
-            {radios.map(radio => (
-              <RadioCard key={radio.id} {...radio} />
-            ))}
-            {[...Array(radioCardRow - (radios.length % radioCardRow) || 0)].map(
-              (_, i) => (
-                <RadioCardSpacer key={i} />
-              )
-            )}
-          </RadioCardsWrapper>
-        ) : (
-          <CircleSpinner />
-        )}
+        <TileCardsWrapper>
+          {radios.map(radio => (
+            <RadioCard key={radio.id} {...radio} />
+          ))}
+        </TileCardsWrapper>
         <MoreButton to="" />
       </RadioHistoryContentArea>
     </Wrapper>
@@ -107,11 +89,4 @@ const RadioDateButton = styled.button`
   border: 2px solid ${color.BLUE};
   border-radius: 1.5rem;
   outline: none;
-`;
-
-const RadioCardsWrapper = styled.div`
-  padding: 10px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
 `;

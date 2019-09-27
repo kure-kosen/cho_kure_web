@@ -41,7 +41,7 @@ export default observer((props: IProps) => {
           <TweetStream />
         </Sidebar>
         <MainContentWrapper>
-          <RadioCardWrapper radios={radioStore.radios!} />
+          <RadioCardWrapper radios={radioStore.radios} />
           <BlogWrapper />
         </MainContentWrapper>
       </Contrainer>

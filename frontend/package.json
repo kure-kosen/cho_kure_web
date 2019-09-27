@@ -82,6 +82,7 @@
     "react-slick": "^0.24.0",
     "react-twitter-widgets": "^1.7.1",
     "slick-carousel": "^1.8.1",
-    "styled-components": "^4.2.0"
+    "styled-components": "^4.2.0",
+    "use-debounce": "^3.0.1"
   }
 }
