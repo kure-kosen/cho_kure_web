@@ -82,7 +82,7 @@ jobs:
   frontend-test:
     working_directory: ~/repo
     docker:
-      - image: circleci/node:12.8.1
+      - image: circleci/node:12.8.1-browsers
     steps:
       - checkout
       - run:
