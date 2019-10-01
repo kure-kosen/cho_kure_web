@@ -91,6 +91,11 @@ jobs:
             cd frontend
             yarn install --frozen-lockfile --prefer-offline
       - run:
+          name: yarn storybook:build
+          command: |
+            cd frontend
+            yarn storybook:build
+      - run:
           name: yarn test
           command: |
             cd frontend
