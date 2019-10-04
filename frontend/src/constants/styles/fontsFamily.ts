@@ -101,7 +101,7 @@ export default css`
   }
 
   body {
-    font-family: "Quicksand", "Noto Sans JP Regular", sans-serif;
+    font-family: "Quicksand", "Noto Sans JP", sans-serif;
     font-weight: 400;
   }
 `;
