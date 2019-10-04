@@ -65,19 +65,17 @@ export default css`
     font-family: "Noto Sans JP";
     font-style: normal;
     font-weight: 300;
-    src: local("Noto Sans JP Light"), local("Noto-Sans-JP-Light"),
-      url(${NotoSansJP300Woff2}) format("woff2"),
+    src: url(${NotoSansJP300Woff2}) format("woff2"),
       /* Chrome 26+, Opera 23+, Firefox 39+ */ url(${NotoSansJP300Woff})
         format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
   }
 
   /* NotoSansJP - Regular */
   @font-face {
-    font-family: "Noto Sans JP";
+    font-family: "Noto Sans JP Regular";
     font-style: normal;
     font-weight: 400;
-    src: local("Noto Sans JP Regular"), local("Noto-Sans-JP-Regular"),
-      url(${NotoSansJP400Woff2}) format("woff2"),
+    src: url(${NotoSansJP400Woff2}) format("woff2"),
       /* Chrome 26+, Opera 23+, Firefox 39+ */ url(${NotoSansJP400Woff})
         format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
   }
@@ -87,8 +85,7 @@ export default css`
     font-family: "Noto Sans JP";
     font-style: normal;
     font-weight: 500;
-    src: local("Noto Sans JP Medium"), local("Noto-Sans-JP-Medium"),
-      url(${NotoSansJP500Woff2}) format("woff2"),
+    src: url(${NotoSansJP500Woff2}) format("woff2"),
       /* Chrome 26+, Opera 23+, Firefox 39+ */ url(${NotoSansJP500Woff})
         format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
   }
@@ -98,14 +95,13 @@ export default css`
     font-family: "Noto Sans JP";
     font-style: normal;
     font-weight: 700;
-    src: local("Noto Sans JP Bold"), local("Noto-Sans-JP-Bold"),
-      url(${NotoSansJP700Woff2}) format("woff2"),
+    src: url(${NotoSansJP700Woff2}) format("woff2"),
       /* Chrome 26+, Opera 23+, Firefox 39+ */ url(${NotoSansJP700Woff})
         format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
   }
 
   body {
-    font-family: "Quicksand", "Noto Sans JP", sans-serif;
+    font-family: "Quicksand", "Noto Sans JP Regular", sans-serif;
     font-weight: 400;
   }
 `;
