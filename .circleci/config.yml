@@ -98,6 +98,8 @@ jobs:
             sudo apt -qqy --no-install-recommends install -y fonts-takao-gothic fonts-takao-mincho &&
             sudo dpkg-reconfigure --frontend noninteractive locales &&
             sudo fc-cache -fv
+            sudo apt-get install -y locales task-japanese
+            sudo apt install -y fonts-noto-cjk
             locale -a | grep ja_JP
             cat /etc/default/locale
             sudo apt -qyy autoremove &&
@@ -163,7 +165,7 @@ jobs:
           sudo update-locale LANGUAGE="ja_JP:ja"
       - run: |
           # 日本語フォントをインストールする
-          sudo apt -qqy --no-install-recommends install -y fonts-takao-gothic fonts-takao-mincho &&
+          sudo apt -qqy --no-install-recommends install -y fonts-takao-gothic fonts-takao-mincho task-japanese fonts-noto-cjk &&
           sudo dpkg-reconfigure --frontend noninteractive locales &&
           sudo fc-cache -fv
       - run: |
@@ -177,6 +179,21 @@ jobs:
           sudo apt -qyy autoremove &&
           sudo apt -qyy clean &&
           sudo rm -rf /var/lib/apt/lists/*
+      - run:
+          name: Install test dependencies
+          command: |
+            cd frontend
+            yarn install --frozen-lockfile --prefer-offline
+      - run:
+          name: yarn storybook:build
+          command: |
+            cd frontend
+            yarn storybook:build
+      - run:
+          name: yarn test
+          command: |
+            cd frontend
+            yarn test
 
 workflows:
   version: 2
