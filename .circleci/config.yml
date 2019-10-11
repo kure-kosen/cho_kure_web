@@ -41,14 +41,6 @@ jobs:
             - ./vendor/bundle
           key: v1-dependencies-{{ checksum "Gemfile.lock" }}
 
-      # Frontend setup
-      - run:
-          name: build frontend
-          working_directory: frontend
-          command: |
-            yarn install
-            yarn build
-
       # Database setup
       - run: mv config/database.yml.ci config/database.yml
       - run: bundle exec rake db:create db:schema:load RAILS_ENV=test --trace
@@ -70,6 +62,23 @@ jobs:
           path: /tmp/test-results
           destination: test-results
 
+  frontend-build:
+    working_directory: ~/repo
+    docker:
+      - image: circleci/node:12.8.1
+    steps:
+      - checkout
+      - run:
+          name: Install test dependencies
+          command: |
+            cd frontend
+            yarn install --frozen-lockfile --prefer-offline
+      - run:
+          name: yarn test
+          command: |
+            cd frontend
+            yarn build
+
   frontend-test:
     working_directory: ~/repo
     docker:
@@ -80,7 +89,12 @@ jobs:
           name: Install test dependencies
           command: |
             cd frontend
-            yarn --frozen-lockfile --prefer-offline
+            yarn install --frozen-lockfile --prefer-offline
+      - run:
+          name: yarn storybook:build
+          command: |
+            cd frontend
+            yarn storybook:build
       - run:
           name: yarn test
           command: |
@@ -92,4 +106,5 @@ workflows:
   main:
     jobs:
       - build
+      - frontend-build
       - frontend-test

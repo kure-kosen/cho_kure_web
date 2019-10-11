@@ -8,7 +8,7 @@ export interface IPersonality {
   description: string;
   image: string;
   tag_list: string[];
-  radios: Exclude<IRadio, "personalities">;
+  radios?: Exclude<IRadio, "personalities">;
 }
 
 export default class PersonalityApi {

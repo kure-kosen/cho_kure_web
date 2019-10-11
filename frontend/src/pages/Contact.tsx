@@ -7,7 +7,7 @@ import RootStore from "@/stores/RootStore";
 
 import { color, device } from "@/constants/styles";
 
-import HeroArea from "@/components/atoms/HeroArea";
+import { HeroArea } from "@/components/atoms/HeroArea";
 import ContactForm from "@/components/molecules/Contact/Form";
 
 interface IProps {
