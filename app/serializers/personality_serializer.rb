@@ -40,8 +40,4 @@ class PersonalitySerializer < ActiveModel::Serializer
   def image
     ActionController::Base.helpers.image_url(object.image_url(:thumb))
   end
-
-  def description
-    MarkdownHelper.markdown(object.description)
-  end
 end
