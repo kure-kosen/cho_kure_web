@@ -6,7 +6,7 @@ export const ck013 = {
   id: 13,
   title: "#13 飲食店バグハンター",
   description:
-    "<p>最近やっていること、Ruby25周年、else if、コードゴルフ、ちょっくれサイトの仕組み、IoTなどの話をしました。</p>",
+    "最近やっていること、Ruby25周年、else if、コードゴルフ、ちょっくれサイトの仕組み、IoTなどの話をしました。",
   mp3: {
     url: ck013_radio
   },

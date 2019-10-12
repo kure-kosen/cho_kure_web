@@ -6,7 +6,7 @@ export const kaneko = {
   name: "金子 平",
   nickname: "",
   description:
-    "<p>サーバー側の開発を担当してます。<br> 初の本科生パーソナリティの枠はいただきました！！！ </p>",
+    "期待のホープです。 期待とホープって意味が同じな気がするのは気のせいでしょうか。 [@Guri1999120](https://twitter.com/Guri1999120)",
   image: icon_kaneko,
   tag_list: ["本科生", "電気科", "開発", "冬眠中"]
 };
@@ -16,7 +16,7 @@ export const chanyou = {
   name: "中村 優",
   nickname: "ちゃんゆー",
   description:
-    "<p>こんにちは。ちゃんゆーだよ！<br><br> フロントエンド開発やTwitter解析とかをしてるよ！ わーい！</p>",
+    "独自のワールドを展開するのが得意です。 絵が描けます｡ [@chanyou0311](https://twitter.com/chanyou0311)",
   image: icon_chanyou,
   tag_list: ["専攻科", "開発", "広報"]
 };
