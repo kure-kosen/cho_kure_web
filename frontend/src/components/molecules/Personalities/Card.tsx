@@ -1,4 +1,4 @@
-import React from "react";
+import React, { RefObject } from "react";
 import styled from "styled-components";
 
 import { IPersonality } from "@/api/PersonalityApi";
@@ -7,7 +7,11 @@ import Picture from "@/components/atoms/FeaturedPersonality/Picture";
 import DescriptionArea from "@/components/atoms/FeaturedPersonality/DescriptionArea";
 import Modal from "@/components/atoms/FeaturedPersonality/Modal";
 
-export default (props: IPersonality) => {
+interface IProps extends IPersonality {
+  forwardRef?: RefObject<HTMLDivElement>;
+}
+
+export default (props: IProps) => {
   const [isVisible, setVisible] = React.useState(false);
 
   const handleMouseEnter = React.useCallback(() => {
@@ -19,7 +23,11 @@ export default (props: IPersonality) => {
   }, [isVisible]);
 
   return (
-    <Wrapper onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+    <Wrapper
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+      ref={props.forwardRef}
+    >
       <Picture image={props.image} />
       <DescriptionArea name={props.name} nickname={props.nickname} />
       {(props.description ||
