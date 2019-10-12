@@ -3,18 +3,19 @@ import { action, observable } from "mobx";
 import PersonalityApi, { IPersonality } from "@/api/PersonalityApi";
 
 export default class PersonalityStore {
-  @observable public personalities: IPersonality[];
-  @observable public regularPersonalities: IPersonality[];
+  @observable public personalities?: IPersonality[];
+  @observable public regularPersonalities?: IPersonality[];
 
   public transportLayer: PersonalityApi;
 
   constructor(transportLayer: PersonalityApi) {
     this.transportLayer = transportLayer;
-    this.personalities = [];
-    this.regularPersonalities = [];
   }
 
   public get shuffledRegularPersonality() {
+    if (!this.regularPersonalities) return;
+    if (this.regularPersonalities.length > 0) return;
+
     const shuffledPersonality = [...this.regularPersonalities];
     for (let i = 0, len = shuffledPersonality.length; i < len; i++) {
       const rand = Math.floor(Math.random() * i);
@@ -42,13 +43,11 @@ export default class PersonalityStore {
     this.setRegularPersonalities(res.data);
   }
 
-  @action
-  public setPersonalities(personalities: IPersonality[]) {
-    this.personalities = personalities;
+  @action public setRegularPersonalities(personalities: IPersonality[]) {
+    this.regularPersonalities = personalities;
   }
 
-  @action
-  public setRegularPersonalities(personalities: IPersonality[]) {
-    this.regularPersonalities = personalities;
+  @action public setPersonalities(personalities: IPersonality[]) {
+    this.personalities = personalities;
   }
 }

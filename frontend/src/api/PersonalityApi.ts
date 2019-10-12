@@ -8,7 +8,7 @@ export interface IPersonality {
   description: string;
   image: string;
   tag_list: string[];
-  radios: Exclude<IRadio, "personalities"> | string[];
+  radios?: Exclude<IRadio, "personalities">;
   facebook_id?: string | null;
   instagram_id?: string | null;
   twitter_id?: string | null;

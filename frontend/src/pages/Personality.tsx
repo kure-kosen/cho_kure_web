@@ -9,12 +9,10 @@ import RootStore from "@/stores/RootStore";
 import AboutSidebar from "@/components/atoms/Features/AboutSidebar";
 import WeeklyComic from "@/components/atoms/WeeklyComic";
 import TweetStream from "@/components/atoms/Features/TweetStream";
-
-import HeroArea from "@/components/molecules/HeroArea/PersonalityHeroArea";
-import PopularRadioWrapper from "@/components/molecules/PopularRadio/PopularRadioWrapper";
 import Personalities from "@/components/molecules/Personalities";
-
 import CircleSpinner from "@/components/atoms/Spinners/CircleSpinner";
+import { PersonalityHeroArea } from "@/components/molecules/HeroArea/PersonalityHeroArea";
+import PopularRadioWrapper from "@/components/molecules/PopularRadio/PopularRadioWrapper";
 
 export default observer((props: { rootStore: RootStore }) => {
   const { rootStore } = props;
@@ -27,7 +25,7 @@ export default observer((props: { rootStore: RootStore }) => {
 
   return (
     <div>
-      <HeroArea />
+      <PersonalityHeroArea />
       <Contrainer>
         <Sidebar>
           <AboutSidebar />
@@ -54,7 +52,6 @@ const Contrainer = styled.div`
 const Sidebar = styled.nav`
   flex: 0 0 25%;
   padding: 0 20px;
-
   @media ${device.mobile} {
     flex: 0 0 0%;
     display: none;
@@ -63,7 +60,6 @@ const Sidebar = styled.nav`
 
 const MainContentWrapper = styled.div`
   flex: 0 0 75%;
-
   @media ${device.mobile} {
     flex: 0 0 100%;
   }

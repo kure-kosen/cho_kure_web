@@ -1,7 +1,6 @@
-import React from "react";
+import React, { RefObject } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-
 import ReactMarkdown from "react-markdown";
 
 import { IRadio } from "@/api/RadioApi";
@@ -11,7 +10,11 @@ import CardImage from "@/components/atoms/RadioCard/RadioCardImage";
 import PlayButton from "@/components/atoms/RadioCard/RadioCardPlayButton";
 import PersonalityIcons from "@/components/molecules/RadioPersonalityIcons";
 
-export default (props: IRadio) => {
+interface IProps extends IRadio {
+  forwardRef?: RefObject<HTMLDivElement>;
+}
+
+export const RadioCard = (props: IProps) => {
   const {
     id,
     title,
@@ -20,11 +23,12 @@ export default (props: IRadio) => {
     duration,
     play_time,
     image,
-    personalities
+    personalities,
+    forwardRef
   } = props;
 
   return (
-    <RadioCardWrapperStyle>
+    <RadioCardWrapperStyle ref={forwardRef}>
       <Link to={`/radios/${id}`}>
         <CardImage image={image} />
         <Title>{title}</Title>
@@ -73,6 +77,7 @@ const Container = styled.div`
 `;
 
 const DescriptionWrapper = styled.div`
+  /* height: calc(100% - (RadioCardImage + RadioCard(Title + margin) + RadioCardPlayButton(Controller + PlayTimes) + PersonalityIconsMargin)); */
   height: calc(100% - (190px + (1.2rem + 5px) + (38px + 0.9rem) + 10px));
   overflow: hidden;
 `;

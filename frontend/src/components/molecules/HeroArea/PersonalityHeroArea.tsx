@@ -3,9 +3,9 @@ import styled from "styled-components";
 
 import { color, device } from "@/constants/styles";
 
-import HeroArea from "@/components/atoms/HeroArea";
+import { HeroArea } from "@/components/atoms/HeroArea";
 
-export default () => (
+export const PersonalityHeroArea = () => (
   <HeroArea>
     <HeroContentWrapper>
       personality list
@@ -20,7 +20,6 @@ const HeroContentWrapper = styled.div`
   font-size: 2rem;
   text-align: center;
   color: ${color.WHITE};
-
   @media ${device.mobile} {
     width: 90%;
   }

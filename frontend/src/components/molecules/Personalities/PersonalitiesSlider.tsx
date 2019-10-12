@@ -10,21 +10,25 @@ import PersonalityCard from "@/components/molecules/Personalities/Card";
 import FeaturedPersonalityButton from "@/components/atoms/FeaturedPersonality/PersonalityListButton";
 
 interface IProps {
-  personalities: IPersonality[];
+  personalities?: IPersonality[];
 }
 
-export default ({ personalities }: IProps) => (
-  <FeaturedPersonalitiesWrapperStyle>
-    <SliderWrapper>
-      <Slider>
-        {personalities.map(personality => (
-          <PersonalityCard key={personality.id} {...personality} />
-        ))}
-      </Slider>
-    </SliderWrapper>
-    <FeaturedPersonalityButton />
-  </FeaturedPersonalitiesWrapperStyle>
-);
+export default ({ personalities }: IProps) => {
+  if (!(personalities && personalities.length > 0)) return null;
+
+  return (
+    <FeaturedPersonalitiesWrapperStyle>
+      <SliderWrapper>
+        <Slider>
+          {personalities.map(personality => (
+            <PersonalityCard key={personality.id} {...personality} />
+          ))}
+        </Slider>
+      </SliderWrapper>
+      <FeaturedPersonalityButton />
+    </FeaturedPersonalitiesWrapperStyle>
+  );
+};
 
 const FeaturedPersonalitiesWrapperStyle = styled.div`
   width: 100%;

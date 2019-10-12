@@ -6,7 +6,7 @@ import { device } from "@/constants/styles";
 
 import RootStore from "@/stores/RootStore";
 
-import HeroArea from "@/components/atoms/HeroArea";
+import { HeroArea } from "@/components/atoms/HeroArea";
 import AboutBottom from "@/components/atoms/AboutBottom";
 import AboutSidebar from "@/components/atoms/Features/AboutSidebar";
 import WeeklyComic from "@/components/atoms/WeeklyComic";
@@ -22,13 +22,13 @@ interface IProps {
 }
 
 export default observer((props: IProps) => {
-  const { rootStore } = props;
-  const { radioStore, personalityStore } = rootStore!;
-
   React.useEffect(() => {
     radioStore.fetchRadios();
     personalityStore.fetchRegularPersonality();
   }, []);
+
+  const { rootStore } = props;
+  const { radioStore, personalityStore } = rootStore!;
 
   return (
     <div>
@@ -44,7 +44,7 @@ export default observer((props: IProps) => {
           <TweetStream />
         </Sidebar>
         <MainContentWrapper>
-          <RadioCardWrapper radios={radioStore.radios!} />
+          <RadioCardWrapper radios={radioStore.radios} />
           <BlogWrapper />
         </MainContentWrapper>
       </Contrainer>

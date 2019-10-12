@@ -11,23 +11,30 @@ import SeekBar from "@/components/atoms/RadioCard/RadioCardSeekBar";
 const paddingTime = (time: number, maxLength: number) =>
   `${String(time).padStart(maxLength, "0")}`;
 
-const parsePlayTime = (time: number, playTime: string) => {
+export const parsePlayTime = (time: number) => {
   const seconds = Math.floor(time);
   const hh = Math.floor(seconds / 3600);
   const mm = Math.floor((seconds % 3600) / 60);
   const ss = seconds % 60;
 
-  const timeType = playTime.split(":").length;
-
-  if (timeType === 3) {
+  if (hh) {
     return `${paddingTime(hh, 2)}:${paddingTime(mm, 2)}:${paddingTime(ss, 2)}`;
-  } else if (timeType === 2) {
-    return `${paddingTime(mm, 1)}:${paddingTime(ss, 2)}`;
-  } else if (timeType === 1) {
+  }
+  if (hh === 0 && mm) return `${paddingTime(mm, 1)}:${paddingTime(ss, 2)}`;
+  if (hh === 0 && mm === 0 && ss) {
     return `${paddingTime(mm, 1)}:${paddingTime(ss, 2)}`;
   }
 
   return `${paddingTime(mm, 2)}:${paddingTime(ss, 2)}`;
+};
+
+export const calcProgress = (times: {
+  currentTime: number;
+  duration: number;
+}): number => {
+  if (times.duration === 0) return 0;
+  const percent = Math.round((times.currentTime / times.duration) * 1000) / 10;
+  return percent;
 };
 
 export default (props: Pick<IRadio, "mp3" | "duration" | "play_time">) => {
@@ -53,11 +60,7 @@ export default (props: Pick<IRadio, "mp3" | "duration" | "play_time">) => {
             )}
           </ButtonWrapper>
           <PlayButtonProgress
-            progress={(() => {
-              const percent =
-                Math.round((times.currentTime / times.duration) * 1000) / 10;
-              return isNaN(percent) ? 0 : percent;
-            })()}
+            progress={calcProgress(times)}
             currentTime={times.currentTime}
           />
         </PlayButtonProgressWrapper>
@@ -68,7 +71,7 @@ export default (props: Pick<IRadio, "mp3" | "duration" | "play_time">) => {
         />
       </Controller>
       <PlayTimes>
-        {parsePlayTime(times.currentTime, play_time)} / {play_time}
+        {parsePlayTime(times.currentTime)} / {play_time}
       </PlayTimes>
     </Wrapper>
   );

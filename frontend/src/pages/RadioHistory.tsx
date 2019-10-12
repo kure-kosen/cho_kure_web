@@ -4,12 +4,12 @@ import { observer } from "mobx-react-lite";
 
 import { device } from "@/constants/styles";
 
-import HeroArea from "@/components/atoms/HeroArea";
+import { HeroArea } from "@/components/atoms/HeroArea";
 import AboutSidebar from "@/components/atoms/Features/AboutSidebar";
 import TweetStream from "@/components/atoms/Features/TweetStream";
 
 import PopularRadioWrapper from "@/components/molecules/PopularRadio/PopularRadioWrapper";
-import RadioHistoryWrapper from "@/components/molecules/RadioHistory/RadioHistoryWrapper";
+import { RadioHistoryWrapper } from "@/components/molecules/RadioHistory/RadioHistoryWrapper";
 import RadioSearcher from "@/components/molecules/RadioSearcher";
 import BlogWrapper from "@/components/molecules/Blogs/BlogWrapper";
 
@@ -38,7 +38,7 @@ export default observer((props: IProps) => {
           <TweetStream />
         </Sidebar>
         <MainContentWrapper>
-          <RadioHistoryWrapper radios={radioStore.radios!} />
+          <RadioHistoryWrapper radios={radioStore.radios} />
           <BlogWrapper />
         </MainContentWrapper>
       </Container>

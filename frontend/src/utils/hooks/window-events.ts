@@ -1,4 +1,5 @@
 import React from "react";
+import { useDebouncedCallback } from "use-debounce";
 
 type Callback = () => void;
 
@@ -11,5 +12,7 @@ const useWindowEvent = (callback: Callback, target: string): void => {
   }, [callback]);
 };
 
-export const useResizeEvent = (callback: Callback): void =>
-  useWindowEvent(callback, "resize");
+export const useResizeEvent = (callback: Callback, time: number): void => {
+  const [listener] = useDebouncedCallback(callback, time);
+  useWindowEvent(listener, "resize");
+};

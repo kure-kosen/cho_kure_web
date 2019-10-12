@@ -3,40 +3,35 @@ import styled from "styled-components";
 
 import { IRadio } from "@/api/RadioApi";
 
-import RadioCard from "@/components/molecules/RadioCard/RadioCard";
-
+import { RadioCard } from "@/components/molecules/RadioCard/RadioCard";
 import CircleSpinner from "@/components/atoms/Spinners/CircleSpinner";
+import { TileCardsWrapper } from "@/components/molecules/Cards/TileCardsWrapper";
 
 interface IProps {
-  radios: IRadio[];
+  radios?: IRadio[];
 }
 
 export default (props: IProps) => {
   const { radios } = props;
 
-  return (
-    <Wrapper>
-      {radios ? (
-        <RadioCardsWrapper>
-          {radios.slice(0, 8).map(radio => (
-            <RadioCard key={radio.id} {...radio} />
-          ))}
-        </RadioCardsWrapper>
-      ) : (
+  if (!radios) {
+    return (
+      <Wrapper>
         <CircleSpinner />
-      )}
-    </Wrapper>
+      </Wrapper>
+    );
+  }
+
+  return (
+    <TileCardsWrapper>
+      {radios.map(radio => (
+        <RadioCard key={radio.id} {...radio} />
+      ))}
+    </TileCardsWrapper>
   );
 };
 
 const Wrapper = styled.div`
   width: 100%;
   height: auto;
-`;
-
-const RadioCardsWrapper = styled.div`
-  padding: 10px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
 `;

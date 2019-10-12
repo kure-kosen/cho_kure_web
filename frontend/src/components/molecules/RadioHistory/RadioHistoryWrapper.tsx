@@ -2,25 +2,30 @@ import React from "react";
 import styled from "styled-components";
 
 import { color, heading } from "@/constants/styles";
-import useCalculateItems from "@/utils/hooks/useCalculateItems";
 
 import MoreButton from "@/components/atoms/Buttons/MoreButton";
 import RadioHistoryFeature from "@/components/atoms/RadioHistory/RadioHistoryFeature";
-import RadioCard from "@/components/molecules/RadioCard/RadioCard";
-import RadioCardSpacer from "@/components/molecules/RadioCard/RadioCardSpacer";
+import { RadioCard } from "@/components/molecules/RadioCard/RadioCard";
+import { TileCardsWrapper } from "@/components/molecules/Cards/TileCardsWrapper";
 
 import CircleSpinner from "@/components/atoms/Spinners/CircleSpinner";
 
 import { IRadio } from "@/api/RadioApi";
 
 interface IProps {
-  radios: IRadio[];
+  radios?: IRadio[];
 }
 
-export default (props: IProps) => {
+export const RadioHistoryWrapper = (props: IProps) => {
   const { radios } = props;
 
-  const [ref, cards] = useCalculateItems({ width: 280, length: radios.length });
+  if (!radios) {
+    return (
+      <Wrapper>
+        <CircleSpinner />
+      </Wrapper>
+    );
+  }
 
   return (
     <Wrapper>
@@ -41,19 +46,11 @@ export default (props: IProps) => {
             2018/01
           </RadioDateButton>
         </RadioDateButtonWrapper>
-
-        {radios ? (
-          <RadioCardsWrapper ref={ref}>
-            {radios.map(radio => (
-              <RadioCard key={radio.id} {...radio} />
-            ))}
-            {[...Array(cards).keys()].map(i => (
-              <RadioCardSpacer key={i} />
-            ))}
-          </RadioCardsWrapper>
-        ) : (
-          <CircleSpinner />
-        )}
+        <TileCardsWrapper>
+          {radios.map(radio => (
+            <RadioCard key={radio.id} {...radio} />
+          ))}
+        </TileCardsWrapper>
         <MoreButton to="" />
       </RadioHistoryContentArea>
     </Wrapper>
@@ -92,11 +89,4 @@ const RadioDateButton = styled.button`
   border: 2px solid ${color.BLUE};
   border-radius: 1.5rem;
   outline: none;
-`;
-
-const RadioCardsWrapper = styled.div`
-  padding: 10px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
 `;
