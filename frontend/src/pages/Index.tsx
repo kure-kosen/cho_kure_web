@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import { observer } from "mobx-react-lite";
 
@@ -12,7 +12,7 @@ import AboutSidebar from "@/components/atoms/Features/AboutSidebar";
 import WeeklyComic from "@/components/atoms/WeeklyComic";
 import TweetStream from "@/components/atoms/Features/TweetStream";
 
-import PersonalitiesWrapper from "@/components/molecules/Personalities/PersonalitiesWrapper";
+import { PersonalitiesSlider } from "@/components/molecules/Personalities/PersonalitiesSlider";
 import PopularRadioWrapper from "@/components/molecules/PopularRadio/PopularRadioWrapper";
 import RadioCardWrapper from "@/components/molecules/RadioCard/RadioCardWrapper";
 import BlogWrapper from "@/components/molecules/Blogs/BlogWrapper";
@@ -22,17 +22,20 @@ interface IProps {
 }
 
 export default observer((props: IProps) => {
-  const { rootStore } = props;
-  const { radioStore } = rootStore!;
-
-  React.useEffect(() => {
+  useEffect(() => {
     radioStore.fetchRadios();
+    personalityStore.fetchRegularPersonality();
   }, []);
+
+  const { rootStore } = props;
+  const { radioStore, personalityStore } = rootStore!;
 
   return (
     <div>
       <HeroArea>検索バー</HeroArea>
-      <PersonalitiesWrapper />
+      <PersonalitiesSlider
+        personalities={personalityStore.shuffledRegularPersonality}
+      />
       <Contrainer>
         <Sidebar>
           <AboutSidebar />
