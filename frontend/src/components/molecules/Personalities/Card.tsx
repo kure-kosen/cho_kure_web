@@ -11,7 +11,7 @@ interface Props extends IPersonality {
   forwardRef?: RefObject<HTMLDivElement>;
 }
 
-export default (props: Props) => {
+export const PersonalityCard = (props: Props) => {
   const [isVisible, setVisible] = useState(false);
 
   const handleMouseEnter = useCallback(() => {

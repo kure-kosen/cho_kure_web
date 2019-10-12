@@ -4,27 +4,31 @@ import styled from "styled-components";
 import { color } from "@/constants/styles";
 
 import { ChkSlider } from "@/components/atoms/Slider";
+import { IPersonality } from "@/api/PersonalityApi";
 
-import PersonalityCard from "@/components/atoms/FeaturedPersonality/Card";
 import FeaturedPersonalityButton from "@/components/atoms/FeaturedPersonality/PersonalityListButton";
+import { PersonalityCard } from "./Card";
 
-export default () => (
-  <FeaturedPersonalitiesWrapperStyle>
-    <SliderWrapper>
-      <ChkSlider>
-        {[
-          <PersonalityCard />,
-          <PersonalityCard />,
-          <PersonalityCard />,
-          <PersonalityCard />,
-          <PersonalityCard />,
-          <PersonalityCard />
-        ]}
-      </ChkSlider>
-    </SliderWrapper>
-    <FeaturedPersonalityButton />
-  </FeaturedPersonalitiesWrapperStyle>
-);
+interface IProps {
+  personalities?: IPersonality[];
+}
+
+export const PersonalitiesSlider = ({ personalities }: IProps) => {
+  if (!(personalities && personalities.length > 0)) return null;
+
+  return (
+    <FeaturedPersonalitiesWrapperStyle>
+      <SliderWrapper>
+        <ChkSlider>
+          {personalities.map(personality => (
+            <PersonalityCard key={personality.id} {...personality} />
+          ))}
+        </ChkSlider>
+      </SliderWrapper>
+      <FeaturedPersonalityButton />
+    </FeaturedPersonalitiesWrapperStyle>
+  );
+};
 
 const FeaturedPersonalitiesWrapperStyle = styled.div`
   width: 100%;
