@@ -4,13 +4,11 @@ import styled from "styled-components";
 import { IPersonality } from "@/api/PersonalityApi";
 import { TwitterIcon, FacebookIcon, InstagramIcon } from "@/icons";
 
-export default ({
+export const PersonalityProfileSNS = ({
   twitter_id,
   facebook_id,
   instagram_id
 }: Pick<IPersonality, "facebook_id" | "instagram_id" | "twitter_id">) => {
-  if (!(twitter_id || facebook_id || twitter_id)) return null;
-
   return (
     <SNSArea>
       {twitter_id && <TwitterIcon />}
