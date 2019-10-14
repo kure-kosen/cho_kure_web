@@ -19,13 +19,13 @@ const beforeScreenshot: CustomConfig["beforeScreenshot"] = (
   );
 };
 
-const getMatchOptions: CustomConfig["getMatchOptions"] = _context => ({
-  // Allow 0.5% difference
-  failureThreshold: 0.005,
-  failureThresholdType: "percent"
-});
+// const getMatchOptions: CustomConfig["getMatchOptions"] = _context => ({
+//   // Allow 0.5% difference
+//   failureThreshold: 0.005,
+//   failureThresholdType: "percent"
+// });
 
 initStoryshots({
   suite: "Image storyshots",
-  test: imageSnapshot({ storybookUrl, beforeScreenshot, getMatchOptions })
+  test: imageSnapshot({ storybookUrl, beforeScreenshot })
 });
