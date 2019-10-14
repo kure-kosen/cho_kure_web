@@ -13,13 +13,6 @@ interface Props
   visible: boolean;
 }
 
-const AdjustDescription = (description: string) =>
-  description
-    .replace(/(\*\*)+/g, "")
-    .replace(/( )+/g, "")
-    .replace(/(\n)+/g, "")
-    .slice(0, 14 * 6) + "...";
-
 export const PersonalityProfileModal = ({
   visible,
   description,
@@ -29,7 +22,7 @@ export const PersonalityProfileModal = ({
 }: Props) => {
   return (
     <Wrapper visible={visible}>
-      <ReactMarkdown source={AdjustDescription(description)} />
+      <ReactMarkdown source={description} />
       {(twitter_id || facebook_id || instagram_id) && (
         <PersonalityProfileSNS
           twitter_id={twitter_id}
@@ -55,7 +48,5 @@ const Wrapper = styled.div<{ visible: boolean }>`
   font-size: 1.1rem;
   line-height: 1.8rem;
   visibility: ${props => (props.visible ? "visible" : "hidden")};
-  p {
-    margin: 0;
-  }
+  overflow-y: scroll;
 `;

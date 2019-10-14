@@ -14,7 +14,6 @@ export default class PersonalityStore {
 
   public get shuffledRegularPersonality() {
     if (!this.regularPersonalities) return;
-    if (this.regularPersonalities.length > 0) return;
 
     const shuffledPersonality = [...this.regularPersonalities];
     for (let i = 0, len = shuffledPersonality.length; i < len; i++) {
