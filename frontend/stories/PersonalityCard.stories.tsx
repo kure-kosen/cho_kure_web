@@ -2,8 +2,6 @@ import React from "react";
 import { PersonalityCard } from "@/components/molecules/Personalities/Card";
 import { chanyou } from "./mocks/api/personality";
 
-import icon_chanyou from "./mocks/assets/icon_chanyou.jpg";
-
 export default {
   title: "PersonalityCard"
 };
@@ -11,12 +9,9 @@ export default {
 export const normal = () => <PersonalityCard {...chanyou} />;
 
 const longTextSource = {
+  ...chanyou,
   id: 99,
-  name: "中村 優",
-  nickname: "ちゃんゆー",
-  description: "あ".repeat(200),
-  image: icon_chanyou,
-  tag_list: ["専攻科", "開発", "広報"]
+  description: "あ".repeat(200)
 };
 
 export const longText = () => <PersonalityCard {...longTextSource} />;

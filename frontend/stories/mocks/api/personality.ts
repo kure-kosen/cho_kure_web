@@ -18,5 +18,8 @@ export const chanyou = {
   description:
     "独自のワールドを展開するのが得意です。 絵が描けます｡ [@chanyou0311](https://twitter.com/chanyou0311)",
   image: icon_chanyou,
-  tag_list: ["専攻科", "開発", "広報"]
+  tag_list: ["専攻科", "開発", "広報"],
+  twitter_id: "chanyou0311",
+  facebook_id: "chanyou0311",
+  instagram_id: "chanyou0311"
 };
