@@ -22,7 +22,9 @@ export const PersonalityProfileModal = ({
 }: Props) => {
   return (
     <Wrapper visible={visible}>
-      <ReactMarkdown source={description} />
+      <DescriptionArea>
+        <ReactMarkdown source={description} />
+      </DescriptionArea>
       {(twitter_id || facebook_id || instagram_id) && (
         <PersonalityProfileSNS
           twitter_id={twitter_id}
@@ -35,6 +37,8 @@ export const PersonalityProfileModal = ({
 };
 
 const Wrapper = styled.div<{ visible: boolean }>`
+  display: flex;
+  flex-direction: column;
   position: absolute;
   top: 0;
   left: 0;
@@ -50,3 +54,5 @@ const Wrapper = styled.div<{ visible: boolean }>`
   visibility: ${props => (props.visible ? "visible" : "hidden")};
   overflow-y: scroll;
 `;
+
+const DescriptionArea = styled.div``;
