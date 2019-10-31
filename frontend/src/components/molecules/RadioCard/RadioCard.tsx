@@ -1,5 +1,6 @@
 import React, { RefObject } from "react";
 import { Link } from "react-router-dom";
+import ReactMarkdown from "react-markdown";
 import styled from "styled-components";
 
 import { IRadio } from "@/api/RadioApi";
@@ -33,16 +34,14 @@ export const RadioCard = (props: IProps) => {
         <Title>{title}</Title>
       </Link>
       <PlayButton mp3={mp3} duration={duration} play_time={play_time} />
-      <Link to={`/radios/${id}`}>
-        <Container>
-          <DescriptionWrapper>
-            <Description dangerouslySetInnerHTML={{ __html: description }} />
-          </DescriptionWrapper>
-          <PersonalityIconsWrapper>
-            <PersonalityIcons personalities={personalities} />
-          </PersonalityIconsWrapper>
-        </Container>
-      </Link>
+      <Container>
+        <DescriptionWrapper>
+          <ReactMarkdown source={description} />
+        </DescriptionWrapper>
+        <PersonalityIconsWrapper>
+          <PersonalityIcons personalities={personalities} />
+        </PersonalityIconsWrapper>
+      </Container>
     </RadioCardWrapperStyle>
   );
 };
@@ -78,10 +77,11 @@ const Container = styled.div`
 const DescriptionWrapper = styled.div`
   /* height: calc(100% - (RadioCardImage + RadioCard(Title + margin) + RadioCardPlayButton(Controller + PlayTimes) + PersonalityIconsMargin)); */
   height: calc(100% - (190px + (1.2rem + 5px) + (38px + 0.9rem) + 10px));
-  overflow: hidden;
+  overflow-y: scroll;
+  li {
+    margin-left: 25px;
+  }
 `;
-
-const Description = styled.p``;
 
 const PersonalityIconsWrapper = styled.div`
   width: 100%;

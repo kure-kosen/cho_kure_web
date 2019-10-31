@@ -2,11 +2,19 @@ import { kaneko, chanyou } from "./personality";
 import ck013_radio from "../assets/ck013_radio.mp3";
 import ck013_thumbnail from "../assets/ck013_thumbnail.png";
 
+const description = `## Hello
+- [Google](https://www.google.co.jp/) \n\n\n
+- aa
+- bb
+- cc
+- dd
+- ee
+- ff`;
+
 export const ck013 = {
   id: 13,
   title: "#13 飲食店バグハンター",
-  description:
-    "<p>最近やっていること、Ruby25周年、else if、コードゴルフ、ちょっくれサイトの仕組み、IoTなどの話をしました。</p>",
+  description,
   mp3: {
     url: ck013_radio
   },
