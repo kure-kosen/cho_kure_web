@@ -16,6 +16,8 @@ Personality.seed do |p|
   p.twitter_id = "euglena1215"
   p.facebook_id = "shintani.teppei"
   p.instagram_id = "s.teppei1215"
+  p.affiliation_name = "筑波大学"
+  p.affiliation_details = "情報学群情報科学類"
   p.password = "password"
   p.password_confirmation = "password"
 end
@@ -35,6 +37,8 @@ Personality.seed do |p|
   p.role = PersonalityRoles::ADMIN
   p.twitter_id = "chanyou0311"
   p.facebook_id = "chanyou0311"
+  p.affiliation_name = "呉工業高等専門学校"
+  p.affiliation_details = "専攻科 プロジェクトデザイン工学専攻"
   p.password = "password"
   p.password_confirmation = "password"
 end
@@ -52,6 +56,8 @@ Personality.seed do |p|
   TEXT
   p.role = PersonalityRoles::ADMIN
   p.twitter_id = "Guri1999120"
+  p.affiliation_name = ""
+  p.affiliation_details = ""
   p.password = "password"
   p.password_confirmation = "password"
 end
@@ -65,6 +71,8 @@ Personality.seed do |p|
   p.role = PersonalityRoles::EDITOR
   p.twitter_id = "kobakazu0429"
   p.facebook_id = "kobakazu0429"
+  p.affiliation_name = "呉工業高等専門学校"
+  p.affiliation_details = "電気情報工学科"
   p.password = "password"
   p.password_confirmation = "password"
 end
