@@ -34,15 +34,15 @@ export const PersonalityCard = (props: Props) => {
         nickname={props.nickname}
       />
       {(props.description ||
-        props.twitter_id ||
-        props.facebook_id ||
-        props.instagram_id) && (
+        props.twitterId ||
+        props.facebookId ||
+        props.instagramId) && (
         <PersonalityProfileModal
           visible={isVisible}
           description={props.description}
-          twitter_id={props.twitter_id}
-          facebook_id={props.facebook_id}
-          instagram_id={props.instagram_id}
+          twitterId={props.twitterId}
+          facebookId={props.facebookId}
+          instagramId={props.instagramId}
         />
       )}
     </Wrapper>

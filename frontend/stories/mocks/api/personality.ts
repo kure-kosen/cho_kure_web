@@ -8,7 +8,7 @@ export const kaneko = {
   description:
     "期待のホープです。 期待とホープって意味が同じな気がするのは気のせいでしょうか。 [@Guri1999120](https://twitter.com/Guri1999120)",
   image: icon_kaneko,
-  tag_list: ["本科生", "電気科", "開発", "冬眠中"]
+  tagList: ["本科生", "電気科", "開発", "冬眠中"]
 };
 
 export const chanyou = {
@@ -18,8 +18,8 @@ export const chanyou = {
   description:
     "独自のワールドを展開するのが得意です。 絵が描けます｡ [@chanyou0311](https://twitter.com/chanyou0311)",
   image: icon_chanyou,
-  tag_list: ["専攻科", "開発", "広報"],
-  twitter_id: "chanyou0311",
-  facebook_id: "chanyou0311",
-  instagram_id: "chanyou0311"
+  tagList: ["専攻科", "開発", "広報"],
+  twitterId: "chanyou0311",
+  facebookId: "chanyou0311",
+  instagramId: "chanyou0311"
 };
