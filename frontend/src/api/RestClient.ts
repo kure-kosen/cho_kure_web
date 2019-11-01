@@ -1,4 +1,5 @@
 import axios, { AxiosInstance } from "axios";
+import { mapKeysCamelCase } from "@/utils";
 
 export default class RestClient {
   public axios: AxiosInstance;
@@ -22,6 +23,7 @@ export default class RestClient {
       response => {
         const { config, data, status } = response;
         const { method, params, url } = config;
+        const convetedData = mapKeysCamelCase(data);
 
         console.group(
           `${
@@ -29,10 +31,10 @@ export default class RestClient {
           }:${status} - ${url}`
         );
         if (params) console.table(params);
-        console.log(data);
+        console.log(convetedData);
         console.groupEnd();
 
-        return response;
+        return { ...response, data: convetedData };
       },
       error => {
         console.log(error);
