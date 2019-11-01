@@ -8,6 +8,8 @@ ja:
         nickname: ニックネーム
         image: 写真
         description: 自己紹介
+        affiliation_name: 所属(大)
+        affiliation_details: 所属(中)
         role: 権限
         email: メールアドレス
         password: パスワード

@@ -23,6 +23,20 @@
   </div>
 
   <div class="form-group row">
+    <%= form.label :affiliation_name, class: 'col-2 col-form-label' %>
+    <div class="col-10">
+      <%= form.text_field :affiliation_name, class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <%= form.label :affiliation_details, class: 'col-2 col-form-label' %>
+    <div class="col-10">
+      <%= form.text_field :affiliation_details, class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class="form-group row">
     <%= form.label :description, class: 'col-2 col-form-label' %>
     <div class="col-10" id="editor">
       <%= render 'admin/shared/markdown_help' %>

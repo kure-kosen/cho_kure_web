@@ -9,6 +9,16 @@
 </dl>
 
 <dl class="dl-horizontal">
+  <dt><strong><%= Personality.human_attribute_name('affiliation_name') %> :</strong></dt>
+  <dd><%= @personality.affiliation_name %></dd>
+</dl>
+
+<dl class="dl-horizontal">
+  <dt><strong><%= Personality.human_attribute_name('affiliation_details') %> :</strong></dt>
+  <dd><%= @personality.affiliation_details %></dd>
+</dl>
+
+<dl class="dl-horizontal">
   <dt><strong><%= Personality.human_attribute_name('image') %> :</strong></dt>
   <dd><%= image_tag @personality.image_url(:thumb) %></dd>
 </dl>
