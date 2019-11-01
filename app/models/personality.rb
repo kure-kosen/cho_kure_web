@@ -23,6 +23,8 @@
 #  twitter_id             :string(255)
 #  facebook_id            :string(255)
 #  instagram_id           :string(255)
+#  affiliation_name       :string(255)
+#  affiliation_details    :string(255)
 #
 # Indexes
 #
