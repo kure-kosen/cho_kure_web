@@ -12,8 +12,9 @@ const longTextSource = {
   ...chanyou,
   id: 99,
   description: "あ".repeat(200),
-  affiliation_name: "あ".repeat(20),
-  affiliation_details: "あ".repeat(20)
+  affiliation_name:
+    "あいうえおかきくけこさしすせそたちつてとなにぬねのはひふへほまみむめもやゆよらりるれろわをん",
+  affiliation_details: "０１２３４５６７８９０１２３４５６７８９０１２３４５"
 };
 
 export const longText = () => <PersonalityCard {...longTextSource} />;
