@@ -7,15 +7,19 @@ import PersonalityListenToRadioButton from "@/components/atoms/FeaturedPersonali
 
 export const PersonalityProfileDescription = ({
   name,
-  nickname
-}: Pick<IPersonality, "name" | "nickname">) => (
+  nickname,
+  affiliation_name,
+  affiliation_details
+}: Pick<
+  IPersonality,
+  "name" | "nickname" | "affiliation_name" | "affiliation_details"
+>) => (
   <Wrapper>
     <Name>{name}</Name>
     {nickname ? <NickName>{nickname}</NickName> : null}
     <Affiliation>
-      呉高専工業高等専門学校専攻科
-      <br />
-      プロジェクトデザイン工学専攻
+      <AffiliationLabel>{affiliation_name}</AffiliationLabel>
+      <AffiliationLabel>{affiliation_details}</AffiliationLabel>
     </Affiliation>
     <PersonalityListenToRadioButton />
   </Wrapper>
@@ -41,5 +45,15 @@ const NickName = styled.span`
 
 const Affiliation = styled.div`
   padding: 15px 8px;
-  line-height: 1.5rem;
+  margin-bottom: 1rem;
+`;
+
+const AffiliationLabel = styled.p`
+  margin: 0.2rem;
+  height: 1rem;
+  width: 100%;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 `;
