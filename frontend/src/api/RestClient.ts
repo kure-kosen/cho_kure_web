@@ -23,7 +23,7 @@ export default class RestClient {
       response => {
         const { config, data, status } = response;
         const { method, params, url } = config;
-        const convetedData = mapKeysCamelCase(data);
+        const convertedData = mapKeysCamelCase(data);
 
         console.group(
           `${
@@ -31,10 +31,10 @@ export default class RestClient {
           }:${status} - ${url}`
         );
         if (params) console.table(params);
-        console.log(convetedData);
+        console.log(convertedData);
         console.groupEnd();
 
-        return { ...response, data: convetedData };
+        return { ...response, data: convertedData };
       },
       error => {
         console.log(error);
