@@ -7,13 +7,13 @@ export interface IPersonality {
   nickname?: string | null;
   description: string;
   image: string;
-  tag_list: string[];
+  tagList: string[];
   radios?: Exclude<IRadio, "personalities">;
-  facebook_id?: string | null;
-  instagram_id?: string | null;
-  twitter_id?: string | null;
-  affiliation_name?: string | null;
-  affiliation_details?: string | null;
+  facebookId?: string | null;
+  instagramId?: string | null;
+  twitterId?: string | null;
+  affiliationName?: string | null;
+  affiliationDetails?: string | null;
 }
 
 export default class PersonalityApi {

@@ -32,19 +32,19 @@ export const PersonalityCard = (props: Props) => {
       <PersonalityProfileDescription
         name={props.name}
         nickname={props.nickname}
-        affiliation_name={props.affiliation_name}
-        affiliation_details={props.affiliation_details}
+        affiliationName={props.affiliationName}
+        affiliationDetails={props.affiliationDetails}
       />
       {(props.description ||
-        props.twitter_id ||
-        props.facebook_id ||
-        props.instagram_id) && (
+        props.twitterId ||
+        props.facebookId ||
+        props.instagramId) && (
         <PersonalityProfileModal
           visible={isVisible}
           description={props.description}
-          twitter_id={props.twitter_id}
-          facebook_id={props.facebook_id}
-          instagram_id={props.instagram_id}
+          twitterId={props.twitterId}
+          facebookId={props.facebookId}
+          instagramId={props.instagramId}
         />
       )}
     </Wrapper>

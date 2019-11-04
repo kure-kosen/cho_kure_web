@@ -8,17 +8,17 @@ export interface IRadio {
   mp3: {
     url?: string;
   };
-  digest_mp3: {
+  digestMp3: {
     url?: string;
   };
-  youtube_url: string;
-  podcast_url: string;
+  youtubeUrl: string;
+  podcastUrl: string;
   image: string;
   duration: number;
-  play_time: string;
-  published_at: string;
-  created_at: string;
-  updated_at: string;
+  playTime: string;
+  publishedAt: string;
+  createdAt: string;
+  updatedAt: string;
   personalities: Exclude<IPersonality[], "radios">;
 }
 

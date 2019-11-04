@@ -8,7 +8,7 @@ import { PersonalityProfileSNS } from "@/components/atoms/FeaturedPersonality/Pe
 interface Props
   extends Pick<
     IPersonality,
-    "description" | "facebook_id" | "instagram_id" | "twitter_id"
+    "description" | "facebookId" | "instagramId" | "twitterId"
   > {
   visible: boolean;
 }
@@ -16,20 +16,20 @@ interface Props
 export const PersonalityProfileModal = ({
   visible,
   description,
-  twitter_id,
-  facebook_id,
-  instagram_id
+  twitterId,
+  facebookId,
+  instagramId
 }: Props) => {
   return (
     <Wrapper visible={visible}>
       <DescriptionArea>
         <ReactMarkdown source={description} />
       </DescriptionArea>
-      {(twitter_id || facebook_id || instagram_id) && (
+      {(twitterId || facebookId || instagramId) && (
         <PersonalityProfileSNS
-          twitter_id={twitter_id}
-          facebook_id={facebook_id}
-          instagram_id={instagram_id}
+          twitterId={twitterId}
+          facebookId={facebookId}
+          instagramId={instagramId}
         />
       )}
     </Wrapper>

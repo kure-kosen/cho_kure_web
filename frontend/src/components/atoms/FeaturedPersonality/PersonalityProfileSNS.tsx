@@ -5,15 +5,15 @@ import { IPersonality } from "@/api/PersonalityApi";
 import { TwitterIcon, FacebookIcon, InstagramIcon } from "@/icons";
 
 export const PersonalityProfileSNS = ({
-  twitter_id,
-  facebook_id,
-  instagram_id
-}: Pick<IPersonality, "facebook_id" | "instagram_id" | "twitter_id">) => {
+  twitterId,
+  facebookId,
+  instagramId
+}: Pick<IPersonality, "facebookId" | "instagramId" | "twitterId">) => {
   return (
     <SNSArea>
-      {twitter_id && <TwitterIcon id={twitter_id} />}
-      {facebook_id && <FacebookIcon id={facebook_id} />}
-      {instagram_id && <InstagramIcon id={instagram_id} />}
+      {twitterId && <TwitterIcon id={twitterId} />}
+      {facebookId && <FacebookIcon id={facebookId} />}
+      {instagramId && <InstagramIcon id={instagramId} />}
     </SNSArea>
   );
 };
