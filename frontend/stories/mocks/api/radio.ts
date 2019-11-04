@@ -18,14 +18,14 @@ export const ck013 = {
   mp3: {
     url: ck013_radio
   },
-  digest_mp3: { url: undefined },
-  youtube_url: "",
-  podcast_url: "",
+  digestMp3: { url: undefined },
+  youtubeUrl: "",
+  podcastUrl: "",
   image: ck013_thumbnail,
-  play_time: "32:52",
+  playTime: "32:52",
   duration: 1952,
-  published_at: "2018/03/04 19:30",
-  created_at: "2018/03/04 19:17",
-  updated_at: "2018/03/04 19:30",
+  publishedAt: "2018/03/04 19:30",
+  createdAt: "2018/03/04 19:17",
+  updatedAt: "2018/03/04 19:30",
   personalities: [kaneko, chanyou]
 };
