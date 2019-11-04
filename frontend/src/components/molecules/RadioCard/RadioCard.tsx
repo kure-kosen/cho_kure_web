@@ -21,7 +21,7 @@ export const RadioCard = (props: IProps) => {
     description,
     mp3,
     duration,
-    play_time,
+    playTime,
     image,
     personalities,
     forwardRef
@@ -33,7 +33,7 @@ export const RadioCard = (props: IProps) => {
         <CardImage image={image} />
         <Title>{title}</Title>
       </Link>
-      <PlayButton mp3={mp3} duration={duration} play_time={play_time} />
+      <PlayButton mp3={mp3} duration={duration} playTime={playTime} />
       <Container>
         <DescriptionWrapper>
           <ReactMarkdown source={description} />

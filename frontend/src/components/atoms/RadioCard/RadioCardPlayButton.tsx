@@ -37,8 +37,8 @@ export const calcProgress = (times: {
   return percent;
 };
 
-export default (props: Pick<IRadio, "mp3" | "duration" | "play_time">) => {
-  const { mp3, duration, play_time } = props;
+export default (props: Pick<IRadio, "mp3" | "duration" | "playTime">) => {
+  const { mp3, duration, playTime } = props;
   const { isPlay, play, pause, jump, times } = useAudio({
     url: mp3.url!,
     duration
@@ -71,7 +71,7 @@ export default (props: Pick<IRadio, "mp3" | "duration" | "play_time">) => {
         />
       </Controller>
       <PlayTimes>
-        {parsePlayTime(times.currentTime)} / {play_time}
+        {parsePlayTime(times.currentTime)} / {playTime}
       </PlayTimes>
     </Wrapper>
   );
