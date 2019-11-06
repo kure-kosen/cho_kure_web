@@ -1,11 +1,11 @@
 import React from "react";
 
-import { IconWrapper } from "@/icons/IconWrapper";
+import { CircleIconWrapper } from "@/icons/CircleIconWrapper";
 
-export const TwitterIcon = ({ id }: { id: string }) => (
+export const TwitterCircleIcon = ({ id }: { id: string }) => (
   <a href={`https://twitter.com/${id}/`}>
-    <IconWrapper>
+    <CircleIconWrapper>
       <i className="fab fa-twitter fa-fw" />
-    </IconWrapper>
+    </CircleIconWrapper>
   </a>
 );

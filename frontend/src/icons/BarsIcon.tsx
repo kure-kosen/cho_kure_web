@@ -1,9 +1,9 @@
 import React from "react";
 
-import { IconWrapper } from "@/icons/IconWrapper";
+import { CircleIconWrapper } from "@/icons/CircleIconWrapper";
 
-export const BarsIcon = () => (
-  <IconWrapper>
+export const BarsCircleIcon = () => (
+  <CircleIconWrapper>
     <i className="fas fa-bars fa-fw" />
-  </IconWrapper>
+  </CircleIconWrapper>
 );

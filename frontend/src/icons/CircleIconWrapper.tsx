@@ -7,7 +7,9 @@ interface IProps {
   children: string | React.HTMLAttributes<HTMLElement> | React.ReactNode;
 }
 
-export const IconWrapper = (props: IProps) => <Circle>{props.children}</Circle>;
+export const CircleIconWrapper = (props: IProps) => (
+  <Circle>{props.children}</Circle>
+);
 
 const Circle = styled.div`
   float: left;

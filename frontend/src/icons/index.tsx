@@ -1,6 +1,11 @@
-import { FacebookIcon } from "./FacebookIcon";
-import { InstagramIcon } from "./InstagramIcon";
-import { TwitterIcon } from "./TwitterIcon";
-import { BarsIcon } from "./BarsIcon";
+import { FacebookCircleIcon } from "./FacebookIcon";
+import { InstagramCircleIcon } from "./InstagramIcon";
+import { TwitterCircleIcon } from "./TwitterIcon";
+import { BarsCircleIcon } from "./BarsIcon";
 
-export { FacebookIcon, InstagramIcon, TwitterIcon, BarsIcon };
+export {
+  FacebookCircleIcon,
+  InstagramCircleIcon,
+  TwitterCircleIcon,
+  BarsCircleIcon
+};
