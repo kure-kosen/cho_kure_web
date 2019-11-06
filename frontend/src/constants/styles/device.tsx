@@ -15,15 +15,11 @@ const ForMobile = ({ children }: Props) => {
 };
 
 const breakpoints = {
-  mobile: "40.0rem",
-  tablet: "80.0rem"
+  mobile: "767px"
 };
 
 export default {
   mobile: `screen and (max-width: ${breakpoints.mobile})`,
-  tablet: `screen and (min-width: ${breakpoints.mobile}) and (max-width: ${
-    breakpoints.tablet
-  })`,
   Default,
   ForMobile
 };

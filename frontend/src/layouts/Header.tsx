@@ -90,7 +90,7 @@ const Logo = styled.img`
 `;
 
 const BrandText = styled.div`
-  color: ${color.BLUE};
+  color: ${color.SKY_BLUE};
   font-size: 1.5rem;
   text-align: left;
   vertical-align: middle;
