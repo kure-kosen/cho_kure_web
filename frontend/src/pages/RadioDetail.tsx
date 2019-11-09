@@ -1,17 +1,18 @@
 import React from "react";
 import styled from "styled-components";
+import { useParams, useLocation } from "react-router-dom";
 import ReactMarkdown from "react-markdown";
 import { device, color } from "@/constants/styles";
+import { CHK } from "@/constants/url";
 
 import RootStore from "@/stores/RootStore";
 
 import { RadioDetailHeroArea } from "@/components/molecules/HeroArea/RadioDetailHeroArea";
 import TweetStream from "@/components/atoms/Features/TweetStream";
-
 import PopularRadioWrapper from "@/components/molecules/PopularRadio/PopularRadioWrapper";
-
 import { RadioPlayer } from "@/components/molecules/RadioDetails/RadioPlayer";
-import { TwitterIcon, FacebookIcon } from "@/icons";
+import Personalities from "@/components/molecules/Personalities";
+import { Share } from "@/components/molecules/RadioDetails/Share";
 
 const MOCK_DATA = {
   id: 13,
@@ -71,11 +72,12 @@ const MOCK_DATA = {
   comic: null
 };
 
-import Personalities from "@/components/molecules/Personalities";
-
 export const RadioDetail = (props: { rootStore: RootStore }) => {
   // const { rootStore } = props;
   // const { radioStore } = rootStore;
+
+  const location = useLocation();
+  const SHARE_URL = CHK.FRONT_END.PROD + location.pathname;
 
   return (
     <div>
@@ -95,27 +97,7 @@ export const RadioDetail = (props: { rootStore: RootStore }) => {
               <Description>
                 <ReactMarkdown source={MOCK_DATA.description} />
               </Description>
-              <SNS>
-                <TwitterIcon id={""} />
-                <FacebookIcon id={""} />
-                <a
-                  href="https://twitter.com/share?ref_src=twsrc%5Etfw"
-                  class="twitter-share-button"
-                  data-text="hoge"
-                  data-via="cho_kure"
-                  data-hashtags="ちょっくれ"
-                  data-related="cho_kure"
-                  data-lang="ja"
-                  data-show-count="true"
-                >
-                  Tweet
-                </a>
-                <script
-                  async
-                  src="https://platform.twitter.com/widgets.js"
-                  charset="utf-8"
-                />
-              </SNS>
+              <Share url={SHARE_URL} text={MOCK_DATA.title} />
             </Right>
           </Top>
           <Bottom>
@@ -170,7 +152,6 @@ const Title = styled.h2`
 `;
 
 const Description = styled.div``;
-const SNS = styled.div``;
 
 const Bottom = styled.div`
   width: 100%;
