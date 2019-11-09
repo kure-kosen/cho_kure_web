@@ -12,7 +12,14 @@ module.exports = {
     alias: {'@': path.resolve(__dirname, '../src')}
   },
 
-  plugins: [new ForkTsCheckerWebpackPlugin({workers: 1, tslint: true})],
+  plugins: [
+    new ForkTsCheckerWebpackPlugin({workers: 1, tslint: true}),
+    new webpack.DefinePlugin({
+      'process.env': {
+        NODE_ENV: JSON.stringify(process.env.NODE_ENV),
+      },
+    }),
+  ],
 
   module: {
     rules: [

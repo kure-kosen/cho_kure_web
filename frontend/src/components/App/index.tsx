@@ -6,10 +6,15 @@ import { Provider } from "@/utils/Contexts/RootContext";
 import Header from "@/layouts/Header";
 import Main from "@/layouts/Main";
 import Footer from "@/layouts/Footer";
+import { isDevelopment } from "@/utils";
+import { CHK } from "@/constants/url";
 
-// TODO(euglena1215): URLのproductionとの切り替え方法を考える
 export default () => (
-  <Provider value={new RootStore("http://localhost:3000")}>
+  <Provider
+    value={
+      new RootStore(isDevelopment() ? CHK.BACK_END.DEV : CHK.BACK_END.PROD)
+    }
+  >
     <Header />
     <Main />
     <Footer />
