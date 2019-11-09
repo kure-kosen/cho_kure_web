@@ -1,12 +1,10 @@
-import React from "react";
+import React, { FC } from "react";
 import styled from "styled-components";
 
 import { IRadio } from "@/api/RadioApi";
-import { color } from "@/constants/styles";
+import { StyledBorderContaineImage } from "../ContainImage";
 
-export default (props: Pick<IRadio, "image">) => {
-  const { image } = props;
-
+export const RadioImage: FC<Pick<IRadio, "image">> = ({ image }) => {
   return (
     <Wrapper>
       <Image src={image} />
@@ -19,16 +17,10 @@ const Wrapper = styled.div`
   height: 190px;
 `;
 
-const Image = styled.img`
-  object-fit: contain;
-  width: calc(100% + 6px);
-  height: 100%;
-  margin-top: -3px;
-  margin-left: -3px;
-  border-top-left-radius: 8px;
-  border-top-right-radius: 8px;
-  border-top: 3px solid ${color.SKY_BLUE};
-  border-left: 3px solid ${color.SKY_BLUE};
-  border-right: 3px solid ${color.SKY_BLUE};
-  border-bottom: 3px solid ${color.SKY_BLUE};
+const Image = styled(StyledBorderContaineImage)`
+  && {
+    width: calc(100% + 6px);
+    margin-top: -3px;
+    margin-left: -3px;
+  }
 `;
