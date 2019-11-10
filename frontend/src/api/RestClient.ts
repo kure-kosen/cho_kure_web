@@ -1,5 +1,5 @@
 import axios, { AxiosInstance } from "axios";
-import { mapKeysCamelCase } from "@/utils";
+import { mapKeysCamelCase, isDevelopment } from "@/utils";
 
 export default class RestClient {
   public axios: AxiosInstance;
@@ -24,16 +24,16 @@ export default class RestClient {
         const { config, data, status } = response;
         const { method, params, url } = config;
         const convertedData = mapKeysCamelCase(data);
-
-        console.group(
-          `${
-            method ? method.toUpperCase() : "undefined method"
-          }:${status} - ${url}`
-        );
-        if (params) console.table(params);
-        console.log(convertedData);
-        console.groupEnd();
-
+        if (isDevelopment()) {
+          console.group(
+            `${
+              method ? method.toUpperCase() : "undefined method"
+            }:${status} - ${url}`
+          );
+          if (params) console.table(params);
+          console.log(convertedData);
+          console.groupEnd();
+        }
         return { ...response, data: convertedData };
       },
       error => {
