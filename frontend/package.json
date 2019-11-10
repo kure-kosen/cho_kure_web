@@ -7,8 +7,8 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "build": "webpack --color --progress --config ./config/webpack.config.prod.js",
-    "dev": "webpack-dev-server --config ./config/webpack.config.dev.js",
+    "build": "NODE_ENV=production webpack --color --progress --config ./config/webpack.config.prod.js",
+    "dev": "NODE_ENV=development webpack-dev-server --config ./config/webpack.config.dev.js",
     "start": "yarn dev",
     "lint": "tslint --fix -c ./tslint.json '@(src|stories)/**/*.{ts,tsx}'",
     "test": "jest --colors",
