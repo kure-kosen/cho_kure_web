@@ -36,4 +36,6 @@ const Image = styled(StyledBorderContaineImage)``;
 const PlayButtonWrapper = styled.div`
   background-color: ${color.SKY_BLUE};
   margin-top: -3px;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
 `;

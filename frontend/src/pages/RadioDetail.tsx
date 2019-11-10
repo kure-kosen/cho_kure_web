@@ -1,6 +1,7 @@
-import React from "react";
+import React, { Suspense, useState } from "react";
 import styled from "styled-components";
 import { useParams, useLocation } from "react-router-dom";
+import { observer } from "mobx-react-lite";
 import ReactMarkdown from "react-markdown";
 import { device, color } from "@/constants/styles";
 import { CHK } from "@/constants/url";
@@ -13,6 +14,7 @@ import PopularRadioWrapper from "@/components/molecules/PopularRadio/PopularRadi
 import { RadioPlayer } from "@/components/molecules/RadioDetails/RadioPlayer";
 import Personalities from "@/components/molecules/Personalities";
 import { Share } from "@/components/molecules/RadioDetails/Share";
+import CircleSpinner from "@/components/atoms/Spinners/CircleSpinner";
 
 const MOCK_DATA = {
   id: 13,
@@ -72,9 +74,56 @@ const MOCK_DATA = {
   comic: null
 };
 
-export const RadioDetail = (props: { rootStore: RootStore }) => {
-  // const { rootStore } = props;
-  // const { radioStore } = rootStore;
+interface Props {
+  radioStore: any;
+  SHARE_URL: string;
+  setRadio: React.Dispatch<any>;
+  radio: any;
+  radioId: number;
+}
+
+const Main: React.FC<Props> = ({
+  radioStore,
+  SHARE_URL,
+  setRadio,
+  radio,
+  radioId
+}) => {
+  if (radio) {
+    return (
+      <>
+        <Top>
+          <Left>
+            <RadioPlayer {...radio} />
+          </Left>
+          <Right>
+            <Title>{radio.title}</Title>
+            <Description>
+              <ReactMarkdown source={radio.description} />
+            </Description>
+            <Share url={SHARE_URL} text={radio.title} />
+          </Right>
+        </Top>
+        <Bottom>
+          <Title>出演しているパーソナリティー</Title>
+          <Personalities personalities={radio.personalities} />
+        </Bottom>
+      </>
+    );
+  }
+
+  throw (async () => {
+    const cache = await radioStore.fetchRadio(radioId);
+    setRadio(cache);
+  })();
+};
+
+export const RadioDetail = observer((props: { rootStore: RootStore }) => {
+  const { rootStore } = props;
+  const { radioStore } = rootStore;
+  const { radioId } = useParams();
+
+  const [radio, setRadio] = useState<any>(null);
 
   const location = useLocation();
   const SHARE_URL = CHK.FRONT_END.PROD + location.pathname;
@@ -88,26 +137,20 @@ export const RadioDetail = (props: { rootStore: RootStore }) => {
           <TweetStream />
         </Sidebar>
         <MainContentWrapper>
-          <Top>
-            <Left>
-              <RadioPlayer {...MOCK_DATA} />
-            </Left>
-            <Right>
-              <Title>{MOCK_DATA.title}</Title>
-              <Description>
-                <ReactMarkdown source={MOCK_DATA.description} />
-              </Description>
-              <Share url={SHARE_URL} text={MOCK_DATA.title} />
-            </Right>
-          </Top>
-          <Bottom>
-            <Personalities personalities={MOCK_DATA.personalities} />
-          </Bottom>
+          <Suspense fallback={<CircleSpinner />}>
+            <Main
+              SHARE_URL={SHARE_URL}
+              radio={radio}
+              setRadio={setRadio}
+              radioStore={radioStore}
+              radioId={Number(radioId)}
+            />
+          </Suspense>
         </MainContentWrapper>
       </Contrainer>
     </div>
   );
-};
+});
 
 const Contrainer = styled.div`
   display: flex;
@@ -127,22 +170,22 @@ const MainContentWrapper = styled.div`
   @media ${device.mobile} {
     flex: 0 0 100%;
   }
-  padding-top: 50px;
+  padding: 50px;
 `;
 
 const Top = styled.div`
   display: flex;
   width: 100%;
-  padding: 10px;
 `;
+
 const Left = styled.div`
   width: 50%;
-  padding-right: 50px;
+  padding-right: 25px;
 `;
 
 const Right = styled.div`
   width: 50%;
-  padding-right: 50px;
+  padding-left: 25px;
 `;
 
 const Title = styled.h2`
@@ -155,4 +198,5 @@ const Description = styled.div``;
 
 const Bottom = styled.div`
   width: 100%;
+  margin-top: 50px;
 `;
