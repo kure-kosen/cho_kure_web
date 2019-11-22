@@ -3,7 +3,7 @@ import React from "react";
 import RootStore from "@/stores/RootStore";
 import { Provider } from "@/utils/Contexts/RootContext";
 
-import Header from "@/layouts/Header";
+import { Header } from "@/layouts/Header";
 import Main from "@/layouts/Main";
 import Footer from "@/layouts/Footer";
 

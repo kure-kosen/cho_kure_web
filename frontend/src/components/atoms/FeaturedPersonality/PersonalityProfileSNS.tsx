@@ -2,7 +2,11 @@ import React from "react";
 import styled from "styled-components";
 
 import { IPersonality } from "@/api/PersonalityApi";
-import { TwitterIcon, FacebookIcon, InstagramIcon } from "@/icons";
+import {
+  TwitterCircleIcon,
+  FacebookCircleIcon,
+  InstagramCircleIcon
+} from "@/icons";
 
 export const PersonalityProfileSNS = ({
   twitterId,
@@ -11,9 +15,9 @@ export const PersonalityProfileSNS = ({
 }: Pick<IPersonality, "facebookId" | "instagramId" | "twitterId">) => {
   return (
     <SNSArea>
-      {twitterId && <TwitterIcon id={twitterId} />}
-      {facebookId && <FacebookIcon id={facebookId} />}
-      {instagramId && <InstagramIcon id={instagramId} />}
+      {twitterId && <TwitterCircleIcon id={twitterId} />}
+      {facebookId && <FacebookCircleIcon id={facebookId} />}
+      {instagramId && <InstagramCircleIcon id={instagramId} />}
     </SNSArea>
   );
 };
