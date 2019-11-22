@@ -31,7 +31,7 @@ export const rawSnakeCase = {
       id: 32,
       title: "#32 Helloで握る主導権",
       description:
-        "<p>ペットボトルロケット、二人の関係、寮について、相部屋の不満、Podcastを始めようなどの話をしました。</p>\n\n<p>関連リンク</p>\n\n<ul>\n<li><a href=\"https://kobakazu0429.github.io/podcast-diagnosis\">Podcast診断ページ</a></li>\n<li><a href=\"https://booth.pm/ja/items/828339\">今日からはじめる技術Podcast 完全入門[PDF版]</a></li>\n</ul>\n",
+        "<p>ペットボトルロケット、二人の関係、寮について、相部屋の不満、Podcastを始めようなどの話をしました。</p>\n\n<p>関連リンク</p>\n\n<ul>\n<li><a href='https://kobakazu0429.github.io/podcast-diagnosis'>Podcast診断ページ</a></li>\n<li><a href='https://booth.pm/ja/items/828339'>今日からはじめる技術Podcast 完全入門[PDF版]</a></li>\n</ul>\n",
       mp3: {
         url:
           "https://cho-kure.s3.amazonaws.com/uploads/radio/mp3/32/ck032.1.mp3"
@@ -80,7 +80,7 @@ export const expectCamelCase = {
       id: 32,
       title: "#32 Helloで握る主導権",
       description:
-        "<p>ペットボトルロケット、二人の関係、寮について、相部屋の不満、Podcastを始めようなどの話をしました。</p>\n\n<p>関連リンク</p>\n\n<ul>\n<li><a href=\"https://kobakazu0429.github.io/podcast-diagnosis\">Podcast診断ページ</a></li>\n<li><a href=\"https://booth.pm/ja/items/828339\">今日からはじめる技術Podcast 完全入門[PDF版]</a></li>\n</ul>\n",
+        "<p>ペットボトルロケット、二人の関係、寮について、相部屋の不満、Podcastを始めようなどの話をしました。</p>\n\n<p>関連リンク</p>\n\n<ul>\n<li><a href='https://kobakazu0429.github.io/podcast-diagnosis'>Podcast診断ページ</a></li>\n<li><a href='https://booth.pm/ja/items/828339'>今日からはじめる技術Podcast 完全入門[PDF版]</a></li>\n</ul>\n",
       mp3: {
         url:
           "https://cho-kure.s3.amazonaws.com/uploads/radio/mp3/32/ck032.1.mp3"
