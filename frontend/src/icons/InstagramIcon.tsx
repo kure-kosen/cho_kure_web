@@ -1,11 +1,11 @@
 import React from "react";
 
-import { IconWrapper } from "@/icons/IconWrapper";
+import { CircleIconWrapper } from "@/icons/CircleIconWrapper";
 
-export const InstagramIcon = ({ id }: { id: string }) => (
+export const InstagramCircleIcon = ({ id }: { id: string }) => (
   <a href={`https://www.instagram.com/${id}/`}>
-    <IconWrapper>
+    <CircleIconWrapper>
       <i className="fab fa-instagram fa-fw" />
-    </IconWrapper>
+    </CircleIconWrapper>
   </a>
 );
