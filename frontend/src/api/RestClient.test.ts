@@ -1,7 +1,10 @@
 import MockAdapter from "axios-mock-adapter";
 import { AxiosInstance } from "axios";
 import RestClient from "@/api/RestClient";
-import { mapKeysCamelCase } from "@/utils";
+import {
+  rawSnakeCase,
+  expectCamelCase
+} from "@/utils/convert-object-keys-to-camelcase.test";
 
 const baseUrl = "https://test.kure-rad.io/";
 const csrfToken = "this-is-csrf-token";
@@ -69,16 +72,10 @@ describe("rest client", () => {
   });
 
   it("mapKeysCamelCase with axios.interceptors.response", async () => {
-    const rawResponce = [
-      { abc: "abc" },
-      { AB_C: "abc" },
-      { ab_c: "abc", Abc: { abC: "abc" } }
-    ];
-    const expectResponce = mapKeysCamelCase(rawResponce);
     const expectHttpStatusCode = 200;
-    mockAxios.onGet("/").reply(expectHttpStatusCode, rawResponce);
+    mockAxios.onGet("/").reply(expectHttpStatusCode, rawSnakeCase);
     const res = await restClient.get("/");
-    expect(res.data).toStrictEqual(expectResponce);
+    expect(res.data).toStrictEqual(expectCamelCase);
     expect(res.status).toBe(expectHttpStatusCode);
   });
 });

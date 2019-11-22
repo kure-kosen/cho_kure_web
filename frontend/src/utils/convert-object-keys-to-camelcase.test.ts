@@ -1,5 +1,5 @@
 import { mapKeysCamelCase } from "@/utils";
-const rawData = {
+export const rawSnakeCase = {
   id: 14,
   name: "小畠 一泰",
   nickname: "こばくん",
@@ -48,7 +48,7 @@ const rawData = {
     }
   ]
 };
-const expectData = {
+export const expectCamelCase = {
   id: 14,
   name: "小畠 一泰",
   nickname: "こばくん",
@@ -100,7 +100,7 @@ const expectData = {
 
 describe("mapKeysCamelCase", () => {
   it("convert-object-keys-to-camelcase", () => {
-    const convertedData = mapKeysCamelCase(rawData);
-    expect(convertedData).toStrictEqual(expectData);
+    const convertedData = mapKeysCamelCase(rawSnakeCase);
+    expect(convertedData).toStrictEqual(expectCamelCase);
   });
 });
