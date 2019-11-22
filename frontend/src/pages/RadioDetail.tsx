@@ -32,22 +32,36 @@ const Main: React.FC<Props> = ({ radioStore, setRadio, radio }) => {
   if (radio) {
     return (
       <>
-        <Top>
-          <Left>
+        <device.Default>
+          <PCWrapper>
+            <Top>
+              <Left>
+                <RadioPlayer {...radio} />
+              </Left>
+              <Right>
+                <Description>
+                  <ReactMarkdown source={radio.description} />
+                </Description>
+                <Share url={SHARE_URL} text={radio.title} />
+              </Right>
+            </Top>
+            <Bottom>
+              <Title>出演しているパーソナリティー</Title>
+              <Personalities personalities={radio.personalities} />
+            </Bottom>
+          </PCWrapper>
+        </device.Default>
+        <device.ForMobile>
+          <MobileWrapper>
             <RadioPlayer {...radio} />
-          </Left>
-          <Right>
-            <Title>{radio.title}</Title>
             <Description>
               <ReactMarkdown source={radio.description} />
             </Description>
             <Share url={SHARE_URL} text={radio.title} />
-          </Right>
-        </Top>
-        <Bottom>
-          <Title>出演しているパーソナリティー</Title>
-          <Personalities personalities={radio.personalities} />
-        </Bottom>
+            <Title>出演しているパーソナリティー</Title>
+            <Personalities personalities={radio.personalities} />
+          </MobileWrapper>
+        </device.ForMobile>
       </>
     );
   }
@@ -66,7 +80,7 @@ export const RadioDetail = observer((props: { rootStore: RootStore }) => {
 
   return (
     <div>
-      <Suspense fallback={<CircleSpinner />}>
+      <Suspense fallback={<RadioDetailHeroArea>{""}</RadioDetailHeroArea>}>
         <RadioDetailHeroArea>{radio ? radio.title : ""}</RadioDetailHeroArea>
       </Suspense>
       <Contrainer>
@@ -102,7 +116,15 @@ const MainContentWrapper = styled.div`
   @media ${device.mobile} {
     flex: 0 0 100%;
   }
+`;
+
+const PCWrapper = styled.div`
   padding: 50px;
+`;
+
+const MobileWrapper = styled.div`
+  width: calc(100% - 20px);
+  margin: 0 auto;
 `;
 
 const Top = styled.div`
