@@ -31,7 +31,9 @@ const ImageWrapper = styled.div`
   height: auto;
 `;
 
-const Image = styled(StyledBorderContaineImage)``;
+const Image = styled(StyledBorderContaineImage)`
+  max-height: 300px;
+`;
 
 const PlayButtonWrapper = styled.div`
   background-color: ${color.SKY_BLUE};
