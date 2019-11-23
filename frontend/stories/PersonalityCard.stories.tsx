@@ -7,8 +7,6 @@ export default {
   title: "PersonalityCard"
 };
 
-export const normal = () => <PersonalityCard {...chanyou} />;
-
 const longTextSource = {
   ...chanyou,
   id: 99,
@@ -19,10 +17,9 @@ const longTextSource = {
   position: "０１２３４５６７８９０１２３４５６７８９０１２３４５"
 };
 
+export const normal = () => <PersonalityCard {...chanyou} />;
 export const longText = () => <PersonalityCard {...longTextSource} />;
-
 export const normalMini = () => <PersonalityProfileMiniCard {...chanyou} />;
-
 export const longTextMini = () => (
   <PersonalityProfileMiniCard {...longTextSource} />
 );
