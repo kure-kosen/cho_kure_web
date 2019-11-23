@@ -23,6 +23,8 @@
 #  twitter_id             :string(255)
 #  facebook_id            :string(255)
 #  instagram_id           :string(255)
+#  organization           :string(255)
+#  position               :string(255)
 #
 # Indexes
 #
