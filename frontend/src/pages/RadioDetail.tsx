@@ -21,8 +21,8 @@ import { PersonalityProfileMiniCard } from "@/components/atoms/FeaturedPersonali
 
 interface Props {
   radioStore: RadioStore;
-  setRadio: React.Dispatch<IRadio | null>;
-  radio: IRadio | null;
+  setRadio: React.Dispatch<IRadio | undefined>;
+  radio: IRadio | undefined;
 }
 
 const Main: React.FC<Props> = ({ radioStore, setRadio, radio }) => {
@@ -80,7 +80,7 @@ export const RadioDetail = observer((props: { rootStore: RootStore }) => {
   const { rootStore } = props;
   const { radioStore } = rootStore;
 
-  const [radio, setRadio] = useState<IRadio | null>(null);
+  const [radio, setRadio] = useState<IRadio | undefined>(undefined);
 
   return (
     <div>
