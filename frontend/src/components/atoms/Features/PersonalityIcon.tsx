@@ -10,7 +10,7 @@ export default ({ image }: Pick<IPersonality, "image">) => {
   React.useEffect(() => {
     if (!ref.current) return;
     setHeight(ref.current.height);
-  }, [ref]);
+  }, [ref, ref.current]);
 
   return <Img src={image} ref={ref} width={height} />;
 };
