@@ -54,6 +54,7 @@ const Main: React.FC<Props> = ({ radioStore, setRadio, radio }) => {
         </device.Default>
         <device.ForMobile>
           <MobileWrapper>
+            <Title>{radio ? radio.title : ""}</Title>
             <RadioPlayer {...radio} />
             <Description>
               <ReactMarkdown source={radio.description} />
@@ -84,7 +85,9 @@ export const RadioDetail = observer((props: { rootStore: RootStore }) => {
   return (
     <div>
       <Suspense fallback={<RadioDetailHeroArea>{""}</RadioDetailHeroArea>}>
-        <RadioDetailHeroArea>{radio ? radio.title : ""}</RadioDetailHeroArea>
+        <device.Default>
+          <RadioDetailHeroArea>{radio ? radio.title : ""}</RadioDetailHeroArea>
+        </device.Default>
       </Suspense>
       <Contrainer>
         <Sidebar>
@@ -149,6 +152,7 @@ const Title = styled.h2`
   font-size: 1.5rem;
   text-align: left;
   color: ${color.BLUE};
+  margin: 5px 0;
 `;
 
 const Description = styled.div``;
