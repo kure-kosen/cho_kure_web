@@ -87,4 +87,9 @@ const PersonalityIconsWrapper = styled.div`
   width: 100%;
   height: 40px;
   margin: 5px;
+
+  img {
+    margin-left: 5px;
+    margin-right: 5px;
+  }
 `;

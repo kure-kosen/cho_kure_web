@@ -16,11 +16,9 @@ export default ({ image }: Pick<IPersonality, "image">) => {
 };
 
 const Img = styled.img<{ width: number }>`
-  width: ${props => props.width};
+  width: ${props => `${props.width}px`};
   height: 100%;
   border-radius: 50%;
   object-fit: cover;
   vertical-align: middle;
-  margin-left: 5px;
-  margin-right: 5px;
 `;
