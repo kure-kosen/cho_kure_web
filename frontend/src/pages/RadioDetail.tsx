@@ -17,6 +17,7 @@ import { Share } from "@/components/molecules/RadioDetails/Share";
 import CircleSpinner from "@/components/atoms/Spinners/CircleSpinner";
 import RadioStore from "@/stores/RadioStore";
 import { IRadio } from "@/api/RadioApi";
+import { PersonalityProfileMiniCard } from "@/components/atoms/FeaturedPersonality/PersonalityProfileMiniCard";
 
 interface Props {
   radioStore: RadioStore;
@@ -59,7 +60,9 @@ const Main: React.FC<Props> = ({ radioStore, setRadio, radio }) => {
             </Description>
             <Share url={SHARE_URL} text={radio.title} />
             <Title>出演しているパーソナリティー</Title>
-            <Personalities personalities={radio.personalities} />
+            {radio.personalities.map(({ name, image, id }) => (
+              <PersonalityProfileMiniCard name={name} image={image} key={id} />
+            ))}
           </MobileWrapper>
         </device.ForMobile>
       </>
