@@ -21,5 +21,7 @@ export const chanyou = {
   tagList: ["専攻科", "開発", "広報"],
   twitterId: "chanyou0311",
   facebookId: "chanyou0311",
-  instagramId: "chanyou0311"
+  instagramId: "chanyou0311",
+  organization: "呉工業高等専門学校 専攻科",
+  position: "プロジェクトデザイン専攻"
 };

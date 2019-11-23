@@ -12,6 +12,8 @@ export interface IPersonality {
   facebookId?: string | null;
   instagramId?: string | null;
   twitterId?: string | null;
+  organization?: string | null;
+  position?: string | null;
 }
 
 export default class PersonalityApi {
