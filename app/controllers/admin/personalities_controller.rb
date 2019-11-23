@@ -100,7 +100,7 @@ class Admin::PersonalitiesController < Admin::BaseController
     def personality_params
       params.require(:personality).permit(:name, :nickname, :image, :description, :tag_list,
                                           :twitter_id, :facebook_id, :instagram_id,
-                                          :affiliation_name, :affiliation_details)
+                                          :organization, :position)
     end
 
     def provisional_personality_params

@@ -8,8 +8,8 @@ ja:
         nickname: ニックネーム
         image: 写真
         description: 自己紹介
-        affiliation_name: 所属している学校/会社など
-        affiliation_details: 所属している学科/役職など
+        organization: 所属している学校/会社など
+        position: 所属している学科/役職など
         role: 権限
         email: メールアドレス
         password: パスワード
