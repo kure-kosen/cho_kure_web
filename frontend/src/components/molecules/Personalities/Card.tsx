@@ -32,8 +32,8 @@ export const PersonalityCard = (props: Props) => {
       <PersonalityProfileDescription
         name={props.name}
         nickname={props.nickname}
-        affiliationName={props.affiliationName}
-        affiliationDetails={props.affiliationDetails}
+        organization={props.organization}
+        position={props.position}
       />
       {(props.description ||
         props.twitterId ||

@@ -22,6 +22,6 @@ export const chanyou = {
   twitterId: "chanyou0311",
   facebookId: "chanyou0311",
   instagramId: "chanyou0311",
-  affiliationName: "呉工業高等専門学校 専攻科",
-  affiliationDetails: "プロジェクトデザイン専攻"
+  organization: "呉工業高等専門学校 専攻科",
+  position: "プロジェクトデザイン専攻"
 };

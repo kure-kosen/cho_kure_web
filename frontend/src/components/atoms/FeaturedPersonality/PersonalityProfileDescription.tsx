@@ -8,18 +8,15 @@ import PersonalityListenToRadioButton from "@/components/atoms/FeaturedPersonali
 export const PersonalityProfileDescription = ({
   name,
   nickname,
-  affiliationName,
-  affiliationDetails
-}: Pick<
-  IPersonality,
-  "name" | "nickname" | "affiliationName" | "affiliationDetails"
->) => (
+  organization,
+  position
+}: Pick<IPersonality, "name" | "nickname" | "organization" | "position">) => (
   <Wrapper>
     <Name>{name}</Name>
     {nickname ? <NickName>{nickname}</NickName> : null}
     <Affiliation>
-      <AffiliationLabel>{affiliationName}</AffiliationLabel>
-      <AffiliationLabel>{affiliationDetails}</AffiliationLabel>
+      <AffiliationLabel>{organization}</AffiliationLabel>
+      <AffiliationLabel>{position}</AffiliationLabel>
     </Affiliation>
     <PersonalityListenToRadioButton />
   </Wrapper>
