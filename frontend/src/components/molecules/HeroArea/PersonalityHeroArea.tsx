@@ -3,16 +3,16 @@ import styled from "styled-components";
 
 import { color, device } from "@/constants/styles";
 
-import { HeroArea } from "@/components/atoms/HeroArea";
+import { ResponsibleHeroArea } from "@/components/atoms/HeroArea";
 
 export const PersonalityHeroArea = () => (
-  <HeroArea>
+  <ResponsibleHeroArea>
     <HeroContentWrapper>
       personality list
       <HeroContentBar />
       過去にラジオに出演したメンバーをご紹介します
     </HeroContentWrapper>
-  </HeroArea>
+  </ResponsibleHeroArea>
 );
 
 const HeroContentWrapper = styled.div`
