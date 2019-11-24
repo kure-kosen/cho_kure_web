@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { observer } from "mobx-react-lite";
 
@@ -13,22 +13,32 @@ import WeeklyComic from "@/components/atoms/WeeklyComic";
 import TweetStream from "@/components/atoms/Features/TweetStream";
 
 import { PersonalitiesSlider } from "@/components/molecules/Personalities/PersonalitiesSlider";
-import PopularRadioWrapper from "@/components/molecules/PopularRadio/PopularRadioWrapper";
+import { PopularRadiosWrapper } from "@/components/molecules/PopularRadio/PopularRadioWrapper";
 import RadioCardWrapper from "@/components/molecules/RadioCard/RadioCardWrapper";
 import BlogWrapper from "@/components/molecules/Blogs/BlogWrapper";
+import { IRadio } from "@/api/RadioApi";
 
 interface IProps {
   rootStore?: RootStore;
 }
 
 export default observer((props: IProps) => {
+  const { rootStore } = props;
+  const { radioStore, personalityStore } = rootStore!;
+
   useEffect(() => {
     radioStore.fetchRadios();
     personalityStore.fetchRegularPersonality();
   }, []);
 
-  const { rootStore } = props;
-  const { radioStore, personalityStore } = rootStore!;
+  const [popularRadios, setPopularRadios] = useState<IRadio[] | undefined>(
+    undefined
+  );
+
+  useEffect(() => {
+    const radios = radioStore.shuffledRadios({ limit: 3 });
+    setPopularRadios(radios);
+  }, [radioStore.radios]);
 
   return (
     <div>
@@ -40,7 +50,7 @@ export default observer((props: IProps) => {
         <Sidebar>
           <AboutSidebar />
           <WeeklyComic />
-          <PopularRadioWrapper />
+          <PopularRadiosWrapper radios={popularRadios} />
           <TweetStream />
         </Sidebar>
         <MainContentWrapper>
