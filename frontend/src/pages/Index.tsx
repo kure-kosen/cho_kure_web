@@ -6,7 +6,7 @@ import { device } from "@/constants/styles";
 
 import RootStore from "@/stores/RootStore";
 
-import { HeroArea } from "@/components/atoms/HeroArea";
+import { ResponsibleHeroArea } from "@/components/atoms/HeroArea";
 import AboutBottom from "@/components/atoms/AboutBottom";
 import AboutSidebar from "@/components/atoms/Features/AboutSidebar";
 import WeeklyComic from "@/components/atoms/WeeklyComic";
@@ -42,7 +42,7 @@ export default observer((props: IProps) => {
 
   return (
     <div>
-      <HeroArea>検索バー</HeroArea>
+      <ResponsibleHeroArea>検索バー</ResponsibleHeroArea>
       <PersonalitiesSlider
         personalities={personalityStore.shuffledRegularPersonality}
       />
