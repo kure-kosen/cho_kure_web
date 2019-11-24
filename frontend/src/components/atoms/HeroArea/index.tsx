@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { device } from "@/constants/styles";
 
 // import img from "./hero.jpg";
 import effectedHeroImage from "./effectedHeroImage.png";
@@ -8,8 +9,24 @@ export interface Props {
   children: string | React.ReactNode;
 }
 
-export const HeroArea = (props: Props) => (
-  <HeroAreaStyle>{props.children}</HeroAreaStyle>
+export const HeroArea = ({ children }: Props) => (
+  <HeroAreaStyle>{children}</HeroAreaStyle>
+);
+
+export const ResponsibleHeroArea = ({ children }: Props) => (
+  <>
+    <device.Default>
+      <HeroAreaWrapepr>
+        <HeroAreaStyle>{children}</HeroAreaStyle>
+      </HeroAreaWrapepr>
+    </device.Default>
+
+    <device.ForMobile>
+      <HeroAreaMobileWrapepr>
+        <HeroAreaStyle>{children}</HeroAreaStyle>
+      </HeroAreaMobileWrapepr>
+    </device.ForMobile>
+  </>
 );
 
 const HeroAreaStyle = styled.div`
@@ -38,4 +55,14 @@ const HeroAreaStyle = styled.div`
     background: #fff;
     z-index: 2;
   } */
+`;
+
+const HeroAreaWrapepr = styled.div`
+  height: 500px;
+  width: 100%;
+`;
+
+const HeroAreaMobileWrapepr = styled.div`
+  height: 250px;
+  width: 100%;
 `;
