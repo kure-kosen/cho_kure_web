@@ -4,17 +4,17 @@ import styled from "styled-components";
 // import img from "./hero.jpg";
 import effectedHeroImage from "./effectedHeroImage.png";
 
-export interface IProps {
+export interface Props {
   children: string | React.ReactNode;
 }
 
-export const HeroArea = (props: IProps) => (
+export const HeroArea = (props: Props) => (
   <HeroAreaStyle>{props.children}</HeroAreaStyle>
 );
 
 const HeroAreaStyle = styled.div`
   width: 100%;
-  height: 500px;
+  height: 100%;
   /* background: linear-gradient(
       -60deg,
       rgba(204, 224, 244, 0.4),
