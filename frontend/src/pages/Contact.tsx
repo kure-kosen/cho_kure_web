@@ -1,14 +1,13 @@
-import React from "react";
+import React, { useCallback } from "react";
 import styled from "styled-components";
 import { observer } from "mobx-react-lite";
 import { withRouter, RouteComponentProps } from "react-router-dom";
 
 import RootStore from "@/stores/RootStore";
+import { device } from "@/constants/styles";
 
-import { color, device } from "@/constants/styles";
-
-import { HeroArea } from "@/components/atoms/HeroArea";
 import ContactForm from "@/components/molecules/Contact/Form";
+import { ContactHeroArea } from "@/components/molecules/Contact/ContactHeroArea";
 
 interface IProps {
   rootStore?: RootStore;
@@ -27,31 +26,25 @@ const Contact = observer((props: IProps & RouteComponentProps) => {
 
   const rootStore = props.rootStore!;
 
-  const successSendContact = () => {
+  const successSendContact = useCallback(() => {
     setAlert({
       status: "successed",
       message: "おたよりを送信しました。 5秒後に自動でトップページに戻ります。"
     });
     setTimeout(() => props.history.push("/"), 5000);
-  };
+  }, [alert]);
 
-  const failSendContact = () => {
+  const failSendContact = useCallback(() => {
     setAlert({
       status: "failed",
       message:
         "おたよりの送信に失敗しました。 * がついている項目は全て記入して再送信してください。"
     });
-  };
+  }, [alert]);
 
   return (
     <div>
-      <HeroArea>
-        <HeroContentWrapper>
-          Contact
-          <HeroContentBar />
-          ご意見ご感想お待ちしております
-        </HeroContentWrapper>
-      </HeroArea>
+      <ContactHeroArea />
       <ContactFormWrapper>
         <div>
           <ContactFormTitle>お問い合わせフォーム</ContactFormTitle>
@@ -82,25 +75,6 @@ const ContactFormWrapper = styled.div`
       width: 90%;
     }
   }
-`;
-
-const HeroContentWrapper = styled.div`
-  width: 60%;
-  font-size: 2rem;
-  text-align: center;
-  color: ${color.WHITE};
-
-  @media ${device.mobile} {
-    width: 90%;
-  }
-`;
-
-const HeroContentBar = styled.hr`
-  display: box;
-  width: 50%;
-  height: 2px;
-  background-color: ${color.ORANGE};
-  border: 0;
 `;
 
 const ContactFormTitle = styled.div`

@@ -1,25 +1,33 @@
-import React from "react";
+import React, { FC } from "react";
 import styled from "styled-components";
-
 import { color, device } from "@/constants/styles";
 
 import { ResponsibleHeroArea } from "@/components/atoms/HeroArea";
 
-export const PersonalityHeroArea = () => (
-  <ResponsibleHeroArea>
+const ContactHeroAreaBody: FC<{}> = () => {
+  return (
     <HeroContentWrapper>
-      personality list
+      Contact
       <HeroContentBar />
-      過去にラジオに出演したメンバーをご紹介します
+      ご意見ご感想お待ちしております
     </HeroContentWrapper>
-  </ResponsibleHeroArea>
-);
+  );
+};
+
+export const ContactHeroArea: FC<{}> = () => {
+  return (
+    <ResponsibleHeroArea>
+      <ContactHeroAreaBody />
+    </ResponsibleHeroArea>
+  );
+};
 
 const HeroContentWrapper = styled.div`
   width: 60%;
   font-size: 2rem;
   text-align: center;
   color: ${color.WHITE};
+
   @media ${device.mobile} {
     width: 90%;
   }
