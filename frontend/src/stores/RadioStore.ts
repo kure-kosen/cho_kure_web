@@ -21,11 +21,10 @@ export default class RadioStore {
   public async fetchRadio(radioId: number) {
     if (this.radios && this.radios.length > 0) {
       const findResult = this.radios.find(radio => radio.id === radioId);
-      return findResult;
-    } else {
-      const res = await this.transportLayer.fetchRadio(radioId);
-      return res.data;
+      if (findResult) return findResult;
     }
+    const res = await this.transportLayer.fetchRadio(radioId);
+    return res.data;
   }
 
   @action public setRadios(radios: IRadio[]) {
