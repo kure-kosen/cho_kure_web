@@ -1,33 +1,29 @@
 import React from "react";
 import styled from "styled-components";
-
 import { color, heading } from "@/constants/styles";
 
-import sidebarRadioImg from "./sidebar-radio-img.png";
-
 import MoreButton from "@/components/atoms/Buttons/MoreButton";
-import Card from "@/components/atoms/PopularRadio/Card";
+import { RadioMiniCard } from "@/components/atoms/PopularRadio/RadioMiniCard";
+import { IRadio } from "@/api/RadioApi";
+import { Link } from "react-router-dom";
 
-export default () => (
+interface Props {
+  radios: IRadio[] | undefined;
+}
+
+export const PopularRadiosWrapper = ({ radios }: Props) => (
   <PopularRadioWrapperStyle>
     <Title>popular radio</Title>
+
     <PopularRadioCardWrapper>
-      <Card
-        title="#50 ヤマトーーク!"
-        img={sidebarRadioImg}
-        description="エナジードリンク、お年玉の使い道、登山、Advent Calendar、エディタ、LTalksなどの話をしました。"
-      />
-      <Card
-        title="#50 ヤマトーーク!"
-        img={sidebarRadioImg}
-        description="エナジードリンク、お年玉の使い道、登山、Advent Calendar、エディタ、LTalksなどの話をしました。"
-      />
-      <Card
-        title="#50 ヤマトーーク!"
-        img={sidebarRadioImg}
-        description="エナジードリンク、お年玉の使い道、登山、Advent Calendar、エディタ、LTalksなどの話をしました。"
-      />
+      {radios &&
+        radios.map(({ id, title, image }) => (
+          <Link to={`/radios/${id}`}>
+            <RadioMiniCard title={title} image={image} />
+          </Link>
+        ))}
     </PopularRadioCardWrapper>
+
     <MoreButton to="/radios" />
   </PopularRadioWrapperStyle>
 );
@@ -48,4 +44,7 @@ const Title = styled.div`
 const PopularRadioCardWrapper = styled.div`
   width: auto;
   height: auto;
+  div {
+    margin: 5px 0;
+  }
 `;

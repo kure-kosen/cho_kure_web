@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { observer } from "mobx-react-lite";
 
@@ -13,16 +13,26 @@ import Personalities from "@/components/molecules/Personalities";
 import CircleSpinner from "@/components/atoms/Spinners/CircleSpinner";
 
 import { PersonalityHeroArea } from "@/components/molecules/HeroArea/PersonalityHeroArea";
-import PopularRadioWrapper from "@/components/molecules/PopularRadio/PopularRadioWrapper";
+import { PopularRadiosWrapper } from "@/components/molecules/PopularRadio/PopularRadioWrapper";
+import { IRadio } from "@/api/RadioApi";
 
 export default observer((props: { rootStore: RootStore }) => {
   const { rootStore } = props;
-  const { personalityStore } = rootStore;
+  const { personalityStore, radioStore } = rootStore;
   const { personalities } = personalityStore;
 
-  React.useEffect(() => {
+  useEffect(() => {
     personalityStore.fetchPersonalities();
   }, []);
+
+  const [popularRadios, setPopularRadios] = useState<IRadio[] | undefined>(
+    undefined
+  );
+
+  useEffect(() => {
+    const radios = radioStore.shuffledRadios({ limit: 3 });
+    setPopularRadios(radios);
+  }, [radioStore.radios]);
 
   return (
     <div>
@@ -31,7 +41,7 @@ export default observer((props: { rootStore: RootStore }) => {
         <Sidebar>
           <AboutSidebar />
           <WeeklyComic />
-          <PopularRadioWrapper />
+          <PopularRadiosWrapper radios={popularRadios} />
           <TweetStream />
         </Sidebar>
         <MainContentWrapper>
