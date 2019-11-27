@@ -8,6 +8,7 @@ interface ShuffledRadios {
 
 export default class RadioStore {
   @observable public radios?: IRadio[];
+  @observable public radio?: IRadio;
 
   public transportLayer: RadioApi;
 
@@ -23,7 +24,6 @@ export default class RadioStore {
 
   public shuffledRadios({ limit }: ShuffledRadios): IRadio[] | undefined {
     if (!this.radios) return;
-
     const shuffledRadio = [...this.radios];
     for (let i = 0, len = shuffledRadio.length; i < len; i++) {
       const rand = Math.floor(Math.random() * i);
@@ -35,6 +35,15 @@ export default class RadioStore {
     }
 
     return shuffledRadio.slice(0, limit);
+  }
+
+  public async fetchRadio(radioId: number) {
+    if (this.radios && this.radios.length > 0) {
+      const findResult = this.radios.find(radio => radio.id === radioId);
+      if (findResult) return findResult;
+    }
+    const res = await this.transportLayer.fetchRadio(radioId);
+    return res.data;
   }
 
   @action public setRadios(radios: IRadio[]) {

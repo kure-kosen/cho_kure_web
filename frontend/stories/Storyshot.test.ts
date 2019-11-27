@@ -20,8 +20,8 @@ const beforeScreenshot: CustomConfig["beforeScreenshot"] = (
 };
 
 const getMatchOptions: CustomConfig["getMatchOptions"] = _context => ({
-  // Allow 0.5% difference
-  failureThreshold: 0.005,
+  // Allow 0.55% difference
+  failureThreshold: 0.0055,
   failureThresholdType: "percent"
 });
 

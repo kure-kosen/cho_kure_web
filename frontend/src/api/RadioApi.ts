@@ -32,4 +32,8 @@ export default class RadioApi {
   public fetchRadios() {
     return this.restClient.get<IRadio[]>("/api/v1/radios");
   }
+
+  public fetchRadio(radioId: number) {
+    return this.restClient.get<IRadio>(`api/v1/radios/${radioId}`);
+  }
 }

@@ -6,7 +6,7 @@ import styled from "styled-components";
 import { IRadio } from "@/api/RadioApi";
 import { color } from "@/constants/styles";
 
-import CardImage from "@/components/atoms/RadioCard/RadioCardImage";
+import { RadioImage } from "@/components/atoms/RadioCard/RadioCardImage";
 import PlayButton from "@/components/atoms/RadioCard/RadioCardPlayButton";
 import PersonalityIcons from "@/components/molecules/RadioPersonalityIcons";
 
@@ -30,7 +30,7 @@ export const RadioCard = (props: IProps) => {
   return (
     <RadioCardWrapperStyle ref={forwardRef}>
       <Link to={`/radios/${id}`}>
-        <CardImage image={image} />
+        <RadioImage image={image} />
         <Title>{title}</Title>
       </Link>
       <PlayButton mp3={mp3} duration={duration} playTime={playTime} />
@@ -87,4 +87,9 @@ const PersonalityIconsWrapper = styled.div`
   width: 100%;
   height: 40px;
   margin: 5px;
+
+  img {
+    margin-left: 5px;
+    margin-right: 5px;
+  }
 `;

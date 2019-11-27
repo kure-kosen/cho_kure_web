@@ -7,8 +7,8 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "build": "webpack --color --progress --config ./config/webpack.config.prod.js",
-    "dev": "webpack-dev-server --config ./config/webpack.config.dev.js",
+    "build": "NODE_ENV=production webpack --color --progress --config ./config/webpack.config.prod.js",
+    "dev": "NODE_ENV=development webpack-dev-server --config ./config/webpack.config.dev.js",
     "start": "yarn dev",
     "lint": "tslint --fix -c ./tslint.json '@(src|stories)/**/*.{ts,tsx}'",
     "test": "jest --colors",
@@ -45,8 +45,9 @@
     "@types/lodash.snakecase": "^4.1.6",
     "@types/react": "^16.8.17",
     "@types/react-dom": "^16.8.4",
+    "@types/react-router-dom": "^5.1.2",
+    "@types/react-share": "^3.0.1",
     "@types/react-responsive": "^8.0.1",
-    "@types/react-router-dom": "^4.3.3",
     "@types/react-slick": "^0.23.4",
     "@types/storybook__addon-storyshots-puppeteer": "^5.1.0",
     "@types/styled-components": "^4.1.15",
@@ -93,12 +94,13 @@
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-markdown": "^4.2.2",
+    "react-router-dom": "5.1.2",
+    "react-share": "^3.0.1",
     "react-responsive": "^8.0.1",
-    "react-router-dom": "^5.0.0",
     "react-slick": "^0.24.0",
     "react-twitter-widgets": "^1.7.1",
     "slick-carousel": "^1.8.1",
-    "styled-components": "^4.2.0",
+    "styled-components": "^4.4.1",
     "use-debounce": "^3.0.1"
   }
 }

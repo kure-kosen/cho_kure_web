@@ -2,6 +2,7 @@
 
 const path = require('path');
 
+const { DefinePlugin } = require("webpack");
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 
 module.exports = {
@@ -12,7 +13,12 @@ module.exports = {
     alias: {'@': path.resolve(__dirname, '../src')}
   },
 
-  plugins: [new ForkTsCheckerWebpackPlugin({workers: 1, tslint: true})],
+  plugins: [
+    new ForkTsCheckerWebpackPlugin({workers: 1, tslint: true}),
+    new DefinePlugin({ 'process.env': {
+      NODE_ENV: JSON.stringify(process.env.NODE_ENV),
+    }}),
+  ],
 
   module: {
     rules: [

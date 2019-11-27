@@ -19,7 +19,6 @@ module.exports = merge(common, {
     watchContentBase: true,
     noInfo: true,
     hot: true,
-    open: true,
     historyApiFallback: true,
     overlay: true,
     inline: true,
