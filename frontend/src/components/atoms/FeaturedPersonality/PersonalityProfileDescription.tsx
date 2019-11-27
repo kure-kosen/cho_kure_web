@@ -12,8 +12,10 @@ export const PersonalityProfileDescription = ({
   position
 }: Pick<IPersonality, "name" | "nickname" | "organization" | "position">) => (
   <Wrapper>
-    <Name>{name}</Name>
-    {nickname ? <NickName>{nickname}</NickName> : null}
+    <NameWrapper>
+      <Name>{name}</Name>
+      {nickname ? <NickName>{nickname}</NickName> : null}
+    </NameWrapper>
     <Affiliation>
       <AffiliationLabel>{organization}</AffiliationLabel>
       <AffiliationLabel>{position}</AffiliationLabel>
@@ -25,6 +27,12 @@ export const PersonalityProfileDescription = ({
 const Wrapper = styled.div`
   height: auto;
   padding: 20px 30px;
+`;
+
+const NameWrapper = styled.div`
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 `;
 
 const Name = styled.span`
