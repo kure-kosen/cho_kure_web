@@ -1,4 +1,4 @@
-import React, { Suspense, useState } from "react";
+import React, { Suspense, useState, useEffect } from "react";
 import styled from "styled-components";
 import { useParams, useLocation } from "react-router-dom";
 import { observer } from "mobx-react-lite";
@@ -7,15 +7,16 @@ import { device, color } from "@/constants/styles";
 import { CHK } from "@/constants/url";
 
 import RootStore from "@/stores/RootStore";
+import RadioStore from "@/stores/RadioStore";
 
 import { RadioDetailHeroArea } from "@/components/molecules/HeroArea/RadioDetailHeroArea";
 import TweetStream from "@/components/atoms/Features/TweetStream";
-import PopularRadioWrapper from "@/components/molecules/PopularRadio/PopularRadioWrapper";
+import { PopularRadiosWrapper } from "@/components/molecules/PopularRadio/PopularRadioWrapper";
 import { RadioPlayer } from "@/components/molecules/RadioDetails/RadioPlayer";
 import Personalities from "@/components/molecules/Personalities";
 import { Share } from "@/components/molecules/RadioDetails/Share";
 import CircleSpinner from "@/components/atoms/Spinners/CircleSpinner";
-import RadioStore from "@/stores/RadioStore";
+
 import { IRadio } from "@/api/RadioApi";
 import { PersonalityProfileMiniCard } from "@/components/atoms/FeaturedPersonality/PersonalityProfileMiniCard";
 
@@ -82,6 +83,19 @@ export const RadioDetail = observer((props: { rootStore: RootStore }) => {
 
   const [radio, setRadio] = useState<IRadio | undefined>(undefined);
 
+  useEffect(() => {
+    radioStore.fetchRadios();
+  }, []);
+
+  const [popularRadios, setPopularRadios] = useState<IRadio[] | undefined>(
+    undefined
+  );
+
+  useEffect(() => {
+    const radios = radioStore.shuffledRadios({ limit: 3 });
+    setPopularRadios(radios);
+  }, [radioStore.radios]);
+
   return (
     <div>
       <Suspense fallback={<RadioDetailHeroArea>{""}</RadioDetailHeroArea>}>
@@ -91,7 +105,7 @@ export const RadioDetail = observer((props: { rootStore: RootStore }) => {
       </Suspense>
       <Contrainer>
         <Sidebar>
-          <PopularRadioWrapper />
+          <PopularRadiosWrapper radios={popularRadios} />
           <TweetStream />
         </Sidebar>
         <MainContentWrapper>
