@@ -4,7 +4,7 @@ import styled from "styled-components";
 import { IRadio } from "@/api/RadioApi";
 import { color } from "@/constants/styles";
 
-import useAudio from "@/utils/hooks/useAudio";
+import { useAudio } from "@/utils/hooks/useAudio";
 import PlayButtonProgress from "@/components/atoms/RadioCard/RadioCardPlayButtonProgress";
 import SeekBar from "@/components/atoms/RadioCard/RadioCardSeekBar";
 
@@ -39,7 +39,7 @@ export const calcProgress = (times: {
 
 export default (props: Pick<IRadio, "mp3" | "duration" | "playTime">) => {
   const { mp3, duration, playTime } = props;
-  const { isPlay, play, pause, jump, times } = useAudio({
+  const { isPlaying, play, pause, jump, times } = useAudio({
     url: mp3.url!,
     duration
   });
@@ -49,7 +49,7 @@ export default (props: Pick<IRadio, "mp3" | "duration" | "playTime">) => {
       <Controller>
         <PlayButtonProgressWrapper>
           <ButtonWrapper>
-            {!isPlay ? (
+            {!isPlaying ? (
               times.currentTime === times.duration ? (
                 <RePlayButton className="fas fa-redo-alt" onClick={play} />
               ) : (
