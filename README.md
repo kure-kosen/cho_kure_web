@@ -61,12 +61,22 @@ $ circleci local execute --job frontend-test
 
 ```bash
 ... in production server
-certbot-auto certificates
-certbot-auto renew
-# certbot-auto renew --dry-run
-# certbot-auto renew --force-renew
-service nginx restart
+$ certbot-auto certificates
+$ certbot-auto renew
+# $ certbot-auto renew --dry-run
+# $ certbot-auto renew --force-renew
+$ service nginx restart
 ```
+
+## Deploy
+
+1. deploy したいブランチを GitHub に push する
+2. branch 名を変更
+   - production: `set :branch, "master"` in (/config/deploy/production.rb)
+   - staging: `set :branch, "feature/{xxxx}"` in (/config/deploy/staging.rb)
+3. `$ bundle exec cap (staging | production) deploy`
+4. `$ ssh (stg_cho_kure_web | cho_kure_web)` でサーバに入る
+5. `$ bash ~/deploy_setup.sh` をサーバー内で実行
 
 ## その他
 
