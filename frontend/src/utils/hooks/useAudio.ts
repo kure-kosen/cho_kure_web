@@ -1,4 +1,5 @@
 import { useState, useCallback, useEffect } from "react";
+import ReactGA from "react-ga";
 
 export interface UseAudio {
   isPlaying: boolean;
@@ -41,11 +42,33 @@ export const useAudio = ({ url, duration }: Props): UseAudio => {
     };
   }, []);
 
-  const play = useCallback(() => audio.play(), [audio]);
-  const pause = useCallback(() => audio.pause(), [audio]);
-  const jump = useCallback((value: number) => (audio.currentTime = value), [
-    audio
-  ]);
+  const play = useCallback(() => {
+    ReactGA.event({
+      category: "Audios",
+      action: "Play",
+      label: url
+    });
+    audio.play();
+  }, [audio]);
+  const pause = useCallback(() => {
+    ReactGA.event({
+      category: "Audios",
+      action: "Pause",
+      label: url
+    });
+    audio.pause();
+  }, [audio]);
+  const jump = useCallback(
+    (value: number) => {
+      ReactGA.event({
+        category: "Audios",
+        action: "Jump",
+        label: url
+      });
+      audio.currentTime = value;
+    },
+    [audio]
+  );
 
   return {
     isPlaying: !audio.paused,
