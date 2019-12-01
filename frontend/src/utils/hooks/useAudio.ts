@@ -1,7 +1,8 @@
-import React from "react";
+import { useState, useCallback, useEffect } from "react";
+import ReactGA from "react-ga";
 
-export interface IUseAudio {
-  isPlay: boolean;
+export interface UseAudio {
+  isPlaying: boolean;
   play: () => void;
   pause: () => void;
   jump: (value: number) => void;
@@ -11,17 +12,20 @@ export interface IUseAudio {
   };
 }
 
-interface IProps {
+interface Props {
   url: string;
   duration: number;
 }
 
-export default ({ url, duration }: IProps): IUseAudio => {
-  const [audio] = React.useState(new Audio());
-  const [, _forceUpdate] = React.useState(false);
-  const forceUpdate = () => _forceUpdate(prevState => !prevState);
+export const useAudio = ({ url, duration }: Props): UseAudio => {
+  const [audio] = useState(new Audio());
+  const [, setForceUpdate] = useState(false);
+  const forceUpdate = useCallback(
+    () => setForceUpdate(prevState => !prevState),
+    []
+  );
 
-  React.useEffect(() => {
+  useEffect(() => {
     audio.preload = "none";
     audio.src = url;
 
@@ -38,12 +42,36 @@ export default ({ url, duration }: IProps): IUseAudio => {
     };
   }, []);
 
-  const play = () => audio.play();
-  const pause = () => audio.pause();
-  const jump = (value: number) => (audio.currentTime = value);
+  const play = useCallback(() => {
+    ReactGA.event({
+      category: "Audios",
+      action: "Play",
+      label: url
+    });
+    audio.play();
+  }, [audio]);
+  const pause = useCallback(() => {
+    ReactGA.event({
+      category: "Audios",
+      action: "Pause",
+      label: url
+    });
+    audio.pause();
+  }, [audio]);
+  const jump = useCallback(
+    (value: number) => {
+      ReactGA.event({
+        category: "Audios",
+        action: "Jump",
+        label: url
+      });
+      audio.currentTime = value;
+    },
+    [audio]
+  );
 
   return {
-    isPlay: !audio.paused,
+    isPlaying: !audio.paused,
     play,
     pause,
     jump,
