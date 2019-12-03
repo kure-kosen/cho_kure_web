@@ -3,9 +3,13 @@ import styled from "styled-components";
 
 import ChkButtonBase from "@/components/atoms/Buttons/ChkButtonBase";
 
-export const MoreButtonText: FC = () => {
+interface Props {
+  onClick?: (e: any) => void;
+}
+
+export const MoreButtonText: FC<Props> = ({ onClick }) => {
   return (
-    <MoreButtonWrapper>
+    <MoreButtonWrapper onClick={onClick}>
       <ChkButtonBase text="more" />
     </MoreButtonWrapper>
   );
