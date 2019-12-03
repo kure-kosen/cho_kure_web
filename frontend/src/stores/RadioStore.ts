@@ -49,4 +49,18 @@ export default class RadioStore {
   @action public setRadios(radios: IRadio[]) {
     this.radios = radios;
   }
+
+  public latestRadios(
+    { begin, end }: { begin?: number; end?: number } = {
+      begin: 0,
+      end: undefined
+    }
+  ): IRadio[] | undefined {
+    return (
+      this.radios &&
+      this.radios
+        .sort((radioA, radioB) => radioB.id - radioA.id)
+        .slice(begin, end)
+    );
+  }
 }
