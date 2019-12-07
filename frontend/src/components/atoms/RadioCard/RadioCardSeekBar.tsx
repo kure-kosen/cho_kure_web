@@ -3,9 +3,9 @@ import styled from "styled-components";
 
 import { color } from "@/constants/styles";
 import { IRadio } from "@/api/RadioApi";
-import { IUseAudio } from "@/utils/hooks/useAudio";
+import { UseAudio } from "@/utils/hooks/useAudio";
 
-interface IProps extends Pick<IRadio, "duration">, Pick<IUseAudio, "jump"> {
+interface IProps extends Pick<IRadio, "duration">, Pick<UseAudio, "jump"> {
   currentTime: number;
 }
 
