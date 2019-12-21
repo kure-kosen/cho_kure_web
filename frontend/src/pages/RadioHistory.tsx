@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext, FC } from "react";
 import styled from "styled-components";
 import { observer } from "mobx-react-lite";
 
@@ -13,15 +13,11 @@ import { RadioHistoryWrapper } from "@/components/molecules/RadioHistory/RadioHi
 import RadioSearcher from "@/components/molecules/RadioSearcher";
 import BlogWrapper from "@/components/molecules/Blogs/BlogWrapper";
 
-import RootStore from "@/stores/RootStore";
 import { IRadio } from "@/api/RadioApi";
+import RootContext from "@/utils/Contexts/RootContext";
 
-interface IProps {
-  rootStore?: RootStore;
-}
-
-export default observer((props: IProps) => {
-  const { rootStore } = props;
+export const RadioHistoryPage: FC = observer(() => {
+  const rootStore = useContext(RootContext);
   const { radioStore } = rootStore!;
 
   useEffect(() => {

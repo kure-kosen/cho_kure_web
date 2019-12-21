@@ -4,7 +4,7 @@ import { device } from "@/constants/styles";
 import { ContactForm } from "@/components/molecules/Contact/Form";
 import { ContactHeroArea } from "@/components/molecules/Contact/ContactHeroArea";
 
-export const Contact: FC = () => {
+export const ContactPage: FC = () => {
   return (
     <div>
       <ContactHeroArea />

@@ -1,11 +1,7 @@
-import React, { useState, useEffect } from "react";
-import styled from "styled-components";
+import React, { useState, useEffect, useContext, FC } from "react";
 import { observer } from "mobx-react-lite";
 
-import { device } from "@/constants/styles";
-
-import RootStore from "@/stores/RootStore";
-
+import { SidebarPage } from "@/layouts";
 import AboutSidebar from "@/components/atoms/Features/AboutSidebar";
 import WeeklyComic from "@/components/atoms/WeeklyComic";
 import TweetStream from "@/components/atoms/Features/TweetStream";
@@ -15,9 +11,11 @@ import CircleSpinner from "@/components/atoms/Spinners/CircleSpinner";
 import { PersonalityHeroArea } from "@/components/molecules/HeroArea/PersonalityHeroArea";
 import { PopularRadiosWrapper } from "@/components/molecules/PopularRadio/PopularRadioWrapper";
 import { IRadio } from "@/api/RadioApi";
+import RootContext from "@/utils/Contexts/RootContext";
 
-export default observer((props: { rootStore: RootStore }) => {
-  const { rootStore } = props;
+export const PersonalityPage: FC = observer(() => {
+  const rootStore = useContext(RootContext);
+
   const { personalityStore, radioStore } = rootStore;
   const { personalities } = personalityStore;
 
@@ -35,43 +33,21 @@ export default observer((props: { rootStore: RootStore }) => {
   }, [radioStore.radios]);
 
   return (
-    <div>
+    <SidebarPage.Container>
       <PersonalityHeroArea />
-      <Contrainer>
-        <Sidebar>
-          <AboutSidebar />
-          <WeeklyComic />
-          <PopularRadiosWrapper radios={popularRadios} />
-          <TweetStream />
-        </Sidebar>
-        <MainContentWrapper>
-          {personalities ? (
-            <Personalities personalities={personalities} />
-          ) : (
-            <CircleSpinner />
-          )}
-        </MainContentWrapper>
-      </Contrainer>
-    </div>
+      <SidebarPage.SidebarContent>
+        <AboutSidebar />
+        <WeeklyComic />
+        <PopularRadiosWrapper radios={popularRadios} />
+        <TweetStream />
+      </SidebarPage.SidebarContent>
+      <SidebarPage.MainContent>
+        {personalities ? (
+          <Personalities personalities={personalities} />
+        ) : (
+          <CircleSpinner />
+        )}
+      </SidebarPage.MainContent>
+    </SidebarPage.Container>
   );
 });
-
-const Contrainer = styled.div`
-  display: flex;
-`;
-
-const Sidebar = styled.nav`
-  flex: 0 0 25%;
-  padding: 0 20px;
-  @media ${device.mobile} {
-    flex: 0 0 0%;
-    display: none;
-  }
-`;
-
-const MainContentWrapper = styled.div`
-  flex: 0 0 75%;
-  @media ${device.mobile} {
-    flex: 0 0 100%;
-  }
-`;

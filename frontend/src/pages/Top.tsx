@@ -1,10 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext, FC } from "react";
 import styled from "styled-components";
 import { observer } from "mobx-react-lite";
 
 import { device } from "@/constants/styles";
-
-import RootStore from "@/stores/RootStore";
 
 import { ResponsibleHeroArea } from "@/components/atoms/HeroArea";
 import AboutBottom from "@/components/atoms/AboutBottom";
@@ -17,13 +15,10 @@ import { PopularRadiosWrapper } from "@/components/molecules/PopularRadio/Popula
 import RadioCardWrapper from "@/components/molecules/RadioCard/RadioCardWrapper";
 import BlogWrapper from "@/components/molecules/Blogs/BlogWrapper";
 import { IRadio } from "@/api/RadioApi";
+import RootContext from "@/utils/Contexts/RootContext";
 
-interface IProps {
-  rootStore?: RootStore;
-}
-
-export default observer((props: IProps) => {
-  const { rootStore } = props;
+export const TopPage: FC = observer(() => {
+  const rootStore = useContext(RootContext);
   const { radioStore, personalityStore } = rootStore!;
 
   useEffect(() => {
