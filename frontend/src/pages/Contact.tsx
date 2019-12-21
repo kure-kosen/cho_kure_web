@@ -3,10 +3,11 @@ import styled from "styled-components";
 import { device } from "@/constants/styles";
 import { ContactForm } from "@/components/molecules/Contact/Form";
 import { ContactHeroArea } from "@/components/molecules/Contact/ContactHeroArea";
+import { SinglePage } from "@/layouts";
 
 export const ContactPage: FC = () => {
   return (
-    <div>
+    <SinglePage>
       <ContactHeroArea />
       <ContactFormWrapper>
         <div>
@@ -14,7 +15,7 @@ export const ContactPage: FC = () => {
           <ContactForm />
         </div>
       </ContactFormWrapper>
-    </div>
+    </SinglePage>
   );
 };
 

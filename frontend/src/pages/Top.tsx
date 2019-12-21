@@ -1,8 +1,7 @@
 import React, { useEffect, useState, useContext, FC } from "react";
-import styled from "styled-components";
 import { observer } from "mobx-react-lite";
 
-import { device } from "@/constants/styles";
+import { SidebarPage } from "@/layouts";
 
 import { ResponsibleHeroArea } from "@/components/atoms/HeroArea";
 import AboutBottom from "@/components/atoms/AboutBottom";
@@ -41,41 +40,19 @@ export const TopPage: FC = observer(() => {
       <PersonalitiesSlider
         personalities={personalityStore.shuffledRegularPersonality}
       />
-      <Contrainer>
-        <Sidebar>
+      <SidebarPage.Container>
+        <SidebarPage.SidebarContent>
           <AboutSidebar />
           <WeeklyComic />
           <PopularRadiosWrapper radios={popularRadios} />
           <TweetStream />
-        </Sidebar>
-        <MainContentWrapper>
+        </SidebarPage.SidebarContent>
+        <SidebarPage.MainContent>
           <RadioCardWrapper radios={radioStore.radios} />
           <BlogWrapper />
-        </MainContentWrapper>
-      </Contrainer>
+        </SidebarPage.MainContent>
+      </SidebarPage.Container>
       <AboutBottom />
     </div>
   );
 });
-
-const Contrainer = styled.div`
-  display: flex;
-`;
-
-const Sidebar = styled.nav`
-  flex: 0 0 25%;
-  padding: 0 20px;
-
-  @media ${device.mobile} {
-    flex: 0 0 0%;
-    display: none;
-  }
-`;
-
-const MainContentWrapper = styled.div`
-  flex: 0 0 75%;
-
-  @media ${device.mobile} {
-    flex: 0 0 100%;
-  }
-`;

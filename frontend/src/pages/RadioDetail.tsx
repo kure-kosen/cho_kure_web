@@ -17,6 +17,7 @@ import CircleSpinner from "@/components/atoms/Spinners/CircleSpinner";
 import { IRadio } from "@/api/RadioApi";
 import { PersonalityProfileMiniCard } from "@/components/atoms/FeaturedPersonality/PersonalityProfileMiniCard";
 import RootContext from "@/utils/Contexts/RootContext";
+import { SidebarPage } from "@/layouts";
 
 interface Props {
   setRadio: React.Dispatch<IRadio | undefined>;
@@ -102,40 +103,22 @@ export const RadioDetailPage: FC = observer(() => {
           <RadioDetailHeroArea>{radio ? radio.title : ""}</RadioDetailHeroArea>
         </device.Default>
       </Suspense>
-      <Contrainer>
-        <Sidebar>
+
+      <SidebarPage.Container>
+        <SidebarPage.SidebarContent>
           <PopularRadiosWrapper radios={popularRadios} />
           <TweetStream />
-        </Sidebar>
-        <MainContentWrapper>
+        </SidebarPage.SidebarContent>
+
+        <SidebarPage.MainContent>
           <Suspense fallback={<CircleSpinner />}>
             <Main radio={radio} setRadio={setRadio} />
           </Suspense>
-        </MainContentWrapper>
-      </Contrainer>
+        </SidebarPage.MainContent>
+      </SidebarPage.Container>
     </div>
   );
 });
-
-const Contrainer = styled.div`
-  display: flex;
-`;
-
-const Sidebar = styled.nav`
-  flex: 0 0 25%;
-  padding: 0 20px;
-  @media ${device.mobile} {
-    flex: 0 0 0%;
-    display: none;
-  }
-`;
-
-const MainContentWrapper = styled.div`
-  flex: 0 0 75%;
-  @media ${device.mobile} {
-    flex: 0 0 100%;
-  }
-`;
 
 const PCWrapper = styled.div`
   padding: 50px;

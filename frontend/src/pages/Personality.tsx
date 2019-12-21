@@ -35,12 +35,14 @@ export const PersonalityPage: FC = observer(() => {
   return (
     <SidebarPage.Container>
       <PersonalityHeroArea />
+
       <SidebarPage.SidebarContent>
         <AboutSidebar />
         <WeeklyComic />
         <PopularRadiosWrapper radios={popularRadios} />
         <TweetStream />
       </SidebarPage.SidebarContent>
+
       <SidebarPage.MainContent>
         {personalities ? (
           <Personalities personalities={personalities} />

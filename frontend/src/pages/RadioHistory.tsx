@@ -1,8 +1,7 @@
 import React, { useState, useEffect, useContext, FC } from "react";
-import styled from "styled-components";
 import { observer } from "mobx-react-lite";
 
-import { device } from "@/constants/styles";
+import { SidebarPage } from "@/layouts";
 
 import { ResponsibleHeroArea } from "@/components/atoms/HeroArea";
 import AboutSidebar from "@/components/atoms/Features/AboutSidebar";
@@ -36,39 +35,20 @@ export const RadioHistoryPage: FC = observer(() => {
   return (
     <div>
       <ResponsibleHeroArea>Radio History</ResponsibleHeroArea>
-      <Container>
-        <Sidebar>
+
+      <SidebarPage.Container>
+        <SidebarPage.SidebarContent>
           <RadioSearcher />
           <AboutSidebar />
           <PopularRadiosWrapper radios={popularRadios} />
           <TweetStream />
-        </Sidebar>
-        <MainContentWrapper>
+        </SidebarPage.SidebarContent>
+
+        <SidebarPage.MainContent>
           <RadioHistoryWrapper radios={radioStore.radios} />
           <BlogWrapper />
-        </MainContentWrapper>
-      </Container>
+        </SidebarPage.MainContent>
+      </SidebarPage.Container>
     </div>
   );
 });
-
-const Container = styled.div`
-  display: flex;
-`;
-
-const Sidebar = styled.nav`
-  flex: 0 0 20%;
-
-  @media ${device.mobile} {
-    flex: 0 0 0%;
-    display: none;
-  }
-`;
-
-const MainContentWrapper = styled.div`
-  flex: 0 0 80%;
-
-  @media ${device.mobile} {
-    flex: 0 0 100%;
-  }
-`;
