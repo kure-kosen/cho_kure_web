@@ -33,23 +33,25 @@ export const PersonalityPage: FC = observer(() => {
   }, [radioStore.radios]);
 
   return (
-    <SidebarPage.Container>
+    <div>
       <PersonalityHeroArea />
 
-      <SidebarPage.SidebarContent>
-        <AboutSidebar />
-        <WeeklyComic />
-        <PopularRadiosWrapper radios={popularRadios} />
-        <TweetStream />
-      </SidebarPage.SidebarContent>
+      <SidebarPage.Container>
+        <SidebarPage.SidebarContent>
+          <AboutSidebar />
+          <WeeklyComic />
+          <PopularRadiosWrapper radios={popularRadios} />
+          <TweetStream />
+        </SidebarPage.SidebarContent>
 
-      <SidebarPage.MainContent>
-        {personalities ? (
-          <Personalities personalities={personalities} />
-        ) : (
-          <CircleSpinner />
-        )}
-      </SidebarPage.MainContent>
-    </SidebarPage.Container>
+        <SidebarPage.MainContent>
+          {personalities ? (
+            <Personalities personalities={personalities} />
+          ) : (
+            <CircleSpinner />
+          )}
+        </SidebarPage.MainContent>
+      </SidebarPage.Container>
+    </div>
   );
 });
