@@ -1,8 +1,8 @@
-import React from "react";
+import React, { FC, useState, useCallback, useEffect, useContext } from "react";
 import styled from "styled-components";
 import { observer } from "mobx-react-lite";
+import { useHistory } from "react-router-dom";
 
-import ContactStore from "@/stores/ContactStore";
 import { validateEmail } from "@/utils/validation";
 
 import ChkButtonBase from "@/components/atoms/Buttons/ChkButtonBase";
@@ -10,38 +10,50 @@ import TextInput from "@/components/atoms/Forms/TextInput";
 import Select from "@/components/atoms/Forms/Select";
 import CheckBox from "@/components/atoms/Forms/CheckBox";
 import CircleSpinner from "@/components/atoms/Spinners/CircleSpinner";
+import RootContext from "@/utils/Contexts/RootContext";
+import { ContactFormAlert } from "./ContactFormAlert";
 
-interface IProp {
-  contactStore: ContactStore;
-  successed: (res: object) => void;
-  failed: (res: object) => void;
-  alert: {
-    message: string;
-    status?: string;
-  };
-}
+export const ContactForm: FC = observer(() => {
+  const history = useHistory();
 
-export default observer((props: IProp) => {
-  const { contactStore } = props;
+  const [alertStatus, setAlertStatus] = useState<"successed" | "failed">();
+  const [alertMessage, setAlertMessage] = useState("");
+
+  const successSendContact = useCallback(() => {
+    setAlertStatus("successed");
+    setAlertMessage(
+      "おたよりを送信しました。 5秒後に自動でトップページに戻ります。"
+    );
+    setTimeout(() => history.push("/"), 5000);
+  }, [alertMessage, alertStatus]);
+
+  const failSendContact = useCallback(() => {
+    setAlertStatus("failed");
+    setAlertMessage(
+      "おたよりの送信に失敗しました。 * がついている項目は全て記入して再送信してください。"
+    );
+  }, [alertMessage, alertStatus]);
+
+  const { contactStore } = useContext(RootContext);
   const { contactEnum } = contactStore;
 
-  React.useEffect(() => {
+  useEffect(() => {
     contactStore.fetchContactEnum();
   }, []);
 
-  const [name, setName] = React.useState("");
-  const [corner, setCorner] = React.useState("");
-  const [department, setDepartment] = React.useState("");
-  const [grade, setGrade] = React.useState("");
-  const [email, setEmail] = React.useState("");
-  const [nickname, setNickname] = React.useState("");
+  const [name, setName] = useState("");
+  const [corner, setCorner] = useState("");
+  const [department, setDepartment] = useState("");
+  const [grade, setGrade] = useState("");
+  const [email, setEmail] = useState("");
+  const [nickname, setNickname] = useState("");
 
-  const [message, setMessage] = React.useState("");
-  const [readable, setReadable] = React.useState(false);
+  const [message, setMessage] = useState("");
+  const [readable, setReadable] = useState(false);
 
-  const [sendable, setSendable] = React.useState(false);
+  const [isSendable, setIsSendable] = useState(false);
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (
       corner &&
       department &&
@@ -49,43 +61,37 @@ export default observer((props: IProp) => {
       !validateEmail(email).errorMessage &&
       message
     ) {
-      setSendable(true);
+      setIsSendable(true);
     } else {
-      setSendable(false);
+      setIsSendable(false);
     }
   }, [corner, department, grade, email, message]);
 
-  const createContact = (e: any) => {
-    e.preventDefault();
+  const createContact = useCallback(
+    (e: any) => {
+      e.preventDefault();
 
-    if (!sendable) return;
+      if (!isSendable) return;
 
-    const contact = contactStore.createContact({
-      name,
-      corner,
-      department,
-      grade,
-      email,
-      nickname,
-      message,
-      readable
-    });
+      const contact = contactStore.createContact({
+        name,
+        corner,
+        department,
+        grade,
+        email,
+        nickname,
+        message,
+        readable
+      });
 
-    contact.save(props.successed, props.failed);
-  };
+      contact.save(successSendContact, failSendContact);
+    },
+    [successSendContact, failSendContact]
+  );
 
   return contactEnum ? (
     <>
-      {props.alert.status === "successed" && (
-        <SuccessedAlertBar>
-          <p>{props.alert.message}</p>
-        </SuccessedAlertBar>
-      )}
-      {props.alert.status === "failed" && (
-        <FailedAlertBar>
-          <p>{props.alert.message}</p>
-        </FailedAlertBar>
-      )}
+      <ContactFormAlert {...{ alertMessage, alertStatus }} />
 
       <form>
         <InlineWrapper>
@@ -175,8 +181,8 @@ export default observer((props: IProp) => {
         <ContactFormButton
           text="送信"
           onClick={createContact}
-          bgcolor={sendable ? "" : "DISABLED"}
-          sendable={sendable}
+          bgcolor={isSendable ? "" : "DISABLED"}
+          isSendable={isSendable}
         />
       </form>
     </>
@@ -194,30 +200,8 @@ const InlineHalfWrapper = styled.div`
   display: inline-block;
 `;
 
-const ContactFormButton = styled(ChkButtonBase)`
+const ContactFormButton = styled(ChkButtonBase)<{ isSendable: boolean }>`
   width: 40%;
   margin: 0 auto;
-  cursor: ${(props: { sendable: boolean }) =>
-    props.sendable ? "pointer" : "default"};
-`;
-
-const AlertBar = styled.div`
-  width: 100%;
-  margin: 10px auto;
-  line-height: 1rem;
-  padding: 5px;
-  vertical-align: middle;
-  border: 3px solid #000;
-  color: #000;
-  text-align: center;
-`;
-
-const SuccessedAlertBar = styled(AlertBar)`
-  border: 3px solid #3ed986;
-  color: #000;
-`;
-
-const FailedAlertBar = styled(AlertBar)`
-  border: 3px solid #d95f3f;
-  color: #d95f3f;
+  cursor: ${({ isSendable }) => (isSendable ? "pointer" : "default")};
 `;

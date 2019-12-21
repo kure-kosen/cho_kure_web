@@ -4,7 +4,7 @@ import { color, device } from "@/constants/styles";
 
 import { ResponsibleHeroArea } from "@/components/atoms/HeroArea";
 
-const ContactHeroAreaBody: FC<{}> = () => {
+const ContactHeroAreaBody: FC = () => {
   return (
     <HeroContentWrapper>
       Contact
@@ -23,7 +23,7 @@ export const ContactHeroArea: FC<{}> = () => {
 };
 
 const HeroContentWrapper = styled.div`
-  width: 60%;
+  width: 100%;
   font-size: 2rem;
   text-align: center;
   color: ${color.WHITE};
