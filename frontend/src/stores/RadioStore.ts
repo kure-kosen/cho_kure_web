@@ -51,16 +51,16 @@ export default class RadioStore {
   }
 
   public latestRadios(
-    { begin, end }: { begin?: number; end?: number } = {
-      begin: 0,
-      end: undefined
+    { offset, limit }: { offset?: number; limit?: number } = {
+      offset: 0,
+      limit: undefined
     }
   ): IRadio[] | undefined {
     return (
       this.radios &&
       this.radios
         .sort((radioA, radioB) => radioB.id - radioA.id)
-        .slice(begin, end)
+        .slice(offset, limit)
     );
   }
 }

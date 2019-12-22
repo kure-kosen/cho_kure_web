@@ -56,7 +56,7 @@ export default observer((props: IProps) => {
         </Sidebar>
         <MainContentWrapper>
           <RadioCardWrapper
-            radios={radioStore.latestRadios({ begin: 0, end: 9 })}
+            radios={radioStore.latestRadios({ offset: 0, limit: 9 })}
           />
           <MoreButton to="/radios" />
           <BlogWrapper />

@@ -38,21 +38,21 @@ export default observer((props: IProps) => {
     setPopularRadios(radios);
   }, [radioStore.radios]);
 
-  const [end, setEnd] = useState(10);
+  const [limit, setLimit] = useState(10);
 
   const nextLoadingRadios = useCallback(() => {
     if (!isStillHaveRadios) return;
-    setEnd(end + 10);
-  }, [end]);
+    setLimit(limit + 10);
+  }, [limit]);
 
   const [isStillHaveRadios, setIsStillHaveRadios] = useState(true);
 
   useEffect(() => {
     if (!radioStore.radios) return;
-    if (end >= radioStore.radios.length) {
+    if (limit >= radioStore.radios.length) {
       setIsStillHaveRadios(false);
     }
-  }, [end, radioStore.radios]);
+  }, [limit, radioStore.radios]);
 
   return (
     <div>
@@ -66,7 +66,7 @@ export default observer((props: IProps) => {
         </Sidebar>
         <MainContentWrapper>
           <RadioHistoryWrapper
-            radios={radioStore.latestRadios({ begin: 0, end })}
+            radios={radioStore.latestRadios({ offset: 0, limit })}
           />
           {isStillHaveRadios && <MoreButtonText onClick={nextLoadingRadios} />}
           <BlogWrapper />
