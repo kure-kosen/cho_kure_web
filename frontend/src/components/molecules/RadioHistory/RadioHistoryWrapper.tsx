@@ -3,7 +3,6 @@ import styled from "styled-components";
 
 import { color, heading } from "@/constants/styles";
 
-import MoreButton from "@/components/atoms/Buttons/MoreButton";
 import RadioHistoryFeature from "@/components/atoms/RadioHistory/RadioHistoryFeature";
 import { RadioCard } from "@/components/molecules/RadioCard/RadioCard";
 import { TileCardsWrapper } from "@/components/molecules/Cards/TileCardsWrapper";
@@ -51,7 +50,6 @@ export const RadioHistoryWrapper = (props: IProps) => {
             <RadioCard key={radio.id} {...radio} />
           ))}
         </TileCardsWrapper>
-        <MoreButton to="" />
       </RadioHistoryContentArea>
     </Wrapper>
   );

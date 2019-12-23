@@ -5,7 +5,7 @@ require "faker"
 personality_ids = Personality.pluck(:id)
 community_ids = Community.pluck(:id)
 
-(1..10).each do |i|
+(1..50).each do |i|
   Radio.seed do |r|
     r.id = i
     r.title = Faker::Lorem.word
