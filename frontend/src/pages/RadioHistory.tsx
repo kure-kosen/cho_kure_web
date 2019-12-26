@@ -1,8 +1,7 @@
-import React, { useState, useEffect, useCallback } from "react";
-import styled from "styled-components";
+import React, { useState, useCallback, useEffect, useContext, FC } from "react";
 import { observer } from "mobx-react-lite";
 
-import { device } from "@/constants/styles";
+import { SidebarPage } from "@/layouts";
 
 import { ResponsibleHeroArea } from "@/components/atoms/HeroArea";
 import AboutSidebar from "@/components/atoms/Features/AboutSidebar";
@@ -12,17 +11,13 @@ import { PopularRadiosWrapper } from "@/components/molecules/PopularRadio/Popula
 import { RadioHistoryWrapper } from "@/components/molecules/RadioHistory/RadioHistoryWrapper";
 import RadioSearcher from "@/components/molecules/RadioSearcher";
 import BlogWrapper from "@/components/molecules/Blogs/BlogWrapper";
-
-import RootStore from "@/stores/RootStore";
-import { IRadio } from "@/api/RadioApi";
 import { MoreButtonText } from "@/components/atoms/Buttons/MoreButtonText";
 
-interface IProps {
-  rootStore?: RootStore;
-}
+import { IRadio } from "@/api/RadioApi";
+import RootContext from "@/utils/Contexts/RootContext";
 
-export default observer((props: IProps) => {
-  const { rootStore } = props;
+export const RadioHistoryPage: FC = observer(() => {
+  const rootStore = useContext(RootContext);
   const { radioStore } = rootStore!;
 
   useEffect(() => {
@@ -57,42 +52,24 @@ export default observer((props: IProps) => {
   return (
     <div>
       <ResponsibleHeroArea>Radio History</ResponsibleHeroArea>
-      <Container>
-        <Sidebar>
+
+      <SidebarPage.Container>
+        <SidebarPage.SidebarContent>
           <RadioSearcher />
           <AboutSidebar />
           <PopularRadiosWrapper radios={popularRadios} />
           <TweetStream />
-        </Sidebar>
-        <MainContentWrapper>
+        </SidebarPage.SidebarContent>
+        <SidebarPage.MainContent>
           <RadioHistoryWrapper
             radios={radioStore.latestRadios({ offset: 0, limit })}
           />
           {isStillHaveRadios && <MoreButtonText onClick={nextLoadingRadios} />}
           <BlogWrapper />
-        </MainContentWrapper>
-      </Container>
+        </SidebarPage.MainContent>
+      </SidebarPage.Container>
     </div>
   );
 });
 
-const Container = styled.div`
-  display: flex;
-`;
-
-const Sidebar = styled.nav`
-  flex: 0 0 20%;
-
-  @media ${device.mobile} {
-    flex: 0 0 0%;
-    display: none;
-  }
-`;
-
-const MainContentWrapper = styled.div`
-  flex: 0 0 80%;
-
-  @media ${device.mobile} {
-    flex: 0 0 100%;
-  }
-`;
+export { RadioHistoryPage as default };

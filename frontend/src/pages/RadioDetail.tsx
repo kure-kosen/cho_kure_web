@@ -1,13 +1,10 @@
-import React, { Suspense, useState, useEffect } from "react";
+import React, { Suspense, useState, useEffect, useContext, FC } from "react";
 import styled from "styled-components";
 import { useParams, useLocation } from "react-router-dom";
 import { observer } from "mobx-react-lite";
 import ReactMarkdown from "react-markdown";
 import { device, color } from "@/constants/styles";
 import { CHK } from "@/constants/url";
-
-import RootStore from "@/stores/RootStore";
-import RadioStore from "@/stores/RadioStore";
 
 import { RadioDetailHeroArea } from "@/components/molecules/HeroArea/RadioDetailHeroArea";
 import TweetStream from "@/components/atoms/Features/TweetStream";
@@ -19,14 +16,17 @@ import CircleSpinner from "@/components/atoms/Spinners/CircleSpinner";
 
 import { IRadio } from "@/api/RadioApi";
 import { PersonalityProfileMiniCard } from "@/components/atoms/FeaturedPersonality/PersonalityProfileMiniCard";
+import RootContext from "@/utils/Contexts/RootContext";
+import { SidebarPage } from "@/layouts";
 
 interface Props {
-  radioStore: RadioStore;
   setRadio: React.Dispatch<IRadio | undefined>;
   radio: IRadio | undefined;
 }
 
-const Main: React.FC<Props> = ({ radioStore, setRadio, radio }) => {
+const Main: React.FC<Props> = ({ setRadio, radio }) => {
+  const rootStore = useContext(RootContext);
+  const { radioStore } = rootStore;
   const location = useLocation();
   const SHARE_URL = CHK.FRONT_END.PROD + location.pathname;
   const { radioId } = useParams();
@@ -77,8 +77,8 @@ const Main: React.FC<Props> = ({ radioStore, setRadio, radio }) => {
   })();
 };
 
-export const RadioDetail = observer((props: { rootStore: RootStore }) => {
-  const { rootStore } = props;
+export const RadioDetailPage: FC = observer(() => {
+  const rootStore = useContext(RootContext);
   const { radioStore } = rootStore;
 
   const [radio, setRadio] = useState<IRadio | undefined>(undefined);
@@ -103,40 +103,22 @@ export const RadioDetail = observer((props: { rootStore: RootStore }) => {
           <RadioDetailHeroArea>{radio ? radio.title : ""}</RadioDetailHeroArea>
         </device.Default>
       </Suspense>
-      <Contrainer>
-        <Sidebar>
+
+      <SidebarPage.Container>
+        <SidebarPage.SidebarContent>
           <PopularRadiosWrapper radios={popularRadios} />
           <TweetStream />
-        </Sidebar>
-        <MainContentWrapper>
+        </SidebarPage.SidebarContent>
+
+        <SidebarPage.MainContent>
           <Suspense fallback={<CircleSpinner />}>
-            <Main radio={radio} setRadio={setRadio} radioStore={radioStore} />
+            <Main radio={radio} setRadio={setRadio} />
           </Suspense>
-        </MainContentWrapper>
-      </Contrainer>
+        </SidebarPage.MainContent>
+      </SidebarPage.Container>
     </div>
   );
 });
-
-const Contrainer = styled.div`
-  display: flex;
-`;
-
-const Sidebar = styled.nav`
-  flex: 0 0 25%;
-  padding: 0 20px;
-  @media ${device.mobile} {
-    flex: 0 0 0%;
-    display: none;
-  }
-`;
-
-const MainContentWrapper = styled.div`
-  flex: 0 0 75%;
-  @media ${device.mobile} {
-    flex: 0 0 100%;
-  }
-`;
 
 const PCWrapper = styled.div`
   padding: 50px;
@@ -175,3 +157,5 @@ const Bottom = styled.div`
   width: 100%;
   margin-top: 50px;
 `;
+
+export { RadioDetailPage as default };

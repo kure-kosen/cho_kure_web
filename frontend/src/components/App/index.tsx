@@ -3,9 +3,7 @@ import React from "react";
 import RootStore from "@/stores/RootStore";
 import { Provider } from "@/utils/Contexts/RootContext";
 
-import { Header } from "@/layouts/Header";
-import Main from "@/layouts/Main";
-import Footer from "@/layouts/Footer";
+import { Header, Main, Footer } from "@/layouts";
 import { isDevelopment } from "@/utils";
 import { CHK } from "@/constants/url";
 

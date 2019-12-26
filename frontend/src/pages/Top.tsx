@@ -1,10 +1,7 @@
-import React, { useEffect, useState } from "react";
-import styled from "styled-components";
+import React, { useEffect, useState, useContext, FC } from "react";
 import { observer } from "mobx-react-lite";
 
-import { device } from "@/constants/styles";
-
-import RootStore from "@/stores/RootStore";
+import { SidebarPage } from "@/layouts";
 
 import { ResponsibleHeroArea } from "@/components/atoms/HeroArea";
 import AboutBottom from "@/components/atoms/AboutBottom";
@@ -18,13 +15,10 @@ import { PopularRadiosWrapper } from "@/components/molecules/PopularRadio/Popula
 import RadioCardWrapper from "@/components/molecules/RadioCard/RadioCardWrapper";
 import BlogWrapper from "@/components/molecules/Blogs/BlogWrapper";
 import { IRadio } from "@/api/RadioApi";
+import RootContext from "@/utils/Contexts/RootContext";
 
-interface IProps {
-  rootStore?: RootStore;
-}
-
-export default observer((props: IProps) => {
-  const { rootStore } = props;
+export const TopPage: FC = observer(() => {
+  const rootStore = useContext(RootContext);
   const { radioStore, personalityStore } = rootStore!;
 
   useEffect(() => {
@@ -47,44 +41,24 @@ export default observer((props: IProps) => {
       <PersonalitiesSlider
         personalities={personalityStore.shuffledRegularPersonality}
       />
-      <Contrainer>
-        <Sidebar>
+      <SidebarPage.Container>
+        <SidebarPage.SidebarContent>
           <AboutSidebar />
           <WeeklyComic />
           <PopularRadiosWrapper radios={popularRadios} />
           <TweetStream />
-        </Sidebar>
-        <MainContentWrapper>
+        </SidebarPage.SidebarContent>
+        <SidebarPage.MainContent>
           <RadioCardWrapper
             radios={radioStore.latestRadios({ offset: 0, limit: 9 })}
           />
           <MoreButton to="/radios" />
           <BlogWrapper />
-        </MainContentWrapper>
-      </Contrainer>
+        </SidebarPage.MainContent>
+      </SidebarPage.Container>
       <AboutBottom />
     </div>
   );
 });
 
-const Contrainer = styled.div`
-  display: flex;
-`;
-
-const Sidebar = styled.nav`
-  flex: 0 0 25%;
-  padding: 0 20px;
-
-  @media ${device.mobile} {
-    flex: 0 0 0%;
-    display: none;
-  }
-`;
-
-const MainContentWrapper = styled.div`
-  flex: 0 0 75%;
-
-  @media ${device.mobile} {
-    flex: 0 0 100%;
-  }
-`;
+export { TopPage as default };

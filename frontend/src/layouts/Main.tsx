@@ -1,44 +1,49 @@
-import React from "react";
+import React, { FC, Suspense, lazy } from "react";
 import { Switch, Route } from "react-router-dom";
 
-import RootContext from "@/utils/Contexts/RootContext";
+// import { TopPage } from "@/pages/Top";
+const TopPage = lazy(() =>
+  import(/* webpackChunkName: "TopPage" */ "@/pages/Top")
+);
 
-import Index from "@/pages/Index";
-import RadioHistory from "@/pages/RadioHistory";
-import Contact from "@/pages/Contact";
-import Blog from "@/pages/Blog";
-import Personality from "@/pages/Personality";
-import { RadioDetail } from "@/pages/RadioDetail";
+// import { RadioHistoryPage } from "@/pages/RadioHistory";
+const RadioHistoryPage = lazy(() =>
+  import(/* webpackChunkName: "RadioHistoryPage" */ "@/pages/RadioHistory")
+);
 
-export default () => {
-  const rootStore = React.useContext(RootContext);
+// import { RadioDetailPage } from "@/pages/RadioDetail";
+const RadioDetailPage = lazy(() =>
+  import(/* webpackChunkName: "RadioDetailPage" */ "@/pages/RadioDetail")
+);
 
+// import { ContactPage } from "@/pages/Contact";
+const ContactPage = lazy(() =>
+  import(/* webpackChunkName: "ContactPage" */ "@/pages/Contact")
+);
+
+// import { BlogPage } from "@/pages/Blog";
+const BlogPage = lazy(() =>
+  import(/* webpackChunkName: "BlogPage" */ "@/pages/Blog")
+);
+
+// import { PersonalityPage } from "@/pages/Personality";
+const PersonalityPage = lazy(() =>
+  import(/* webpackChunkName: "PersonalityPage" */ "@/pages/Personality")
+);
+
+export const Main: FC = () => {
   return (
     <main>
-      <Switch>
-        <Route exact path="/" render={() => <Index rootStore={rootStore} />} />
-        <Route
-          exact
-          path="/radios"
-          render={() => <RadioHistory rootStore={rootStore} />}
-        />
-        <Route
-          exact
-          path="/radios/:radioId"
-          render={() => <RadioDetail rootStore={rootStore} />}
-        />
-        <Route
-          exact
-          path="/contact"
-          render={() => <Contact rootStore={rootStore} />}
-        />
-        <Route exact path="/blog" component={Blog} />
-        <Route
-          exact
-          path="/personality"
-          render={() => <Personality rootStore={rootStore} />}
-        />
-      </Switch>
+      <Suspense fallback={<div>Now Loading...</div>}>
+        <Switch>
+          <Route exact path="/" component={TopPage} />
+          <Route exact path="/radios" component={RadioHistoryPage} />
+          <Route exact path="/radios/:radioId" component={RadioDetailPage} />
+          <Route exact path="/contact" component={ContactPage} />
+          <Route exact path="/blog" component={BlogPage} />
+          <Route exact path="/personality" component={PersonalityPage} />
+        </Switch>
+      </Suspense>
     </main>
   );
 };
