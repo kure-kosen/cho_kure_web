@@ -1,3 +1,5 @@
+require "constraint/redirect_webpack_dev"
+
 Rails.application.routes.draw do
   mount_roboto
 
@@ -57,5 +59,11 @@ Rails.application.routes.draw do
     resources :radios
     resources :jargons
     resources :contacts
+  end
+
+  if Rails.env.development?
+    constraints Constraint::RedirectWebpackDev do
+      get "*unmatch_path" => "redirect_webpack_dev#index"
+    end
   end
 end
