@@ -1,7 +1,10 @@
 import React, { FC, Suspense, lazy } from "react";
 import { Switch, Route } from "react-router-dom";
 
-import { TopPage } from "@/pages/Top";
+// import { TopPage } from "@/pages/Top";
+const TopPage = lazy(() =>
+  import(/* webpackChunkName: "TopPage" */ "@/pages/Top")
+);
 
 // import { RadioHistoryPage } from "@/pages/RadioHistory";
 const RadioHistoryPage = lazy(() =>
