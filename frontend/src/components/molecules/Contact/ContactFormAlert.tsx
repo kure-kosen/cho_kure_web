@@ -1,12 +1,15 @@
 import React, { FC, useMemo } from "react";
 import styled from "styled-components";
 
-interface Props {
+interface AlertStatus {
   alertStatus: "successed" | "failed" | undefined;
+}
+
+interface AlertMessage {
   alertMessage: string;
 }
 
-const SuccessedAlert: FC<Pick<Props, "alertMessage">> = ({ alertMessage }) =>
+const SuccessedAlert: FC<AlertMessage> = ({ alertMessage }) =>
   useMemo(
     () => (
       <SuccessedAlertBar>
@@ -16,7 +19,7 @@ const SuccessedAlert: FC<Pick<Props, "alertMessage">> = ({ alertMessage }) =>
     [alertMessage]
   );
 
-const FailedAlert: FC<Pick<Props, "alertMessage">> = ({ alertMessage }) =>
+const FailedAlert: FC<AlertMessage> = ({ alertMessage }) =>
   useMemo(
     () => (
       <FailedAlertBar>
@@ -26,7 +29,10 @@ const FailedAlert: FC<Pick<Props, "alertMessage">> = ({ alertMessage }) =>
     [alertMessage]
   );
 
-export const ContactFormAlert: FC<Props> = ({ alertStatus, alertMessage }) => {
+export const ContactFormAlert: FC<AlertStatus & AlertMessage> = ({
+  alertStatus,
+  alertMessage
+}) => {
   return useMemo(() => {
     switch (alertStatus) {
       case "successed":
