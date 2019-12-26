@@ -43,3 +43,5 @@ const ContactFormTitle = styled.div`
   text-align: center;
   color: #00afec;
 `;
+
+export { ContactPage as default };

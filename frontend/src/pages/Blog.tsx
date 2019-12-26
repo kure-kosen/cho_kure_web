@@ -11,3 +11,5 @@ const Wrapper = styled.div`
   background-color: #242424;
   height: 600px;
 `;
+
+export { BlogPage as default };

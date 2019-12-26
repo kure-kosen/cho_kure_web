@@ -60,3 +60,5 @@ export const TopPage: FC = observer(() => {
     </div>
   );
 });
+
+export { TopPage as default };

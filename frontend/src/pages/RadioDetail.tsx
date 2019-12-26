@@ -157,3 +157,5 @@ const Bottom = styled.div`
   width: 100%;
   margin-top: 50px;
 `;
+
+export { RadioDetailPage as default };

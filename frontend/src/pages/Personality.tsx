@@ -55,3 +55,5 @@ export const PersonalityPage: FC = observer(() => {
     </div>
   );
 });
+
+export { PersonalityPage as default };

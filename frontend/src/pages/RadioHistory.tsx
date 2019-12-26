@@ -71,3 +71,5 @@ export const RadioHistoryPage: FC = observer(() => {
     </div>
   );
 });
+
+export { RadioHistoryPage as default };
