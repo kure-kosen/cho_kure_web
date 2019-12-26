@@ -8,6 +8,7 @@ import AboutBottom from "@/components/atoms/AboutBottom";
 import AboutSidebar from "@/components/atoms/Features/AboutSidebar";
 import WeeklyComic from "@/components/atoms/WeeklyComic";
 import TweetStream from "@/components/atoms/Features/TweetStream";
+import MoreButton from "@/components/atoms/Buttons/MoreButton";
 
 import { PersonalitiesSlider } from "@/components/molecules/Personalities/PersonalitiesSlider";
 import { PopularRadiosWrapper } from "@/components/molecules/PopularRadio/PopularRadioWrapper";
@@ -48,7 +49,10 @@ export const TopPage: FC = observer(() => {
           <TweetStream />
         </SidebarPage.SidebarContent>
         <SidebarPage.MainContent>
-          <RadioCardWrapper radios={radioStore.radios} />
+          <RadioCardWrapper
+            radios={radioStore.latestRadios({ offset: 0, limit: 9 })}
+          />
+          <MoreButton to="/radios" />
           <BlogWrapper />
         </SidebarPage.MainContent>
       </SidebarPage.Container>

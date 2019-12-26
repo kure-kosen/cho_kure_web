@@ -61,12 +61,41 @@ $ circleci local execute --job frontend-test
 
 ```bash
 ... in production server
-certbot-auto certificates
-certbot-auto renew
-# certbot-auto renew --dry-run
-# certbot-auto renew --force-renew
-service nginx restart
+$ certbot-auto certificates
+$ certbot-auto renew
+# $ certbot-auto renew --dry-run
+# $ certbot-auto renew --force-renew
+$ service nginx restart
 ```
+
+## Deploy
+
+## SSH
+
+```bash
+$ cat ~/.ssh/config
+Host cho_kure_web
+  HostName 52.199.95.54
+  Port 22
+  User euglena1215
+  IdentityFile ~/.ssh/id_rsa
+
+# 2019/12/10, staging server is down.
+# Host stg_cho_kure_web
+#   HostName 13.115.40.132
+#   Port 22
+#   User taira
+#   IdentityFile ~/.ssh/id_rsa
+```
+
+1. サーバーの ~/.ssh/authorized_keys に IdentityFile 追記する
+1. deploy したいブランチを GitHub に push する
+1. branch 名を変更
+   - production: `set :branch, "master"` in (/config/deploy/production.rb)
+   - staging: `set :branch, "feature/{xxxx}"` in (/config/deploy/staging.rb)
+1. `$ bundle exec cap (staging | production) deploy`
+1. `$ ssh (stg_cho_kure_web | cho_kure_web)` でサーバに入る
+1. `$ bash ~/deploy_setup.sh` をサーバー内で実行
 
 ## その他
 
