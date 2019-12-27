@@ -34,7 +34,13 @@ export default class RadioStore {
       ];
     }
 
-    return shuffledRadio.slice(0, limit);
+    const randomOffset = Math.floor(
+      Math.random() * (shuffledRadio.length - (limit || 0))
+    );
+
+    return limit
+      ? shuffledRadio.slice(randomOffset, randomOffset + limit)
+      : shuffledRadio;
   }
 
   public async fetchRadio(radioId: number) {
