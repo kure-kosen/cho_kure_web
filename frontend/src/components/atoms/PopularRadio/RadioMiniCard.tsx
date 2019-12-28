@@ -4,18 +4,24 @@ import styled from "styled-components";
 import { color } from "@/constants/styles";
 import { IRadio } from "@/api/RadioApi";
 
-type Props = Pick<IRadio, "title" | "image">;
+interface Props {
+  radio: Pick<IRadio, "title" | "image">;
+}
 
-export const RadioMiniCard: React.FC<Props> = ({ title, image }) => (
-  <Wrapper>
-    <ThumbnailWrapper>
-      <RadioImg src={image} />
-    </ThumbnailWrapper>
-    <RadioProperties>
-      <RadioTitle>{title}</RadioTitle>
-    </RadioProperties>
-  </Wrapper>
-);
+export const RadioMiniCard: React.FC<Props> = ({ radio }) => {
+  const { title, image } = radio;
+
+  return (
+    <Wrapper>
+      <ThumbnailWrapper>
+        <RadioImg src={image} />
+      </ThumbnailWrapper>
+      <RadioProperties>
+        <RadioTitle>{title}</RadioTitle>
+      </RadioProperties>
+    </Wrapper>
+  );
+};
 
 const Wrapper = styled.div`
   width: 100%;

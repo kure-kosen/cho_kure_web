@@ -25,7 +25,7 @@ export default (props: IProps) => {
   return (
     <TileCardsWrapper>
       {radios.map(radio => (
-        <RadioCard key={radio.id} {...radio} />
+        <RadioCard key={radio.id} radio={radio} />
       ))}
     </TileCardsWrapper>
   );
