@@ -47,7 +47,7 @@ export const RadioHistoryWrapper = (props: IProps) => {
         </RadioDateButtonWrapper>
         <TileCardsWrapper>
           {radios.map(radio => (
-            <RadioCard key={radio.id} {...radio} />
+            <RadioCard key={radio.id} radio={radio} />
           ))}
         </TileCardsWrapper>
       </RadioHistoryContentArea>

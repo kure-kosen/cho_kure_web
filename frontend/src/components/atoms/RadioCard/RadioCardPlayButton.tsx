@@ -6,7 +6,7 @@ import { color } from "@/constants/styles";
 
 import { useAudio } from "@/utils/hooks/useAudio";
 import PlayButtonProgress from "@/components/atoms/RadioCard/RadioCardPlayButtonProgress";
-import SeekBar from "@/components/atoms/RadioCard/RadioCardSeekBar";
+import { RadioCardSeekBar } from "@/components/atoms/RadioCard/RadioCardSeekBar";
 
 const paddingTime = (time: number, maxLength: number) =>
   `${String(time).padStart(maxLength, "0")}`;
@@ -64,7 +64,7 @@ export default (props: Pick<IRadio, "mp3" | "duration" | "playTime">) => {
             currentTime={times.currentTime}
           />
         </PlayButtonProgressWrapper>
-        <SeekBar
+        <RadioCardSeekBar
           currentTime={times.currentTime}
           duration={times.duration}
           jump={jump}

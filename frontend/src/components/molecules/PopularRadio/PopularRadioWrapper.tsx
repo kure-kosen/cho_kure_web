@@ -19,7 +19,7 @@ export const PopularRadiosWrapper = ({ radios }: Props) => (
       {radios &&
         radios.map(({ id, title, image }) => (
           <Link to={`/radios/${id}`}>
-            <RadioMiniCard title={title} image={image} />
+            <RadioMiniCard radio={{ title, image }} />
           </Link>
         ))}
     </PopularRadioCardWrapper>

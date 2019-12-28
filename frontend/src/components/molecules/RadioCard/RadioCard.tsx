@@ -1,4 +1,4 @@
-import React, { RefObject } from "react";
+import React, { FC, RefObject } from "react";
 import { Link } from "react-router-dom";
 import ReactMarkdown from "react-markdown";
 import styled from "styled-components";
@@ -10,11 +10,12 @@ import { RadioImage } from "@/components/atoms/RadioCard/RadioCardImage";
 import PlayButton from "@/components/atoms/RadioCard/RadioCardPlayButton";
 import PersonalityIcons from "@/components/molecules/RadioPersonalityIcons";
 
-interface IProps extends IRadio {
+interface Props {
+  radio: IRadio;
   forwardRef?: RefObject<HTMLDivElement>;
 }
 
-export const RadioCard = (props: IProps) => {
+export const RadioCard: FC<Props> = ({ radio, forwardRef }) => {
   const {
     id,
     title,
@@ -23,9 +24,8 @@ export const RadioCard = (props: IProps) => {
     duration,
     playTime,
     image,
-    personalities,
-    forwardRef
-  } = props;
+    personalities
+  } = radio;
 
   return (
     <RadioCardWrapperStyle ref={forwardRef}>

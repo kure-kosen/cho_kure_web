@@ -41,7 +41,6 @@ export default () => (
 
 const Wrapper = styled.div`
   background-color: ${color.AQUA};
-  margin: 10px;
   padding: 50px 40px;
   border-radius: 8px;
 `;

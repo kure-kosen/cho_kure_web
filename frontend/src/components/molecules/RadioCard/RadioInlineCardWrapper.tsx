@@ -1,19 +1,15 @@
-import React from "react";
+import React, { FC } from "react";
 import styled from "styled-components";
 
 import { IRadio } from "@/api/RadioApi";
-
-import { RadioCard } from "@/components/molecules/RadioCard/RadioCard";
+import { RadioInlineCard } from "./RadioInlineCard";
 import CircleSpinner from "@/components/atoms/Spinners/CircleSpinner";
-import { TileCardsWrapper } from "@/components/molecules/Cards/TileCardsWrapper";
 
-interface IProps {
+interface Props {
   radios?: IRadio[];
 }
 
-export default (props: IProps) => {
-  const { radios } = props;
-
+export const RadioInlineCardWrapper: FC<Props> = ({ radios }) => {
   if (!radios) {
     return (
       <Wrapper>
@@ -23,11 +19,11 @@ export default (props: IProps) => {
   }
 
   return (
-    <TileCardsWrapper>
+    <Wrapper>
       {radios.map(radio => (
-        <RadioCard key={radio.id} radio={radio} />
+        <RadioInlineCard key={radio.id} radio={radio} />
       ))}
-    </TileCardsWrapper>
+    </Wrapper>
   );
 };
 

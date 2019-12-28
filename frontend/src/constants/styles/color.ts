@@ -9,6 +9,7 @@ export default {
   SKY_BLUE: "#A8E1E3",
   BLACK: "#565A62",
   GRAY: "#7f8287",
+  FaintGray: "rgba(230, 236, 240, 0.7)",
   SHADOW: "#14141433",
   WHITE: "#ffffff",
   PLACEHOLDER: "#b0bec5",

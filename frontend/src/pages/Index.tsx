@@ -18,6 +18,7 @@ import { PopularRadiosWrapper } from "@/components/molecules/PopularRadio/Popula
 import RadioCardWrapper from "@/components/molecules/RadioCard/RadioCardWrapper";
 import BlogWrapper from "@/components/molecules/Blogs/BlogWrapper";
 import { IRadio } from "@/api/RadioApi";
+import { RadioInlineCardWrapper } from "@/components/molecules/RadioCard/RadioInlineCardWrapper";
 
 interface IProps {
   rootStore?: RootStore;
@@ -55,9 +56,16 @@ export default observer((props: IProps) => {
           <TweetStream />
         </Sidebar>
         <MainContentWrapper>
-          <RadioCardWrapper
-            radios={radioStore.latestRadios({ offset: 0, limit: 9 })}
-          />
+          <device.Default>
+            <RadioCardWrapper
+              radios={radioStore.latestRadios({ offset: 0, limit: 9 })}
+            />
+          </device.Default>
+          <device.ForMobile>
+            <RadioInlineCardWrapper
+              radios={radioStore.latestRadios({ offset: 0, limit: 5 })}
+            />
+          </device.ForMobile>
           <MoreButton to="/radios" />
           <BlogWrapper />
         </MainContentWrapper>
@@ -83,6 +91,9 @@ const Sidebar = styled.nav`
 
 const MainContentWrapper = styled.div`
   flex: 0 0 75%;
+  > div {
+    margin-bottom: 20px;
+  }
 
   @media ${device.mobile} {
     flex: 0 0 100%;
