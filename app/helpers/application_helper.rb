@@ -1,7 +1,8 @@
 module ApplicationHelper
   def webpack_javascript_include_tag(path)
     path = "#{path}.js" unless path.ends_with?(".js")
-    path = ENV["USE_WEBPACK_DEV_SERVER"].to_b ? "http://localhost:5000/#{path}" : "/assets/build/#{find_hash_name(path)}"
+    host = ENV["USE_IP_ADDRESS"].to_b ? ENV["IP_ADDRESS"] : "localhost"
+    path = ENV["USE_WEBPACK_DEV_SERVER"].to_b ? "http://#{host}:5000/#{path}" : "/assets/build/#{find_hash_name(path)}"
     javascript_include_tag(path)
   end
 

@@ -6,9 +6,14 @@ const common = require("./webpack.config.common.js");
 
 const DEV_SERVER_PORT = 5000;
 
+// definitions is in DefinePlugin
+const ENV = common.plugins.find(v => Object.keys(v)[0] === "definitions").definitions;
+const isTrueReg = new RegExp(/true/i);
+const HOST = isTrueReg.test(ENV["process.env.USE_IP_ADDRESS"]) ? ENV["process.env.IP_ADDRESS"].replace(/"/g, "") : "localhost";
+
 module.exports = merge(common, {
   mode: 'development',
-  devtool: 'inline-source-map',
+  devtool: 'cheap-module-eval-source-map',
   cache: true,
 
   devServer: {
@@ -25,6 +30,10 @@ module.exports = merge(common, {
     headers: {
       'Access-Control-Allow-Origin': '*',
       'Access-Control-Allow-Headers': '*',
+    },
+    stats: {
+      children: false, // Hide children information
+      maxModules: 0 // Set the maximum number of modules to be shown
     }
   },
 
@@ -36,7 +45,7 @@ module.exports = merge(common, {
         options: {
           name: '[path][name].[ext]',
           outputPath: '/',
-          publicPath: `http://localhost:${DEV_SERVER_PORT}/`
+          publicPath: `http://${HOST}:${DEV_SERVER_PORT}/`
         }
       }]
     }]
