@@ -44,9 +44,11 @@ export default observer((props: IProps) => {
   return (
     <div>
       <ResponsibleHeroArea>検索バー</ResponsibleHeroArea>
-      <PersonalitiesSlider
-        personalities={personalityStore.shuffledRegularPersonality}
-      />
+      <device.Default>
+        <PersonalitiesSlider
+          personalities={personalityStore.shuffledRegularPersonality}
+        />
+      </device.Default>
       <Contrainer>
         <Sidebar>
           <AboutSidebar />
