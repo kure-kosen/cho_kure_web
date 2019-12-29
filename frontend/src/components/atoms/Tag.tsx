@@ -21,7 +21,7 @@ const StyledTag = styled.li`
   line-height: 30px;
   padding: 0 1em;
   background-color: ${color.BLUE};
-  clip-path: polygon(100% 0%, 100% 100%, 20px 100%, 0 50%, 20px 0%);
+  clip-path: polygon(100% 0%, 100% 100%, 15px 100%, 0 50%, 15px 0%);
   border-radius: 0 3px 3px 0;
   color: #fff;
   font-size: 13px;
@@ -32,7 +32,7 @@ const StyledTag = styled.li`
     content: "";
     position: absolute;
     top: 50%;
-    left: 15px;
+    left: 13px;
     display: block;
     width: 6px;
     height: 6px;
