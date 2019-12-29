@@ -16,10 +16,12 @@ export const PersonalityProfileDescription = ({
       <Name>{name}</Name>
       {nickname ? <NickName>{nickname}</NickName> : null}
     </NameWrapper>
+
     <Affiliation>
-      <AffiliationLabel>{organization}</AffiliationLabel>
-      <AffiliationLabel>{position}</AffiliationLabel>
+      {organization && <AffiliationLabel>{organization}</AffiliationLabel>}
+      {position && <AffiliationLabel>{position}</AffiliationLabel>}
     </Affiliation>
+
     <PersonalityListenToRadioButton />
   </Wrapper>
 );
