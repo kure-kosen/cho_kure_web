@@ -36,7 +36,6 @@ export const PersonalityMobileCard: FC<Props> = ({ personality }) => {
         position={position}
       />
       <div>
-        {/* <ReactMarkdown source={description} /> */}
         <DescriptionArea>
           <ReactMarkdown source={description} />
         </DescriptionArea>
