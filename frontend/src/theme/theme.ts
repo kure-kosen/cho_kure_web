@@ -17,6 +17,7 @@ export type ThemeName = "chk";
 // }
 
 export interface Theme {
+  name: string;
   color: {
     orange: string;
     vividOrange: string;
@@ -35,6 +36,7 @@ export interface Theme {
 }
 
 const chkTheme: Theme = {
+  name: "chk",
   color: {
     orange: "#ECB73F",
     vividOrange: "#E59134",
