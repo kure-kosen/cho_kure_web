@@ -1,7 +1,7 @@
 import React, { FC, useMemo } from "react";
 import { Link } from "react-router-dom";
 import { ButtonProps } from "./Base";
-import { StyledMoreButton } from "./Button";
+import { OrangeButton } from "./Button";
 
 interface Props extends ButtonProps {
   as: "Button" | "InternalLink" | "ExternalLink";
@@ -14,14 +14,14 @@ export const MoreButton: FC<Props> = ({ as, href, ...props }) => {
 
       return useMemo(
         () => (
-          <StyledMoreButton
+          <OrangeButton
             minWidth={200}
             size="large"
             style={{ margin: "0 auto" }}
             {...props}
           >
             more
-          </StyledMoreButton>
+          </OrangeButton>
         ),
         []
       );
@@ -29,7 +29,7 @@ export const MoreButton: FC<Props> = ({ as, href, ...props }) => {
     case "InternalLink":
       return useMemo(
         () => (
-          <StyledMoreButton
+          <OrangeButton
             minWidth={200}
             size="large"
             style={{ margin: "0 auto" }}
@@ -38,7 +38,7 @@ export const MoreButton: FC<Props> = ({ as, href, ...props }) => {
             {...props}
           >
             more
-          </StyledMoreButton>
+          </OrangeButton>
         ),
         [href]
       );
@@ -46,7 +46,7 @@ export const MoreButton: FC<Props> = ({ as, href, ...props }) => {
     case "ExternalLink":
       return useMemo(
         () => (
-          <StyledMoreButton
+          <OrangeButton
             minWidth={200}
             size="large"
             style={{ margin: "0 auto" }}
@@ -55,7 +55,7 @@ export const MoreButton: FC<Props> = ({ as, href, ...props }) => {
             {...props}
           >
             more
-          </StyledMoreButton>
+          </OrangeButton>
         ),
         [href]
       );

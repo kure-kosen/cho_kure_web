@@ -73,5 +73,8 @@ export const BaseButton = styled.button<ButtonProps>`
   &:disabled {
     cursor: default;
     pointer-events: none;
+    color: rgba(0, 0, 0, 0.24);
+    background-color: rgba(0, 0, 0, 0.06);
+    box-shadow: none;
   }
 `;
