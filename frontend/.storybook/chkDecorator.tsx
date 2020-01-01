@@ -1,6 +1,7 @@
 import "normalize.css";
 
 import React from "react";
+import styled from "styled-components";
 import { BrowserRouter } from "react-router-dom";
 import { makeDecorator } from "@storybook/addons";
 import GlobalStyle from "../src/constants/styles/global";
@@ -13,10 +14,20 @@ export const chkDecorator = makeDecorator({
     return (
       <BrowserRouter>
         <ChkThemeProvider themeName="chk">
-          {storyFn(context)}
+          <Spacer>{storyFn(context)}</Spacer>
           <GlobalStyle />
         </ChkThemeProvider>
       </BrowserRouter>
     );
   }
 });
+
+const Spacer = styled.div`
+  margin: 1rem;
+  > * {
+    margin-right: 1rem;
+  }
+  p {
+    margin-bottom: 0.5rem;
+  }
+`;
