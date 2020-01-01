@@ -33,8 +33,13 @@ export interface Theme {
     error: string;
     disabled: string;
   };
+  utils: {
+    unitPx: (amount: number) => string;
+  };
 }
 
+const UNIT = 8; // px
+const unit = (amount: number) => UNIT * amount;
 const chkTheme: Theme = {
   name: "chk",
   color: {
@@ -50,7 +55,10 @@ const chkTheme: Theme = {
     aqua: "#b3dfe2",
     darkAqua: "#50AAB7",
     error: "#ff4b42",
-    disabled: "#cccccc"
+    disabled: "rgba(0, 0, 0, 0.06)"
+  },
+  utils: {
+    unitPx: (amount: number) => `${unit(amount)}px`
   }
 };
 
