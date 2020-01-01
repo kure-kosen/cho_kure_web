@@ -1,21 +1,12 @@
-import React from "react";
-import styled from "styled-components";
+import React, { FC } from "react";
+import { BlueButton } from "@/components/atoms/Buttons/Button";
 
-import ChkButtonBase from "@/components/atoms/Buttons/ChkButtonBase";
-
-interface IProps {
+interface Props {
   name: string;
-  text: string;
 }
 
-export default ({ name, text }: IProps) => (
-  <RadioSearchTagButton
-    name={name}
-    text={text}
-    textcolor="BLUE"
-    bgcolor="WHITE"
-    border="BLUE"
-  />
+export const TagButton: FC<Props> = ({ name }) => (
+  <BlueButton name={name} size="small" inverse>
+    {name}
+  </BlueButton>
 );
-
-const RadioSearchTagButton = styled(ChkButtonBase)``;
