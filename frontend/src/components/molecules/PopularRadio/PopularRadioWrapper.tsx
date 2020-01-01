@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { color, heading } from "@/constants/styles";
 
-import MoreButton from "@/components/atoms/Buttons/MoreButton";
+import { MoreButton } from "@/components/atoms/Buttons/MoreButton";
 import { RadioMiniCard } from "@/components/atoms/PopularRadio/RadioMiniCard";
 import { IRadio } from "@/api/RadioApi";
 import { Link } from "react-router-dom";
@@ -24,7 +24,7 @@ export const PopularRadiosWrapper = ({ radios }: Props) => (
         ))}
     </PopularRadioCardWrapper>
 
-    <MoreButton to="/radios" />
+    <MoreButton as="InternalLink" href="/radios" />
   </PopularRadioWrapperStyle>
 );
 

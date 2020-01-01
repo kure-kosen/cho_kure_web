@@ -34,6 +34,7 @@ export interface Theme {
     disabled: string;
   };
   utils: {
+    unit: (amount: number) => number;
     unitPx: (amount: number) => string;
   };
 }
@@ -58,6 +59,7 @@ const chkTheme: Theme = {
     disabled: "rgba(0, 0, 0, 0.06)"
   },
   utils: {
+    unit,
     unitPx: (amount: number) => `${unit(amount)}px`
   }
 };

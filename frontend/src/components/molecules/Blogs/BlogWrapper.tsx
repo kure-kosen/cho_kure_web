@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 import { color } from "@/constants/styles";
 
-import MoreButton from "@/components/atoms/Buttons/MoreButton";
+import { MoreButton } from "@/components/atoms/Buttons/MoreButton";
 import FeaturedBlog from "@/components/atoms/Blog/FeaturedBlog";
 
 export default () => (
@@ -35,7 +35,7 @@ export default () => (
         to="/blog"
       />
     </BlogWrapper>
-    <MoreButton to="/blog" />
+    <MoreButton as="InternalLink" href="/blog" />
   </Wrapper>
 );
 
