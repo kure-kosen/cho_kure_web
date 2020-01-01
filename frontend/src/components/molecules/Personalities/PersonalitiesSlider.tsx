@@ -1,12 +1,13 @@
 import React from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 import { color } from "@/constants/styles";
 
 import { ChkSlider } from "@/components/atoms/Slider";
 import { IPersonality } from "@/api/PersonalityApi";
 
-import FeaturedPersonalityButton from "@/components/atoms/FeaturedPersonality/PersonalityListButton";
+import { BlueButton } from "@/components/atoms/Buttons/Button";
 import { PersonalityCard } from "./Card";
 
 interface IProps {
@@ -25,7 +26,14 @@ export const PersonalitiesSlider = ({ personalities }: IProps) => {
           ))}
         </ChkSlider>
       </SliderWrapper>
-      <FeaturedPersonalityButton />
+      <BlueButton
+        as={Link}
+        to="/personality"
+        maxWidth={200}
+        style={{ margin: "0 auto" }}
+      >
+        personality list
+      </BlueButton>
     </FeaturedPersonalitiesWrapperStyle>
   );
 };

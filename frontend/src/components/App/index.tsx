@@ -8,6 +8,7 @@ import Main from "@/layouts/Main";
 import Footer from "@/layouts/Footer";
 import { isDevelopment } from "@/utils";
 import { CHK } from "@/constants/url";
+import { ChkThemeProvider } from "@/theme/ChkThemeProvider";
 
 export default () => (
   <Provider
@@ -15,8 +16,10 @@ export default () => (
       new RootStore(isDevelopment() ? CHK.BACK_END.DEV : CHK.BACK_END.PROD)
     }
   >
-    <Header />
-    <Main />
-    <Footer />
+    <ChkThemeProvider themeName="chk">
+      <Header />
+      <Main />
+      <Footer />
+    </ChkThemeProvider>
   </Provider>
 );

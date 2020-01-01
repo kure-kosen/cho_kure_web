@@ -5,7 +5,7 @@ import { observer } from "mobx-react-lite";
 import ContactStore from "@/stores/ContactStore";
 import { validateEmail } from "@/utils/validation";
 
-import ChkButtonBase from "@/components/atoms/Buttons/ChkButtonBase";
+import { OrangeButton } from "@/components/atoms/Buttons/Button";
 import TextInput from "@/components/atoms/Forms/TextInput";
 import Select from "@/components/atoms/Forms/Select";
 import CheckBox from "@/components/atoms/Forms/CheckBox";
@@ -172,12 +172,14 @@ export default observer((props: IProp) => {
           </CheckBox>
         </InlineWrapper>
 
-        <ContactFormButton
-          text="送信"
+        <OrangeButton
           onClick={createContact}
-          bgcolor={sendable ? "" : "DISABLED"}
-          sendable={sendable}
-        />
+          disabled={!sendable}
+          style={{ margin: "0 auto" }}
+          maxWidth={300}
+        >
+          送信
+        </OrangeButton>
       </form>
     </>
   ) : (
@@ -192,13 +194,6 @@ const InlineWrapper = styled.div`
 const InlineHalfWrapper = styled.div`
   width: 50%;
   display: inline-block;
-`;
-
-const ContactFormButton = styled(ChkButtonBase)`
-  width: 40%;
-  margin: 0 auto;
-  cursor: ${(props: { sendable: boolean }) =>
-    props.sendable ? "pointer" : "default"};
 `;
 
 const AlertBar = styled.div`

@@ -15,7 +15,7 @@ import BlogWrapper from "@/components/molecules/Blogs/BlogWrapper";
 
 import RootStore from "@/stores/RootStore";
 import { IRadio } from "@/api/RadioApi";
-import { MoreButtonText } from "@/components/atoms/Buttons/MoreButtonText";
+import { MoreButton } from "@/components/atoms/Buttons/MoreButton";
 
 interface IProps {
   rootStore?: RootStore;
@@ -68,7 +68,9 @@ export default observer((props: IProps) => {
           <RadioHistoryWrapper
             radios={radioStore.latestRadios({ offset: 0, limit })}
           />
-          {isStillHaveRadios && <MoreButtonText onClick={nextLoadingRadios} />}
+          {isStillHaveRadios && (
+            <MoreButton as="Button" onClick={nextLoadingRadios} />
+          )}
           <BlogWrapper />
         </MainContentWrapper>
       </Container>

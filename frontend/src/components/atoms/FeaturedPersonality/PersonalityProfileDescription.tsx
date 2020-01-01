@@ -1,9 +1,10 @@
 import React from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 import { color } from "@/constants/styles";
 import { IPersonality } from "@/api/PersonalityApi";
-import PersonalityListenToRadioButton from "@/components/atoms/FeaturedPersonality/PersonalityListenToRadioButton";
+import { BlueButton } from "@/components/atoms/Buttons/Button";
 
 export const PersonalityProfileDescription = ({
   name,
@@ -20,7 +21,9 @@ export const PersonalityProfileDescription = ({
       <AffiliationLabel>{organization}</AffiliationLabel>
       <AffiliationLabel>{position}</AffiliationLabel>
     </Affiliation>
-    <PersonalityListenToRadioButton />
+    <BlueButton as={Link} to="/" inverse>
+      listen to radio
+    </BlueButton>
   </Wrapper>
 );
 

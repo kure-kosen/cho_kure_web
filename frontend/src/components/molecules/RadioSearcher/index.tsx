@@ -1,10 +1,11 @@
 import React from "react";
 import styled from "styled-components";
 
-import { color, heading } from "@/constants/styles";
-import ChkButtonBase from "@/components/atoms/Buttons/ChkButtonBase";
-import TagButton from "@/components/atoms/RadioSearcher/TagButton";
+import { heading } from "@/constants/styles";
+
+import { TagButton } from "@/components/atoms/RadioSearcher/TagButton";
 import RadioSearchInput from "@/components/atoms/RadioSearcher/RadioSearchInput";
+import { BlueButton } from "@/components/atoms/Buttons/Button";
 
 export default () => (
   <Wrapper>
@@ -14,18 +15,22 @@ export default () => (
       <RadioSearchInput name="when" placeholder="いつ" />
       <RadioSearchInput name="what" placeholder="どんなこと" />
       <RadioSearchTagButtonWrapper>
-        <TagButton name="tag1" text="tag1" />
-        <TagButton name="tag2" text="tag2" />
-        <TagButton name="tag3" text="tag3" />
+        <TagButton name="tag1" />
+        <TagButton name="tag2" />
+        <TagButton name="tag3" />
       </RadioSearchTagButtonWrapper>
       <RadioSearchTagButtonWrapper>
-        <TagButton name="tag4" text="tag4" />
-        <TagButton name="tag5" text="tag5" />
-        <TagButton name="tag6" text="tag6" />
+        <TagButton name="tag4" />
+        <TagButton name="tag5" />
+        <TagButton name="tag6" />
       </RadioSearchTagButtonWrapper>
-      <RadioSearchButtonWrapper>
-        <RadioSearchButton text="Search" />
-      </RadioSearchButtonWrapper>
+
+      <BlueButton
+        style={{ margin: "0 auto", marginTop: "20px" }}
+        maxWidth={200}
+      >
+        Search
+      </BlueButton>
     </form>
   </Wrapper>
 );
@@ -33,25 +38,17 @@ export default () => (
 const Wrapper = styled.div`
   width: 100%;
   height: 400px;
-  color: ${color.WHITE};
+  color: ${({ theme }) => theme.color.white};
   padding: 0 20px;
-  background-color: #fff;
+  background-color: ${({ theme }) => theme.color.white};
 `;
 
 const RadioSearcherTitle = styled.div`
   ${heading}
-  color: ${color.BLUE};
+  color: ${({ theme }) => theme.color.blue};
 `;
 
 const RadioSearchTagButtonWrapper = styled.div`
   display: flex;
   margin-bottom: 10px;
 `;
-
-const RadioSearchButtonWrapper = styled.div`
-  margin-top: 20px;
-  margin: 0 auto;
-  width: 50%;
-`;
-
-const RadioSearchButton = styled(ChkButtonBase)``;
