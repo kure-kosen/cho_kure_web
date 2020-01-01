@@ -30,15 +30,6 @@ export const buttonSizes: ButtonSizes = {
   }
 };
 
-export const minWidthStyle = (unit?: number) => {
-  if (!unit || unit === 0) {
-    return null;
-  }
-  return css`
-    min-width: ${unit}px;
-  `;
-};
-
 export const buttonSizeStyle = (buttonSize: ButtonSize = "medium") => {
   const { size, fontSize } = buttonSizes[buttonSize];
   return css`
@@ -51,7 +42,9 @@ export const buttonSizeStyle = (buttonSize: ButtonSize = "medium") => {
 export type ButtonProps = {
   size?: ButtonSize;
   disabled?: boolean;
+  inverse?: boolean;
   minWidth?: number;
+  maxWidth?: number;
 } & Partial<ComponentPropsWithRef<"button">> &
   Partial<ComponentPropsWithRef<"a">> &
   Partial<ComponentPropsWithRef<typeof Link>>;
@@ -64,6 +57,8 @@ export const BaseButton = styled.button<ButtonProps>`
   border: none;
   font-weight: 600;
   margin: 0;
+  width: 100%;
+  background-color: transparent;
 
   border-radius: ${({ theme }) => theme.utils.unitPx(3)};
   padding-left: ${({ theme }) => theme.utils.unitPx(2)};
@@ -71,7 +66,8 @@ export const BaseButton = styled.button<ButtonProps>`
 
   transition: 200ms all;
 
-  ${({ minWidth }) => minWidthStyle(minWidth)}
+  ${({ minWidth }) => minWidth && `min-width: ${minWidth}px;`}
+  ${({ maxWidth }) => maxWidth && `max-width: ${maxWidth}px;`}
   ${({ size }) => buttonSizeStyle(size)};
 
   &:disabled {

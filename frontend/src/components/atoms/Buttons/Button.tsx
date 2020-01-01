@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { BaseButton } from "./Base";
 
 export const Button = styled(BaseButton)`
@@ -22,4 +22,17 @@ export const StyledMoreButton = styled(BaseButton)`
   color: ${({ theme }) => theme.color.white};
   background-color: ${({ theme }) => theme.color.orange};
   width: 200px;
+`;
+
+export const BlueButton = styled(BaseButton)`
+  ${({ inverse }) =>
+    inverse
+      ? css`
+          color: ${({ theme }) => theme.color.blue};
+          border: 1px solid ${({ theme }) => theme.color.blue};
+        `
+      : css`
+          color: ${({ theme }) => theme.color.white};
+          background-color: ${({ theme }) => theme.color.blue};
+        `}
 `;
